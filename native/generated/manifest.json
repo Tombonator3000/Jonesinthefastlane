@@ -1,0 +1,446 @@
+{
+  "format": 1,
+  "description": "Build-time translation to editable asynchronous TypeScript; no runtime source AST or bytecode interpreter.",
+  "sourceRepository": "https://github.com/sluicebox/sci-scripts",
+  "sourceRevision": "870a8015b689474484bf3d8b41416956d4315432",
+  "game": "jones-dos-1.000.060",
+  "counts": {
+    "methods": 738,
+    "instances": 526,
+    "procedures": 98,
+    "scripts": 69,
+    "classes": 72
+  },
+  "unresolved": [],
+  "parityVerified": false,
+  "sourceOnlyAmbiguities": [
+    "discount.localproc_1: unused procedure has no lexical super class; throws if called",
+    "discount.localproc_2: unused procedure has no lexical super class; throws if called"
+  ],
+  "headers": [
+    {
+      "name": "keys.sh",
+      "sha256": "0654158d22d52f7941079777fa12eb577a28f7633fe0463c1771dd66ec4ccafc"
+    },
+    {
+      "name": "sci.sh",
+      "sha256": "ce3be3df5a2e67eb4c79f6d95e720dc1fd57b779fb50dc0943263cde1571a12b"
+    }
+  ],
+  "scripts": [
+    {
+      "id": 0,
+      "name": "Main",
+      "sourceSha256": "ada11be01dbd5b6127be944bd3fa83e286d6bde1ab8ccf1980490e3f103f4b2f",
+      "generatedSha256": "f949456b5b7d87566ed34a076c56463985530a70b3f1af57c60375bcdc73b201"
+    },
+    {
+      "id": 1,
+      "name": "room1",
+      "sourceSha256": "3f790f0cb832ab53ece6453e2d581198ec66ba50b6bebf4a6a4ac0594d923a87",
+      "generatedSha256": "1426741dad0824f906bd638e34543b85624653c688e75aeaf61712f9b915bb15"
+    },
+    {
+      "id": 2,
+      "name": "introRoom",
+      "sourceSha256": "37ccda8c253d464cf8fd355c06c2e06956a2ac8685f8e4dd2ab4251c3ce4269d",
+      "generatedSha256": "6c1fb5ca7eddd9c6f7277028ed45ef1001522d48a1ee28f4d3e6f6beb05750c0"
+    },
+    {
+      "id": 100,
+      "name": "MyWindow",
+      "sourceSha256": "20a4afdf129c4996912d5adefc6349ef21d7659c3695d5a15a856c70d5139124",
+      "generatedSha256": "76f95389280bacf26a844ea4e481b9b864c97b77aeb76dec542de0285877151a"
+    },
+    {
+      "id": 101,
+      "name": "marblePath",
+      "sourceSha256": "a49559377a31451898a8e56fbc62642770f43bd30184d98af5634a4b626938f7",
+      "generatedSha256": "7187858c387e98277a67ef29ff38bdfe7bd03514023dd08da4d095cab884aba7"
+    },
+    {
+      "id": 102,
+      "name": "WList",
+      "sourceSha256": "aa77099dd1e2578ec909dd07232dc2f81f7406f319e20c8ecb6764d8d8c4bfe7",
+      "generatedSha256": "7899de7ae018e949e86f5068d3aa65f2227baeb4b4a2c038acc8d385d207a7c8"
+    },
+    {
+      "id": 103,
+      "name": "FwdCount",
+      "sourceSha256": "e0d3ab7de63fcbbc3cca9838f3abc04fa140dd9c17529016a92ea0822f1404f3",
+      "generatedSha256": "3171e120a76986c3162255008b00006f5a2eb7452638654fc1a8c5471febc917"
+    },
+    {
+      "id": 104,
+      "name": "WButton",
+      "sourceSha256": "73716eac764fe5db0a7593a78912d31f451cba5c7338abfc824efd7ab2890838",
+      "generatedSha256": "86a4765eec5f59170cc5924046c1482e60761e87f2c54404bcb5c63eed834067"
+    },
+    {
+      "id": 105,
+      "name": "InvisibleWindow",
+      "sourceSha256": "34d0666b56aec56380be88708eb188f1a42c28dd511912464a49abd8b41761c3",
+      "generatedSha256": "75311db46bd1a2c20232f09c9febfcc3ffe975d074cb51afe110810b7d5ff06c"
+    },
+    {
+      "id": 106,
+      "name": "Goods",
+      "sourceSha256": "3b71998b543e0915bf65588069daea0cf872592f2bae243d958968dfdae95369",
+      "generatedSha256": "810e1a2451647280367ce50af3bdd90373d35eac437a4f0ff479806bdaa38cf0"
+    },
+    {
+      "id": 107,
+      "name": "economicIndex",
+      "sourceSha256": "780359d0e1b860aa8a8f16e39fab0514fe90c04055174b4f8b8121220ac643eb",
+      "generatedSha256": "b761490bb44c95fc78cb0fb72a24dbffd11f7599dfe856c82b58e382291a079d"
+    },
+    {
+      "id": 108,
+      "name": "n108",
+      "sourceSha256": "7ebe252df2d1ed273486a2e730b867c89bca851fce528b96b0c6534f0f8c6f32",
+      "generatedSha256": "be39f545fca8fb40bb55b4b3360385f45c495f6c5e716d693c6d6d78adba88d4"
+    },
+    {
+      "id": 109,
+      "name": "n109",
+      "sourceSha256": "121042af963408907135f0e7201af8b13a65c3863adb6146a914515c3120b495",
+      "generatedSha256": "d80afa37b316e2ab4fef10e16436baf0c3fb90a14326f1f46a4ae614ed97a028"
+    },
+    {
+      "id": 110,
+      "name": "DialogScript",
+      "sourceSha256": "f125002d3385aa3334cc5fb9cd7fdce013bba0bad4d9f4594d38197f4d4f40c9",
+      "generatedSha256": "c73c9ebf222fdfac6558cc0990d706714093923be9fc1c2e80999a92d5ce9bc3"
+    },
+    {
+      "id": 111,
+      "name": "startTrn",
+      "sourceSha256": "3e8eb9fa90c709b85bf7e030444f0af11b98ed4cdae2d56cc74d602e8db0c237",
+      "generatedSha256": "f20aa85fd796d6d0ce27f7e75f8f9c8e5cf7c0912b46ba823859cc05ed57fec0"
+    },
+    {
+      "id": 113,
+      "name": "BubbleWindow",
+      "sourceSha256": "075bcefa067c13828c8915adca27bb9fdef98be4c3243e556d4660a90574a628",
+      "generatedSha256": "bc64932035ce8872b39de4871e0044807c830550a00f633a0caeabe0f3d70a0b"
+    },
+    {
+      "id": 114,
+      "name": "muggedByMarket",
+      "sourceSha256": "940d44e0154e5541fc4e343bc2271d254b130a5365b04d116684ec76829e3835",
+      "generatedSha256": "04cfbb306a454c1682b7a5aa5f7809ae21dbcff2b23bc53e3ff9aca5fff7d530"
+    },
+    {
+      "id": 115,
+      "name": "n115",
+      "sourceSha256": "7a43ca2cf8b66e59fdc0371a641e50af70b42d94fe4cf9fd8dba123db7ad9cd4",
+      "generatedSha256": "f266f81f54423f02b075df5ab949a39895b55b90b43deee30b9a005be38351d2"
+    },
+    {
+      "id": 116,
+      "name": "lottoScript",
+      "sourceSha256": "803256f93d352040a21ff49bf1ef0881bb321d0e08a4053219b17743ec8a9d36",
+      "generatedSha256": "e7de5eec6133a80512d8639433e1f2a7c45efd662dea1c66a56a6bbbdc5e25a6"
+    },
+    {
+      "id": 200,
+      "name": "lowcost",
+      "sourceSha256": "200d2929d4e7b9c90f51a7cbece1c506bfe865428bf69444e9724969ff5a1d8b",
+      "generatedSha256": "6da2ff84448475fb65cc5f4384798d9a94e896e5301a7bdecc85aa8a4eb2a96d"
+    },
+    {
+      "id": 201,
+      "name": "rentOffice",
+      "sourceSha256": "defebc9878772b62195f79f99e9cfcbe5b33deaf8956882de8359b326494f257",
+      "generatedSha256": "742721ca645a703106932fd4b016b30eb9d874a3537b11c66ad5a3568a14441d"
+    },
+    {
+      "id": 202,
+      "name": "security",
+      "sourceSha256": "7f417a25f475ad3aa293c2b1d3b287e664a2f0c7ae56b12707dcdfd4d3d1bc7d",
+      "generatedSha256": "eff9d9298128950f16c5ff83b56b97b8f75d5018842eae724a01c8a85843fd0d"
+    },
+    {
+      "id": 203,
+      "name": "market",
+      "sourceSha256": "f48d97c1a5c3eea2ab0885d70db3977f356da5d4f79b8c5fbcf129cce2519386",
+      "generatedSha256": "07666896804501097ad51356f084e99b742c1bebe7ba03e2d726b26ea61c451a"
+    },
+    {
+      "id": 204,
+      "name": "bank",
+      "sourceSha256": "a75a266bbf95fd8dfd434f2b2344889eb591afff5d7a1551b2407788cfe1fcdb",
+      "generatedSha256": "75f8e7afc99812ed919ff7acd9fbb15cafcf285b94326f2d4787f7d9d2aad899"
+    },
+    {
+      "id": 205,
+      "name": "factory",
+      "sourceSha256": "4ef97d3727c33c3657f2ca65d4625556fc77ad380352ca5f0503d8d469ac65a7",
+      "generatedSha256": "22ced564523b484d926634b3595bb0201f50f585a1ea4f2fd398658fcc7b9bc7"
+    },
+    {
+      "id": 206,
+      "name": "employment",
+      "sourceSha256": "e89b709c83c1449d8a0206cb006e17136568570325d3f4fb19da2cdf86730b65",
+      "generatedSha256": "41255b7760bacdab47d53dd2e984cf167a919f8c40f018c0bdcfd71beeb8028f"
+    },
+    {
+      "id": 207,
+      "name": "university",
+      "sourceSha256": "92eebf502e996979812ba972a4ca2a5d924016cc8d75b47490214f2ed87e6f59",
+      "generatedSha256": "912a8bdbab7ac196d1986eccfb2f199be98c4308eab39eb934da8430e93353fc"
+    },
+    {
+      "id": 208,
+      "name": "appliance",
+      "sourceSha256": "7df162de8958eb12cb25ae24ed238f516627d05b85078f937c27ff4d52c77889",
+      "generatedSha256": "7ea692c69be89cae664b7910848bf355560ea77ec5a3429e1f1783e893218579"
+    },
+    {
+      "id": 209,
+      "name": "clothing",
+      "sourceSha256": "b2b6f5fa1ca62d0e49367929973f3fe53b3e3be014f0cfb9fe882f25cd3b73f5",
+      "generatedSha256": "8cd285404a116f7e58355bd39b31f3b916bf09fa3bf4dbda5f6cc6e6919d1c35"
+    },
+    {
+      "id": 210,
+      "name": "fastFood",
+      "sourceSha256": "6781c76938ae17722baa2f3c92e33d1eeb12f122683ef3b5b97792df6f246718",
+      "generatedSha256": "284db5a39a9aad60f29e1c7da10749cd81f4bddcf5088088f50f4e803451a0ed"
+    },
+    {
+      "id": 211,
+      "name": "discount",
+      "sourceSha256": "0c9d5a5bacea6230eb3d48c6957ee7f1ef13e22f0b9f1227dbd82f899c18174c",
+      "generatedSha256": "4553e294c2ee5229ccdd365527180553f9ff988a541e6048f49452abb91844a0"
+    },
+    {
+      "id": 212,
+      "name": "pawnShop",
+      "sourceSha256": "fe9801be89ade007ef1bb48cee027f2e1a0093ea76752bd8e5595fe29a441d00",
+      "generatedSha256": "2a3dac35be0f4344f1006df4f4229b83d459fb1826b2bc410593dfc69bb11957"
+    },
+    {
+      "id": 213,
+      "name": "broker",
+      "sourceSha256": "9255495e35b8e9a72622a22ab5929825e512a5efa6e2ab7421e7889a41d23d7b",
+      "generatedSha256": "af6eb7d232aead25abca4e8622a9ac2ca779eae8f3f51e597d507f727eff9d60"
+    },
+    {
+      "id": 215,
+      "name": "newspaper",
+      "sourceSha256": "36618c8fcd732fbaf1d91aa374155f28237810f6144b29808a854add977e3cb2",
+      "generatedSha256": "b96a30a2fc2d907c0dfa0afebcffd90ab6aad2cf67e8ed844d13619f6e7f043e"
+    },
+    {
+      "id": 216,
+      "name": "discountJobs",
+      "sourceSha256": "fb17f6e657dfef842e1944fca5613d0764bee179c2c48beb622fe84268c2341c",
+      "generatedSha256": "7b63d2852f3782963ec4a2abfe8cb7d6377cac23ae6391d83a5786ff0b2bc92b"
+    },
+    {
+      "id": 217,
+      "name": "fastFoodJobs",
+      "sourceSha256": "4f49bd096aa4ec692a048287660332e937351af55f360f705619653975bd1388",
+      "generatedSha256": "eacb44130ffaae388a27e92861c155d2dd961a79bff1d145babc87b761ea8ff2"
+    },
+    {
+      "id": 218,
+      "name": "clothingJobs",
+      "sourceSha256": "35cbc05510eab3205585765fdf6cfaf9ef9e193fa99b4dc95674e500e082ccdb",
+      "generatedSha256": "363a0f8f0e60df46fbb32e0a790e45830c5fb92ca2b6af796ef6778d397f8d20"
+    },
+    {
+      "id": 219,
+      "name": "applianceJobs",
+      "sourceSha256": "a0edab7057446ea2a0915431a22e7cd44a1c81cd3bcb013829ce0851f7d35b3b",
+      "generatedSha256": "c1b5bfe30801a8652e0b2c8831417554a901c004c3c063529ee5101f9c0e270f"
+    },
+    {
+      "id": 220,
+      "name": "universityJobs",
+      "sourceSha256": "c30e1cf6cfbda6e0c4a3ba89f33dd5225fb6575c9d1e5d503b0f95d5f30d9082",
+      "generatedSha256": "45b6c1f1987a3ae489b510c1bfb668e640340341ed95ca67bf27421bc7c59926"
+    },
+    {
+      "id": 221,
+      "name": "factoryJobs",
+      "sourceSha256": "87e8d2f73e8d55e23028cb88a79e560d1de594a3269da4bc3a9b51e3e3228fd3",
+      "generatedSha256": "c2d12a270d16bef05f1cef554de69dd93c55a6dc61060502378f3bcaf4ec5fe8"
+    },
+    {
+      "id": 222,
+      "name": "bankJobs",
+      "sourceSha256": "558be993e072b4e38445e88cd3b7758afe893290ddd6f51a6b73e1f7d1ed0531",
+      "generatedSha256": "81e9e0b5548af070f5d342930e9e9822e6504c3db91d5e660e57232252447ea9"
+    },
+    {
+      "id": 223,
+      "name": "marketJobs",
+      "sourceSha256": "1aaae4c0a84dd0f4beb0532747e679e9d8efe54ef3cd3b6f1a53bdbc5bec2263",
+      "generatedSha256": "eb109b145e6d82c820581d7eabde2c4d36e856a9c2ee3b3a7bb62c271776339f"
+    },
+    {
+      "id": 224,
+      "name": "rentJobs",
+      "sourceSha256": "610adb2242f96c8efec4c7bca39a798bc1d23d8404c17a4bde5d1b8b77467084",
+      "generatedSha256": "f4b0b2453c7c52ba7ac20528248ac8961ab010aec03f5451feace2e2d31a62bc"
+    },
+    {
+      "id": 229,
+      "name": "goalsDefine",
+      "sourceSha256": "4aef20fd4af9ba58aa23eff8fe41958f2a334de3162232a5564faa5a4b5d4999",
+      "generatedSha256": "d91844fd17cd7d4a0f43d2d23c261a3a6dc508b5546b1c56ad894736dc942ba2"
+    },
+    {
+      "id": 230,
+      "name": "diploma",
+      "sourceSha256": "21b2d8f09023c100655a514ea6e90918870b0e3459a3c58e76be4b2c5c450dbc",
+      "generatedSha256": "37f642dcd48c0d714be90470f71a477a0d17e556e79816e259d6ad34e75a3cc7"
+    },
+    {
+      "id": 231,
+      "name": "inventories",
+      "sourceSha256": "a9598d6e3f686fc29ece829ac5e2feb026d772c788dc5b71425861ad14f43e82",
+      "generatedSha256": "f272b49c1ee3a8b5a6c13c79682b8e5874266c092a662dd89fac391fcae3a79f"
+    },
+    {
+      "id": 232,
+      "name": "weekend",
+      "sourceSha256": "7af7f96c7662a6d0d0b5371144891b6e753805d6a79895796775ac0f0be197ae",
+      "generatedSha256": "42ec07ada167e78ca3a3f7ec1af6db52d4fee626f13cc9b2534a8e78868b3128"
+    },
+    {
+      "id": 233,
+      "name": "select1",
+      "sourceSha256": "88560f3ba14b7ee02bf65cb0ba7115f0764cb1abc1324262dda7b4e15e60dc39",
+      "generatedSha256": "a19b454db8eaabc4678f2287b0805fa1a68107606dc21f9e505158568318ec0d"
+    },
+    {
+      "id": 234,
+      "name": "winnerScript",
+      "sourceSha256": "bf2a6af41296cbbfb6a4f47a9d4fb03974f74f2bc3766c7e83d49888263dc69b",
+      "generatedSha256": "c55e536881e5aa8db24a3e4a210ee07d7f79bebcc43f0c28a22045eef0eabe79"
+    },
+    {
+      "id": 235,
+      "name": "select2",
+      "sourceSha256": "5b4bcae4bcc416738a85aaba62b4ba8e9700423323f9ec3bc07c74f6378d0472",
+      "generatedSha256": "566bce3adc469bf565b8a1368ad4ac48578802eccc1cfafe7d77d140afd3ef4c"
+    },
+    {
+      "id": 236,
+      "name": "select3",
+      "sourceSha256": "5f49d3cdfd0135dd59199f375669a9794e5bd9a2013347c2f6d886b5e1cab2dd",
+      "generatedSha256": "99f7670cb58e77d744179e8b3cdfc44e4ed7676e541544f1bc5a669f0d31fd85"
+    },
+    {
+      "id": 237,
+      "name": "select4",
+      "sourceSha256": "ee902418305c47cc7474f8fc3e720d417647e971e00e18e24a2ee62d1a87aecf",
+      "generatedSha256": "0cb0427398c6090924a9e86db2e2a451cc01b7261169aa6fd784be538e13f800"
+    },
+    {
+      "id": 238,
+      "name": "viewGoals",
+      "sourceSha256": "e01edbe86d08d17081abb960ca42f19927db7013ff20b6a9598a60a5fb5eadfb",
+      "generatedSha256": "b7cbffe1e943d124bd7253fd5108eb2bd0e701155600c2d95c84b725c8af7200"
+    },
+    {
+      "id": 239,
+      "name": "select1b",
+      "sourceSha256": "36d5dca0119dbd9eee0e4ae5b7c4db01b28a04a0cd66c8996c43cac1eda32a8a",
+      "generatedSha256": "e4eddcdd9330127f93e5f7c177131fa24b56651041c8da8c3de15d0a2c1fe9ab"
+    },
+    {
+      "id": 255,
+      "name": "Interface",
+      "sourceSha256": "e34a16d434a56e5b28285c0499f4f9d24967675a67b4be7f9ee08b31e8f73486",
+      "generatedSha256": "034b257b97e325f921571a3097d44c2889066c3f4d2aa8925deca641b911e1b0"
+    },
+    {
+      "id": 300,
+      "name": "WhereShouldIGo",
+      "sourceSha256": "02c3c378ade8b6d2aa0ee28dbe9274750ccee101a61d129bad322332fb2ba85a",
+      "generatedSha256": "ca2a05eb5d0ea86e397c2be6c6a8e569082c6f17a60763e1be2639cb33411f80"
+    },
+    {
+      "id": 764,
+      "name": "noticeRoom",
+      "sourceSha256": "6bec703348445e013b8f3df252074cfc46e55929e02d1da1388fa4430e040b6e",
+      "generatedSha256": "185e77965bd75c957e0331a78196fbf0e31bc7d725f3093a2dfca50740203a81"
+    },
+    {
+      "id": 891,
+      "name": "KeyMouse",
+      "sourceSha256": "c454fceda23f03c13c59efa2398524ac7fc865c6f1e684b37278902091f16a89",
+      "generatedSha256": "19489ba28f7ef058df5c3e97274e63c05636768d16ecd7c35b6cd0555ce6721f"
+    },
+    {
+      "id": 967,
+      "name": "DCIcon",
+      "sourceSha256": "75d11bad5d5eb4f324ebb8f30b8e6aa2123c73df36555dd22da983dd4e538868",
+      "generatedSha256": "f8ff4327e22d50192f6ba30dc5909afb340c06a79862e7afb2b0a3ef5b3d7459"
+    },
+    {
+      "id": 987,
+      "name": "Gauge",
+      "sourceSha256": "7443860080654d373ace768341a4507670464d8296d3c6be9c5b4ef9fb5adab9",
+      "generatedSha256": "3bfa850f00fb88885d38b7e2c7dd99e8881c2c6e4930a698a55bf2b764af4c46"
+    },
+    {
+      "id": 989,
+      "name": "Sound",
+      "sourceSha256": "2d778d588d7eb000b27227b0ff2c3e26268c7271d07dc5ff0dd53042a496116e",
+      "generatedSha256": "03c9b3d29be7c162dabd5fdfa78864ca680fd6581091fadff4b012eb733f1149"
+    },
+    {
+      "id": 990,
+      "name": "Save",
+      "sourceSha256": "ffadf1e01c999f3b744f69dfc2d0d21f04c4769b9e1761624414487dc3b53b05",
+      "generatedSha256": "2992ce2a35623442898d75d9bcf7ef7f4394af3cda3adac25f1876c4b6b32ebb"
+    },
+    {
+      "id": 992,
+      "name": "Motion",
+      "sourceSha256": "3de038184d7eabfee2d8ec7513de10de48b2b445badf3ca9fc6deeb6c5e45bde",
+      "generatedSha256": "063e9cff824fb5064e504d3b31f9805f387efce004d45444c437dd2bc94714eb"
+    },
+    {
+      "id": 993,
+      "name": "File",
+      "sourceSha256": "ce7d5edaf64ddcf1b1d98331b18bbb03b33d5e33f846d45e2eb696a216dee7f9",
+      "generatedSha256": "eb4c896b6ac9fd4701d211a3aedd7d654cc35e21a093832cdd5aef7c5470e13f"
+    },
+    {
+      "id": 994,
+      "name": "Game",
+      "sourceSha256": "86c0861ff11e0dbf1c619c7b6f6cdb38b12df79e1da1d1e39c9f07a9c3bc7807",
+      "generatedSha256": "7970e43cc77578c450c71c36cdcb27899881f3d6e4736219f2931894a7f3c02f"
+    },
+    {
+      "id": 996,
+      "name": "User",
+      "sourceSha256": "435cba956012e7c9ab9af091f453e4a5dabe723db0cef84caff05886e9fb68a0",
+      "generatedSha256": "ee6c871074a8836261241228d7731af1c1ef1412e6d7f4bbbbde10ec974c8b04"
+    },
+    {
+      "id": 997,
+      "name": "Menu",
+      "sourceSha256": "3cfe6ff05a0ec0acbb5064e8b8994880675a2561ff0166160dc160793ac13e0a",
+      "generatedSha256": "e007b1958805218a303d2b99024d3d385bf1b44dce47404d9dc621afd9a79056"
+    },
+    {
+      "id": 998,
+      "name": "Actor",
+      "sourceSha256": "4799b4e95f3ed867f5de4332f604a9004e4fe834d4101a89e055d978eee93b9b",
+      "generatedSha256": "a62f58a8d4eb757dee4bcd7c79bf860564f620cfb3cd22426a28e6a882778b8f"
+    },
+    {
+      "id": 999,
+      "name": "System",
+      "sourceSha256": "e76bbc25496033d315fb5bdcec7f957a9a0fab04e1577275263088871df7b7c1",
+      "generatedSha256": "f59219579e74fb52f6ddff3e6574b0e56413adb408f7abd8620416a81bde2a12"
+    }
+  ]
+}

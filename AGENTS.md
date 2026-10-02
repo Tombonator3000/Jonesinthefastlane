@@ -4,7 +4,7 @@
 
 The user requires the original Jones in the Fast Lane design and behavior, **1:1, fullscreen and entirely in English**. Keep the original menus, 1–4 player selection, characters, goal setting, Jones opponent, shops, job applications, time, economy, Save/Restore and interaction methods. Do not substitute dashboards, action sidebars, a new name-entry form, simplified rules or translated game text.
 
-The browser executes original SCI scripts in ScummVM WebAssembly. This is an interpreter-based browser runtime, not a complete high-level native source port. New graphics/shaders/resolution options may alter presentation only. Original pixels are the default. Do not claim exhaustive parity from a short play test.
+The native edition in `native/` executes translated TypeScript game functions with Three.js rendering and a shared Node/WebSocket session for online play. It must not depend on ScummVM or a bytecode interpreter. The preserved `web/` edition executes original SCI scripts in ScummVM WebAssembly and remains a reference. New graphics/shaders/resolution options may alter presentation only. Original pixels are the default. Do not claim exhaustive parity from a short play test.
 
 ## Preserve existing material
 
@@ -31,3 +31,5 @@ All 69 unchanged scripts must assemble to byte-identical original scripts. Separ
 For browser changes exercise original startup, menu, player setup, a week, job, bank, shop, education and original save/restore as relevant. Verify fullscreen and coordinate mapping at different aspect ratios. Rendering must fall back to the original canvas if an optional effect fails. Do not promote a package without checking that the packaged build is the one tested.
 
 `tools/fetch_reference_sources.py` downloads a pinned, separately attributed third-party reference into ignored `reference/upstream/`. It is navigation/research material, not automatically validated equivalent source.
+
+Native verification adds `pnpm typecheck:native`, `pnpm test:native`, `pnpm build:native`, and `pnpm test:browser:native` against a running production server. Keep original-input journeys free of test-only game-state mutation. `pnpm translate:native` is an explicit reimport and overwrites generated TypeScript; normal builds must preserve native source edits. Keep compiler ambiguities and observed parity limitations explicit. Do not replace original rules to make a native test pass.

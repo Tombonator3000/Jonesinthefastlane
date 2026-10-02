@@ -1,11 +1,2 @@
-* text=auto eol=lf
-original/** -text
-extracted/raw/** -text
-extracted/patches/** -text
-*.png binary
-*.jpg binary
-*.zip binary
-*.bin binary
-*.drv binary
-*.exe binary
-*.com binary
+# Preserve exact bytes of the pinned third-party SCI include reference.
+reference/sci.sh -whitespace

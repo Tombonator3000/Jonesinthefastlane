@@ -3,7 +3,7 @@ name: Browser game
 on:
   push:
     branches: [main, 'codex/**']
-    paths: ['web/**', 'original/**', 'tools/**', 'tests/**', 'package.json', 'pnpm-lock.yaml', 'requirements.txt', '.github/workflows/browser.yml']
+    paths: ['native/**', 'reference/**', 'web/**', 'original/**', 'tools/**', 'tests/**', 'package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'requirements.txt', '.github/workflows/browser.yml']
   pull_request:
   workflow_dispatch:
 
@@ -15,7 +15,53 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: python -m pip install -r requirements.txt
+      - name: Verify pinned source translation and original resource export
+        run: |
+          python tools/fetch_reference_sources.py
+          python -m unittest tests.test_sci_translation tests.test_native_assets -v
+          pnpm typecheck:native
+          pnpm test:native
+      - name: Build the native edition without an emulator
+        run: pnpm build:native
+      - name: Exercise the production build through original browser controls
+        run: |
+          pnpm serve:native > build/native-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          curl --retry 20 --retry-connrefused --retry-delay 1 --fail http://127.0.0.1:8787/health
+          JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:native
+          JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:online
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-evidence
+          path: |
+            build/native-evidence/
+            build/native-online-evidence/
+            build/native-server.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-site
+          path: build/native/
   verify:
+    needs: native
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -50,6 +96,10 @@ jobs:
         with:
           name: jones-browser-0.2.0
           path: build/jones-browser-0.2.0.zip
+      - uses: actions/download-artifact@v4
+        with:
+          name: native-site
+          path: build/browser/native
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main'
         with:

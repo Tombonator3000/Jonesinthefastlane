@@ -6,9 +6,29 @@
   "scripts": {
     "test": "python3 -m unittest discover -s tests -v",
     "build": "python3 tools/build_browser.py",
-    "test:browser": "node tests/browser_smoke.cjs"
+    "test:browser": "node tests/browser_smoke.cjs",
+    "dev:native": "vite --config native/vite.config.ts",
+    "build:native": "vite build --config native/vite.config.ts",
+    "typecheck:native": "tsc -p native/tsconfig.json --noEmit",
+    "serve:native": "tsx native/server.ts",
+    "test:native": "tsx --test tests/native_*.test.ts native/graphics/*.test.ts",
+    "translate:native": "python3 tools/fetch_reference_sources.py && python3 tools/translate_sci.py",
+    "assets:native": "python3 tools/export_native_assets.py",
+    "test:browser:native": "node tests/native_browser_smoke.cjs",
+    "audio:native": "python3 tools/export_native_audio.py",
+    "test:browser:online": "node tests/native_browser_online.cjs"
   },
   "devDependencies": {
-    "playwright": "1.62.1"
+    "playwright": "1.62.1",
+    "typescript": "5.9.3",
+    "vite": "7.1.7",
+    "tsx": "4.20.6",
+    "@types/three": "0.180.0",
+    "@types/ws": "8.18.1",
+    "@types/node": "24.7.0"
+  },
+  "dependencies": {
+    "three": "0.180.0",
+    "ws": "8.18.3"
   }
 }

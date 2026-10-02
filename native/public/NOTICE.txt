@@ -1,0 +1,23 @@
+Jones in the Fast Lane — native TypeScript browser edition
+
+Original game, artwork, text and sound: Sierra On-Line.
+Original game material is not relicensed by this project.
+Game source decompiled by sluicebox; pinned source and conversion provenance
+are recorded in native/generated/manifest.json in the source repository.
+
+Native support code, services, shaders and tools: GPL-3.0-or-later.
+Some resource, graphics, movement and audio-format implementations are derived
+from ScummVM, copyright the ScummVM team, under GPL-3.0-or-later.
+No ScummVM interpreter or executable is loaded by this native browser edition.
+
+Complete corresponding source, build instructions and original attribution:
+https://github.com/Tombonator3000/Jonesinthefastlane
+
+Three.js: MIT license (licenses/three.txt).
+GNU GPL v3: licenses/GPL-3.0.txt.
+The build-time FM renderer uses Nuked-OPL3 under LGPL-2.1-or-later;
+its source, license and provenance are in native/audio/vendor/ in the repo.
+
+This native port has tested original gameplay journeys. Exhaustive original
+behavior, timing and audio equivalence is not claimed. See docs/NATIVE_PORT.md
+and reports/native_verification.md in the source repository for tested scope.
