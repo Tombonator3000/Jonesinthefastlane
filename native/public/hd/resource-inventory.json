@@ -1,0 +1,1332 @@
+{
+  "auditDate": "2026-10-02",
+  "sourceManifestSha256": "f98cd20f49aae142434e45601349868196dedcd1dbb67ab2a5dc52f57a4d0491",
+  "method": "Read-only asset metadata,original contact sheets,representative individual cels anddecompiled original scripts. No gameplay reachability suite run in this audit.",
+  "counts": {
+    "views": 90,
+    "cels": 752,
+    "pics": 7,
+    "fonts": 8,
+    "cursors": 2,
+    "texts": 39,
+    "palettes": 1
+  },
+  "baselineHdCoverage": {
+    "pics": 1,
+    "cels": 49,
+    "note": "Before current expansion:town11,selection500:0:0,eight6-frame talkers. Not a fullHD claim."
+  },
+  "groups": [
+    {
+      "id": "core_ui",
+      "views": [
+        0
+      ],
+      "celCount": 145,
+      "role": "145 cels: L0 five central backgrounds; L1 town foreground patch; L2 five marbles; L3 five numbered player tokens; L4 calculator; L5-L12 eight sets of16 speech-bubble pieces.",
+      "sourceFiles": [
+        "reference/upstream/src/Main.sc",
+        "reference/upstream/src/room1.sc",
+        "reference/upstream/src/BubbleWindow.sc"
+      ],
+      "notes": "UI and text geometry retained; calculator has separate upgrade ownership."
+    },
+    {
+      "id": "intro",
+      "views": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "celCount": 36,
+      "role": "36 cels: fifteen intro illustrations and21 title/text overlays.",
+      "sourceFiles": [
+        "reference/upstream/src/introRoom.sc",
+        "reference/upstream/src/noticeRoom.sc"
+      ],
+      "notes": "Reachable normal startup, not obsolete/demo. Preserve text overlays."
+    },
+    {
+      "id": "selection_goals",
+      "views": [
+        10,
+        11,
+        499,
+        500,
+        501,
+        505,
+        506
+      ],
+      "celCount": 68,
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "sourceFiles": [
+        "reference/upstream/src/select1.sc",
+        "reference/upstream/src/select2.sc",
+        "reference/upstream/src/select3.sc",
+        "reference/upstream/src/select4.sc",
+        "reference/upstream/src/goalsDefine.sc",
+        "reference/upstream/src/viewGoals.sc"
+      ],
+      "notes": "Keep all control geometry and original lettering. Art-only updates can be region-limited."
+    },
+    {
+      "id": "buttons",
+      "views": [
+        250
+      ],
+      "celCount": 14,
+      "role": "14 original labeled action buttons, one per loop.",
+      "sourceFiles": [
+        "reference/upstream/src/WButton.sc"
+      ],
+      "notes": "Retain exact original controls and fonts."
+    },
+    {
+      "id": "time",
+      "views": [
+        270,
+        750
+      ],
+      "celCount": 65,
+      "role": "270:61 remaining-time states;750:4 work-watch frames.",
+      "sourceFiles": [
+        "reference/upstream/src/room1.sc",
+        "reference/upstream/src/WButton.sc"
+      ],
+      "notes": "Time states are gameplay-driven, not decorative animation."
+    },
+    {
+      "id": "players",
+      "views": [
+        274,
+        275,
+        276,
+        277,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297
+      ],
+      "celCount": 84,
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "sourceFiles": [
+        "reference/upstream/src/room1.sc",
+        "reference/upstream/src/n109.sc"
+      ],
+      "notes": "Human-agent ownership; preserve frame counts/timing/offsets."
+    },
+    {
+      "id": "turn_notices",
+      "views": [
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322
+      ],
+      "celCount": 13,
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "sourceFiles": [
+        "reference/upstream/src/startTrn.sc"
+      ],
+      "notes": "Static note art is mostly original text; upgrade paper/object illustrations only."
+    },
+    {
+      "id": "lottery_robbery",
+      "views": [
+        340
+      ],
+      "celCount": 39,
+      "role": "39 cels:8 falling banknotes +1 lottery note +30 Wild Willy robbery poses.",
+      "sourceFiles": [
+        "reference/upstream/src/lottoScript.sc",
+        "reference/upstream/src/muggedByMarket.sc"
+      ],
+      "notes": "Real random game events, not obsolete; preserve lottery note text."
+    },
+    {
+      "id": "talkers",
+      "views": [
+        351,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362
+      ],
+      "celCount": 66,
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "sourceFiles": [
+        "reference/upstream/src/rentOffice.sc",
+        "reference/upstream/src/market.sc",
+        "reference/upstream/src/bank.sc",
+        "reference/upstream/src/factory.sc",
+        "reference/upstream/src/employment.sc",
+        "reference/upstream/src/university.sc",
+        "reference/upstream/src/appliance.sc",
+        "reference/upstream/src/clothing.sc",
+        "reference/upstream/src/fastFood.sc",
+        "reference/upstream/src/discount.sc",
+        "reference/upstream/src/pawnShop.sc"
+      ],
+      "notes": "Previous HD pack included only8 of11 workers; preserve script-selected mouths."
+    },
+    {
+      "id": "events",
+      "views": [
+        603,
+        607,
+        608,
+        609
+      ],
+      "celCount": 61,
+      "role": "61 cels:603 newspaper6 opening frames+paper+backing;607 diploma5 unroll frames+backing;608 weekend panel+4 ambulance directions;609 podium1+stars5+Jones12+confetti24.",
+      "sourceFiles": [
+        "reference/upstream/src/newspaper.sc",
+        "reference/upstream/src/diploma.sc",
+        "reference/upstream/src/weekend.sc",
+        "reference/upstream/src/startTrn.sc",
+        "reference/upstream/src/winnerScript.sc"
+      ],
+      "notes": "Actual purchase,education,weekend,doctor and victory paths. Keep original dynamic text."
+    },
+    {
+      "id": "locations_products",
+      "views": [
+        696,
+        697,
+        698,
+        699,
+        700,
+        701,
+        702,
+        703,
+        704,
+        705,
+        706,
+        707,
+        708,
+        709,
+        710,
+        711,
+        712
+      ],
+      "celCount": 102,
+      "role": "102 cels: investment UI, rental architecture/interiors, shop products, factory PCB backdrop, employment panels, education books/labels, pawn UI.",
+      "sourceFiles": [
+        "reference/upstream/src/broker.sc",
+        "reference/upstream/src/lowcost.sc",
+        "reference/upstream/src/security.sc",
+        "reference/upstream/src/rentOffice.sc",
+        "reference/upstream/src/market.sc",
+        "reference/upstream/src/bank.sc",
+        "reference/upstream/src/factory.sc",
+        "reference/upstream/src/employment.sc",
+        "reference/upstream/src/university.sc",
+        "reference/upstream/src/appliance.sc",
+        "reference/upstream/src/clothing.sc",
+        "reference/upstream/src/fastFood.sc",
+        "reference/upstream/src/discount.sc",
+        "reference/upstream/src/pawnShop.sc"
+      ],
+      "notes": "Details in rolesByView; literal shop labels fromsource override mislabeled legacy exporter aliases."
+    },
+    {
+      "id": "doors",
+      "views": [
+        751
+      ],
+      "celCount": 52,
+      "role": "52 cels:13 town locations ×4 opening/closing states.",
+      "sourceFiles": [
+        "reference/upstream/src/room1.sc"
+      ],
+      "notes": "Preserve per-location doorLoop,position and original Wait6 timing. Generic whole-building replacements unsafe."
+    },
+    {
+      "id": "store_backdrops",
+      "views": [
+        803,
+        804,
+        807,
+        808,
+        809,
+        810,
+        811
+      ],
+      "celCount": 7,
+      "role": "7 current original branded header/backing panels.",
+      "sourceFiles": [
+        "reference/upstream/src/market.sc",
+        "reference/upstream/src/bank.sc",
+        "reference/upstream/src/university.sc",
+        "reference/upstream/src/appliance.sc",
+        "reference/upstream/src/clothing.sc",
+        "reference/upstream/src/fastFood.sc",
+        "reference/upstream/src/discount.sc"
+      ],
+      "notes": "Retain exact English branding and clear UI backing, no decorative photo clutter."
+    }
+  ],
+  "views": [
+    {
+      "id": 0,
+      "group": "core_ui",
+      "role": "145 cels: L0 five central backgrounds; L1 town foreground patch; L2 five marbles; L3 five numbered player tokens; L4 calculator; L5-L12 eight sets of16 speech-bubble pieces.",
+      "loopCelCounts": [
+        5,
+        1,
+        5,
+        5,
+        1,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "celCount": 145,
+      "referenceDirectory": "native/public/assets/views/0000"
+    },
+    {
+      "id": 1,
+      "group": "intro",
+      "role": "36 cels: fifteen intro illustrations and21 title/text overlays.",
+      "loopCelCounts": [
+        2,
+        2,
+        2
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0001"
+    },
+    {
+      "id": 2,
+      "group": "intro",
+      "role": "36 cels: fifteen intro illustrations and21 title/text overlays.",
+      "loopCelCounts": [
+        2,
+        2,
+        2
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0002"
+    },
+    {
+      "id": 3,
+      "group": "intro",
+      "role": "36 cels: fifteen intro illustrations and21 title/text overlays.",
+      "loopCelCounts": [
+        2,
+        3,
+        3
+      ],
+      "celCount": 8,
+      "referenceDirectory": "native/public/assets/views/0003"
+    },
+    {
+      "id": 4,
+      "group": "intro",
+      "role": "36 cels: fifteen intro illustrations and21 title/text overlays.",
+      "loopCelCounts": [
+        3,
+        3,
+        3
+      ],
+      "celCount": 9,
+      "referenceDirectory": "native/public/assets/views/0004"
+    },
+    {
+      "id": 5,
+      "group": "intro",
+      "role": "36 cels: fifteen intro illustrations and21 title/text overlays.",
+      "loopCelCounts": [
+        3,
+        3,
+        1
+      ],
+      "celCount": 7,
+      "referenceDirectory": "native/public/assets/views/0005"
+    },
+    {
+      "id": 10,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        1,
+        3,
+        3,
+        2
+      ],
+      "celCount": 9,
+      "referenceDirectory": "native/public/assets/views/0010"
+    },
+    {
+      "id": 11,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0011"
+    },
+    {
+      "id": 250,
+      "group": "buttons",
+      "role": "14 original labeled action buttons, one per loop.",
+      "loopCelCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "celCount": 14,
+      "referenceDirectory": "native/public/assets/views/0250"
+    },
+    {
+      "id": 270,
+      "group": "time",
+      "role": "270:61 remaining-time states;750:4 work-watch frames.",
+      "loopCelCounts": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        1
+      ],
+      "celCount": 61,
+      "referenceDirectory": "native/public/assets/views/0270"
+    },
+    {
+      "id": 274,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0274"
+    },
+    {
+      "id": 275,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0275"
+    },
+    {
+      "id": 276,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0276"
+    },
+    {
+      "id": 277,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0277"
+    },
+    {
+      "id": 280,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0280"
+    },
+    {
+      "id": 281,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0281"
+    },
+    {
+      "id": 282,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0282"
+    },
+    {
+      "id": 283,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0283"
+    },
+    {
+      "id": 284,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0284"
+    },
+    {
+      "id": 285,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0285"
+    },
+    {
+      "id": 286,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0286"
+    },
+    {
+      "id": 287,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0287"
+    },
+    {
+      "id": 290,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0290"
+    },
+    {
+      "id": 291,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0291"
+    },
+    {
+      "id": 292,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0292"
+    },
+    {
+      "id": 293,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4,
+        4
+      ],
+      "celCount": 8,
+      "referenceDirectory": "native/public/assets/views/0293"
+    },
+    {
+      "id": 294,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0294"
+    },
+    {
+      "id": 295,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0295"
+    },
+    {
+      "id": 296,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0296"
+    },
+    {
+      "id": 297,
+      "group": "players",
+      "role": "84 cels: Jones and four human identities with wardrobe/walk states.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0297"
+    },
+    {
+      "id": 310,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0310"
+    },
+    {
+      "id": 311,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0311"
+    },
+    {
+      "id": 312,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0312"
+    },
+    {
+      "id": 313,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0313"
+    },
+    {
+      "id": 314,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0314"
+    },
+    {
+      "id": 315,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0315"
+    },
+    {
+      "id": 316,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0316"
+    },
+    {
+      "id": 317,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0317"
+    },
+    {
+      "id": 318,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0318"
+    },
+    {
+      "id": 319,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0319"
+    },
+    {
+      "id": 320,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0320"
+    },
+    {
+      "id": 321,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0321"
+    },
+    {
+      "id": 322,
+      "group": "turn_notices",
+      "role": "13 active turn notices: hunger,repair,rent,doctor,delinquency,loan payment,clothes,job loss,all/some food spoilage,computer earnings,paycut,inheritance.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0322"
+    },
+    {
+      "id": 340,
+      "group": "lottery_robbery",
+      "role": "39 cels:8 falling banknotes +1 lottery note +30 Wild Willy robbery poses.",
+      "loopCelCounts": [
+        8,
+        1,
+        8,
+        8,
+        6,
+        6,
+        1,
+        1
+      ],
+      "celCount": 39,
+      "referenceDirectory": "native/public/assets/views/0340"
+    },
+    {
+      "id": 351,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0351"
+    },
+    {
+      "id": 353,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0353"
+    },
+    {
+      "id": 354,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0354"
+    },
+    {
+      "id": 355,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0355"
+    },
+    {
+      "id": 356,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0356"
+    },
+    {
+      "id": 357,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0357"
+    },
+    {
+      "id": 358,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0358"
+    },
+    {
+      "id": 359,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0359"
+    },
+    {
+      "id": 360,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0360"
+    },
+    {
+      "id": 361,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0361"
+    },
+    {
+      "id": 362,
+      "group": "talkers",
+      "role": "66 cels:11 shop workers ×6 mouth states.",
+      "loopCelCounts": [
+        6
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0362"
+    },
+    {
+      "id": 499,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        4,
+        4
+      ],
+      "celCount": 8,
+      "referenceDirectory": "native/public/assets/views/0499"
+    },
+    {
+      "id": 500,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0500"
+    },
+    {
+      "id": 501,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        1,
+        2,
+        10,
+        2,
+        1,
+        4,
+        4
+      ],
+      "celCount": 24,
+      "referenceDirectory": "native/public/assets/views/0501"
+    },
+    {
+      "id": 505,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        1,
+        11,
+        5,
+        5,
+        1
+      ],
+      "celCount": 23,
+      "referenceDirectory": "native/public/assets/views/0505"
+    },
+    {
+      "id": 506,
+      "group": "selection_goals",
+      "role": "68 cels: main menu actions, Jones choice, selection checkers/highlights, four selection figures, goal panel/stars, score thermometers, goal headers.",
+      "loopCelCounts": [
+        2
+      ],
+      "celCount": 2,
+      "referenceDirectory": "native/public/assets/views/0506"
+    },
+    {
+      "id": 603,
+      "group": "events",
+      "role": "61 cels:603 newspaper6 opening frames+paper+backing;607 diploma5 unroll frames+backing;608 weekend panel+4 ambulance directions;609 podium1+stars5+Jones12+confetti24.",
+      "loopCelCounts": [
+        6,
+        2
+      ],
+      "celCount": 8,
+      "referenceDirectory": "native/public/assets/views/0603"
+    },
+    {
+      "id": 607,
+      "group": "events",
+      "role": "61 cels:603 newspaper6 opening frames+paper+backing;607 diploma5 unroll frames+backing;608 weekend panel+4 ambulance directions;609 podium1+stars5+Jones12+confetti24.",
+      "loopCelCounts": [
+        5,
+        1
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0607"
+    },
+    {
+      "id": 608,
+      "group": "events",
+      "role": "61 cels:603 newspaper6 opening frames+paper+backing;607 diploma5 unroll frames+backing;608 weekend panel+4 ambulance directions;609 podium1+stars5+Jones12+confetti24.",
+      "loopCelCounts": [
+        1,
+        4
+      ],
+      "celCount": 5,
+      "referenceDirectory": "native/public/assets/views/0608"
+    },
+    {
+      "id": 609,
+      "group": "events",
+      "role": "61 cels:603 newspaper6 opening frames+paper+backing;607 diploma5 unroll frames+backing;608 weekend panel+4 ambulance directions;609 podium1+stars5+Jones12+confetti24.",
+      "loopCelCounts": [
+        1,
+        5,
+        6,
+        6,
+        12,
+        12
+      ],
+      "celCount": 42,
+      "referenceDirectory": "native/public/assets/views/0609"
+    },
+    {
+      "id": 696,
+      "group": "locations_products",
+      "role": "Investment panel plus6 selectable asset labels",
+      "loopCelCounts": [
+        1,
+        6
+      ],
+      "celCount": 7,
+      "referenceDirectory": "native/public/assets/views/0696"
+    },
+    {
+      "id": 697,
+      "group": "locations_products",
+      "role": "Closed rent-office entrance",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0697"
+    },
+    {
+      "id": 698,
+      "group": "locations_products",
+      "role": "Security-apartment entrance FOR RENT when not resident",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0698"
+    },
+    {
+      "id": 699,
+      "group": "locations_products",
+      "role": "Low-Cost rooms FOR RENT when not resident",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0699"
+    },
+    {
+      "id": 700,
+      "group": "locations_products",
+      "role": "Low-Cost empty room, worn chair, HOME SWEET HOME plaque, stool",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0700"
+    },
+    {
+      "id": 701,
+      "group": "locations_products",
+      "role": "Rent-office short/long headers and plain background",
+      "loopCelCounts": [
+        2,
+        1
+      ],
+      "celCount": 3,
+      "referenceDirectory": "native/public/assets/views/0701"
+    },
+    {
+      "id": 702,
+      "group": "locations_products",
+      "role": "Security apartment with separate owned TV/VCR/books/stereo inserts",
+      "loopCelCounts": [
+        5
+      ],
+      "celCount": 5,
+      "referenceDirectory": "native/public/assets/views/0702"
+    },
+    {
+      "id": 703,
+      "group": "locations_products",
+      "role": "Market:1/2/4 bags of groceries,lottery tickets,newspaper; plusblank cel",
+      "loopCelCounts": [
+        1,
+        5
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0703"
+    },
+    {
+      "id": 704,
+      "group": "locations_products",
+      "role": "Bank:5 piggy-bank animation frames plusblank cel",
+      "loopCelCounts": [
+        1,
+        5
+      ],
+      "celCount": 6,
+      "referenceDirectory": "native/public/assets/views/0704"
+    },
+    {
+      "id": 705,
+      "group": "locations_products",
+      "role": "Factory circuit-board decorative backing and THE FACTORY title",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0705"
+    },
+    {
+      "id": 706,
+      "group": "locations_products",
+      "role": "Employment/jobs backgrounds:green employers list andtan joblist",
+      "loopCelCounts": [
+        2
+      ],
+      "celCount": 2,
+      "referenceDirectory": "native/public/assets/views/0706"
+    },
+    {
+      "id": 707,
+      "group": "locations_products",
+      "role": "University:4 book states,11 course labels,blank",
+      "loopCelCounts": [
+        1,
+        4,
+        11
+      ],
+      "celCount": 16,
+      "referenceDirectory": "native/public/assets/views/0707"
+    },
+    {
+      "id": 708,
+      "group": "locations_products",
+      "role": "Appliance/pawn:fridge,freezer,stove,colorTV,VCR,stereo,microwave,hot tub,computer,bwTV,encyclopedia,dictionary,atlas,blank; plusblank L0",
+      "loopCelCounts": [
+        1,
+        14
+      ],
+      "celCount": 15,
+      "referenceDirectory": "native/public/assets/views/0708"
+    },
+    {
+      "id": 709,
+      "group": "locations_products",
+      "role": "Clothing:casual pairs,business pairs,dress pairs; plusblank L0",
+      "loopCelCounts": [
+        1,
+        3
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0709"
+    },
+    {
+      "id": 710,
+      "group": "locations_products",
+      "role": "Fastfood:hamburger,cheeseburger,chicken,fries,shake,cola; L0 older Monolith backdrop",
+      "loopCelCounts": [
+        1,
+        6
+      ],
+      "celCount": 7,
+      "referenceDirectory": "native/public/assets/views/0710"
+    },
+    {
+      "id": 711,
+      "group": "locations_products",
+      "role": "Discount:fridge,stove,stereo,colorTV,bwTV,microwave,VCR,casual clothes,dress clothes,baseball/theatre/concert tickets,encyclopedia,dictionary,atlas,dogfood,8-track,novels; plusblank L0",
+      "loopCelCounts": [
+        1,
+        16,
+        2
+      ],
+      "celCount": 19,
+      "referenceDirectory": "native/public/assets/views/0711"
+    },
+    {
+      "id": 712,
+      "group": "locations_products",
+      "role": "Pawnshop header andpawn/redeem/buy actions",
+      "loopCelCounts": [
+        1,
+        3
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0712"
+    },
+    {
+      "id": 750,
+      "group": "time",
+      "role": "270:61 remaining-time states;750:4 work-watch frames.",
+      "loopCelCounts": [
+        4
+      ],
+      "celCount": 4,
+      "referenceDirectory": "native/public/assets/views/0750"
+    },
+    {
+      "id": 751,
+      "group": "doors",
+      "role": "52 cels:13 town locations ×4 opening/closing states.",
+      "loopCelCounts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "celCount": 52,
+      "referenceDirectory": "native/public/assets/views/0751"
+    },
+    {
+      "id": 803,
+      "group": "store_backdrops",
+      "role": "Black's Market",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0803"
+    },
+    {
+      "id": 804,
+      "group": "store_backdrops",
+      "role": "Bank",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0804"
+    },
+    {
+      "id": 807,
+      "group": "store_backdrops",
+      "role": "Hi-Tech University",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0807"
+    },
+    {
+      "id": 808,
+      "group": "store_backdrops",
+      "role": "Socket City appliance store",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0808"
+    },
+    {
+      "id": 809,
+      "group": "store_backdrops",
+      "role": "QT Clothing",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0809"
+    },
+    {
+      "id": 810,
+      "group": "store_backdrops",
+      "role": "Monolith Burgers",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0810"
+    },
+    {
+      "id": 811,
+      "group": "store_backdrops",
+      "role": "Z-Mart discount store",
+      "loopCelCounts": [
+        1
+      ],
+      "celCount": 1,
+      "referenceDirectory": "native/public/assets/views/0811"
+    }
+  ],
+  "pics": {
+    "0": "Opening title screen; reachable after copyright",
+    "1": "Blue intro grid",
+    "2": "Green intro grid",
+    "3": "Violet intro grid",
+    "4": "Red intro grid",
+    "5": "Neutral intro grid",
+    "11": "Town map with15 embedded cels"
+  },
+  "reachabilityCaveats": [
+    "PIC0-5 andV1-5 are originalstartup assets, not obsolete; noticeRoom764 explicitly entersintroRoom2.",
+    "V0 loops9-12 have noactive originalscript selectorfound; L9 is pixel-identical L8. Keep resources, do notcount as newphotoart scenes.",
+    "V710 L0 old Monolith backdrop notreferenced by currentfastFoodbackground (V810 is used); L1 all6 foodproducts are used.",
+    "Smallblankcels inproductviews areclearing/default assets, notmissing illustrations.",
+    "Some originalgraphics-detail settings suppress portraits/items/animations; resources remain legitimatefull-detail gameplay assets.",
+    "Demo uses actualoriginalgameplayers andlocations; do not classify sharedresources as demo-only."
+  ],
+  "productionGroups": [
+    "Completed: five architecture images 697/698/699/700/702; preserve original header and sign regions.",
+    "Completed: 52 product and furniture cells in five photographic atlases; exact crops in products.json.",
+    "Completed: five piggy-bank frames and four ambulance directions in two photographic atlases; exact crops in events.json.",
+    "Human talkers and walkers handled by another agent.",
+    "Clock, calculator and procedural technical assets handled by another agent.",
+    "Root reports 15 intro illustrations generated separately; original text and controls remain unchanged.",
+    "Remaining illustrative types identified by this audit: notice paper inserts, newspaper/diploma unfolding, lottery banknotes, victory confetti/podium, and 13 locations of door states. Root coordinates procedural versus authored treatment."
+  ],
+  "referenceTools": [
+    "graphics/index.html",
+    "graphics/oversikt.png",
+    "graphics/views/manifest.json",
+    "tools/sci_graphics.py",
+    "tools/jones.py",
+    "tools/export_native_assets.py",
+    "build/complete-hd-review/panels-reference.png",
+    "build/complete-hd-art/references/"
+  ],
+  "note": "Resource inventory captured before the expanded pack. baselineHdCoverage is historical; current replacement coverage is computed by tools/verify_native_hd.py from manifest.json."
+}

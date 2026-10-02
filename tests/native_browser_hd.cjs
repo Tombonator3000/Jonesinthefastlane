@@ -150,8 +150,10 @@ async function start() {
   await check('Original bank actions and Save/Restore retain the complete HD scene', async () => {
     await click(37, 139); await wait(s => s.dialog === 'bank' && s.trace.at(-1) === '204:bank.doit');
     await settings('original', false);
-    // Original calc is view0/loop4/cel0:61x34 at(252,160); x313 is town art.
-    const ui = await uiRoundtrip('Bank title, action text, DONE and cash display', [[136, 45, 250, 152], [212, 152, 245, 162], [252, 161, 313, 194]]);
+    // The explicitly requested HD calculator replaces the case and decorative
+    // keys, while its original dollar glyph and live numeric field stay exact.
+    // DONE is exactly32×9; neighbouring town-roof pixels are now HD artwork.
+    const ui = await uiRoundtrip('Bank title, action text, DONE, dollar and live cash digits', [[136, 45, 250, 152], [212, 152, 244, 161], [263, 165, 268, 174], [273, 165, 309, 174]]);
     await capture('07-hd-bank');
     await click(199, 82); await wait(s => s.cash === 100 && s.trace.at(-1) === '204:bank.doit');
     await page.keyboard.press('F5'); await page.waitForTimeout(400); await click(199, 119);

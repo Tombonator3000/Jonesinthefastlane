@@ -2,15 +2,23 @@
 // Optional local artwork. The authoritative 320x200 raster still owns every hit target.
 import * as THREE from 'three';
 import { decodeOwners } from './provenance.js';
+import { decodeBytes } from './bytes.js';
+import { planHdSilhouettes, type HdSilhouettePlan } from './hd-silhouette.js';
 import { originalTownUiMask, isOriginalTownUiPixel } from './original-ui.js';
+import { createHdPropCanvas, getHdPropSpec, createHdClockFaceCanvas, expandHdClockDialOwners, HD_CLOCK_FACE_RECT } from './HdProps.js';
 import type { GraphicsFrame, HdDrawOp, NativeAssetManifest, Rect } from './types.js';
 
 interface ArtAsset {
   src: string; width: number; height: number;
   crop?: { left: number; top: number; width: number; height: number };
   regions?: Rect[];
+  originalRegions?: readonly Readonly<Rect>[];
+  mirrorX?: boolean;
+  generatedAlpha?: boolean;
+  preserveSourceColors?: number[];
 }
-interface ArtManifest { schema: 1; title?: string; pics: Record<string, ArtAsset>; cels: Record<string, ArtAsset> }
+interface ArtOverlay extends ArtAsset { pic: number; dest: Rect }
+interface ArtManifest { schema: 1; title?: string; pics: Record<string, ArtAsset>; cels: Record<string, ArtAsset>; overlays?: ArtOverlay[] }
 interface Layer { mesh: THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>; texture: THREE.Texture; key: string }
 export interface HdOptions { enabled: boolean; lighting: boolean; intensity: number; effect?: number }
 
@@ -20,6 +28,9 @@ const fragment = `precision highp float;
 uniform sampler2D art;
 uniform sampler2D owners;
 uniform sampler2D fade;
+uniform sampler2D originalInk;
+uniform float hasOriginalInk;
+uniform float applyFade;
 uniform vec4 owner;
 uniform vec4 dest;
 uniform vec4 crop;
@@ -30,6 +41,8 @@ uniform float strength;
 uniform float effect;
 uniform int regionCount;
 uniform vec4 regions[12];
+uniform int originalRegionCount;
+uniform vec4 originalRegions[12];
 varying vec2 artUv;
 void main(){
   vec2 local=vec2(artUv.x,1.-artUv.y)*dest.zw;
@@ -37,6 +50,7 @@ void main(){
   vec2 cell=(floor(logical)+.5)/vec2(320.,200.);
   if(any(greaterThan(abs(texture2D(owners,cell)-owner),vec4(.001)))) discard;
   vec2 assetPoint=vec2(mirror>.5?dest.z-local.x:local.x,local.y);
+  if(hasOriginalInk>.5&&texture2D(originalInk,vec2(local.x/dest.z,1.-local.y/dest.w)).r>.5) discard;
   bool allowed=regionCount==0;
   for(int i=0;i<12;i++){
     if(i>=regionCount) break;
@@ -44,6 +58,11 @@ void main(){
     if(assetPoint.x>=r.x&&assetPoint.y>=r.y&&assetPoint.x<r.z&&assetPoint.y<r.w) allowed=true;
   }
   if(!allowed) discard;
+  for(int i=0;i<12;i++){
+    if(i>=originalRegionCount) break;
+    vec4 r=originalRegions[i];
+    if(assetPoint.x>=r.x&&assetPoint.y>=r.y&&assetPoint.x<r.z&&assetPoint.y<r.w) discard;
+  }
   vec2 uv=vec2(mirror>.5?1.-artUv.x:artUv.x,artUv.y);
   vec4 color=texture2D(art,crop.xy+uv*crop.zw);
   if(color.a<.01) discard;
@@ -56,7 +75,7 @@ void main(){
     float edge=clamp(dot((logical-vec2(160.,100.))/vec2(210.,170.),(logical-vec2(160.,100.))/vec2(210.,170.)),0.,1.);
     color.rgb=color.rgb*(1.-.08*edge*strength)+glow*strength;
   }
-  color.rgb*=texture2D(fade,cell).r;
+  if(applyFade>.5) color.rgb*=texture2D(fade,cell).r;
   if(effect>1.5){
     float scan=.90+.10*cos(logical.y*6.28318530718);
     float vignette=1.-.22*dot(logical/vec2(320.,200.)-.5,logical/vec2(320.,200.)-.5);
@@ -75,26 +94,29 @@ export class HdPresentation {
   private mask = new THREE.DataTexture(this.maskBytes, 320, 200, THREE.RGBAFormat);
   private fade = new THREE.DataTexture(this.fadeBytes, 320, 200, THREE.RGBAFormat);
   private geometry = new THREE.PlaneGeometry(1, 1);
-  private layers = new Map<number, Layer>();
+  private layers = new Map<string, Layer>();
   private textures = new Map<string, THREE.Texture>();
+  private inkMasks = new Map<string, THREE.DataTexture>();
+  private emptyInk = new THREE.DataTexture(new Uint8Array(4), 1, 1, THREE.RGBAFormat);
   private manifest?: ArtManifest;
   private loading?: Promise<void>;
   private disposed = false;
   private failed = false;
   private options: HdOptions = { enabled: false, lighting: false, intensity: .4 };
   private lastFrame?: GraphicsFrame;
-  private lastOwners?: Uint32Array;
+  private lastPlan?: HdSilhouettePlan;
   private activeCount = 0;
   private readonly townUiMask: Uint8Array;
   private readonly townWidth: number;
 
-  constructor(assets: NativeAssetManifest, private readonly changed: () => void,
+  constructor(private readonly assets: NativeAssetManifest, private readonly changed: () => void,
     private readonly status: (message: string) => void) {
     this.townUiMask = originalTownUiMask(assets.pics[11]); this.townWidth = assets.pics[11]?.width || 320;
     for (const t of [this.mask, this.fade]) {
       t.minFilter = t.magFilter = THREE.NearestFilter; t.generateMipmaps = false; t.colorSpace = THREE.NoColorSpace;
     }
     this.group.visible = false;
+    this.emptyInk.needsUpdate = true;
   }
   get diagnostics() { return { requested: this.options.enabled, ready: !!this.manifest, failed: this.failed, layers: this.activeCount, fonts: false, ui: 'original' }; }
   configure(options: HdOptions) {
@@ -115,7 +137,7 @@ export class HdPresentation {
     if (!response.ok) throw new Error('HD manifest unavailable');
     const manifest = await response.json() as ArtManifest;
     if (manifest.schema !== 1 || !manifest.pics || !manifest.cels) throw new Error('Unsupported HD pack');
-    const assets = [...Object.values(manifest.pics), ...Object.values(manifest.cels)];
+    const assets = [...Object.values(manifest.pics), ...Object.values(manifest.cels), ...(manifest.overlays || [])];
     if (assets.length > 1024) throw new Error('HD pack is too large');
     const loader = new THREE.TextureLoader();
     await Promise.all([...new Set(assets.map(asset => asset.src))].map(async src => {
@@ -129,13 +151,45 @@ export class HdPresentation {
     if (!this.disposed) this.manifest = manifest;
   }
   private asset(op: HdDrawOp): ArtAsset | undefined {
+    if (op.kind === 'cel') {
+      const spec = getHdPropSpec(op.view, op.loop, op.cel, this.assets);
+      if (spec) {
+        const src = `@prop/${spec.key}`;
+        if (!this.textures.has(src)) {
+          const canvas = createHdPropCanvas(op.view, op.loop, op.cel, this.assets);
+          if (canvas) this.textures.set(src, this.canvasTexture(canvas));
+        }
+        return { src, width: spec.width, height: spec.height, originalRegions: spec.originalRegions, generatedAlpha: spec.kind === 'clock-sector' };
+      }
+    }
     return op.kind === 'pic' ? this.manifest?.pics[op.pic] : op.kind === 'cel' ? this.manifest?.cels[`${op.view}:${op.loop}:${op.cel}`] : undefined;
   }
-  private makeLayer(op: HdDrawOp, key: string): Layer | null {
-    // Text, controls and their pressed states always come from the original raster.
-    // The optional manifest maps illustrations only; it never replaces game UI.
+  private canvasTexture(canvas: HTMLCanvasElement): THREE.CanvasTexture {
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.NoColorSpace; texture.minFilter = texture.magFilter = THREE.LinearFilter; texture.generateMipmaps = false;
+    return texture;
+  }
+  private inkMask(op: HdDrawOp, asset?: ArtAsset): THREE.DataTexture {
+    if (op.kind !== 'cel' || !asset?.preserveSourceColors?.length) return this.emptyInk;
+    const key = `${op.view}:${op.loop}:${op.cel}:${asset.preserveSourceColors.join(',')}`;
+    const previous = this.inkMasks.get(key); if (previous) return previous;
+    const cel = this.assets.views[op.view]?.loops[op.loop]?.cels[op.cel];
+    if (!cel) return this.emptyInk;
+    const pixels = decodeBytes(cel.pixels), bytes = new Uint8Array(cel.width * cel.height * 4), colors = new Set(asset.preserveSourceColors);
+    // Flip rows to match conventional bottom-left texture UVs.
+    for (let y = 0; y < cel.height; y++) for (let x = 0; x < cel.width; x++) {
+      const offset = ((cel.height - 1 - y) * cel.width + x) * 4;
+      bytes[offset] = colors.has(pixels[y * cel.width + x]) ? 255 : 0; bytes[offset + 3] = 255;
+    }
+    const texture = new THREE.DataTexture(bytes, cel.width, cel.height, THREE.RGBAFormat);
+    texture.minFilter = texture.magFilter = THREE.NearestFilter; texture.generateMipmaps = false; texture.needsUpdate = true;
+    this.inkMasks.set(key, texture); return texture;
+  }
+  private makeLayer(op: HdDrawOp, key: string, replacement?: ArtAsset): Layer | null {
+    // Text and input behavior stay in the original raster. Artwork and decorative
+    // props can change while protected text regions retain their original pixels.
     if (op.kind === 'text') return null;
-    const asset = this.asset(op);
+    const asset = replacement || this.asset(op);
     const texture = asset && this.textures.get(asset.src);
     if (!texture) return null;
     const w = op.dest.right - op.dest.left, h = op.dest.bottom - op.dest.top;
@@ -147,14 +201,18 @@ export class HdPresentation {
     }
     const regions = Array.from({ length: 12 }, () => new THREE.Vector4());
     asset?.regions?.slice(0, 12).forEach((r, i) => regions[i].set(r.left, r.top, r.right, r.bottom));
+    const originalRegions = Array.from({ length: 12 }, () => new THREE.Vector4());
+    asset?.originalRegions?.slice(0, 12).forEach((r, i) => originalRegions[i].set(r.left, r.top, r.right, r.bottom));
     const id = op.id;
     const material = new THREE.ShaderMaterial({ vertexShader: vertex, fragmentShader: fragment,
       uniforms: { art: { value: texture }, owners: { value: this.mask }, fade: { value: this.fade },
+        applyFade: { value: 1 }, originalInk: { value: this.inkMask(op, asset) }, hasOriginalInk: { value: asset?.preserveSourceColors?.length ? 1 : 0 },
         owner: { value: new THREE.Vector4((id & 255) / 255, ((id >>> 8) & 255) / 255, ((id >>> 16) & 255) / 255, (id >>> 24) / 255) },
         dest: { value: new THREE.Vector4(op.dest.left, op.dest.top, w, h) }, crop: { value: crop },
-        mirror: { value: op.kind === 'pic' && op.mirror ? 1 : 0 }, lighting: { value: 0 }, strength: { value: 0 }, effect: { value: 0 },
+        mirror: { value: (op.kind === 'pic' && op.mirror) !== !!asset?.mirrorX ? 1 : 0 }, lighting: { value: 0 }, strength: { value: 0 }, effect: { value: 0 },
         isTown: { value: op.kind === 'pic' && op.pic === 11 ? 1 : 0 },
-        regionCount: { value: Math.min(12, asset?.regions?.length || 0) }, regions: { value: regions } },
+        regionCount: { value: Math.min(12, asset?.regions?.length || 0) }, regions: { value: regions },
+        originalRegionCount: { value: Math.min(12, asset?.originalRegions?.length || 0) }, originalRegions: { value: originalRegions } },
       transparent: true, depthTest: false, depthWrite: false, toneMapped: false });
     const mesh = new THREE.Mesh(this.geometry, material);
     mesh.position.set(op.dest.left + w / 2 - 160, 100 - op.dest.top - h / 2, .01);
@@ -167,10 +225,22 @@ export class HdPresentation {
     try {
       if (!frame.hd || frame.hd.version !== 1) { this.group.visible = false; return; }
       if (this.lastFrame !== frame) {
-        this.lastOwners = decodeOwners(frame.hd.owners);
+        const originalOwners = decodeOwners(frame.hd.owners);
+        const candidates = new Set<number>(), backgrounds = new Set<number>();
+        for (const op of frame.hd.ops) {
+          const art = this.asset(op);
+          if (art && this.textures.has(art.src)) {
+            if (art.generatedAlpha) candidates.add(op.id); else backgrounds.add(op.id);
+          }
+        }
+        this.lastPlan = planHdSilhouettes(this.assets, frame, originalOwners, pixels, candidates, backgrounds);
+        for (const op of frame.hd.ops) {
+          const background = this.lastPlan.backdrops.get(op.id)?.backgroundOp;
+          if (background) expandHdClockDialOwners(op, background, originalOwners, this.lastPlan.owners);
+        }
         this.lastFrame = frame;
       }
-      const owners = this.lastOwners!;
+      const owners = this.lastPlan!.owners;
       const towns = new Map(frame.hd.ops.filter((op): op is Extract<HdDrawOp, { kind: 'pic' }> => op.kind === 'pic' && op.pic === 11).map(op => [op.id, op]));
       for (let i = 0; i < 64000; i++) {
         const town = towns.get(owners[i]);
@@ -183,19 +253,101 @@ export class HdPresentation {
       // The original cursor is painted above the artwork, with its exact original hotspot.
       for (const i of cursorPixels) this.maskBytes.fill(0, i * 4, i * 4 + 4);
       this.mask.needsUpdate = true; this.fade.needsUpdate = true;
-      const live = new Set<number>();
+      const live = new Set<string>();
       for (const op of frame.hd.ops) {
         if (!op || !Number.isSafeInteger(op.id) || op.id <= 0 || !op.dest) throw new Error('Invalid HD operation');
-        live.add(op.id);
+        const layerId = `op:${op.id}`;
+        live.add(layerId);
         // IDs are local to a session/save; a restored snapshot may reuse an ID.
         const key = JSON.stringify(op);
-        let layer = this.layers.get(op.id);
-        if (layer && layer.key !== key) { this.remove(op.id, layer); layer = undefined; }
-        if (!layer) { layer = this.makeLayer(op, key) || undefined; if (layer) this.layers.set(op.id, layer); }
+        let layer = this.layers.get(layerId);
+        if (layer && layer.key !== key) { this.remove(layerId, layer); layer = undefined; }
+        if (!layer) { layer = this.makeLayer(op, key) || undefined; if (layer) this.layers.set(layerId, layer); }
+        const backdrop = this.lastPlan!.backdrops.get(op.id);
+        if (backdrop && layer) {
+          // Erase the old silhouette before painting the smooth, generated alpha.
+          // Both layers use a presentation-only owner; foreground text stays above them.
+          const underId = `backdrop:${op.id}`, underKey = `${key}:${JSON.stringify(backdrop)}`;
+          live.add(underId);
+          let under = this.layers.get(underId);
+          if (under && under.key !== underKey) { this.remove(underId, under); under = undefined; }
+          if (!under) {
+            if (op.kind === 'cel' && op.view === 270 && backdrop.backgroundOp?.kind === 'pic' && backdrop.backgroundOp.pic === 11) {
+              // The timer overlays an authored dial, not the town photograph.
+              // Reconstruct that dial beneath its smooth sector, including the
+              // original clear holes around the old pixel-sized hour markers.
+              const background = backdrop.backgroundOp, r = HD_CLOCK_FACE_RECT, src = '@prop/clock-face';
+              if (!this.textures.has(src)) {
+                const canvas = createHdClockFaceCanvas(this.assets);
+                if (canvas) this.textures.set(src, this.canvasTexture(canvas));
+              }
+              const left = background.dest.left + (background.mirror ? 320 - r.right : r.left), top = background.dest.top + r.top;
+              under = this.makeLayer({ ...background, id: op.id, dest: { left, top, right: left + r.right - r.left, bottom: top + r.bottom - r.top } }, underKey,
+                { src, width: r.right - r.left, height: r.bottom - r.top }) || undefined;
+              if (under) under.mesh.material.uniforms.isTown.value = 0;
+            } else if (backdrop.backgroundOp) {
+              under = this.makeLayer({ ...backdrop.backgroundOp, id: op.id }, underKey) || undefined;
+            } else if (backdrop.color) {
+              const src = `@solid/${backdrop.color.join(',')}`;
+              if (!this.textures.has(src)) {
+                const texture = new THREE.DataTexture(new Uint8Array([...backdrop.color, 255]), 1, 1, THREE.RGBAFormat);
+                texture.colorSpace = THREE.NoColorSpace; texture.needsUpdate = true;
+                this.textures.set(src, texture);
+              }
+              under = this.makeLayer(op, underKey, { src, width: 1, height: 1 }) || undefined;
+              if (under) under.mesh.material.uniforms.applyFade.value = 0;
+            }
+            if (under) { under.mesh.renderOrder = 9; this.layers.set(underId, under); }
+          }
+          if (under) {
+            under.mesh.material.uniforms.lighting.value = this.options.lighting ? 1 : 0;
+            under.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
+            under.mesh.material.uniforms.effect.value = this.options.effect || 0;
+          }
+        }
         if (layer) {
           layer.mesh.material.uniforms.lighting.value = this.options.lighting ? 1 : 0;
           layer.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
           layer.mesh.material.uniforms.effect.value = this.options.effect || 0;
+        }
+        if (op.kind === 'pic' && op.pic === 11) {
+          const overlays = (this.manifest.overlays || []).filter(overlay => overlay.pic === op.pic);
+          for (let index = 0; index < overlays.length; index++) {
+            const overlay = overlays[index], overlayId = `overlay:${op.id}:${index}`, overlayKey = `${key}:overlay:${index}`;
+            live.add(overlayId);
+            let patch = this.layers.get(overlayId);
+            if (patch && patch.key !== overlayKey) { this.remove(overlayId, patch); patch = undefined; }
+            if (!patch) {
+              const r = overlay.dest, left = op.dest.left + (op.mirror ? 320 - r.right : r.left), top = op.dest.top + r.top;
+              patch = this.makeLayer({ ...op, dest: { left, top, right: left + r.right - r.left, bottom: top + r.bottom - r.top } }, overlayKey, overlay) || undefined;
+              if (patch) { patch.mesh.renderOrder = 11; this.layers.set(overlayId, patch); }
+            }
+            if (patch) {
+              patch.mesh.material.uniforms.lighting.value = this.options.lighting ? 1 : 0;
+              patch.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
+              patch.mesh.material.uniforms.effect.value = this.options.effect || 0;
+            }
+          }
+          const faceId = `clock:${op.id}`, faceKey = `${key}:clock-face`, src = '@prop/clock-face';
+          live.add(faceId);
+          let face = this.layers.get(faceId);
+          if (face && face.key !== faceKey) { this.remove(faceId, face); face = undefined; }
+          if (!this.textures.has(src)) {
+            const canvas = createHdClockFaceCanvas(this.assets);
+            if (canvas) this.textures.set(src, this.canvasTexture(canvas));
+          }
+          if (!face) {
+            const r = HD_CLOCK_FACE_RECT;
+            const left = op.dest.left + (op.mirror ? 320 - r.right : r.left), top = op.dest.top + r.top;
+            face = this.makeLayer({ ...op, dest: { left, top, right: left + r.right - r.left, bottom: top + r.bottom - r.top } }, faceKey,
+              { src, width: r.right - r.left, height: r.bottom - r.top }) || undefined;
+            if (face) { face.mesh.renderOrder = 12; this.layers.set(faceId, face); }
+          }
+          if (face) {
+            face.mesh.material.uniforms.isTown.value = 0;
+            face.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
+            face.mesh.material.uniforms.effect.value = this.options.effect || 0;
+          }
         }
       }
       for (const [id, layer] of this.layers) if (!live.has(id)) this.remove(id, layer);
@@ -205,13 +357,15 @@ export class HdPresentation {
       this.status('This screen is using original pixels; HD data could not be displayed.');
     }
   }
-  private remove(id: number, layer: Layer) {
+  private remove(id: string, layer: Layer) {
     this.group.remove(layer.mesh); layer.mesh.material.dispose(); this.layers.delete(id);
   }
   dispose() {
     this.disposed = true;
     for (const [id, layer] of this.layers) this.remove(id, layer);
     for (const texture of this.textures.values()) texture.dispose();
+    for (const texture of this.inkMasks.values()) texture.dispose();
+    this.emptyInk.dispose();
     this.geometry.dispose(); this.mask.dispose(); this.fade.dispose(); this.group.clear();
   }
 }

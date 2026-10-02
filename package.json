@@ -20,7 +20,9 @@
     "test:browser:peer": "node tests/native_browser_peer.cjs",
     "test:browser:discovery": "node tests/native_browser_discovery.cjs",
     "test:browser:hd": "node tests/native_browser_hd.cjs",
-    "test:browser:lobby": "node tests/native_browser_lobby_ui.cjs"
+    "test:browser:hd-props": "node tests/native_browser_hd_props.cjs",
+    "test:browser:lobby": "node tests/native_browser_lobby_ui.cjs",
+    "verify:hd": "python3 tools/verify_native_hd.py"
   },
   "devDependencies": {
     "@types/node": "24.7.0",
