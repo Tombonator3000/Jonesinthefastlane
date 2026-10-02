@@ -1,0 +1,1286 @@
+[
+  {
+    "number": 0,
+    "size": 4008,
+    "sha256": "4a6d8406028aec4efe90d0331904fc4653c0330c1f9e527a7f94bfdaf32af8b0",
+    "instructions": 967,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "jones",
+      "bubbleWindow",
+      "invisibleWindow",
+      "aSong",
+      "aSoundEffect"
+    ]
+  },
+  {
+    "number": 1,
+    "size": 10672,
+    "sha256": "4147962cb2e991cdb64ea299b7edb6a86e961a198508a7aa2caf99895effc697",
+    "instructions": 3467,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "door",
+      "marbleMoved",
+      "Place",
+      "places",
+      "mainKeyMouseList",
+      "apartmentsP",
+      "rentOfficeP",
+      "securityP",
+      "marketP",
+      "bankP",
+      "factoryP",
+      "employmentP",
+      "universityP",
+      "applianceP",
+      "clothingP",
+      "fastFoodP",
+      "discountP",
+      "pawnShopP",
+      "I",
+      "Player",
+      "players",
+      "player1",
+      "player2",
+      "player3",
+      "player4",
+      "theWalker",
+      "marble",
+      "room1",
+      "calc",
+      "tempList",
+      "timeKeep",
+      "number1",
+      "number2",
+      "number3",
+      "number4",
+      "picPatch",
+      "outline"
+    ]
+  },
+  {
+    "number": 2,
+    "size": 2912,
+    "sha256": "36eb7316df75a3b55fbcc0e9498d5fb7a11a8bfd767821098f5c21cb4742f3d5",
+    "instructions": 856,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "introRoom",
+      "introDuction",
+      "littlepic1",
+      "littlename1",
+      "littlepic2",
+      "littlename2",
+      "littlepic3",
+      "littlename3",
+      "littlepic4",
+      "littlename4top",
+      "littlename4bot",
+      "littlepic5",
+      "littlename5top",
+      "littlename5bot"
+    ]
+  },
+  {
+    "number": 100,
+    "size": 720,
+    "sha256": "33be4491ff427c4f4fabf7ef6173ba7ab8ccea7a33b54ac0d8efd0af7753e2b2",
+    "instructions": 327,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "MyWindow"
+    ]
+  },
+  {
+    "number": 101,
+    "size": 1378,
+    "sha256": "42bb57eb969987b0d7cf8950804443543e7c7feaffab98d9b0eae1b9bcd77bcf",
+    "instructions": 231,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "MarblePath",
+      "marblePath"
+    ]
+  },
+  {
+    "number": 102,
+    "size": 116,
+    "sha256": "a9e1866fb639dc6dfe3c90ea5123594dd9ef2887313c9173fc0898684ffc97f5",
+    "instructions": 22,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "WList"
+    ]
+  },
+  {
+    "number": 103,
+    "size": 378,
+    "sha256": "333acbc356512a0d2580e001fd817e6b3db5705e2bd240468d54a6cc69de9786",
+    "instructions": 98,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "FwdCount",
+      "RdmC"
+    ]
+  },
+  {
+    "number": 104,
+    "size": 2100,
+    "sha256": "ad9311f368bbb483876f0a9b1cc179d3ffc4238dcdd31b6e622d66b2ffde4c61",
+    "instructions": 655,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "WButton",
+      "CostDItem",
+      "Talker",
+      "TimeClock"
+    ]
+  },
+  {
+    "number": 105,
+    "size": 284,
+    "sha256": "1448a1e8811dea2ffc1930e777a4185f02cd0572734c019a7c93de191c2700a8",
+    "instructions": 73,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "InvisibleWindow"
+    ]
+  },
+  {
+    "number": 106,
+    "size": 990,
+    "sha256": "2f7161260d6f5ac46f0e0ae7c0c47cc7f1f59cd9135c829916ad97d9e89ca24d",
+    "instructions": 254,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "Goods",
+      "Consumable",
+      "Durable",
+      "Educational",
+      "ListOfGoods",
+      "Consumables",
+      "Durables",
+      "Education"
+    ]
+  },
+  {
+    "number": 107,
+    "size": 1814,
+    "sha256": "4ff0ae66d65f656c91a6fcff2bb6573c8b106509f11b316315a74f1cdfc83525",
+    "instructions": 605,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "EconomicIndex",
+      "mainI",
+      "investIndex",
+      "gdsIndex",
+      "gldIndex",
+      "silIndex",
+      "prkIndex",
+      "bcIndex",
+      "penIndex",
+      "economicIndex"
+    ]
+  },
+  {
+    "number": 108,
+    "size": 850,
+    "sha256": "7527d079401415ea319551176c486ebc439d4e73ec1d595bcffe8d0e7d2aedf9",
+    "instructions": 391,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": []
+  },
+  {
+    "number": 109,
+    "size": 136,
+    "sha256": "4eb56f3908255c39d25a80b117c0db3c8c29e857941fc71731d8f5b0df9705bd",
+    "instructions": 74,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": []
+  },
+  {
+    "number": 110,
+    "size": 420,
+    "sha256": "6ab4965aed2ace16d43ae45be0eafa0a97868135dfae08bc55d82f7c7ccec9bc",
+    "instructions": 140,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "DialogScript"
+    ]
+  },
+  {
+    "number": 111,
+    "size": 6840,
+    "sha256": "f65004fd4fc0cbccd24d499ab4cfea04aca618287552028da87b19fac0f9c34b",
+    "instructions": 3139,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "startTrn",
+      "moveNotice",
+      "notice",
+      "moveAmbulance",
+      "ambulance"
+    ]
+  },
+  {
+    "number": 113,
+    "size": 1666,
+    "sha256": "6474e8a5c426c8ab5cbdb297515d2932830efd1c7ac67fa79b12029de2a286f0",
+    "instructions": 787,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "BubbleWindow"
+    ]
+  },
+  {
+    "number": 114,
+    "size": 1318,
+    "sha256": "4e0332d5481a9b10de29a24d429759774016a369021add804e69eda329a0ad47",
+    "instructions": 410,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "muggedByMarket",
+      "muggedByBank",
+      "willy",
+      "newspaper"
+    ]
+  },
+  {
+    "number": 115,
+    "size": 390,
+    "sha256": "dedd0204ff3ed42b16e876976e0ae617026ec870e99880d252a20a5ef8214ecf",
+    "instructions": 182,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": []
+  },
+  {
+    "number": 116,
+    "size": 2708,
+    "sha256": "5dc81822cc8f794c75786047fba9702f0b89c3c515234c8446e4bcf5fb06a77a",
+    "instructions": 778,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "lottoScript",
+      "lottonote",
+      "lottobuck1",
+      "lottobuck2",
+      "lottobuck3",
+      "lottobuck4",
+      "lottobuck5",
+      "lottobuck6",
+      "lottobuck7"
+    ]
+  },
+  {
+    "number": 200,
+    "size": 1430,
+    "sha256": "08d0f3806621705a9745dd254dc848e2a174dff0d975ebbdcac5231a6e4691ea",
+    "instructions": 346,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "lowcost",
+      "background",
+      "relaxButton",
+      "exitButton",
+      "theChair",
+      "theSaying",
+      "theStool",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 201,
+    "size": 5680,
+    "sha256": "1c406ac717a24ba5dbe5301462803c36d0894caaef9ca22975ff2e3010099166",
+    "instructions": 1902,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "rentOffice",
+      "background",
+      "payRent",
+      "moreTime",
+      "rentLowCost",
+      "rentSecurity",
+      "payGarnishment",
+      "exitButton",
+      "workButton",
+      "timeClock",
+      "theShortTitle",
+      "theLongTitleLeft",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 202,
+    "size": 1602,
+    "sha256": "5fdde427e535bfad71e5d549a820abf5e2bedb36fa436706095552f2e7ece0ca",
+    "instructions": 388,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "security",
+      "background",
+      "relaxButton",
+      "exitButton",
+      "theColorTV",
+      "theStereo",
+      "theBooks",
+      "theVCR",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 203,
+    "size": 4376,
+    "sha256": "31de7986d1375657fb757a50ebc5685ffb47c80b8b87fbdb2fa9eb16e9b23baa",
+    "instructions": 1294,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "boughtItem",
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "market",
+      "background",
+      "foodFor1Week",
+      "foodFor2Weeks",
+      "foodFor4Weeks",
+      "lotteryTickets",
+      "newspaper",
+      "exitButton",
+      "workButton",
+      "timeClock",
+      "theTalker",
+      "items",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 204,
+    "size": 4922,
+    "sha256": "237ee1a4e51975b590bf3a02b40a8188dffec26128177b5c3f1341e63eb83408",
+    "instructions": 1621,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "bank",
+      "background",
+      "deposit",
+      "withdraw",
+      "loanPayment",
+      "applyForLoan",
+      "seeBroker",
+      "theTalker",
+      "exitButton",
+      "workButton",
+      "timeClock",
+      "piggyBank",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 205,
+    "size": 1562,
+    "sha256": "70fa6ed2ce71634fe52edf4acab6b92eace8504fc246cca3c77e3f088f246969",
+    "instructions": 434,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "factory",
+      "background",
+      "exitButton",
+      "workButton",
+      "timeClock",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 206,
+    "size": 5636,
+    "sha256": "c2c54ecd89f2a7db4709f23de8469cb2e78e95fdaaab43b5720b8c59f23708e4",
+    "instructions": 1458,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "JobDItem",
+      "JobScript",
+      "dialogKeyMouse",
+      "employment",
+      "background",
+      "discountStore",
+      "fastFoodStore",
+      "clothingStore",
+      "applianceStore",
+      "theUniversity",
+      "theFactory",
+      "theBank",
+      "theMarket",
+      "theRentOffice",
+      "exitButton",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 207,
+    "size": 6272,
+    "sha256": "e4371cfbde564b8421550a1d76ab40c925df4604b37a0bfade41d653bf87b999",
+    "instructions": 1928,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "UniversityDIcon",
+      "dialogKeyMouse",
+      "notEnoughCash",
+      "university",
+      "background",
+      "books",
+      "enrollmentFee",
+      "tradeSchool",
+      "electronics",
+      "preEngineering",
+      "engineering",
+      "juniorCollege",
+      "ba",
+      "academic",
+      "graduate",
+      "postDoctoral",
+      "research",
+      "publishing",
+      "exitButton",
+      "enrollButton",
+      "workButton",
+      "timeClock",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 208,
+    "size": 5432,
+    "sha256": "9c90ddd511adfc9ecaffd7c35e8f3c985ef44d24d800e7e655d9e9c98c45d1c9",
+    "instructions": 1516,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "boughtItem",
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "appliance",
+      "background",
+      "refrigerator",
+      "freezer",
+      "stove",
+      "colorTV",
+      "vcr",
+      "stereo",
+      "microwave",
+      "hotTub",
+      "computer",
+      "exitButton",
+      "workButton",
+      "items",
+      "timeClock",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 209,
+    "size": 3138,
+    "sha256": "0f1412d6a5714cec1e980a4533177ca14ed04fae7ddc9e8420f98a2b9351ffbc",
+    "instructions": 873,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "boughtItem",
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "clothing",
+      "background",
+      "businessSuit",
+      "leisureSuit",
+      "casualClothes",
+      "exitButton",
+      "workButton",
+      "items",
+      "timeClock",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 210,
+    "size": 3974,
+    "sha256": "9e2a03a21075212533e3f1de73effe62c7a310055a8172b67a152825ff3f8d6b",
+    "instructions": 1047,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "boughtItem",
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "fastFood",
+      "background",
+      "hamburgers",
+      "cheeseburgers",
+      "chicken",
+      "fries",
+      "shakes",
+      "colas",
+      "exitButton",
+      "workButton",
+      "timeClock",
+      "theTalker",
+      "items",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 211,
+    "size": 7126,
+    "sha256": "7a0b0c4253ad966f826e7467c12972c4eadc8741703bcc528b07e2f7b69e338d",
+    "instructions": 1635,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "boughtItem",
+      "notEnoughCash",
+      "FS",
+      "DiscountDItem",
+      "dialogKeyMouse",
+      "discount",
+      "background",
+      "refrigerator",
+      "stove",
+      "stereo",
+      "colorTV",
+      "bwTV",
+      "microwave",
+      "vcr",
+      "casualClothes",
+      "leisureSuit",
+      "baseballTickets",
+      "theatreTickets",
+      "concertTickets",
+      "encyclopedia",
+      "dictionary",
+      "atlas",
+      "dogFood",
+      "eightTrack",
+      "trumanCapote",
+      "exitButton",
+      "workButton",
+      "timeClock",
+      "items",
+      "theTalker",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 212,
+    "size": 8430,
+    "sha256": "900001c8cb0f3dc5f0cb2a67b007c477ab9dcf06d092cd2c07f79943960f033a",
+    "instructions": 2776,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "boughtItem",
+      "notEnoughCash",
+      "FCue",
+      "dialogKeyMouse",
+      "pawnShop",
+      "background",
+      "pawnButton",
+      "redeemButton",
+      "buyButton",
+      "exitButton",
+      "theTalker",
+      "pawnMessage",
+      "pawn",
+      "pawnSelector",
+      "donePawning",
+      "doneRedeeming",
+      "doneBuying",
+      "buyMessage",
+      "redeemMessage",
+      "aRedeemableItem",
+      "items",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 213,
+    "size": 5380,
+    "sha256": "74724185595a7ef5b1a4c34092fbdc99446ac56a8e4fe696f5f83ebc5d77bc5f",
+    "instructions": 1612,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "notEnoughCash",
+      "dialogKeyMouse",
+      "broker",
+      "background",
+      "InvestmentDIcon",
+      "tBills",
+      "tBillsHoldings",
+      "gold",
+      "goldHoldings",
+      "silver",
+      "silverHoldings",
+      "porkBellies",
+      "porkBelliesHoldings",
+      "blueChipStocks",
+      "blueChipStocksHoldings",
+      "pennyStocks",
+      "pennyStocksHoldings",
+      "exitButton",
+      "buyButton",
+      "sellButton",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 215,
+    "size": 2238,
+    "sha256": "bb0c4587b0b0ab68bfe64a819e84ea204f56750dec093968b0f7e7ead38a5aef",
+    "instructions": 763,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "newspaper",
+      "background",
+      "doneButton",
+      "newsPaper",
+      "newspaperText",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 216,
+    "size": 1298,
+    "sha256": "309b28b33270359e1e038fd431d9b353d692788e99c382996d2dc3736818dc84",
+    "instructions": 196,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "discountJobs",
+      "background",
+      "jobsAvailable",
+      "clerk",
+      "assistManager",
+      "manager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 217,
+    "size": 1448,
+    "sha256": "331dda73eda8aeb3bfbf38a138df5758cb73ca7db2d7536ed885bee52860806e",
+    "instructions": 199,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "fastFoodJobs",
+      "background",
+      "jobsAvailable",
+      "cook",
+      "clerk",
+      "assistManager",
+      "manager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 218,
+    "size": 1300,
+    "sha256": "b1fb2e6e3a91bdef674937c106cd2be881aca983b261148bd702cdac99868f49",
+    "instructions": 196,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "clothingJobs",
+      "background",
+      "jobsAvailable",
+      "salesPerson",
+      "assistManager",
+      "manager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 219,
+    "size": 1310,
+    "sha256": "de2435fb251ed6992da56f64b97f5d32b2b9ea2c08ab73660608b3cf8b024af4",
+    "instructions": 196,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "applianceJobs",
+      "background",
+      "jobsAvailable",
+      "salesperson",
+      "electronicsRepair",
+      "manager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 220,
+    "size": 1292,
+    "sha256": "f70ecbaf13dc989e3e390cc3713bec642a8cba284abf7838618b0c0749a6652b",
+    "instructions": 196,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "universityJobs",
+      "background",
+      "jobsAvailable",
+      "janitor",
+      "teacher",
+      "professor",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 221,
+    "size": 2242,
+    "sha256": "01b299b46326704409eb124a8a3c746c3fc03bd02b5bb4780b63540b50a47a97",
+    "instructions": 209,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "factoryJobs",
+      "background",
+      "jobsAvailable",
+      "janitor",
+      "assemblyWorker",
+      "secretary",
+      "machinistsHelper",
+      "executiveSecretary",
+      "machinist",
+      "departmentManager",
+      "engineer",
+      "generalManager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 222,
+    "size": 1584,
+    "sha256": "ae56fb44f3ef217d08dfe2008fd9e64e0abead9bfd865a136a4939a87df01516",
+    "instructions": 200,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "bankJobs",
+      "background",
+      "jobsAvailable",
+      "janitor",
+      "teller",
+      "assistManager",
+      "manager",
+      "broker",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 223,
+    "size": 1596,
+    "sha256": "d229ad7e5fd357b97de4a94fc23dca7763125edbb031e8e190157cbdbf8e1064",
+    "instructions": 200,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "marketJobs",
+      "background",
+      "jobsAvailable",
+      "janitor",
+      "checker",
+      "butcher",
+      "assistManager",
+      "manager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 224,
+    "size": 1156,
+    "sha256": "dc5e8367371faea1fc502c5e6a07e8ebfb44a3596a06d1324b6e8241fa119f58",
+    "instructions": 194,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "rentJobs",
+      "background",
+      "jobsAvailable",
+      "groundsKeeper",
+      "apartmentManager",
+      "exitButton"
+    ]
+  },
+  {
+    "number": 229,
+    "size": 2212,
+    "sha256": "5a446ec452eb2f17825b5b0f80d8ca6775ca5165ebf01687fb6d47cc4d2c4b9c",
+    "instructions": 291,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dKeyMouse",
+      "goalsDefine",
+      "background",
+      "doneButton",
+      "rightArrow",
+      "corner1",
+      "corner2",
+      "corner3",
+      "corner4",
+      "theTitle",
+      "textOne"
+    ]
+  },
+  {
+    "number": 230,
+    "size": 1264,
+    "sha256": "eb748d05f0a105447d2fb1fa4320d3233bc07d6c8a6f017dfe28f3171e3f0193",
+    "instructions": 342,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "diploma",
+      "background",
+      "doneButton",
+      "theDiploma",
+      "diplomaText",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 231,
+    "size": 3380,
+    "sha256": "9303867ea98568e8e04a9800be77dea4b0e868035c78820c2fafe38f911af3f2",
+    "instructions": 760,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "inventories",
+      "background",
+      "doneButton",
+      "invSelector"
+    ]
+  },
+  {
+    "number": 232,
+    "size": 2560,
+    "sha256": "04a2f5d10462580f1b7b69349c0cf544857703bb45049a41581af87a381363ee",
+    "instructions": 959,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "weekend",
+      "background",
+      "exitButton",
+      "weekendText",
+      "computerScript"
+    ]
+  },
+  {
+    "number": 233,
+    "size": 734,
+    "sha256": "678ad36b54447fd9ac6cd764730d69d300ea186f9f22a2e956ae48b75ec30af0",
+    "instructions": 156,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "select1",
+      "playGame",
+      "restoreGame",
+      "demonstration"
+    ]
+  },
+  {
+    "number": 234,
+    "size": 3146,
+    "sha256": "eb555e6cf9846c79afb4c02a93bd07eae15264b16e37c3f20300075c71fbeded",
+    "instructions": 800,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "winnerScript",
+      "jonesGuy",
+      "confetti",
+      "star1",
+      "star2",
+      "star3",
+      "star4",
+      "star5",
+      "star6",
+      "star7",
+      "star8",
+      "star9",
+      "star10",
+      "pedistal",
+      "theWinner",
+      "background1",
+      "background2"
+    ]
+  },
+  {
+    "number": 235,
+    "size": 2066,
+    "sha256": "81256fdb15d4c1fbbe259f96545a76c632391071bd76c1597df68b7fc79a890e",
+    "instructions": 525,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "select2",
+      "background",
+      "playerNumber",
+      "firstPlayer",
+      "secondPlayer",
+      "thirdPlayer",
+      "fourthPlayer",
+      "firstDim",
+      "secondDim",
+      "thirdDim",
+      "fourthDim"
+    ]
+  },
+  {
+    "number": 236,
+    "size": 3802,
+    "sha256": "fdbadd22a1938c26cc0daa99183a6c03d4685c588692c2196cf4c63cac362c13",
+    "instructions": 1083,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "select3",
+      "background",
+      "windowTitle",
+      "playerNumber1",
+      "playerNumber2",
+      "exButton",
+      "StarSlider",
+      "wealthStar",
+      "happyStar",
+      "educationStar",
+      "careerStar",
+      "goalPoints",
+      "currentWealth",
+      "currentHappy",
+      "currentEducation",
+      "currentCareer",
+      "questionButton"
+    ]
+  },
+  {
+    "number": 237,
+    "size": 2586,
+    "sha256": "325475aca500a5c3d66fb97d5dbb7d22875390978419adbb0f2c062ad682f062",
+    "instructions": 864,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "select4",
+      "background",
+      "questionText1",
+      "questionText2",
+      "yesButton",
+      "noButton",
+      "takeItEasy",
+      "playFair",
+      "goForBroke"
+    ]
+  },
+  {
+    "number": 238,
+    "size": 3898,
+    "sha256": "af56a6ef83467204ea34f2af904f7fddf08e8d5a1e9fcf8ebeba2c8d04fd5974",
+    "instructions": 1170,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "viewGoals",
+      "background",
+      "exitButton",
+      "playerNumber1",
+      "playerNumber2",
+      "playerNumber3",
+      "playerNumber4",
+      "therm1",
+      "therm2",
+      "therm3",
+      "therm4",
+      "fineTherm1",
+      "fineTherm2",
+      "fineTherm3",
+      "fineTherm4",
+      "percent1",
+      "percent2",
+      "percent3",
+      "percent4"
+    ]
+  },
+  {
+    "number": 239,
+    "size": 904,
+    "sha256": "2d732a7d04745618c552676e74bb6298e17a6af0e13b5f378c55c1d106209fd2",
+    "instructions": 198,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "dialogKeyMouse",
+      "select1b",
+      "number1",
+      "number2",
+      "number3",
+      "number4"
+    ]
+  },
+  {
+    "number": 255,
+    "size": 7264,
+    "sha256": "c7d2984596c1a2bedeae2cdb91f9979a6f91f6eba57f380e411aa64cf1480da1",
+    "instructions": 3055,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "",
+      "",
+      "DText",
+      "DIcon",
+      "ErasableDIcon",
+      "DButton",
+      "DEdit",
+      "DSelector",
+      "Dialog",
+      "Controls"
+    ]
+  },
+  {
+    "number": 300,
+    "size": 6628,
+    "sha256": "d2c1c4486b552b168730ef87b91c3ad119da372db13a8c19a2e95c13846b855d",
+    "instructions": 3086,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "WhereShouldIGo"
+    ]
+  },
+  {
+    "number": 764,
+    "size": 194,
+    "sha256": "ca0e8df361e29803eb38819e7ed07b47fabdc8e901cd7a8dd12d7114d4a79258",
+    "instructions": 21,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "rightsWin",
+      "noticeRoom"
+    ]
+  },
+  {
+    "number": 891,
+    "size": 800,
+    "sha256": "08f3b02bce2bda058f39316c35db15e6427704baa21ecf6577a5c4bb1b1d5f07",
+    "instructions": 359,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "KeyMouse"
+    ]
+  },
+  {
+    "number": 967,
+    "size": 364,
+    "sha256": "c37ec5defc72c49e5c1a4944fccfc54c6a664903ed5f5fa606987aa13a55a3e9",
+    "instructions": 86,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "DCIcon"
+    ]
+  },
+  {
+    "number": 987,
+    "size": 1122,
+    "sha256": "d5c8ad8de5d3f8d5af4c23ca42a25542daffeee830a9e8ac91a586453dac6bf0",
+    "instructions": 442,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "Gauge"
+    ]
+  },
+  {
+    "number": 989,
+    "size": 712,
+    "sha256": "bcdf6ace414a7622f7439a37c819389f28491d1a973c8a261b127900ff62148f",
+    "instructions": 274,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "Sound"
+    ]
+  },
+  {
+    "number": 990,
+    "size": 896,
+    "sha256": "3094e63b82f4bd4c01c950bf0e98e0741cee634580062a48fd05c921defc6772",
+    "instructions": 411,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": []
+  },
+  {
+    "number": 992,
+    "size": 1628,
+    "sha256": "996b35c04387130bca4784512632dfd78483e8a06cb662251cc02e89716538e3",
+    "instructions": 478,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "Cycle",
+      "Fwd",
+      "Walk",
+      "CT",
+      "End",
+      "Beg",
+      "Motion",
+      "MoveTo"
+    ]
+  },
+  {
+    "number": 993,
+    "size": 282,
+    "sha256": "a40fd40d1e805de5ce910094a0b9d156da1587f17dd33ec32171447de4fdd5d1",
+    "instructions": 98,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "gamefile.sh"
+    ]
+  },
+  {
+    "number": 994,
+    "size": 2170,
+    "sha256": "b0c0125555a50a2d4566fcaab85af2f721a9dbf6a3593b44517ed79731c832c8",
+    "instructions": 807,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "cast",
+      "sounds",
+      "controls",
+      "SysWindow",
+      "Game",
+      "Rm",
+      "RU"
+    ]
+  },
+  {
+    "number": 996,
+    "size": 452,
+    "sha256": "3d95ec9eea2041a866e0dfb48bde86199810fdcf221bc58c7023b52d19da6918",
+    "instructions": 133,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "User"
+    ]
+  },
+  {
+    "number": 997,
+    "size": 3116,
+    "sha256": "37afb91fa4fae0a9d6460e776722bf7cca6629b4330c25e60175fdd4ad704f52",
+    "instructions": 1140,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "MenuBar"
+    ]
+  },
+  {
+    "number": 998,
+    "size": 2020,
+    "sha256": "a5e7c2b3ae7b4c4472acef70b1e766a74e4a7935fe3bc2127521793e21b25793",
+    "instructions": 671,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "Feature",
+      "View",
+      "Prop",
+      "Act"
+    ]
+  },
+  {
+    "number": 999,
+    "size": 2332,
+    "sha256": "e48c243067ca6215707656963a597902ecf7e3bfc87b75846fe6e5071ba2365e",
+    "instructions": 879,
+    "raw_code_bytes": 0,
+    "branch_target_warnings": [],
+    "objects": [
+      "Obj",
+      "Code",
+      "Collect",
+      "List",
+      "Set",
+      "EventHandler",
+      "Script",
+      "Event"
+    ]
+  }
+]

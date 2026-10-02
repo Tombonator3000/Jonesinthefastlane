@@ -1,0 +1,204 @@
+; SCI1 script 115: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 390 bytes.
+
+; EXPORTS @0x0000 size=10
+@0000 .hex 07 00 0a 00 02 00 2b 00 2f 01 ; ......+./.
+
+; CODE @0x000a size=366
+@000a .hex 02 00 6e 01 ; ..n.
+@000e link.b       0x01
+@0010 lsp.b        0x01 ; param[1]
+@0012 lap.b        0x02 ; param[2]
+@0014 add.w
+@0015 push.w
+@0016 lal.b        0x01 ; local[1]
+@0018 add.w
+@0019 sat.b        0x00 ; temp[0]
+@001b push.w
+@001c ldi.b        0x0a
+@001e mod.w
+@001f sal.b        0x00 ; local[0]
+@0021 lst.b        0x00 ; temp[0]
+@0023 ldi.b        0x0a
+@0025 div.w
+@0026 sal.b        0x01 ; local[1]
+@0028 lal.b        0x00 ; local[0]
+@002a ret.w
+; export_0
+@002b link.b       0x2d
+@002d lap.b        0x01 ; param[1]
+@002f not.w
+@0030 bt.w         0x0005 ; target @0x0038
+@0033 lsp.b        0x02 ; param[2]
+@0035 ldi.b        0x00
+@0037 lt?.w
+@0038 bnt.w        0x0015 ; target @0x0050
+@003b pushi.b      0x04 ; possible selector: x
+@003d lea.w        0x0000 0x0113
+@0042 push.w
+@0043 pushi.b      0x73 ; possible selector: isEmpty
+@0045 push0.w
+@0046 lsp.b        0x02 ; param[2]
+@0048 callk.b      0x48 0x08 ; Format
+@004b sat.b        0x2c ; temp[44]
+@004d jmp.w        0x00dc ; target @0x012c
+@0050 ldi.b        0x00
+@0052 sal.b        0x01 ; local[1]
+@0054 ldi.b        0x00
+@0056 sat.b        0x2a ; temp[42]
+@0058 ldi.w        0x7ffe
+@005b sat.b        0x29 ; temp[41]
+@005d push2.w
+@005e lst.b        0x29 ; temp[41]
+@0060 ldi.b        0x0a
+@0062 mod.w
+@0063 push.w
+@0064 lap.b        0x01 ; param[1]
+@0066 mul.w
+@0067 push.w
+@0068 lsp.b        0x02 ; param[2]
+@006a ldi.b        0x0a
+@006c mod.w
+@006d push.w
+@006e call.w       0xff9c 0x04 ; target @0x000e
+@0072 sat.b        0x00 ; temp[0]
+@0074 lsp.b        0x02 ; param[2]
+@0076 ldi.b        0x0a
+@0078 div.w
+@0079 sap.b        0x02 ; param[2]
+@007b lst.b        0x29 ; temp[41]
+@007d ldi.b        0x0a
+@007f div.w
+@0080 sat.b        0x29 ; temp[41]
+@0082 pushi.b      0x03 ; possible selector: y
+@0084 lea.b        0x04 0x01
+@0087 push.w
+@0088 lst.b        0x2a ; temp[42]
+@008a lst.b        0x00 ; temp[0]
+@008c ldi.b        0x30
+@008e add.w
+@008f push.w
+@0090 callk.b      0x62 0x06 ; StrAt
+@0093 +at.b        0x2a ; temp[42]
+@0095 lsp.b        0x02 ; param[2]
+@0097 ldi.b        0x00
+@0099 eq?.w
+@009a bnt.w        0xffc0 ; target @0x005d
+@009d lst.b        0x29 ; temp[41]
+@009f ldi.b        0x00
+@00a1 eq?.w
+@00a2 bnt.w        0xffb8 ; target @0x005d
+@00a5 lal.b        0x01 ; local[1]
+@00a7 bnt.w        0x0017 ; target @0x00c1
+@00aa sap.b        0x02 ; param[2]
+@00ac ldi.b        0x00
+@00ae sap.b        0x01 ; param[1]
+@00b0 ldi.b        0x00
+@00b2 sat.b        0x29 ; temp[41]
+@00b4 ldi.b        0x00
+@00b6 sal.b        0x01 ; local[1]
+@00b8 jmp.w        0xffa2 ; target @0x005d
+@00bb jmp.w        0x0003 ; target @0x00c1
+@00be jmp.w        0xff9c ; target @0x005d
+@00c1 pushi.b      0x03 ; possible selector: y
+@00c3 lea.b        0x04 0x01
+@00c6 push.w
+@00c7 lst.b        0x2a ; temp[42]
+@00c9 push0.w
+@00ca callk.b      0x62 0x06 ; StrAt
+@00cd push1.w
+@00ce lea.b        0x04 0x01
+@00d1 push.w
+@00d2 callk.b      0x46 0x02 ; StrLen
+@00d5 push.w
+@00d6 ldi.b        0x01
+@00d8 sub.w
+@00d9 sat.b        0x2b ; temp[43]
+@00db sat.b        0x2a ; temp[42]
+@00dd lst.b        0x2a ; temp[42]
+@00df ldi.b        0x00
+@00e1 ge?.w
+@00e2 bnt.w        0x0022 ; target @0x0107
+@00e5 push2.w
+@00e6 lea.b        0x04 0x01
+@00e9 push.w
+@00ea lst.b        0x2a ; temp[42]
+@00ec callk.b      0x62 0x04 ; StrAt
+@00ef sat.b        0x00 ; temp[0]
+@00f1 pushi.b      0x03 ; possible selector: y
+@00f3 lea.b        0x04 0x15
+@00f6 push.w
+@00f7 lst.b        0x2b ; temp[43]
+@00f9 lat.b        0x2a ; temp[42]
+@00fb sub.w
+@00fc push.w
+@00fd lst.b        0x00 ; temp[0]
+@00ff callk.b      0x62 0x06 ; StrAt
+@0102 -at.b        0x2a ; temp[42]
+@0104 jmp.w        0xffd6 ; target @0x00dd
+@0107 pushi.b      0x03 ; possible selector: y
+@0109 lea.b        0x04 0x15
+@010c push.w
+@010d lst.b        0x2b ; temp[43]
+@010f ldi.b        0x01
+@0111 add.w
+@0112 push.w
+@0113 push0.w
+@0114 callk.b      0x62 0x06 ; StrAt
+@0117 push2.w
+@0118 lea.w        0x0000 0x0113
+@011d push.w
+@011e lea.b        0x04 0x15
+@0121 push.w
+@0122 callk.b      0x47 0x04 ; StrCpy
+@0125 lea.w        0x0000 0x0113
+@012a sat.b        0x2c ; temp[44]
+@012c lat.b        0x2c ; temp[44]
+@012e ret.w
+; export_1
+@012f link.b       0x05
+@0131 ldi.b        0x00
+@0133 sat.b        0x04 ; temp[4]
+@0135 sat.b        0x03 ; temp[3]
+@0137 ldi.b        0x00
+@0139 sat.b        0x01 ; temp[1]
+@013b pushi.w      0x017b ; possible selector: shares
+@013e push0.w
+@013f lap.b        0x01 ; param[1]
+@0141 send.w       0x04
+@0143 sat.b        0x02 ; temp[2]
+@0145 ldi.b        0x00
+@0147 sat.b        0x00 ; temp[0]
+@0149 lst.b        0x00 ; temp[0]
+@014b lap.b        0x02 ; param[2]
+@014d lt?.w
+@014e bnt.w        0x001c ; target @0x016d
+@0151 pushi.b      0x04 ; possible selector: x
+@0153 lst.b        0x03 ; temp[3]
+@0155 lst.b        0x04 ; temp[4]
+@0157 lst.b        0x01 ; temp[1]
+@0159 lst.b        0x02 ; temp[2]
+@015b callb.b      0x0c 0x08
+@015e lag.w        0x01c6 ; global[454]
+@0161 sat.b        0x03 ; temp[3]
+@0163 lag.w        0x01c7 ; global[455]
+@0166 sat.b        0x04 ; temp[4]
+@0168 +at.b        0x00 ; temp[0]
+@016a jmp.w        0xffdc ; target @0x0149
+@016d lat.b        0x03 ; temp[3]
+@016f sag.w        0x01c6 ; global[454]
+@0172 lat.b        0x04 ; temp[4]
+@0174 sag.w        0x01c7 ; global[455]
+@0177 ret.w
+
+; PRELOAD @0x0178 size=4
+@0178 .hex 09 00 04 00 ; ....
+
+; LOCALS @0x017c size=8
+@017c .hex 0a 00 08 00 00 00 00 00 ; ........
+
+; END @0x0184 size=2
+@0184 .hex 00 00 ; ..

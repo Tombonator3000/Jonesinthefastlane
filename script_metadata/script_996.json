@@ -1,0 +1,155 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 270
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 270,
+      "size": 96
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 366,
+      "size": 22
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 388,
+      "size": 52
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 440,
+      "size": 10
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 450,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 270,
+      "address": 282,
+      "name": "User",
+      "species": 32,
+      "superclass": 0,
+      "properties": [
+        32,
+        0,
+        32768,
+        382,
+        0,
+        0,
+        0,
+        32,
+        0,
+        370,
+        0,
+        65535,
+        65535,
+        1,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 4
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 37
+        },
+        {
+          "selector": 242,
+          "name": "canControl",
+          "address": 184
+        },
+        {
+          "selector": 243,
+          "name": "getInput",
+          "address": 179
+        },
+        {
+          "selector": 75,
+          "name": "said",
+          "address": 267
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        4,
+        3,
+        217,
+        241
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 370,
+      "text": "Enter input",
+      "terminated": true
+    },
+    {
+      "offset": 382,
+      "text": "User",
+      "terminated": true
+    },
+    {
+      "offset": 387,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

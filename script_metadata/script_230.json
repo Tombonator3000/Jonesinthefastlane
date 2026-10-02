@@ -1,0 +1,430 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 422
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 458,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 532,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 604,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 676,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 746,
+      "size": 92
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 838,
+      "size": 100
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 938,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1012,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1094,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1144,
+      "size": 88
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 1232,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 1236,
+      "size": 6
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1242,
+      "size": 20
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1262,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        1148,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 458,
+      "address": 470,
+      "name": "diploma",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        1163,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 532,
+      "address": 544,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1171,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        607,
+        1,
+        0,
+        10
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 604,
+      "address": 616,
+      "name": "doneButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1182,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        2,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 746,
+      "address": 758,
+      "name": "theDiploma",
+      "species": 50,
+      "superclass": 50,
+      "properties": [
+        50,
+        50,
+        0,
+        1193,
+        4,
+        0,
+        15,
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        607,
+        0,
+        0,
+        15,
+        0,
+        1,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 704
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 680
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 722
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 938,
+      "address": 950,
+      "name": "diplomaText",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        1204,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 842
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1094,
+      "address": 1106,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        1216,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 1016
+        }
+      ]
+    }
+  ],
+  "exports": [
+    470
+  ],
+  "strings": [
+    {
+      "offset": 1148,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 1163,
+      "text": "diploma",
+      "terminated": true
+    },
+    {
+      "offset": 1171,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 1182,
+      "text": "doneButton",
+      "terminated": true
+    },
+    {
+      "offset": 1193,
+      "text": "theDiploma",
+      "terminated": true
+    },
+    {
+      "offset": 1204,
+      "text": "diplomaText",
+      "terminated": true
+    },
+    {
+      "offset": 1216,
+      "text": "computerScript",
+      "terminated": true
+    },
+    {
+      "offset": 1231,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0
+  ]
+}

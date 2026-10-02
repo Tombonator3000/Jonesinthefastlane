@@ -1,0 +1,435 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 526
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 534,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 610,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 652,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 694,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 736,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 778,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 820,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 862,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 904,
+      "size": 42
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 946,
+      "size": 700
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1646,
+      "size": 28
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1674,
+      "size": 104
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 1778,
+      "size": 8
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1786,
+      "size": 26
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1812,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 534,
+      "address": 546,
+      "name": "EconomicIndex",
+      "species": 79,
+      "superclass": 0,
+      "properties": [
+        79,
+        0,
+        32768,
+        1678,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 66
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 437
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        381,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 610,
+      "address": 622,
+      "name": "mainI",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1692,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        20
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 652,
+      "address": 664,
+      "name": "investIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1698,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        18
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 694,
+      "address": 706,
+      "name": "gdsIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1710,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        20
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 736,
+      "address": 748,
+      "name": "gldIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1719,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        5
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 778,
+      "address": 790,
+      "name": "silIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1728,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        7
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 820,
+      "address": 832,
+      "name": "prkIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1737,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        9
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 862,
+      "address": 874,
+      "name": "bcIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1746,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        11
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 904,
+      "address": 916,
+      "name": "penIndex",
+      "species": 79,
+      "superclass": 79,
+      "properties": [
+        79,
+        79,
+        0,
+        1754,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1646,
+      "address": 1658,
+      "name": "economicIndex",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        1763
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 950
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1658
+  ],
+  "strings": [
+    {
+      "offset": 1678,
+      "text": "EconomicIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1692,
+      "text": "mainI",
+      "terminated": true
+    },
+    {
+      "offset": 1698,
+      "text": "investIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1710,
+      "text": "gdsIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1719,
+      "text": "gldIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1728,
+      "text": "silIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1737,
+      "text": "prkIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1746,
+      "text": "bcIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1754,
+      "text": "penIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1763,
+      "text": "economicIndex",
+      "terminated": true
+    },
+    {
+      "offset": 1777,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0
+  ]
+}

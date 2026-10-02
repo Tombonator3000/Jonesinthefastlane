@@ -1,0 +1,1146 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 224
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 232,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 260,
+      "size": 1376
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1636,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1710,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1782,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1854,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1932,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2008,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2084,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2160,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2236,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2312,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2388,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2464,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2536,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2608,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2680,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2752,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2824,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2896,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2968,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3040,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3110,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3184,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3254,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3328,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3398,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3472,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3542,
+      "size": 74
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 3616,
+      "size": 216
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 3832,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 3836,
+      "size": 14
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 3850,
+      "size": 46
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 3896,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 232,
+      "address": 244,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        3620,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1636,
+      "address": 1648,
+      "name": "viewGoals",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        3635,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 264
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1710,
+      "address": 1722,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3645,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        0,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1782,
+      "address": 1794,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3656,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1932,
+      "address": 1944,
+      "name": "playerNumber1",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3667,
+        4,
+        1,
+        90,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        3,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1858
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2084,
+      "address": 2096,
+      "name": "playerNumber2",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3681,
+        4,
+        1,
+        90,
+        62,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        3,
+        1,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2012
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2236,
+      "address": 2248,
+      "name": "playerNumber3",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3695,
+        4,
+        1,
+        90,
+        106,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        3,
+        2,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2164
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2388,
+      "address": 2400,
+      "name": "playerNumber4",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3709,
+        4,
+        1,
+        90,
+        150,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        3,
+        3,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2316
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2464,
+      "address": 2476,
+      "name": "therm1",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3723,
+        4,
+        0,
+        35,
+        21,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        1,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2536,
+      "address": 2548,
+      "name": "therm2",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3730,
+        4,
+        0,
+        35,
+        65,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        1,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2608,
+      "address": 2620,
+      "name": "therm3",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3737,
+        4,
+        0,
+        35,
+        109,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        1,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2680,
+      "address": 2692,
+      "name": "therm4",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3744,
+        4,
+        0,
+        35,
+        153,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        1,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2752,
+      "address": 2764,
+      "name": "fineTherm1",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3751,
+        4,
+        0,
+        83,
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        2,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2824,
+      "address": 2836,
+      "name": "fineTherm2",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3762,
+        4,
+        0,
+        83,
+        66,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        2,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2896,
+      "address": 2908,
+      "name": "fineTherm3",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3773,
+        4,
+        0,
+        83,
+        110,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        2,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2968,
+      "address": 2980,
+      "name": "fineTherm4",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3784,
+        4,
+        0,
+        83,
+        154,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        505,
+        2,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3110,
+      "address": 3122,
+      "name": "percent1",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        3795,
+        2,
+        0,
+        25,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3044
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3254,
+      "address": 3266,
+      "name": "percent2",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        3804,
+        2,
+        0,
+        25,
+        58,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3188
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3398,
+      "address": 3410,
+      "name": "percent3",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        3813,
+        2,
+        0,
+        25,
+        102,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3332
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3542,
+      "address": 3554,
+      "name": "percent4",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        3822,
+        2,
+        0,
+        25,
+        146,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3476
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1648
+  ],
+  "strings": [
+    {
+      "offset": 3620,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 3635,
+      "text": "viewGoals",
+      "terminated": true
+    },
+    {
+      "offset": 3645,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 3656,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 3667,
+      "text": "playerNumber1",
+      "terminated": true
+    },
+    {
+      "offset": 3681,
+      "text": "playerNumber2",
+      "terminated": true
+    },
+    {
+      "offset": 3695,
+      "text": "playerNumber3",
+      "terminated": true
+    },
+    {
+      "offset": 3709,
+      "text": "playerNumber4",
+      "terminated": true
+    },
+    {
+      "offset": 3723,
+      "text": "therm1",
+      "terminated": true
+    },
+    {
+      "offset": 3730,
+      "text": "therm2",
+      "terminated": true
+    },
+    {
+      "offset": 3737,
+      "text": "therm3",
+      "terminated": true
+    },
+    {
+      "offset": 3744,
+      "text": "therm4",
+      "terminated": true
+    },
+    {
+      "offset": 3751,
+      "text": "fineTherm1",
+      "terminated": true
+    },
+    {
+      "offset": 3762,
+      "text": "fineTherm2",
+      "terminated": true
+    },
+    {
+      "offset": 3773,
+      "text": "fineTherm3",
+      "terminated": true
+    },
+    {
+      "offset": 3784,
+      "text": "fineTherm4",
+      "terminated": true
+    },
+    {
+      "offset": 3795,
+      "text": "percent1",
+      "terminated": true
+    },
+    {
+      "offset": 3804,
+      "text": "percent2",
+      "terminated": true
+    },
+    {
+      "offset": 3813,
+      "text": "percent3",
+      "terminated": true
+    },
+    {
+      "offset": 3822,
+      "text": "percent4",
+      "terminated": true
+    },
+    {
+      "offset": 3831,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

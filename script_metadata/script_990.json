@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 14
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 14,
+      "size": 830
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 844,
+      "size": 46
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 890,
+      "size": 4
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 894,
+      "size": 2
+    }
+  ],
+  "objects": [],
+  "exports": [
+    18,
+    237,
+    518,
+    661
+  ],
+  "strings": [
+    {
+      "offset": 848,
+      "text": "OK",
+      "terminated": true
+    },
+    {
+      "offset": 851,
+      "text": "Cancel",
+      "terminated": true
+    },
+    {
+      "offset": 858,
+      "text": "SAVE GAME",
+      "terminated": true
+    },
+    {
+      "offset": 868,
+      "text": "GAME",
+      "terminated": true
+    },
+    {
+      "offset": 873,
+      "text": "Change Directory",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

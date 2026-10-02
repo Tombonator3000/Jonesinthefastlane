@@ -1,0 +1,657 @@
+; SCI1 script 235: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 2066 bytes.
+
+; EXPORTS @0x0000 size=8
+@0000 .hex 07 00 08 00 01 00 74 01 ; ......t.
+
+; OBJECT @0x0008 size=28
+@0008 .hex 01 00 1c 00 34 12 00 00 0e 00 06 00 04 00 04 00 ; ....4...........
+@0018 .hex 00 00 6a 07 00 00 00 00 00 00 00 00 ; ..j.........
+
+; CODE @0x0024 size=324
+@0024 .hex 02 00 44 01 ; ..D.
+; select2::init
+@0028 link.b       0x01
+@002a push1.w
+@002b push0.w
+@002c callb.b      0x11 0x02
+@002f pushi.b      0x04 ; possible selector: x
+@0031 pushi.b      0x03 ; possible selector: y
+@0033 pushi.b      0x08 ; possible selector: underBits
+@0035 pushi.b      0x10 ; possible selector: lsRight
+@0037 push1.w
+@0038 callk.b      0x6f 0x08 ; Palette
+@003b pushi.b      0x04 ; possible selector: x
+@003d pushi.b      0x03 ; possible selector: y
+@003f pushi.w      0x0090 ; possible selector: pause
+@0042 pushi.w      0x00ff ; possible selector: changeScore
+@0045 push1.w
+@0046 callk.b      0x6f 0x08 ; Palette
+@0049 lofsa.w      0xffc8
+@004c aTop.b       0x2e
+@004e lag.w        0x01f6 ; global[502]
+@0051 aTop.b       0x30
+@0053 selfID.w
+@0054 sag.w        0x01f6 ; global[502]
+@0057 ldi.b        0x00
+@0059 sag.w        0x01fb ; global[507]
+@005c aTop.b       0x22
+@005e sag.w        0x019d ; global[413]
+@0061 push0.w
+@0062 callb.b      0x07 0x00
+@0065 pushi.b      0x23 ; possible selector: window
+@0067 push1.w
+@0068 lsg.b        0x3b ; global[59]
+@006a pushi.b      0x6e ; possible selector: add
+@006c pushi.b      0x06 ; possible selector: loop
+@006e lofsa.w      0x0151
+@0071 push.w
+@0072 lofsa.w      0x01ad
+@0075 push.w
+@0076 lofsa.w      0x02a1
+@0079 push.w
+@007a lofsa.w      0x0395
+@007d push.w
+@007e lofsa.w      0x048d
+@0081 push.w
+@0082 lofsa.w      0x0581
+@0085 push.w
+@0086 pushi.b      0x6f ; possible selector: eachElementDo
+@0088 push2.w
+@0089 pushi.b      0x66 ; possible selector: init
+@008b push1.w
+@008c pushi.b      0x6f ; possible selector: eachElementDo
+@008e push1.w
+@008f pushi.w      0x0099 ; possible selector: setSize
+@0092 pushi.w      0x009b ; possible selector: moveTo
+@0095 push2.w
+@0096 pushi.b      0x45 ; possible selector: done
+@0098 pushi.b      0x2c ; possible selector: nodePtr
+@009a pushi.w      0x00a3 ; possible selector: open
+@009d pushi.b      0x07 ; possible selector: cel
+@009f push0.w
+@00a0 pushi.b      0x0f ; possible selector: lsBottom
+@00a2 push0.w
+@00a3 push0.w
+@00a4 push0.w
+@00a5 push0.w
+@00a6 push1.w
+@00a7 self.w       0x3e
+@00a9 pushi.w      0x0129 ; possible selector: setList
+@00ac push1.w
+@00ad pTos.b       0x2e
+@00af class.b      0x30
+@00b1 send.w       0x06
+@00b3 pushi.b      0x03 ; possible selector: y
+@00b5 pushSelf.w
+@00b6 pTos.b       0x2e
+@00b8 lofsa.w      0x025f
+@00bb push.w
+@00bc callb.b      0x09 0x06
+@00bf pushi.b      0x3c ; possible selector: doit
+@00c1 push2.w
+@00c2 push0.w
+@00c3 push0.w
+@00c4 self.w       0x08
+@00c6 sat.b        0x00 ; temp[0]
+@00c8 push1.w
+@00c9 push.w
+@00ca callk.b      0x06 0x02 ; IsObject
+@00cd bnt.w        0x0011 ; target @0x00e1
+@00d0 pushi.b      0x72 ; possible selector: contains
+@00d2 push1.w
+@00d3 lst.b        0x00 ; temp[0]
+@00d5 self.w       0x06
+@00d7 bnt.w        0x000b ; target @0x00e5
+@00da ldi.b        0x00
+@00dc sat.b        0x00 ; temp[0]
+@00de jmp.w        0x0004 ; target @0x00e5
+@00e1 ldi.b        0x01
+@00e3 sat.b        0x00 ; temp[0]
+@00e5 pushi.w      0x0129 ; possible selector: setList
+@00e8 push1.w
+@00e9 pToa.b       0x30
+@00eb bnt.w        0x0009 ; target @0x00f7
+@00ee pushi.w      0x0138 ; possible selector: keyMouseList
+@00f1 push0.w
+@00f2 send.w       0x04
+@00f4 jmp.w        0x0003 ; target @0x00fa
+@00f7 lag.w        0x01b0 ; global[432]
+@00fa push.w
+@00fb class.b      0x30
+@00fd send.w       0x06
+@00ff pushi.b      0x75 ; possible selector: release
+@0101 push0.w
+@0102 pToa.b       0x2e
+@0104 send.w       0x04
+@0106 pToa.b       0x30
+@0108 sag.w        0x01f6 ; global[502]
+@010b pushi.b      0x67 ; possible selector: dispose
+@010d push0.w
+@010e pToa.b       0x2e
+@0110 send.w       0x04
+@0112 pushi.b      0x67 ; possible selector: dispose
+@0114 push0.w
+@0115 self.w       0x04
+@0117 lat.b        0x00 ; temp[0]
+@0119 push1.w
+@011a pushi.w      0x00eb ; possible selector: canInput
+@011d callk.b      0x03 0x02 ; DisposeScript
+@0120 ret.w
+; select2::draw
+@0121 link.b       0x01
+@0123 ldi.b        0x00
+@0125 sat.b        0x00 ; temp[0]
+@0127 lst.b        0x00 ; temp[0]
+@0129 pToa.b       0x0a
+@012b lt?.w
+@012c bnt.w        0x0037 ; target @0x0166
+@012f pushi.b      0x6a ; possible selector: isKindOf
+@0131 push1.w
+@0132 class.b      0x31
+@0134 push.w
+@0135 pushi.b      0x43 ; possible selector: at
+@0137 push1.w
+@0138 lst.b        0x00 ; temp[0]
+@013a self.w       0x06
+@013c send.w       0x06
+@013e not.w
+@013f bt.w         0x0010 ; target @0x0152
+@0142 pushi.b      0x20 ; possible selector: state
+@0144 push0.w
+@0145 pushi.b      0x43 ; possible selector: at
+@0147 push1.w
+@0148 lst.b        0x00 ; temp[0]
+@014a self.w       0x06
+@014c send.w       0x04
+@014e push.w
+@014f ldi.b        0x01
+@0151 and.w
+@0152 bnt.w        0x000c ; target @0x0161
+@0155 pushi.b      0x53 ; possible selector: draw
+@0157 push0.w
+@0158 pushi.b      0x43 ; possible selector: at
+@015a push1.w
+@015b lst.b        0x00 ; temp[0]
+@015d self.w       0x06
+@015f send.w       0x04
+@0161 +at.b        0x00 ; temp[0]
+@0163 jmp.w        0xffc1 ; target @0x0127
+@0166 ret.w
+@0167 bnot.w
+
+; OBJECT @0x0168 size=78
+@0168 .hex 01 00 4e 00 34 12 00 00 38 00 1b 00 10 00 10 00 ; ..N.4...8.......
+@0178 .hex 00 00 79 07 00 00 00 00 00 00 00 00 00 00 00 00 ; ..y.............
+@0188 .hex 00 00 77 00 b8 00 00 00 00 00 00 00 00 00 00 00 ; ..w.............
+@0198 .hex 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01a8 .hex 00 00 02 00 66 00 53 00 00 00 28 00 21 01 ; ....f.S...(.!.
+
+; OBJECT @0x01b6 size=72
+@01b6 .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@01c6 .hex 00 00 81 07 04 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01d6 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01e6 .hex 00 00 00 00 00 00 00 00 00 00 00 00 f4 01 00 00 ; ................
+@01f6 .hex 00 00 0c 00 00 00 00 00 ; ........
+
+; CODE @0x01fe size=24
+@01fe .hex 02 00 18 00 ; ....
+; playerNumber::init
+@0202 pushi.b      0x66 ; possible selector: init
+@0204 push0.w
+@0205 &rest.b      0x01
+@0207 super.b      0x0c 0x04
+@020a lag.w        0x0217 ; global[535]
+@020d not.w
+@020e bnt.w        0x0004 ; target @0x0215
+@0211 ldi.b        0x2b
+@0213 aTop.b       0x0e
+@0215 ret.w
+
+; OBJECT @0x0216 size=76
+@0216 .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..L.4...:.......
+@0226 .hex 00 00 8c 07 04 00 00 00 01 00 2a 00 00 00 00 00 ; ..........*.....
+@0236 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0246 .hex 00 00 00 00 00 00 00 00 00 00 00 00 f3 01 01 00 ; ................
+@0256 .hex 00 00 0d 00 01 00 66 00 00 00 02 02 ; ......f.....
+
+; CODE @0x0262 size=172
+@0262 .hex 02 00 ac 00 ; ....
+; firstPlayer::doit
+@0266 link.b       0x01
+@0268 pushi.b      0x3c ; possible selector: doit
+@026a push0.w
+@026b super.b      0x31 0x04
+@026e sat.b        0x00 ; temp[0]
+@0270 push2.w
+@0271 lofsa.w      0xff00
+@0274 push.w
+@0275 pushi.w      0x0123 ; possible selector: erase
+@0278 callb.b      0x0f 0x04
+@027b pushi.b      0x66 ; possible selector: init
+@027d push2.w
+@027e push0.w
+@027f push0.w
+@0280 push2.w
+@0281 pushi.w      0x00ec ; possible selector: controls
+@0284 push0.w
+@0285 callk.b      0x02 0x04 ; ScriptID
+@0288 send.w       0x08
+@028a pushi.b      0x53 ; possible selector: draw
+@028c push0.w
+@028d lag.w        0x01f6 ; global[502]
+@0290 send.w       0x04
+@0292 pushi.w      0x009f ; possible selector: advance
+@0295 push0.w
+@0296 lofsa.w      0xfedb
+@0299 send.w       0x04
+@029b pushi.w      0x009f ; possible selector: advance
+@029e push0.w
+@029f class.b      0x30
+@02a1 send.w       0x04
+@02a3 pushi.w      0x013d ; possible selector: whichBody
+@02a6 push1.w
+@02a7 push0.w
+@02a8 pushi.b      0x43 ; possible selector: at
+@02aa push1.w
+@02ab lsg.w        0x01fb ; global[507]
+@02ae push2.w
+@02af push1.w
+@02b0 push2.w
+@02b1 callk.b      0x02 0x04 ; ScriptID
+@02b4 send.w       0x06
+@02b6 send.w       0x06
+@02b8 +ag.w        0x01fb ; global[507]
+@02bb pushi.w      0x0123 ; possible selector: erase
+@02be push0.w
+@02bf pushi.w      0x0096 ; possible selector: enable
+@02c2 push1.w
+@02c3 push0.w
+@02c4 self.w       0x0a
+@02c6 pushi.b      0x6e ; possible selector: add
+@02c8 push1.w
+@02c9 lofsa.w      0x0386
+@02cc push.w
+@02cd lofsa.w      0xfea4
+@02d0 send.w       0x06
+@02d2 pushi.b      0x66 ; possible selector: init
+@02d4 push1.w
+@02d5 push1.w
+@02d6 pushi.w      0x0099 ; possible selector: setSize
+@02d9 push0.w
+@02da pushi.b      0x53 ; possible selector: draw
+@02dc push0.w
+@02dd lofsa.w      0x0372
+@02e0 send.w       0x0e
+@02e2 lsg.w        0x01fb ; global[507]
+@02e5 lag.w        0x0176 ; global[374]
+@02e8 eq?.w
+@02e9 bnt.w        0x0007 ; target @0x02f3
+@02ec ldi.b        0x02
+@02ee aTop.b       0x0a
+@02f0 jmp.w        0x000e ; target @0x0301
+@02f3 pushi.b      0x07 ; possible selector: cel
+@02f5 push1.w
+@02f6 lsg.w        0x01fb ; global[507]
+@02f9 pushi.b      0x53 ; possible selector: draw
+@02fb push0.w
+@02fc lofsa.w      0xff23
+@02ff send.w       0x0a
+@0301 pushi.b      0x54 ; possible selector: delete
+@0303 push1.w
+@0304 pushSelf.w
+@0305 lofsa.w      0xfd0c
+@0308 send.w       0x06
+@030a lat.b        0x00 ; temp[0]
+@030c ret.w
+@030d bnot.w
+
+; OBJECT @0x030e size=76
+@030e .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..L.4...:...1.1.
+@031e .hex 00 00 99 07 04 00 41 00 6c 00 06 00 00 00 00 00 ; ......A.l.......
+@032e .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@033e .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 07 00 ; ................
+@034e .hex 00 00 0d 00 01 00 3c 00 00 00 66 02 ; ......<...f.
+
+; CODE @0x035a size=172
+@035a .hex 02 00 ac 00 ; ....
+; secondPlayer::doit
+@035e link.b       0x01
+@0360 pushi.b      0x3c ; possible selector: doit
+@0362 push0.w
+@0363 super.b      0x31 0x04
+@0366 sat.b        0x00 ; temp[0]
+@0368 push2.w
+@0369 lofsa.w      0xfe08
+@036c push.w
+@036d pushi.w      0x0123 ; possible selector: erase
+@0370 callb.b      0x0f 0x04
+@0373 pushi.b      0x66 ; possible selector: init
+@0375 push2.w
+@0376 push0.w
+@0377 push0.w
+@0378 push2.w
+@0379 pushi.w      0x00ec ; possible selector: controls
+@037c push0.w
+@037d callk.b      0x02 0x04 ; ScriptID
+@0380 send.w       0x08
+@0382 pushi.b      0x53 ; possible selector: draw
+@0384 push0.w
+@0385 lag.w        0x01f6 ; global[502]
+@0388 send.w       0x04
+@038a pushi.w      0x009f ; possible selector: advance
+@038d push0.w
+@038e lofsa.w      0xfde3
+@0391 send.w       0x04
+@0393 pushi.w      0x009f ; possible selector: advance
+@0396 push0.w
+@0397 class.b      0x30
+@0399 send.w       0x04
+@039b pushi.w      0x013d ; possible selector: whichBody
+@039e push1.w
+@039f push1.w
+@03a0 pushi.b      0x43 ; possible selector: at
+@03a2 push1.w
+@03a3 lsg.w        0x01fb ; global[507]
+@03a6 push2.w
+@03a7 push1.w
+@03a8 push2.w
+@03a9 callk.b      0x02 0x04 ; ScriptID
+@03ac send.w       0x06
+@03ae send.w       0x06
+@03b0 +ag.w        0x01fb ; global[507]
+@03b3 pushi.w      0x0123 ; possible selector: erase
+@03b6 push0.w
+@03b7 pushi.w      0x0096 ; possible selector: enable
+@03ba push1.w
+@03bb push0.w
+@03bc self.w       0x0a
+@03be pushi.b      0x6e ; possible selector: add
+@03c0 push1.w
+@03c1 lofsa.w      0x02d6
+@03c4 push.w
+@03c5 lofsa.w      0xfdac
+@03c8 send.w       0x06
+@03ca pushi.b      0x66 ; possible selector: init
+@03cc push1.w
+@03cd push1.w
+@03ce pushi.w      0x0099 ; possible selector: setSize
+@03d1 push0.w
+@03d2 pushi.b      0x53 ; possible selector: draw
+@03d4 push0.w
+@03d5 lofsa.w      0x02c2
+@03d8 send.w       0x0e
+@03da lsg.w        0x01fb ; global[507]
+@03dd lag.w        0x0176 ; global[374]
+@03e0 eq?.w
+@03e1 bnt.w        0x0007 ; target @0x03eb
+@03e4 ldi.b        0x02
+@03e6 aTop.b       0x0a
+@03e8 jmp.w        0x000e ; target @0x03f9
+@03eb pushi.b      0x07 ; possible selector: cel
+@03ed push1.w
+@03ee lsg.w        0x01fb ; global[507]
+@03f1 pushi.b      0x53 ; possible selector: draw
+@03f3 push0.w
+@03f4 lofsa.w      0xfe2b
+@03f7 send.w       0x0a
+@03f9 pushi.b      0x54 ; possible selector: delete
+@03fb push1.w
+@03fc pushSelf.w
+@03fd lofsa.w      0xfc14
+@0400 send.w       0x06
+@0402 lat.b        0x00 ; temp[0]
+@0404 ret.w
+@0405 bnot.w
+
+; OBJECT @0x0406 size=76
+@0406 .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..L.4...:...1.1.
+@0416 .hex 00 00 a5 07 04 00 41 00 6c 00 34 00 00 00 00 00 ; ......A.l.4.....
+@0426 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0436 .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 07 00 ; ................
+@0446 .hex 00 00 0d 00 01 00 3c 00 00 00 5e 03 ; ......<...^.
+
+; CODE @0x0452 size=176
+@0452 .hex 02 00 b0 00 ; ....
+; thirdPlayer::doit
+@0456 link.b       0x01
+@0458 pushi.b      0x3c ; possible selector: doit
+@045a push0.w
+@045b super.b      0x31 0x04
+@045e sat.b        0x00 ; temp[0]
+@0460 push2.w
+@0461 lofsa.w      0xfd10
+@0464 push.w
+@0465 pushi.w      0x0123 ; possible selector: erase
+@0468 callb.b      0x0f 0x04
+@046b pushi.b      0x66 ; possible selector: init
+@046d push2.w
+@046e push0.w
+@046f push0.w
+@0470 push2.w
+@0471 pushi.w      0x00ec ; possible selector: controls
+@0474 push0.w
+@0475 callk.b      0x02 0x04 ; ScriptID
+@0478 send.w       0x08
+@047a pushi.b      0x53 ; possible selector: draw
+@047c push0.w
+@047d lag.w        0x01f6 ; global[502]
+@0480 send.w       0x04
+@0482 pushi.w      0x009f ; possible selector: advance
+@0485 push0.w
+@0486 lofsa.w      0xfceb
+@0489 send.w       0x04
+@048b pushi.w      0x009f ; possible selector: advance
+@048e push0.w
+@048f class.b      0x30
+@0491 send.w       0x04
+@0493 pushi.w      0x013d ; possible selector: whichBody
+@0496 push1.w
+@0497 push2.w
+@0498 pushi.b      0x43 ; possible selector: at
+@049a push1.w
+@049b lsg.w        0x01fb ; global[507]
+@049e push2.w
+@049f push1.w
+@04a0 push2.w
+@04a1 callk.b      0x02 0x04 ; ScriptID
+@04a4 send.w       0x06
+@04a6 send.w       0x06
+@04a8 +ag.w        0x01fb ; global[507]
+@04ab pushi.w      0x0123 ; possible selector: erase
+@04ae push0.w
+@04af pushi.w      0x0096 ; possible selector: enable
+@04b2 push1.w
+@04b3 push0.w
+@04b4 self.w       0x0a
+@04b6 pushi.b      0x6e ; possible selector: add
+@04b8 push1.w
+@04b9 lofsa.w      0x0226
+@04bc push.w
+@04bd lofsa.w      0xfcb4
+@04c0 send.w       0x06
+@04c2 pushi.b      0x66 ; possible selector: init
+@04c4 push1.w
+@04c5 push1.w
+@04c6 pushi.w      0x0099 ; possible selector: setSize
+@04c9 push0.w
+@04ca lofsa.w      0x0215
+@04cd send.w       0x0a
+@04cf pushi.b      0x53 ; possible selector: draw
+@04d1 push0.w
+@04d2 lofsa.w      0x020d
+@04d5 send.w       0x04
+@04d7 lsg.w        0x01fb ; global[507]
+@04da lag.w        0x0176 ; global[374]
+@04dd eq?.w
+@04de bnt.w        0x0007 ; target @0x04e8
+@04e1 ldi.b        0x02
+@04e3 aTop.b       0x0a
+@04e5 jmp.w        0x000e ; target @0x04f6
+@04e8 pushi.b      0x07 ; possible selector: cel
+@04ea push1.w
+@04eb lsg.w        0x01fb ; global[507]
+@04ee pushi.b      0x53 ; possible selector: draw
+@04f0 push0.w
+@04f1 lofsa.w      0xfd2e
+@04f4 send.w       0x0a
+@04f6 pushi.b      0x54 ; possible selector: delete
+@04f8 push1.w
+@04f9 pushSelf.w
+@04fa lofsa.w      0xfb17
+@04fd send.w       0x06
+@04ff lat.b        0x00 ; temp[0]
+@0501 ret.w
+
+; OBJECT @0x0502 size=76
+@0502 .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..L.4...:...1.1.
+@0512 .hex 00 00 b2 07 04 00 41 00 6c 00 62 00 00 00 00 00 ; ......A.l.b.....
+@0522 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0532 .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 07 00 ; ................
+@0542 .hex 00 00 0d 00 01 00 3c 00 00 00 56 04 ; ......<...V.
+
+; CODE @0x054e size=172
+@054e .hex 02 00 ac 00 ; ....
+; fourthPlayer::doit
+@0552 link.b       0x01
+@0554 pushi.b      0x3c ; possible selector: doit
+@0556 push0.w
+@0557 super.b      0x31 0x04
+@055a sat.b        0x00 ; temp[0]
+@055c push2.w
+@055d lofsa.w      0xfc14
+@0560 push.w
+@0561 pushi.w      0x0123 ; possible selector: erase
+@0564 callb.b      0x0f 0x04
+@0567 pushi.b      0x66 ; possible selector: init
+@0569 push2.w
+@056a push0.w
+@056b push0.w
+@056c push2.w
+@056d pushi.w      0x00ec ; possible selector: controls
+@0570 push0.w
+@0571 callk.b      0x02 0x04 ; ScriptID
+@0574 send.w       0x08
+@0576 pushi.b      0x53 ; possible selector: draw
+@0578 push0.w
+@0579 lag.w        0x01f6 ; global[502]
+@057c send.w       0x04
+@057e pushi.w      0x009f ; possible selector: advance
+@0581 push0.w
+@0582 lofsa.w      0xfbef
+@0585 send.w       0x04
+@0587 pushi.w      0x009f ; possible selector: advance
+@058a push0.w
+@058b class.b      0x30
+@058d send.w       0x04
+@058f pushi.w      0x013d ; possible selector: whichBody
+@0592 push1.w
+@0593 pushi.b      0x03 ; possible selector: y
+@0595 pushi.b      0x43 ; possible selector: at
+@0597 push1.w
+@0598 lsg.w        0x01fb ; global[507]
+@059b push2.w
+@059c push1.w
+@059d push2.w
+@059e callk.b      0x02 0x04 ; ScriptID
+@05a1 send.w       0x06
+@05a3 send.w       0x06
+@05a5 +ag.w        0x01fb ; global[507]
+@05a8 pushi.w      0x0123 ; possible selector: erase
+@05ab push0.w
+@05ac pushi.w      0x0096 ; possible selector: enable
+@05af push1.w
+@05b0 push0.w
+@05b1 self.w       0x0a
+@05b3 pushi.b      0x6e ; possible selector: add
+@05b5 push1.w
+@05b6 lofsa.w      0x0171
+@05b9 push.w
+@05ba lofsa.w      0xfbb7
+@05bd send.w       0x06
+@05bf pushi.b      0x66 ; possible selector: init
+@05c1 push1.w
+@05c2 push1.w
+@05c3 pushi.w      0x0099 ; possible selector: setSize
+@05c6 push0.w
+@05c7 pushi.b      0x53 ; possible selector: draw
+@05c9 push0.w
+@05ca lofsa.w      0x015d
+@05cd send.w       0x0e
+@05cf lsg.w        0x01fb ; global[507]
+@05d2 lag.w        0x0176 ; global[374]
+@05d5 eq?.w
+@05d6 bnt.w        0x0007 ; target @0x05e0
+@05d9 ldi.b        0x02
+@05db aTop.b       0x0a
+@05dd jmp.w        0x000e ; target @0x05ee
+@05e0 pushi.b      0x07 ; possible selector: cel
+@05e2 push1.w
+@05e3 lsg.w        0x01fb ; global[507]
+@05e6 pushi.b      0x53 ; possible selector: draw
+@05e8 push0.w
+@05e9 lofsa.w      0xfc36
+@05ec send.w       0x0a
+@05ee pushi.b      0x54 ; possible selector: delete
+@05f0 push1.w
+@05f1 pushSelf.w
+@05f2 lofsa.w      0xfa1f
+@05f5 send.w       0x06
+@05f7 lat.b        0x00 ; temp[0]
+@05f9 ret.w
+
+; OBJECT @0x05fa size=76
+@05fa .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..L.4...:...1.1.
+@060a .hex 00 00 be 07 04 00 41 00 6c 00 90 00 00 00 00 00 ; ......A.l.......
+@061a .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@062a .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 07 00 ; ................
+@063a .hex 00 00 0d 00 01 00 3c 00 00 00 52 05 ; ......<...R.
+
+; OBJECT @0x0646 size=72
+@0646 .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@0656 .hex 00 00 cb 07 04 00 00 00 0e 00 01 00 00 00 00 00 ; ................
+@0666 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0676 .hex 00 00 00 00 00 00 00 00 00 00 00 00 f3 01 00 00 ; ................
+@0686 .hex 00 00 0e 00 00 00 00 00 ; ........
+
+; OBJECT @0x068e size=72
+@068e .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@069e .hex 00 00 d4 07 04 00 00 00 0e 00 2f 00 00 00 00 00 ; ........../.....
+@06ae .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06be .hex 00 00 00 00 00 00 00 00 00 00 00 00 f3 01 00 00 ; ................
+@06ce .hex 01 00 0e 00 00 00 00 00 ; ........
+
+; OBJECT @0x06d6 size=72
+@06d6 .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@06e6 .hex 00 00 de 07 04 00 00 00 0e 00 5d 00 00 00 00 00 ; ..........].....
+@06f6 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0706 .hex 00 00 00 00 00 00 00 00 00 00 00 00 f3 01 00 00 ; ................
+@0716 .hex 02 00 0e 00 00 00 00 00 ; ........
+
+; OBJECT @0x071e size=72
+@071e .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@072e .hex 00 00 e7 07 04 00 00 00 0e 00 8b 00 00 00 00 00 ; ................
+@073e .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@074e .hex 00 00 00 00 00 00 00 00 00 00 00 00 f3 01 00 00 ; ................
+@075e .hex 03 00 0e 00 00 00 00 00 ; ........
+
+; STRINGS @0x0766 size=140
+@0766 .hex 05 00 8c 00 64 69 61 6c 6f 67 4b 65 79 4d 6f 75 ; ....dialogKeyMou
+@0776 .hex 73 65 00 73 65 6c 65 63 74 32 00 62 61 63 6b 67 ; se.select2.backg
+@0786 .hex 72 6f 75 6e 64 00 70 6c 61 79 65 72 4e 75 6d 62 ; round.playerNumb
+@0796 .hex 65 72 00 66 69 72 73 74 50 6c 61 79 65 72 00 73 ; er.firstPlayer.s
+@07a6 .hex 65 63 6f 6e 64 50 6c 61 79 65 72 00 74 68 69 72 ; econdPlayer.thir
+@07b6 .hex 64 50 6c 61 79 65 72 00 66 6f 75 72 74 68 50 6c ; dPlayer.fourthPl
+@07c6 .hex 61 79 65 72 00 66 69 72 73 74 44 69 6d 00 73 65 ; ayer.firstDim.se
+@07d6 .hex 63 6f 6e 64 44 69 6d 00 74 68 69 72 64 44 69 6d ; condDim.thirdDim
+@07e6 .hex 00 66 6f 75 72 74 68 44 69 6d 00 00 ; .fourthDim..
+
+; RELOCATIONS @0x07f2 size=30
+@07f2 .hex 08 00 1e 00 0c 00 1a 00 7a 01 c8 01 28 02 20 03 ; ........z...(. .
+@0802 .hex 18 04 14 05 0c 06 58 06 a0 06 e8 06 30 07 ; ......X.....0.
+
+; END @0x0810 size=2
+@0810 .hex 00 00 ; ..

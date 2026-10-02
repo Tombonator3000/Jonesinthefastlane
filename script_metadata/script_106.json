@@ -1,0 +1,421 @@
+{
+  "sections": [
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 0,
+      "size": 48
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 48,
+      "size": 12
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 60,
+      "size": 52
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 112,
+      "size": 52
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 164,
+      "size": 52
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 216,
+      "size": 434
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 650,
+      "size": 64
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 714,
+      "size": 12
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 726,
+      "size": 44
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 770,
+      "size": 12
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 782,
+      "size": 44
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 826,
+      "size": 12
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 838,
+      "size": 44
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 882,
+      "size": 84
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 966,
+      "size": 22
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 988,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 0,
+      "address": 12,
+      "name": "Goods",
+      "species": 60,
+      "superclass": 0,
+      "properties": [
+        60,
+        0,
+        32768,
+        886,
+        1,
+        1,
+        0,
+        0
+      ],
+      "methods": [],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        353,
+        356,
+        357,
+        343
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 60,
+      "address": 72,
+      "name": "Consumable",
+      "species": 61,
+      "superclass": 60,
+      "properties": [
+        61,
+        60,
+        32768,
+        892,
+        1,
+        129,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 52
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        353,
+        356,
+        357,
+        343
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 112,
+      "address": 124,
+      "name": "Durable",
+      "species": 62,
+      "superclass": 60,
+      "properties": [
+        62,
+        60,
+        32768,
+        903,
+        1,
+        69,
+        0,
+        0,
+        0
+      ],
+      "methods": [],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        353,
+        356,
+        357,
+        343,
+        366
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 164,
+      "address": 176,
+      "name": "Educational",
+      "species": 63,
+      "superclass": 60,
+      "properties": [
+        63,
+        60,
+        32768,
+        911,
+        1,
+        1,
+        0,
+        0,
+        10
+      ],
+      "methods": [],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        353,
+        356,
+        357,
+        343,
+        354
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 650,
+      "address": 662,
+      "name": "ListOfGoods",
+      "species": 64,
+      "superclass": 3,
+      "properties": [
+        64,
+        3,
+        32768,
+        923,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 352,
+          "name": "recieve",
+          "address": 221
+        },
+        {
+          "selector": 367,
+          "name": "hasType",
+          "address": 289
+        },
+        {
+          "selector": 321,
+          "name": "pack",
+          "address": 370
+        },
+        {
+          "selector": 368,
+          "name": "newGoods",
+          "address": 220
+        },
+        {
+          "selector": 369,
+          "name": "objectAtIndex",
+          "address": 576
+        },
+        {
+          "selector": 370,
+          "name": "objectAtIndexQuan",
+          "address": 626
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 726,
+      "address": 738,
+      "name": "Consumables",
+      "species": 65,
+      "superclass": 64,
+      "properties": [
+        65,
+        64,
+        32768,
+        935,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 368,
+          "name": "newGoods",
+          "address": 718
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 782,
+      "address": 794,
+      "name": "Durables",
+      "species": 66,
+      "superclass": 64,
+      "properties": [
+        66,
+        64,
+        32768,
+        947,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 368,
+          "name": "newGoods",
+          "address": 774
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 838,
+      "address": 850,
+      "name": "Education",
+      "species": 67,
+      "superclass": 64,
+      "properties": [
+        67,
+        64,
+        32768,
+        956,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 368,
+          "name": "newGoods",
+          "address": 830
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 886,
+      "text": "Goods",
+      "terminated": true
+    },
+    {
+      "offset": 892,
+      "text": "Consumable",
+      "terminated": true
+    },
+    {
+      "offset": 903,
+      "text": "Durable",
+      "terminated": true
+    },
+    {
+      "offset": 911,
+      "text": "Educational",
+      "terminated": true
+    },
+    {
+      "offset": 923,
+      "text": "ListOfGoods",
+      "terminated": true
+    },
+    {
+      "offset": 935,
+      "text": "Consumables",
+      "terminated": true
+    },
+    {
+      "offset": 947,
+      "text": "Durables",
+      "terminated": true
+    },
+    {
+      "offset": 956,
+      "text": "Education",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

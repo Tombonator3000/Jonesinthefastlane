@@ -1,0 +1,10 @@
+{
+  "resource": 1,
+  "encoding": "cp437",
+  "strings": [
+    "Thank You for playing `Jones In The Fast Lane'. Would you like to play another game?",
+    "Week #%2d",
+    "%6s ",
+    ""
+  ]
+}

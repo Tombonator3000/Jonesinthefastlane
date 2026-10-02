@@ -1,0 +1,14 @@
+{
+  "resource": 990,
+  "encoding": "cp437",
+  "strings": [
+    "The disk is full. You must use another disk. Save Aborted.",
+    "The game has been saved.",
+    "The saved game was saved under a different interpreter. It cannot be restored.",
+    "Can't Restore. No previously saved game was found.",
+    "New save-game directory:",
+    "%s\nis not a valid directory",
+    "Please insert your %s disk in drive %s.",
+    ""
+  ]
+}

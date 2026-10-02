@@ -1,0 +1,46 @@
+; SCI1 script 102: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 116 bytes.
+
+; CODE @0x0000 size=44
+@0000 .hex 02 00 2c 00 ; ..,.
+; WList::empty
+@0004 link.b       0x01
+@0006 pToa.b       0x0a
+@0008 bnt.w        0x0020 ; target @0x002b
+@000b push.w
+@000c ldi.b        0x01
+@000e sub.w
+@000f sat.b        0x00 ; temp[0]
+@0011 lst.b        0x00 ; temp[0]
+@0013 ldi.b        0x00
+@0015 ge?.w
+@0016 bnt.w        0x0012 ; target @0x002b
+@0019 pushi.b      0x54 ; possible selector: delete
+@001b push1.w
+@001c pushi.b      0x43 ; possible selector: at
+@001e push1.w
+@001f lst.b        0x00 ; temp[0]
+@0021 self.w       0x06
+@0023 push.w
+@0024 self.w       0x06
+@0026 -at.b        0x00 ; temp[0]
+@0028 jmp.w        0xffe6 ; target @0x0011
+@002b ret.w
+
+; CLASS @0x002c size=52
+@002c .hex 06 00 34 00 34 12 00 00 22 00 08 00 35 00 03 00 ; ..4.4..."...5...
+@003c .hex 00 80 64 00 00 00 00 00 00 00 00 00 00 00 01 00 ; ..d.............
+@004c .hex 02 00 17 00 1b 00 59 00 4a 01 4b 01 01 00 4c 01 ; ......Y.J.K...L.
+@005c .hex 00 00 04 00 ; ....
+
+; STRINGS @0x0060 size=10
+@0060 .hex 05 00 0a 00 57 4c 69 73 74 00 ; ....WList.
+
+; RELOCATIONS @0x006a size=8
+@006a .hex 08 00 08 00 01 00 3e 00 ; ......>.
+
+; END @0x0072 size=2
+@0072 .hex 00 00 ; ..

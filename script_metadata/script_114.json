@@ -1,0 +1,352 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 10
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 10,
+      "size": 382
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 392,
+      "size": 50
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 442,
+      "size": 380
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 822,
+      "size": 50
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 872,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 898,
+      "size": 106
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1004,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1032,
+      "size": 106
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1138,
+      "size": 48
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 1186,
+      "size": 116
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1302,
+      "size": 14
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1316,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 392,
+      "address": 404,
+      "name": "muggedByMarket",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        1142,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 14
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 822,
+      "address": 834,
+      "name": "muggedByBank",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        1157,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 446
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 898,
+      "address": 910,
+      "name": "willy",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        1170,
+        0,
+        0,
+        0,
+        0,
+        2,
+        340,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        32768,
+        0,
+        0,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 876
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1032,
+      "address": 1044,
+      "name": "newspaper",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        1176,
+        0,
+        0,
+        0,
+        0,
+        2,
+        603,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32768,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1008
+        }
+      ]
+    }
+  ],
+  "exports": [
+    404,
+    834
+  ],
+  "strings": [
+    {
+      "offset": 1142,
+      "text": "muggedByMarket",
+      "terminated": true
+    },
+    {
+      "offset": 1157,
+      "text": "muggedByBank",
+      "terminated": true
+    },
+    {
+      "offset": 1170,
+      "text": "willy",
+      "terminated": true
+    },
+    {
+      "offset": 1176,
+      "text": "newspaper",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 126
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 134,
+      "size": 2
+    }
+  ],
+  "objects": [],
+  "exports": [
+    12
+  ],
+  "strings": [],
+  "locals": []
+}

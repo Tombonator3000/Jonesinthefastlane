@@ -1,0 +1,171 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 536
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 536,
+      "size": 156
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 692,
+      "size": 10
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 702,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 710,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 536,
+      "address": 548,
+      "name": "Sound",
+      "species": 8,
+      "superclass": 0,
+      "properties": [
+        8,
+        0,
+        32768,
+        696,
+        0,
+        0,
+        0,
+        127,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 101,
+          "name": "new",
+          "address": 4
+        },
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 33
+        },
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 487
+        },
+        {
+          "selector": 42,
+          "name": "play",
+          "address": 55
+        },
+        {
+          "selector": 142,
+          "name": "playBed",
+          "address": 156
+        },
+        {
+          "selector": 143,
+          "name": "stop",
+          "address": 257
+        },
+        {
+          "selector": 144,
+          "name": "pause",
+          "address": 289
+        },
+        {
+          "selector": 145,
+          "name": "fade",
+          "address": 327
+        },
+        {
+          "selector": 146,
+          "name": "send",
+          "address": 388
+        },
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 417
+        },
+        {
+          "selector": 147,
+          "name": "check",
+          "address": 425
+        },
+        {
+          "selector": 148,
+          "name": "clean",
+          "address": 467
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 533
+        },
+        {
+          "selector": 327,
+          "name": "toggle",
+          "address": 534
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        44,
+        93,
+        43,
+        97,
+        63,
+        6,
+        17,
+        140,
+        92,
+        94,
+        95,
+        96,
+        45,
+        141,
+        324,
+        325,
+        326
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 696,
+      "text": "Sound",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

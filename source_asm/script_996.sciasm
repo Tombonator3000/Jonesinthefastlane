@@ -1,0 +1,170 @@
+; SCI1 script 996: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 452 bytes.
+
+; CODE @0x0000 size=270
+@0000 .hex 02 00 0e 01 ; ....
+; User::init
+@0004 lap.b        0x00 ; param[0]
+@0006 bnt.w        0x0005 ; target @0x000e
+@0009 lap.b        0x01 ; param[1]
+@000b jmp.w        0x0003 ; target @0x0011
+@000e lea.b        0x02 0x00
+@0011 aTop.b       0x14
+@0013 lsp.b        0x00 ; param[0]
+@0015 ldi.b        0x02
+@0017 eq?.w
+@0018 bnt.w        0x0005 ; target @0x0020
+@001b lap.b        0x02 ; param[2]
+@001d jmp.w        0x0002 ; target @0x0022
+@0020 ldi.b        0x2d
+@0022 sal.b        0x17 ; local[23]
+@0024 ret.w
+; User::doit
+@0025 link.b       0x03
+@0027 pushi.b      0x65 ; possible selector: new
+@0029 push0.w
+@002a class.b      0x07
+@002c send.w       0x04
+@002e sat.b        0x00 ; temp[0]
+@0030 pushi.b      0x22 ; possible selector: type
+@0032 push0.w
+@0033 send.w       0x04
+@0035 bnt.w        0x006f ; target @0x00a7
+@0038 lat.b        0x00 ; temp[0]
+@003a sag.b        0x18 ; global[24]
+@003c pushi.b      0x22 ; possible selector: type
+@003e push0.w
+@003f lat.b        0x00 ; temp[0]
+@0041 send.w       0x04
+@0043 sat.b        0x01 ; temp[1]
+@0045 pToa.b       0x1c
+@0047 bnt.w        0x0006 ; target @0x0050
+@004a push1.w
+@004b lst.b        0x00 ; temp[0]
+@004d callk.b      0x1f 0x02 ; MapKeyToDir
+@0050 class.b      0x12
+@0052 bnt.w        0x0009 ; target @0x005e
+@0055 pushi.b      0x7c ; possible selector: handleEvent
+@0057 push1.w
+@0058 lst.b        0x00 ; temp[0]
+@005a class.b      0x12
+@005c send.w       0x06
+@005e lag.w        0x020f ; global[527]
+@0061 bnt.w        0x002c ; target @0x0090
+@0064 pushi.b      0x4c ; possible selector: claimed
+@0066 push0.w
+@0067 lat.b        0x00 ; temp[0]
+@0069 send.w       0x04
+@006b not.w
+@006c bnt.w        0x0021 ; target @0x0090
+@006f pushi.b      0x22 ; possible selector: type
+@0071 push0.w
+@0072 lat.b        0x00 ; temp[0]
+@0074 send.w       0x04
+@0076 push.w
+@0077 ldi.b        0x04
+@0079 eq?.w
+@007a bt.w         0x000b ; target @0x0088
+@007d pushi.b      0x22 ; possible selector: type
+@007f push0.w
+@0080 lat.b        0x00 ; temp[0]
+@0082 send.w       0x04
+@0084 push.w
+@0085 ldi.b        0x01
+@0087 eq?.w
+@0088 bnt.w        0x0005 ; target @0x0090
+@008b ldi.b        0x01
+@008d sag.w        0x0210 ; global[528]
+@0090 pToa.b       0x0c
+@0092 bnt.w        0x0009 ; target @0x009e
+@0095 pushi.b      0x7c ; possible selector: handleEvent
+@0097 push1.w
+@0098 lst.b        0x00 ; temp[0]
+@009a lag.b        0x01 ; global[1]
+@009c send.w       0x06
+@009e pushi.b      0x7c ; possible selector: handleEvent
+@00a0 push1.w
+@00a1 lst.b        0x00 ; temp[0]
+@00a3 lag.b        0x05 ; global[5]
+@00a5 send.w       0x06
+@00a7 pushi.b      0x67 ; possible selector: dispose
+@00a9 push0.w
+@00aa lat.b        0x00 ; temp[0]
+@00ac send.w       0x04
+@00ae ldi.b        0x00
+@00b0 sag.b        0x18 ; global[24]
+@00b2 ret.w
+; User::getInput
+@00b3 link.b       0x02
+@00b5 ldi.b        0x01
+@00b7 ret.w
+; User::canControl
+@00b8 link.b       0x01
+@00ba lap.b        0x00 ; param[0]
+@00bc bnt.w        0x0049 ; target @0x0108
+@00bf pToa.b       0x0c
+@00c1 sat.b        0x00 ; temp[0]
+@00c3 lap.b        0x01 ; param[1]
+@00c5 aTop.b       0x0c
+@00c7 ldi.b        0x00
+@00c9 aTop.b       0x10
+@00cb lag.w        0x012e ; global[302]
+@00ce bnt.w        0x0018 ; target @0x00e9
+@00d1 pushi.w      0x012c ; possible selector: playing
+@00d4 push0.w
+@00d5 send.w       0x04
+@00d7 push.w
+@00d8 ldi.b        0x1d
+@00da eq?.w
+@00db bnt.w        0x000b ; target @0x00e9
+@00de lag.w        0x0218 ; global[536]
+@00e1 not.w
+@00e2 bnt.w        0x0004 ; target @0x00e9
+@00e5 ldi.b        0x00
+@00e7 aTop.b       0x0c
+@00e9 lst.b        0x00 ; temp[0]
+@00eb pToa.b       0x0c
+@00ed ne?.w
+@00ee bnt.w        0x0017 ; target @0x0108
+@00f1 pushi.w      0x0102 ; possible selector: setCursor
+@00f4 push1.w
+@00f5 pToa.b       0x0c
+@00f7 bnt.w        0x0006 ; target @0x0100
+@00fa ldi.w        0x03e7
+@00fd jmp.w        0x0003 ; target @0x0103
+@0100 ldi.w        0x03e5
+@0103 push.w
+@0104 lag.b        0x01 ; global[1]
+@0106 send.w       0x06
+@0108 pToa.b       0x0c
+@010a ret.w
+; User::said
+@010b ldi.b        0x01
+@010d ret.w
+
+; CLASS @0x010e size=96
+@010e .hex 06 00 60 00 34 12 00 00 3e 00 0f 00 20 00 00 00 ; ..`.4...>... ...
+@011e .hex 00 80 7e 01 00 00 00 00 00 00 20 00 00 00 72 01 ; ..~....... ...r.
+@012e .hex 00 00 ff ff ff ff 01 00 01 00 00 00 01 00 02 00 ; ................
+@013e .hex 17 00 ea 00 eb 00 ec 00 ed 00 ee 00 ef 00 f0 00 ; ................
+@014e .hex 04 00 03 00 d9 00 f1 00 05 00 66 00 3c 00 f2 00 ; ..........f.<...
+@015e .hex f3 00 4b 00 00 00 04 00 25 00 b8 00 b3 00 0b 01 ; ..K.....%.......
+
+; STRINGS @0x016e size=22
+@016e .hex 05 00 16 00 45 6e 74 65 72 20 69 6e 70 75 74 00 ; ....Enter input.
+@017e .hex 55 73 65 72 00 00 ; User..
+
+; LOCALS @0x0184 size=52
+@0184 .hex 0a 00 34 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ..4.............
+@0194 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01a4 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01b4 .hex 00 00 00 00 ; ....
+
+; RELOCATIONS @0x01b8 size=10
+@01b8 .hex 08 00 0a 00 02 00 20 01 2c 01 ; ...... .,.
+
+; END @0x01c2 size=2
+@01c2 .hex 00 00 ; ..

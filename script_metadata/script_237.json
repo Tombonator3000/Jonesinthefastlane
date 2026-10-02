@@ -1,0 +1,626 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 948
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 956,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 984,
+      "size": 226
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1210,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1284,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1356,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1450,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1524,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1618,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1692,
+      "size": 216
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1908,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1984,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2056,
+      "size": 24
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2080,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2156,
+      "size": 24
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2180,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2256,
+      "size": 24
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2280,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2356,
+      "size": 186
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 2542,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 2546,
+      "size": 8
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2554,
+      "size": 30
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2584,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 956,
+      "address": 968,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        2360,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1210,
+      "address": 1222,
+      "name": "select4",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        2375,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 988
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1284,
+      "address": 1296,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2383,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        0,
+        0,
+        12
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1450,
+      "address": 1462,
+      "name": "questionText1",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        2431,
+        2,
+        0,
+        28,
+        55,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2394,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1360
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1618,
+      "address": 1630,
+      "name": "questionText2",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        2478,
+        2,
+        0,
+        28,
+        55,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2445,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1528
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1908,
+      "address": 1920,
+      "name": "yesButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2492,
+        4,
+        65,
+        62,
+        80,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        3,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1696
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1984,
+      "address": 1996,
+      "name": "noButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2502,
+        4,
+        99,
+        87,
+        80,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        3,
+        1,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2080,
+      "address": 2092,
+      "name": "takeItEasy",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2511,
+        4,
+        35,
+        57,
+        67,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        2,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2060
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2180,
+      "address": 2192,
+      "name": "playFair",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2522,
+        4,
+        35,
+        74,
+        67,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        2,
+        1,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2160
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2280,
+      "address": 2292,
+      "name": "goForBroke",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2531,
+        4,
+        35,
+        91,
+        67,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        2,
+        2,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2260
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1222
+  ],
+  "strings": [
+    {
+      "offset": 2360,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 2375,
+      "text": "select4",
+      "terminated": true
+    },
+    {
+      "offset": 2383,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 2394,
+      "text": " Would you like to\n\nchallenge Jones?",
+      "terminated": true
+    },
+    {
+      "offset": 2431,
+      "text": "questionText1",
+      "terminated": true
+    },
+    {
+      "offset": 2445,
+      "text": "    Would you\n\n   like Jones to:",
+      "terminated": true
+    },
+    {
+      "offset": 2478,
+      "text": "questionText2",
+      "terminated": true
+    },
+    {
+      "offset": 2492,
+      "text": "yesButton",
+      "terminated": true
+    },
+    {
+      "offset": 2502,
+      "text": "noButton",
+      "terminated": true
+    },
+    {
+      "offset": 2511,
+      "text": "takeItEasy",
+      "terminated": true
+    },
+    {
+      "offset": 2522,
+      "text": "playFair",
+      "terminated": true
+    },
+    {
+      "offset": 2531,
+      "text": "goForBroke",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0
+  ]
+}

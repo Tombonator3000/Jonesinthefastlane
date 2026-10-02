@@ -1,0 +1,1032 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 188
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 196,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 224,
+      "size": 54
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 278,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 306,
+      "size": 720
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1026,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1104,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1176,
+      "size": 324
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1500,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1608,
+      "size": 342
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1950,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2058,
+      "size": 320
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2378,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2486,
+      "size": 634
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3120,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3204,
+      "size": 176
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3380,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3464,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3544,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3616,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3710,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3786,
+      "size": 48
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3834,
+      "size": 88
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3922,
+      "size": 92
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4014,
+      "size": 100
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4114,
+      "size": 452
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4566,
+      "size": 54
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 4620,
+      "size": 240
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 4860,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 4864,
+      "size": 10
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 4874,
+      "size": 46
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 4920,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 196,
+      "address": 208,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        4624
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 150
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 278,
+      "address": 290,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        4638,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1026,
+      "address": 1038,
+      "name": "bank",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        4653,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 310
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 984
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1104,
+      "address": 1116,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        4658,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        804,
+        0,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1500,
+      "address": 1512,
+      "name": "deposit",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4679,
+        0,
+        1,
+        35,
+        97,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4669,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        100,
+        0,
+        4,
+        1,
+        65535,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1180
+        },
+        {
+          "selector": 307,
+          "name": "hilite",
+          "address": 1441
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1950,
+      "address": 1962,
+      "name": "withdraw",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4698,
+        0,
+        1,
+        50,
+        92,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4687,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        100,
+        0,
+        4,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1612
+        },
+        {
+          "selector": 307,
+          "name": "hilite",
+          "address": 1891
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2378,
+      "address": 2390,
+      "name": "loanPayment",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4720,
+        0,
+        65,
+        65,
+        94,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4707,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        50,
+        0,
+        4,
+        1,
+        65535,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2099
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2062
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3120,
+      "address": 3132,
+      "name": "applyForLoan",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        4754,
+        0,
+        1,
+        80,
+        93,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4732,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2490
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3380,
+      "address": 3392,
+      "name": "seeBroker",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        4782,
+        0,
+        1,
+        95,
+        95,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4767,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3208
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3464,
+      "address": 3476,
+      "name": "theTalker",
+      "species": 56,
+      "superclass": 56,
+      "properties": [
+        56,
+        56,
+        0,
+        4792,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        354,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3544,
+      "address": 3556,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        4802,
+        4,
+        99,
+        108,
+        144,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3710,
+      "address": 3722,
+      "name": "workButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        4813,
+        4,
+        65,
+        108,
+        77,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        1,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3620
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3834,
+      "address": 3846,
+      "name": "timeClock",
+      "species": 57,
+      "superclass": 57,
+      "properties": [
+        57,
+        57,
+        0,
+        4824,
+        4,
+        0,
+        57,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 3813
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 3790
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4014,
+      "address": 4026,
+      "name": "piggyBank",
+      "species": 50,
+      "superclass": 50,
+      "properties": [
+        50,
+        50,
+        0,
+        4834,
+        4,
+        0,
+        57,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        704,
+        1,
+        0,
+        14,
+        0,
+        5,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 3926
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3931
+        },
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 3957
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3976
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 3994
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4566,
+      "address": 4578,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        4844,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 4552
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 4118
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1038
+  ],
+  "strings": [
+    {
+      "offset": 4624,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 4638,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 4653,
+      "text": "bank",
+      "terminated": true
+    },
+    {
+      "offset": 4658,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 4669,
+      "text": "Deposit  ",
+      "terminated": true
+    },
+    {
+      "offset": 4679,
+      "text": "deposit",
+      "terminated": true
+    },
+    {
+      "offset": 4687,
+      "text": "Withdraw  ",
+      "terminated": true
+    },
+    {
+      "offset": 4698,
+      "text": "withdraw",
+      "terminated": true
+    },
+    {
+      "offset": 4707,
+      "text": "Loan Payment",
+      "terminated": true
+    },
+    {
+      "offset": 4720,
+      "text": "loanPayment",
+      "terminated": true
+    },
+    {
+      "offset": 4732,
+      "text": "Apply For Loan",
+      "terminated": true
+    },
+    {
+      "offset": 4747,
+      "text": "Yes",
+      "terminated": true
+    },
+    {
+      "offset": 4751,
+      "text": "No",
+      "terminated": true
+    },
+    {
+      "offset": 4754,
+      "text": "applyForLoan",
+      "terminated": true
+    },
+    {
+      "offset": 4767,
+      "text": "See The Broker",
+      "terminated": true
+    },
+    {
+      "offset": 4782,
+      "text": "seeBroker",
+      "terminated": true
+    },
+    {
+      "offset": 4792,
+      "text": "theTalker",
+      "terminated": true
+    },
+    {
+      "offset": 4802,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 4813,
+      "text": "workButton",
+      "terminated": true
+    },
+    {
+      "offset": 4824,
+      "text": "timeClock",
+      "terminated": true
+    },
+    {
+      "offset": 4834,
+      "text": "piggyBank",
+      "terminated": true
+    },
+    {
+      "offset": 4844,
+      "text": "computerScript",
+      "terminated": true
+    },
+    {
+      "offset": 4859,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0
+  ]
+}

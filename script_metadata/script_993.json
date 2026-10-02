@@ -1,0 +1,105 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 192
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 192,
+      "size": 60
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 252,
+      "size": 16
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 268,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 272,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 280,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 192,
+      "address": 204,
+      "name": "gamefile.sh",
+      "species": 35,
+      "superclass": 0,
+      "properties": [
+        35,
+        0,
+        32768,
+        256,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 164
+        },
+        {
+          "selector": 104,
+          "name": "showStr",
+          "address": 177
+        },
+        {
+          "selector": 163,
+          "name": "open",
+          "address": 4
+        },
+        {
+          "selector": 249,
+          "name": "write",
+          "address": 65
+        },
+        {
+          "selector": 250,
+          "name": "read",
+          "address": 110
+        },
+        {
+          "selector": 251,
+          "name": "close",
+          "address": 148
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        93
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 256,
+      "text": "gamefile.sh",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

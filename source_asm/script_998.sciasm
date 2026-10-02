@@ -1,0 +1,799 @@
+; SCI1 script 998: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 2020 bytes.
+
+; CODE @0x0000 size=20
+@0000 .hex 02 00 14 00 ; ....
+; Feature::dispose
+@0004 pushi.b      0x67 ; possible selector: dispose
+@0006 push0.w
+@0007 super.b      0x00 0x04
+@000a ret.w
+; Feature::handleEvent
+@000b pushi.b      0x4c ; possible selector: claimed
+@000d push0.w
+@000e lap.b        0x01 ; param[1]
+@0010 send.w       0x04
+@0012 ret.w
+@0013 bnot.w
+
+; CLASS @0x0014 size=56
+@0014 .hex 06 00 38 00 34 12 00 00 22 00 08 00 1c 00 00 00 ; ..8.4...".......
+@0024 .hex 00 80 be 07 00 00 00 00 00 00 00 00 00 00 01 00 ; ................
+@0034 .hex 02 00 17 00 03 00 04 00 55 00 3a 00 02 00 67 00 ; ........U.:...g.
+@0044 .hex 7c 00 00 00 04 00 0b 00 ; |.......
+
+; CODE @0x004c size=462
+@004c .hex 02 00 ce 01 ; ....
+; View::init
+@0050 pTos.b       0x1c
+@0052 ldi.w        0x7fff
+@0055 and.w
+@0056 aTop.b       0x1c
+@0058 pTos.b       0x1c
+@005a ldi.w        0x4000
+@005d or.w
+@005e aTop.b       0x1c
+@0060 pushi.b      0x72 ; possible selector: contains
+@0062 push1.w
+@0063 pushSelf.w
+@0064 lag.b        0x05 ; global[5]
+@0066 send.w       0x06
+@0068 not.w
+@0069 bnt.w        0x0012 ; target @0x007e
+@006c ldi.b        0x00
+@006e aTop.b       0x2c
+@0070 aTop.b       0x2a
+@0072 aTop.b       0x28
+@0074 aTop.b       0x26
+@0076 pTos.b       0x1c
+@0078 ldi.w        0xff77
+@007b and.w
+@007c aTop.b       0x1c
+@007e pushi.b      0x6e ; possible selector: add
+@0080 push1.w
+@0081 pushSelf.w
+@0082 lag.b        0x05 ; global[5]
+@0084 send.w       0x06
+@0086 ret.w
+; View::posn
+@0087 lsp.b        0x00 ; param[0]
+@0089 ldi.b        0x01
+@008b ge?.w
+@008c bnt.w        0x001c ; target @0x00ab
+@008f lap.b        0x01 ; param[1]
+@0091 aTop.b       0x0a
+@0093 lsp.b        0x00 ; param[0]
+@0095 ldi.b        0x02
+@0097 ge?.w
+@0098 bnt.w        0x0010 ; target @0x00ab
+@009b lap.b        0x02 ; param[2]
+@009d aTop.b       0x08
+@009f lsp.b        0x00 ; param[0]
+@00a1 ldi.b        0x03
+@00a3 ge?.w
+@00a4 bnt.w        0x0004 ; target @0x00ab
+@00a7 lap.b        0x03 ; param[3]
+@00a9 aTop.b       0x0c
+@00ab pushi.w      0x00d0 ; possible selector: forceUpd
+@00ae push0.w
+@00af self.w       0x04
+@00b1 ret.w
+; View::dispose
+@00b2 pushi.w      0x00d1 ; possible selector: startUpd
+@00b5 push0.w
+@00b6 pushi.w      0x0095 ; possible selector: hide
+@00b9 push0.w
+@00ba self.w       0x08
+@00bc pTos.b       0x1c
+@00be ldi.w        0x8000
+@00c1 or.w
+@00c2 aTop.b       0x1c
+@00c4 ret.w
+; View::hide
+@00c5 pTos.b       0x1c
+@00c7 ldi.b        0x08
+@00c9 or.w
+@00ca aTop.b       0x1c
+@00cc ret.w
+; View::show
+@00cd pTos.b       0x1c
+@00cf ldi.b        0xf7
+@00d1 and.w
+@00d2 aTop.b       0x1c
+@00d4 ret.w
+; View::delete
+@00d5 pTos.b       0x1c
+@00d7 ldi.w        0x8000
+@00da and.w
+@00db bnt.w        0x0027 ; target @0x0105
+@00de pTos.b       0x1c
+@00e0 ldi.w        0x7fff
+@00e3 and.w
+@00e4 aTop.b       0x1c
+@00e6 pushi.b      0x54 ; possible selector: delete
+@00e8 push1.w
+@00e9 pushSelf.w
+@00ea lag.b        0x05 ; global[5]
+@00ec send.w       0x06
+@00ee pToa.b       0x1a
+@00f0 bnt.w        0x000c ; target @0x00ff
+@00f3 push2.w
+@00f4 pushi.w      0x0085 ; possible selector: register2
+@00f7 push.w
+@00f8 callk.b      0x01 0x04 ; UnLoad
+@00fb ldi.b        0x00
+@00fd aTop.b       0x1a
+@00ff pushi.b      0x67 ; possible selector: dispose
+@0101 push0.w
+@0102 super.b      0x1c 0x04
+@0105 ret.w
+; View::stopUpd
+@0106 pTos.b       0x1c
+@0108 ldi.b        0x01
+@010a or.w
+@010b aTop.b       0x1c
+@010d pTos.b       0x1c
+@010f ldi.b        0xfd
+@0111 and.w
+@0112 aTop.b       0x1c
+@0114 ret.w
+; View::forceUpd
+@0115 pTos.b       0x1c
+@0117 ldi.b        0x40
+@0119 or.w
+@011a aTop.b       0x1c
+@011c ret.w
+; View::startUpd
+@011d pTos.b       0x1c
+@011f ldi.b        0x02
+@0121 or.w
+@0122 aTop.b       0x1c
+@0124 pTos.b       0x1c
+@0126 ldi.b        0xfe
+@0128 and.w
+@0129 aTop.b       0x1c
+@012b ret.w
+; View::setPri
+@012c lsp.b        0x00 ; param[0]
+@012e ldi.b        0x00
+@0130 eq?.w
+@0131 bnt.w        0x000a ; target @0x013e
+@0134 pTos.b       0x1c
+@0136 ldi.b        0x10
+@0138 or.w
+@0139 aTop.b       0x1c
+@013b jmp.w        0x001d ; target @0x015b
+@013e lsp.b        0x01 ; param[1]
+@0140 ldi.b        0xff
+@0142 eq?.w
+@0143 bnt.w        0x000a ; target @0x0150
+@0146 pTos.b       0x1c
+@0148 ldi.b        0xef
+@014a and.w
+@014b aTop.b       0x1c
+@014d jmp.w        0x000b ; target @0x015b
+@0150 lap.b        0x01 ; param[1]
+@0152 aTop.b       0x18
+@0154 pTos.b       0x1c
+@0156 ldi.b        0x10
+@0158 or.w
+@0159 aTop.b       0x1c
+@015b pushi.w      0x00d0 ; possible selector: forceUpd
+@015e push0.w
+@015f self.w       0x04
+@0161 ret.w
+; View::setLoop
+@0162 lsp.b        0x00 ; param[0]
+@0164 ldi.b        0x00
+@0166 eq?.w
+@0167 bnt.w        0x000b ; target @0x0175
+@016a pTos.b       0x1c
+@016c ldi.w        0x0800
+@016f or.w
+@0170 aTop.b       0x1c
+@0172 jmp.w        0x001f ; target @0x0194
+@0175 lsp.b        0x01 ; param[1]
+@0177 ldi.b        0xff
+@0179 eq?.w
+@017a bnt.w        0x000b ; target @0x0188
+@017d pTos.b       0x1c
+@017f ldi.w        0xf7ff
+@0182 and.w
+@0183 aTop.b       0x1c
+@0185 jmp.w        0x000c ; target @0x0194
+@0188 lap.b        0x01 ; param[1]
+@018a aTop.b       0x14
+@018c pTos.b       0x1c
+@018e ldi.w        0x0800
+@0191 or.w
+@0192 aTop.b       0x1c
+@0194 pushi.w      0x00d0 ; possible selector: forceUpd
+@0197 push0.w
+@0198 self.w       0x04
+@019a ret.w
+; View::setCel
+@019b lsp.b        0x00 ; param[0]
+@019d ldi.b        0x00
+@019f eq?.w
+@01a0 bnt.w        0x000b ; target @0x01ae
+@01a3 pTos.b       0x1c
+@01a5 ldi.w        0x1000
+@01a8 or.w
+@01a9 aTop.b       0x1c
+@01ab jmp.w        0x0034 ; target @0x01e2
+@01ae lsp.b        0x01 ; param[1]
+@01b0 ldi.b        0xff
+@01b2 eq?.w
+@01b3 bnt.w        0x000b ; target @0x01c1
+@01b6 pTos.b       0x1c
+@01b8 ldi.w        0xefff
+@01bb and.w
+@01bc aTop.b       0x1c
+@01be jmp.w        0x0021 ; target @0x01e2
+@01c1 pTos.b       0x1c
+@01c3 ldi.w        0x1000
+@01c6 or.w
+@01c7 aTop.b       0x1c
+@01c9 lsp.b        0x01 ; param[1]
+@01cb pushi.w      0x00b6 ; possible selector: lastCel
+@01ce push0.w
+@01cf self.w       0x04
+@01d1 ge?.w
+@01d2 bnt.w        0x0009 ; target @0x01de
+@01d5 pushi.w      0x00b6 ; possible selector: lastCel
+@01d8 push0.w
+@01d9 self.w       0x04
+@01db jmp.w        0x0002 ; target @0x01e0
+@01de lap.b        0x01 ; param[1]
+@01e0 aTop.b       0x16
+@01e2 pushi.w      0x00d0 ; possible selector: forceUpd
+@01e5 push0.w
+@01e6 self.w       0x04
+@01e8 ret.w
+; View::ignoreActors
+@01e9 ret.w
+; View::addToPic
+@01ea pushi.b      0x72 ; possible selector: contains
+@01ec push1.w
+@01ed pushSelf.w
+@01ee lag.b        0x05 ; global[5]
+@01f0 send.w       0x06
+@01f2 not.w
+@01f3 bnt.w        0x0005 ; target @0x01fb
+@01f6 pushi.b      0x66 ; possible selector: init
+@01f8 push0.w
+@01f9 self.w       0x04
+@01fb pushi.b      0x11 ; possible selector: signal
+@01fd push1.w
+@01fe pTos.b       0x1c
+@0200 ldi.w        0x8021
+@0203 or.w
+@0204 push.w
+@0205 self.w       0x06
+@0207 ret.w
+; View::lastCel
+@0208 push1.w
+@0209 pushSelf.w
+@020a callk.b      0x0e 0x02 ; NumCels
+@020d push.w
+@020e ldi.b        0x01
+@0210 sub.w
+@0211 ret.w
+; View::showSelf
+@0212 ret.w
+; View::isExtra
+@0213 link.b       0x01
+@0215 ldi.b        0x01
+@0217 ret.w
+; View::motionCue
+@0218 ret.w
+@0219 bnot.w
+
+; CLASS @0x021a size=196
+@021a .hex 06 00 c4 00 34 12 00 00 6e 00 1b 00 1d 00 1c 00 ; ....4...n.......
+@022a .hex 00 80 c6 07 00 00 00 00 00 00 00 00 02 00 00 00 ; ................
+@023a .hex 00 00 00 00 00 00 00 00 01 01 00 00 00 00 00 00 ; ................
+@024a .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@025a .hex 00 00 00 00 01 00 02 00 17 00 03 00 04 00 55 00 ; ..............U.
+@026a .hex 3a 00 37 00 05 00 06 00 07 00 3f 00 08 00 11 00 ; :.7.......?.....
+@027a .hex 09 00 0a 00 0b 00 0c 00 0d 00 0e 00 0f 00 10 00 ; ................
+@028a .hex 13 00 14 00 15 00 16 00 12 00 66 00 67 00 69 00 ; ..........f.g.i.
+@029a .hex ce 00 cf 00 d0 00 d1 00 42 00 d2 00 d3 00 d4 00 ; ........B.......
+@02aa .hex 95 00 d5 00 54 00 d6 00 b6 00 d7 00 b2 00 00 00 ; ....T...........
+@02ba .hex 50 00 b2 00 12 02 87 00 06 01 15 01 1d 01 2c 01 ; P.............,.
+@02ca .hex 62 01 9b 01 e9 01 c5 00 cd 00 d5 00 ea 01 08 02 ; b...............
+@02da .hex 13 02 18 02 ; ....
+
+; CODE @0x02de size=236
+@02de .hex 02 00 ec 00 ; ....
+; Prop::doit
+@02e2 link.b       0x01
+@02e4 pTos.b       0x1c
+@02e6 ldi.w        0x8000
+@02e9 and.w
+@02ea bnt.w        0x0001 ; target @0x02ee
+@02ed ret.w
+@02ee pToa.b       0x38
+@02f0 bnt.w        0x0005 ; target @0x02f8
+@02f3 pushi.b      0x3c ; possible selector: doit
+@02f5 push0.w
+@02f6 send.w       0x04
+@02f8 pTos.b       0x1c
+@02fa ldi.b        0x04
+@02fc and.w
+@02fd bnt.w        0x000a ; target @0x030a
+@0300 pTos.b       0x1c
+@0302 ldi.b        0x02
+@0304 and.w
+@0305 not.w
+@0306 bnt.w        0x0001 ; target @0x030a
+@0309 ret.w
+@030a pToa.b       0x3a
+@030c bnt.w        0x0005 ; target @0x0314
+@030f pushi.b      0x3c ; possible selector: doit
+@0311 push0.w
+@0312 send.w       0x04
+@0314 ret.w
+; Prop::handleEvent
+@0315 pToa.b       0x38
+@0317 bnt.w        0x0007 ; target @0x0321
+@031a pushi.b      0x7c ; possible selector: handleEvent
+@031c push1.w
+@031d lsp.b        0x01 ; param[1]
+@031f send.w       0x06
+@0321 pushi.b      0x4c ; possible selector: claimed
+@0323 push0.w
+@0324 lap.b        0x01 ; param[1]
+@0326 send.w       0x04
+@0328 ret.w
+; Prop::setCycle
+@0329 pToa.b       0x3a
+@032b bnt.w        0x0005 ; target @0x0333
+@032e pushi.b      0x67 ; possible selector: dispose
+@0330 push0.w
+@0331 send.w       0x04
+@0333 lap.b        0x01 ; param[1]
+@0335 bnt.w        0x0024 ; target @0x035c
+@0338 pTos.b       0x1c
+@033a ldi.w        0xefff
+@033d and.w
+@033e aTop.b       0x1c
+@0340 pushi.w      0x00d1 ; possible selector: startUpd
+@0343 push0.w
+@0344 self.w       0x04
+@0346 pushi.b      0x65 ; possible selector: new
+@0348 push0.w
+@0349 lap.b        0x01 ; param[1]
+@034b send.w       0x04
+@034d aTop.b       0x3a
+@034f pushi.b      0x66 ; possible selector: init
+@0351 push1.w
+@0352 pushSelf.w
+@0353 &rest.b      0x02
+@0355 pToa.b       0x3a
+@0357 send.w       0x06
+@0359 jmp.w        0x0004 ; target @0x0360
+@035c ldi.b        0x00
+@035e aTop.b       0x3a
+@0360 ret.w
+; Prop::delete
+@0361 pTos.b       0x1c
+@0363 ldi.w        0x8000
+@0366 and.w
+@0367 bnt.w        0x001c ; target @0x0386
+@036a pushi.w      0x0088 ; possible selector: setScript
+@036d push1.w
+@036e push0.w
+@036f pushi.w      0x00d8 ; possible selector: setCycle
+@0372 push1.w
+@0373 push0.w
+@0374 self.w       0x0c
+@0376 pToa.b       0x3c
+@0378 bnt.w        0x0005 ; target @0x0380
+@037b pushi.b      0x67 ; possible selector: dispose
+@037d push0.w
+@037e send.w       0x04
+@0380 pushi.b      0x54 ; possible selector: delete
+@0382 push0.w
+@0383 super.b      0x1d 0x04
+@0386 ret.w
+; Prop::cue
+@0387 pToa.b       0x38
+@0389 bnt.w        0x0006 ; target @0x0392
+@038c pushi.w      0x0087 ; possible selector: cue
+@038f push0.w
+@0390 send.w       0x04
+@0392 ret.w
+; Prop::setScript
+@0393 push1.w
+@0394 pTos.b       0x38
+@0396 callk.b      0x06 0x02 ; IsObject
+@0399 bnt.w        0x0007 ; target @0x03a3
+@039c pushi.b      0x67 ; possible selector: dispose
+@039e push0.w
+@039f pToa.b       0x38
+@03a1 send.w       0x04
+@03a3 lap.b        0x01 ; param[1]
+@03a5 aTop.b       0x38
+@03a7 bnt.w        0x0008 ; target @0x03b2
+@03aa pushi.b      0x66 ; possible selector: init
+@03ac push1.w
+@03ad pushSelf.w
+@03ae &rest.b      0x02
+@03b0 send.w       0x06
+@03b2 ret.w
+; Prop::motionCue
+@03b3 pToa.b       0x3a
+@03b5 bnt.w        0x0011 ; target @0x03c9
+@03b8 pushi.w      0x00ad ; possible selector: completed
+@03bb push0.w
+@03bc send.w       0x04
+@03be bnt.w        0x0008 ; target @0x03c9
+@03c1 pushi.w      0x00b2 ; possible selector: motionCue
+@03c4 push0.w
+@03c5 pToa.b       0x3a
+@03c7 send.w       0x04
+@03c9 ret.w
+
+; CLASS @0x03ca size=172
+@03ca .hex 06 00 ac 00 34 12 00 00 82 00 20 00 1e 00 1d 00 ; ....4..... .....
+@03da .hex 00 80 cb 07 00 00 00 00 00 00 00 00 02 00 00 00 ; ................
+@03ea .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@03fa .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@040a .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 ; ................
+@041a .hex 02 00 17 00 03 00 04 00 55 00 3a 00 37 00 05 00 ; ........U.:.7...
+@042a .hex 06 00 07 00 3f 00 08 00 11 00 09 00 0a 00 0b 00 ; ....?...........
+@043a .hex 0c 00 0d 00 0e 00 0f 00 10 00 13 00 14 00 15 00 ; ................
+@044a .hex 16 00 b4 00 83 00 b5 00 7e 00 ae 00 07 00 3c 00 ; ........~.....<.
+@045a .hex 7c 00 54 00 b2 00 d8 00 88 00 87 00 00 00 e2 02 ; |.T.............
+@046a .hex 15 03 61 03 b3 03 29 03 93 03 87 03 ; ..a...).....
+
+; CODE @0x0476 size=564
+@0476 .hex 02 00 34 02 ; ..4.
+; Act::init
+@047a pushi.b      0x66 ; possible selector: init
+@047c push0.w
+@047d super.b      0x1e 0x04
+@0480 pToa.b       0x0a
+@0482 aTop.b       0x42
+@0484 pToa.b       0x08
+@0486 aTop.b       0x44
+@0488 ret.w
+; Act::doit
+@0489 link.b       0x03
+@048b pTos.b       0x1c
+@048d ldi.w        0x8000
+@0490 and.w
+@0491 bnt.w        0x0001 ; target @0x0495
+@0494 ret.w
+@0495 pTos.b       0x1c
+@0497 ldi.w        0xfbff
+@049a and.w
+@049b aTop.b       0x1c
+@049d pToa.b       0x38
+@049f bnt.w        0x0005 ; target @0x04a7
+@04a2 pushi.b      0x3c ; possible selector: doit
+@04a4 push0.w
+@04a5 send.w       0x04
+@04a7 pTos.b       0x1c
+@04a9 ldi.b        0x04
+@04ab and.w
+@04ac bnt.w        0x000a ; target @0x04b9
+@04af pTos.b       0x1c
+@04b1 ldi.b        0x02
+@04b3 and.w
+@04b4 not.w
+@04b5 bnt.w        0x0001 ; target @0x04b9
+@04b8 ret.w
+@04b9 pToa.b       0x52
+@04bb bnt.w        0x0006 ; target @0x04c4
+@04be pushi.b      0x3c ; possible selector: doit
+@04c0 push1.w
+@04c1 pushSelf.w
+@04c2 send.w       0x06
+@04c4 pToa.b       0x4e
+@04c6 bnt.w        0x0005 ; target @0x04ce
+@04c9 pushi.b      0x3c ; possible selector: doit
+@04cb push0.w
+@04cc send.w       0x04
+@04ce pToa.b       0x3a
+@04d0 bnt.w        0x000f ; target @0x04e2
+@04d3 pToa.b       0x30
+@04d5 sat.b        0x01 ; temp[1]
+@04d7 pToa.b       0x34
+@04d9 sat.b        0x02 ; temp[2]
+@04db pushi.b      0x3c ; possible selector: doit
+@04dd push0.w
+@04de pToa.b       0x3a
+@04e0 send.w       0x04
+@04e2 pToa.b       0x0a
+@04e4 aTop.b       0x42
+@04e6 pToa.b       0x08
+@04e8 aTop.b       0x44
+@04ea ret.w
+; Act::posn
+@04eb pushi.w      0x00ce ; possible selector: posn
+@04ee push2.w
+@04ef lsp.b        0x01 ; param[1]
+@04f1 lsp.b        0x02 ; param[2]
+@04f3 &rest.b      0x03
+@04f5 super.b      0x1e 0x08
+@04f8 lap.b        0x01 ; param[1]
+@04fa aTop.b       0x42
+@04fc lap.b        0x02 ; param[2]
+@04fe aTop.b       0x44
+@0500 ret.w
+; Act::setMotion
+@0501 link.b       0x28
+@0503 pToa.b       0x4e
+@0505 bnt.w        0x000e ; target @0x0516
+@0508 push.w
+@0509 ldi.b        0xff
+@050b ne?.w
+@050c bnt.w        0x0007 ; target @0x0516
+@050f pushi.b      0x67 ; possible selector: dispose
+@0511 push0.w
+@0512 pToa.b       0x4e
+@0514 send.w       0x04
+@0516 lap.b        0x01 ; param[1]
+@0518 bnt.w        0x002f ; target @0x054a
+@051b pushi.w      0x00d1 ; possible selector: startUpd
+@051e push0.w
+@051f self.w       0x04
+@0521 push2.w
+@0522 push0.w
+@0523 lap.b        0x01 ; param[1]
+@0525 send.w       0x04
+@0527 push.w
+@0528 ldi.w        0x8000
+@052b and.w
+@052c bnt.w        0x000a ; target @0x0539
+@052f pushi.b      0x65 ; possible selector: new
+@0531 push0.w
+@0532 lap.b        0x01 ; param[1]
+@0534 send.w       0x04
+@0536 jmp.w        0x0002 ; target @0x053b
+@0539 lap.b        0x01 ; param[1]
+@053b aTop.b       0x4e
+@053d pushi.b      0x66 ; possible selector: init
+@053f push1.w
+@0540 pushSelf.w
+@0541 &rest.b      0x02
+@0543 pToa.b       0x4e
+@0545 send.w       0x06
+@0547 jmp.w        0x0004 ; target @0x054e
+@054a ldi.b        0x00
+@054c aTop.b       0x4e
+@054e ret.w
+; Act::setAvoider
+@054f ret.w
+; Act::isStopped
+@0550 push1.w
+@0551 pTos.b       0x4e
+@0553 callk.b      0x06 0x02 ; IsObject
+@0556 not.w
+@0557 bt.w         0x0018 ; target @0x0572
+@055a pTos.b       0x0a
+@055c pToa.b       0x42
+@055e eq?.w
+@055f bnt.w        0x0010 ; target @0x0572
+@0562 pTos.b       0x08
+@0564 pToa.b       0x44
+@0566 eq?.w
+@0567 bnt.w        0x0008 ; target @0x0572
+@056a pushi.w      0x00e9 ; possible selector: triedToMove
+@056d push0.w
+@056e pToa.b       0x4e
+@0570 send.w       0x04
+@0572 ret.w
+; Act::isBlocked
+@0573 pTos.b       0x1c
+@0575 ldi.w        0x0400
+@0578 and.w
+@0579 ret.w
+; Act::delete
+@057a pTos.b       0x1c
+@057c ldi.w        0x8000
+@057f and.w
+@0580 bnt.w        0x0031 ; target @0x05b4
+@0583 pTos.b       0x4e
+@0585 ldi.b        0xff
+@0587 ne?.w
+@0588 bnt.w        0x0007 ; target @0x0592
+@058b pushi.w      0x00dd ; possible selector: setMotion
+@058e push1.w
+@058f push0.w
+@0590 self.w       0x06
+@0592 pToa.b       0x50
+@0594 bnt.w        0x0009 ; target @0x05a0
+@0597 pushi.b      0x67 ; possible selector: dispose
+@0599 push0.w
+@059a send.w       0x04
+@059c ldi.b        0x00
+@059e aTop.b       0x50
+@05a0 pToa.b       0x52
+@05a2 bnt.w        0x0009 ; target @0x05ae
+@05a5 pushi.b      0x67 ; possible selector: dispose
+@05a7 push0.w
+@05a8 send.w       0x04
+@05aa ldi.b        0x00
+@05ac aTop.b       0x52
+@05ae pushi.b      0x54 ; possible selector: delete
+@05b0 push0.w
+@05b1 super.b      0x1e 0x04
+@05b4 ret.w
+; Act::ignoreHorizon
+@05b5 ret.w
+; Act::observeControl
+@05b6 link.b       0x01
+@05b8 ret.w
+; Act::ignoreControl
+@05b9 link.b       0x01
+@05bb ret.w
+; Act::observeBlocks
+@05bc ret.w
+; Act::ignoreBlocks
+@05bd ret.w
+; Act::distanceTo
+@05be pushi.b      0x05 ; possible selector: view
+@05c0 pTos.b       0x0a
+@05c2 pTos.b       0x08
+@05c4 pushi.b      0x04 ; possible selector: x
+@05c6 push0.w
+@05c7 lap.b        0x01 ; param[1]
+@05c9 send.w       0x04
+@05cb push.w
+@05cc pushi.b      0x03 ; possible selector: y
+@05ce push0.w
+@05cf lap.b        0x01 ; param[1]
+@05d1 send.w       0x04
+@05d3 push.w
+@05d4 lsg.b        0x33 ; global[51]
+@05d6 callk.b      0x40 0x0a ; GetDistance
+@05d9 ret.w
+; Act::canBeHere
+@05da ldi.b        0x01
+@05dc ret.w
+; Act::findPosn
+@05dd link.b       0x05
+@05df ret.w
+; Act::inRect
+@05e0 lsp.b        0x01 ; param[1]
+@05e2 pToa.b       0x0a
+@05e4 le?.w
+@05e5 bnt.w        0x0015 ; target @0x05fd
+@05e8 pTos.b       0x0a
+@05ea lap.b        0x03 ; param[3]
+@05ec lt?.w
+@05ed bnt.w        0x000d ; target @0x05fd
+@05f0 lsp.b        0x02 ; param[2]
+@05f2 pToa.b       0x08
+@05f4 le?.w
+@05f5 bnt.w        0x0005 ; target @0x05fd
+@05f8 pTos.b       0x08
+@05fa lap.b        0x04 ; param[4]
+@05fc lt?.w
+@05fd ret.w
+; Act::onControl
+@05fe lap.b        0x00 ; param[0]
+@0600 bnt.w        0x0013 ; target @0x0616
+@0603 lap.b        0x01 ; param[1]
+@0605 bnt.w        0x000e ; target @0x0616
+@0608 pushi.b      0x03 ; possible selector: y
+@060a pushi.b      0x04 ; possible selector: x
+@060c pTos.b       0x0a
+@060e pTos.b       0x08
+@0610 callk.b      0x4e 0x06 ; OnControl
+@0613 jmp.w        0x000f ; target @0x0625
+@0616 pushi.b      0x05 ; possible selector: view
+@0618 pushi.b      0x04 ; possible selector: x
+@061a pTos.b       0x30
+@061c pTos.b       0x2e
+@061e pTos.b       0x34
+@0620 pTos.b       0x32
+@0622 callk.b      0x4e 0x0a ; OnControl
+@0625 ret.w
+; Act::setStep
+@0626 lsp.b        0x00 ; param[0]
+@0628 ldi.b        0x01
+@062a ge?.w
+@062b bnt.w        0x000c ; target @0x063a
+@062e lsp.b        0x01 ; param[1]
+@0630 ldi.b        0xff
+@0632 ne?.w
+@0633 bnt.w        0x0004 ; target @0x063a
+@0636 lap.b        0x01 ; param[1]
+@0638 aTop.b       0x46
+@063a lsp.b        0x00 ; param[0]
+@063c ldi.b        0x02
+@063e ge?.w
+@063f bnt.w        0x000c ; target @0x064e
+@0642 lsp.b        0x02 ; param[2]
+@0644 ldi.b        0xff
+@0646 ne?.w
+@0647 bnt.w        0x0004 ; target @0x064e
+@064a lap.b        0x02 ; param[2]
+@064c aTop.b       0x10
+@064e pToa.b       0x4e
+@0650 bnt.w        0x0035 ; target @0x0688
+@0653 pushi.b      0xff ; possible selector: changeScore
+@0655 ne?.w
+@0656 bnt.w        0x002f ; target @0x0688
+@0659 pushi.b      0x6b ; possible selector: isMemberOf
+@065b push1.w
+@065c class.b      0x1a
+@065e push.w
+@065f pToa.b       0x4e
+@0661 send.w       0x06
+@0663 bnt.w        0x0022 ; target @0x0688
+@0666 pushi.w      0x00dd ; possible selector: setMotion
+@0669 pushi.b      0x04 ; possible selector: x
+@066b class.b      0x1a
+@066d push.w
+@066e pushi.b      0x04 ; possible selector: x
+@0670 push0.w
+@0671 pToa.b       0x4e
+@0673 send.w       0x04
+@0675 push.w
+@0676 pushi.b      0x03 ; possible selector: y
+@0678 push0.w
+@0679 pToa.b       0x4e
+@067b send.w       0x04
+@067d push.w
+@067e pushi.b      0x2d ; possible selector: client
+@0680 push0.w
+@0681 pToa.b       0x4e
+@0683 send.w       0x04
+@0685 push.w
+@0686 self.w       0x0c
+@0688 ret.w
+; Act::setDirection
+@0689 link.b       0x01
+@068b ret.w
+; Act::motionCue
+@068c pToa.b       0x4e
+@068e bnt.w        0x0011 ; target @0x06a2
+@0691 pushi.w      0x00ad ; possible selector: completed
+@0694 push0.w
+@0695 send.w       0x04
+@0697 bnt.w        0x0008 ; target @0x06a2
+@069a pushi.w      0x00b2 ; possible selector: motionCue
+@069d push0.w
+@069e pToa.b       0x4e
+@06a0 send.w       0x04
+@06a2 pushi.w      0x00b2 ; possible selector: motionCue
+@06a5 push0.w
+@06a6 super.b      0x1e 0x04
+@06a9 ret.w
+
+; CLASS @0x06aa size=272
+@06aa .hex 06 00 10 01 34 12 00 00 ae 00 2b 00 1f 00 1e 00 ; ....4.....+.....
+@06ba .hex 00 80 d0 07 00 00 00 00 00 00 00 00 02 00 00 00 ; ................
+@06ca .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06da .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06ea .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 80 00 00 ; ................
+@06fa .hex 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@070a .hex 00 00 00 00 01 00 02 00 17 00 03 00 04 00 55 00 ; ..............U.
+@071a .hex 3a 00 37 00 05 00 06 00 07 00 3f 00 08 00 11 00 ; :.7.......?.....
+@072a .hex 09 00 0a 00 0b 00 0c 00 0d 00 0e 00 0f 00 10 00 ; ................
+@073a .hex 13 00 14 00 15 00 16 00 b4 00 83 00 b5 00 7e 00 ; ..............~.
+@074a .hex ae 00 12 00 b9 00 ba 00 36 00 38 00 d9 00 da 00 ; ........6.8.....
+@075a .hex 3b 00 3e 00 db 00 dc 00 15 00 66 00 3c 00 ce 00 ; ;.>.......f.<...
+@076a .hex 54 00 b2 00 dd 00 de 00 df 00 e0 00 e1 00 e2 00 ; T...............
+@077a .hex e3 00 b7 00 3d 00 cd 00 e4 00 e5 00 e6 00 39 00 ; ....=.........9.
+@078a .hex e7 00 e8 00 00 00 7a 04 89 04 eb 04 7a 05 8c 06 ; ......z.....z...
+@079a .hex 01 05 4f 05 b5 05 b6 05 b9 05 bc 05 bd 05 50 05 ; ..O...........P.
+@07aa .hex 73 05 dd 05 e0 05 fe 05 be 05 da 05 26 06 89 06 ; s...........&...
+
+; STRINGS @0x07ba size=26
+@07ba .hex 05 00 1a 00 46 65 61 74 75 72 65 00 56 69 65 77 ; ....Feature.View
+@07ca .hex 00 50 72 6f 70 00 41 63 74 00 ; .Prop.Act.
+
+; RELOCATIONS @0x07d4 size=14
+@07d4 .hex 08 00 0e 00 04 00 26 00 2c 02 dc 03 bc 06 ; ......&.,.....
+
+; END @0x07e2 size=2
+@07e2 .hex 00 00 ; ..

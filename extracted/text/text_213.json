@@ -1,0 +1,19 @@
+{
+  "resource": 213,
+  "encoding": "cp437",
+  "strings": [
+    "You do not have enough cash.",
+    "Market",
+    "Value",
+    "Your",
+    "Holdings",
+    "You don't have enough cash!",
+    "A $3 Broker's fee is deducted for the sale of each T-Bill.",
+    "You do not own any shares.",
+    "$%d",
+    "%6s",
+    "$%s",
+    "%7s",
+    ""
+  ]
+}

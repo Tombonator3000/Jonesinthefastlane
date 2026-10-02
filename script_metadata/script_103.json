@@ -1,0 +1,170 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 114
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 114,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 190,
+      "size": 78
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 268,
+      "size": 80
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 348,
+      "size": 18
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 366,
+      "size": 10
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 376,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 114,
+      "address": 126,
+      "name": "FwdCount",
+      "species": 51,
+      "superclass": 19,
+      "properties": [
+        51,
+        19,
+        32768,
+        352,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 4
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 42
+        },
+        {
+          "selector": 177,
+          "name": "cycleDone",
+          "address": 84
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175,
+        328
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 268,
+      "address": 280,
+      "name": "RdmC",
+      "species": 52,
+      "superclass": 51,
+      "properties": [
+        52,
+        51,
+        32768,
+        361,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 194
+        },
+        {
+          "selector": 177,
+          "name": "cycleDone",
+          "address": 231
+        },
+        {
+          "selector": 179,
+          "name": "changeCel",
+          "address": 250
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175,
+        328,
+        329
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 352,
+      "text": "FwdCount",
+      "terminated": true
+    },
+    {
+      "offset": 361,
+      "text": "RdmC",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

@@ -1,0 +1,1079 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 770
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 778,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 806,
+      "size": 50
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 856,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 884,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 912,
+      "size": 720
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1632,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1710,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1782,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1866,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1974,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2058,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2166,
+      "size": 86
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2252,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2360,
+      "size": 58
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2418,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2526,
+      "size": 178
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2704,
+      "size": 108
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2812,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2884,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2988,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3064,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3106,
+      "size": 88
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3194,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3274,
+      "size": 120
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3394,
+      "size": 100
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3494,
+      "size": 466
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3960,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 4010,
+      "size": 302
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 4312,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 4316,
+      "size": 10
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 4326,
+      "size": 48
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 4374,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 778,
+      "address": 790,
+      "name": "boughtItem",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        4014
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 668
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 856,
+      "address": 868,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        4025
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 810
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 884,
+      "address": 896,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        4039,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1632,
+      "address": 1644,
+      "name": "market",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        4054,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 916
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1590
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1710,
+      "address": 1722,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        4061,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        803,
+        0,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1866,
+      "address": 1878,
+      "name": "foodFor1Week",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4092,
+        0,
+        1,
+        31,
+        6,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4072,
+        0,
+        10,
+        37,
+        65535,
+        112,
+        100,
+        0,
+        0,
+        1,
+        1,
+        1,
+        65535,
+        55,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1830
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 1786
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2058,
+      "address": 2070,
+      "name": "foodFor2Weeks",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4125,
+        0,
+        1,
+        46,
+        6,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4105,
+        0,
+        10,
+        37,
+        65535,
+        112,
+        100,
+        0,
+        0,
+        1,
+        1,
+        2,
+        65535,
+        100,
+        0,
+        0,
+        0,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2022
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 1978
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2252,
+      "address": 2264,
+      "name": "foodFor4Weeks",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4158,
+        0,
+        1,
+        64,
+        75,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4139,
+        0,
+        10,
+        37,
+        65535,
+        112,
+        100,
+        0,
+        0,
+        1,
+        1,
+        4,
+        65535,
+        190,
+        0,
+        0,
+        0,
+        2
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2214
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2170
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2418,
+      "address": 2430,
+      "name": "lotteryTickets",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4196,
+        0,
+        1,
+        79,
+        74,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4172,
+        0,
+        10,
+        37,
+        65535,
+        112,
+        100,
+        0,
+        10,
+        9,
+        1,
+        10,
+        65535,
+        0,
+        1,
+        0,
+        0,
+        3
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2381
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2364
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2704,
+      "address": 2716,
+      "name": "newspaper",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        4238,
+        0,
+        1,
+        94,
+        75,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4211,
+        0,
+        10,
+        37,
+        65535,
+        112,
+        100,
+        0,
+        1,
+        8,
+        3,
+        1,
+        65535,
+        0,
+        1,
+        0,
+        1,
+        4
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2547
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2530
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2812,
+      "address": 2824,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        4248,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2988,
+      "address": 3000,
+      "name": "workButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        4259,
+        4,
+        65,
+        108,
+        75,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        1,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2888
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3106,
+      "address": 3118,
+      "name": "timeClock",
+      "species": 57,
+      "superclass": 57,
+      "properties": [
+        57,
+        57,
+        0,
+        4270,
+        4,
+        0,
+        57,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 3084
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 3068
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3194,
+      "address": 3206,
+      "name": "theTalker",
+      "species": 56,
+      "superclass": 56,
+      "properties": [
+        56,
+        56,
+        0,
+        4280,
+        4,
+        0,
+        0,
+        115,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        353,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3394,
+      "address": 3406,
+      "name": "items",
+      "species": 50,
+      "superclass": 50,
+      "properties": [
+        50,
+        50,
+        0,
+        4290,
+        4,
+        0,
+        57,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        703,
+        1,
+        0,
+        14,
+        0,
+        100,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 3278
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3298
+        },
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 3375
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3357
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 3338
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3960,
+      "address": 3972,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        4296,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 3498
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1644
+  ],
+  "strings": [
+    {
+      "offset": 4014,
+      "text": "boughtItem",
+      "terminated": true
+    },
+    {
+      "offset": 4025,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 4039,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 4054,
+      "text": "market",
+      "terminated": true
+    },
+    {
+      "offset": 4061,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 4072,
+      "text": "Food For 1 Week....",
+      "terminated": true
+    },
+    {
+      "offset": 4092,
+      "text": "foodFor1Week",
+      "terminated": true
+    },
+    {
+      "offset": 4105,
+      "text": "Food For 2 Weeks..|",
+      "terminated": true
+    },
+    {
+      "offset": 4125,
+      "text": "foodFor2Weeks",
+      "terminated": true
+    },
+    {
+      "offset": 4139,
+      "text": "Food For 4 Weeks..",
+      "terminated": true
+    },
+    {
+      "offset": 4158,
+      "text": "foodFor4Weeks",
+      "terminated": true
+    },
+    {
+      "offset": 4172,
+      "text": "10 Lottery Tickets|...|",
+      "terminated": true
+    },
+    {
+      "offset": 4196,
+      "text": "lotteryTickets",
+      "terminated": true
+    },
+    {
+      "offset": 4211,
+      "text": "Newspaper................|",
+      "terminated": true
+    },
+    {
+      "offset": 4238,
+      "text": "newspaper",
+      "terminated": true
+    },
+    {
+      "offset": 4248,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 4259,
+      "text": "workButton",
+      "terminated": true
+    },
+    {
+      "offset": 4270,
+      "text": "timeClock",
+      "terminated": true
+    },
+    {
+      "offset": 4280,
+      "text": "theTalker",
+      "terminated": true
+    },
+    {
+      "offset": 4290,
+      "text": "items",
+      "terminated": true
+    },
+    {
+      "offset": 4296,
+      "text": "computerScript",
+      "terminated": true
+    },
+    {
+      "offset": 4311,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    65535,
+    1
+  ]
+}

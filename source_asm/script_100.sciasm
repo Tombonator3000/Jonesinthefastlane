@@ -1,0 +1,356 @@
+; SCI1 script 100: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 720 bytes.
+
+; CODE @0x0000 size=572
+@0000 .hex 02 00 3c 02 ; ..<.
+; MyWindow::open
+@0004 link.b       0x09
+@0006 pushi.b      0x03 ; possible selector: y
+@0008 pTos.b       0x2c
+@000a push0.w
+@000b push0.w
+@000c callk.b      0x10 0x06 ; CelHigh
+@000f sat.b        0x07 ; temp[7]
+@0011 pushi.b      0x03 ; possible selector: y
+@0013 pTos.b       0x2c
+@0015 push0.w
+@0016 push1.w
+@0017 callk.b      0x10 0x06 ; CelHigh
+@001a sat.b        0x05 ; temp[5]
+@001c pushi.b      0x03 ; possible selector: y
+@001e pTos.b       0x2c
+@0020 push1.w
+@0021 push0.w
+@0022 callk.b      0x10 0x06 ; CelHigh
+@0025 sat.b        0x06 ; temp[6]
+@0027 pushi.b      0x03 ; possible selector: y
+@0029 pTos.b       0x2c
+@002b push0.w
+@002c push0.w
+@002d callk.b      0x0f 0x06 ; CelWide
+@0030 sat.b        0x08 ; temp[8]
+@0032 push0.w
+@0033 callk.b      0x14 0x00 ; GetPort
+@0036 aTop.b       0x30
+@0038 push1.w
+@0039 push0.w
+@003a callk.b      0x15 0x02 ; SetPort
+@003d pTos.b       0x08
+@003f ldi.b        0x08
+@0041 sub.w
+@0042 sat.b        0x01 ; temp[1]
+@0044 pTos.b       0x0a
+@0046 ldi.b        0x08
+@0048 sub.w
+@0049 sat.b        0x02 ; temp[2]
+@004b pTos.b       0x0c
+@004d ldi.b        0x08
+@004f add.w
+@0050 sat.b        0x03 ; temp[3]
+@0052 pTos.b       0x0e
+@0054 ldi.b        0x08
+@0056 add.w
+@0057 sat.b        0x04 ; temp[4]
+@0059 ldi.b        0x01
+@005b sat.b        0x00 ; temp[0]
+@005d pushi.b      0x06 ; possible selector: loop
+@005f pushi.b      0x07 ; possible selector: cel
+@0061 lst.b        0x01 ; temp[1]
+@0063 lst.b        0x02 ; temp[2]
+@0065 lst.b        0x03 ; temp[3]
+@0067 lst.b        0x04 ; temp[4]
+@0069 push.w
+@006a callk.b      0x6c 0x0c ; Graph
+@006d aTop.b       0x2a
+@006f pushi.b      0x08 ; possible selector: underBits
+@0071 pushi.b      0x0b ; possible selector: nsBottom
+@0073 lst.b        0x01 ; temp[1]
+@0075 lst.b        0x02 ; temp[2]
+@0077 lst.b        0x03 ; temp[3]
+@0079 lst.b        0x04 ; temp[4]
+@007b lst.b        0x00 ; temp[0]
+@007d pTos.b       0x12
+@007f pTos.b       0x14
+@0081 callk.b      0x6c 0x10 ; Graph
+@0084 pushi.b      0x06 ; possible selector: loop
+@0086 pTos.b       0x2c
+@0088 push0.w
+@0089 push0.w
+@008a lst.b        0x02 ; temp[2]
+@008c lst.b        0x01 ; temp[1]
+@008e pushi.b      0xff ; possible selector: changeScore
+@0090 callk.b      0x11 0x0c ; DrawCel
+@0093 pushi.b      0x06 ; possible selector: loop
+@0095 pTos.b       0x2c
+@0097 push0.w
+@0098 push1.w
+@0099 lst.b        0x02 ; temp[2]
+@009b lst.b        0x03 ; temp[3]
+@009d lat.b        0x05 ; temp[5]
+@009f sub.w
+@00a0 push.w
+@00a1 pushi.b      0xff ; possible selector: changeScore
+@00a3 callk.b      0x11 0x0c ; DrawCel
+@00a6 pushi.b      0x06 ; possible selector: loop
+@00a8 pTos.b       0x2c
+@00aa push1.w
+@00ab push0.w
+@00ac lst.b        0x04 ; temp[4]
+@00ae lat.b        0x06 ; temp[6]
+@00b0 sub.w
+@00b1 push.w
+@00b2 lst.b        0x01 ; temp[1]
+@00b4 pushi.b      0xff ; possible selector: changeScore
+@00b6 callk.b      0x11 0x0c ; DrawCel
+@00b9 pushi.b      0x06 ; possible selector: loop
+@00bb pTos.b       0x2c
+@00bd push1.w
+@00be push2.w
+@00bf lst.b        0x04 ; temp[4]
+@00c1 lat.b        0x06 ; temp[6]
+@00c3 sub.w
+@00c4 push.w
+@00c5 lst.b        0x03 ; temp[3]
+@00c7 lat.b        0x05 ; temp[5]
+@00c9 sub.w
+@00ca push.w
+@00cb pushi.b      0xff ; possible selector: changeScore
+@00cd callk.b      0x11 0x0c ; DrawCel
+@00d0 pushi.b      0x08 ; possible selector: underBits
+@00d2 pushi.b      0x04 ; possible selector: x
+@00d4 lst.b        0x01 ; temp[1]
+@00d6 lst.b        0x02 ; temp[2]
+@00d8 lat.b        0x08 ; temp[8]
+@00da add.w
+@00db push.w
+@00dc lst.b        0x01 ; temp[1]
+@00de lst.b        0x04 ; temp[4]
+@00e0 lat.b        0x08 ; temp[8]
+@00e2 sub.w
+@00e3 push.w
+@00e4 pTos.b       0x2e
+@00e6 pushi.b      0xff ; possible selector: changeScore
+@00e8 dup.w
+@00e9 callk.b      0x6c 0x10 ; Graph
+@00ec pushi.b      0x08 ; possible selector: underBits
+@00ee pushi.b      0x04 ; possible selector: x
+@00f0 lst.b        0x01 ; temp[1]
+@00f2 ldi.b        0x02
+@00f4 add.w
+@00f5 push.w
+@00f6 lst.b        0x02 ; temp[2]
+@00f8 lat.b        0x08 ; temp[8]
+@00fa add.w
+@00fb push.w
+@00fc lst.b        0x01 ; temp[1]
+@00fe ldi.b        0x02
+@0100 add.w
+@0101 push.w
+@0102 lst.b        0x04 ; temp[4]
+@0104 lat.b        0x08 ; temp[8]
+@0106 sub.w
+@0107 push.w
+@0108 pTos.b       0x2e
+@010a pushi.b      0xff ; possible selector: changeScore
+@010c dup.w
+@010d callk.b      0x6c 0x10 ; Graph
+@0110 pushi.b      0x08 ; possible selector: underBits
+@0112 pushi.b      0x04 ; possible selector: x
+@0114 lst.b        0x03 ; temp[3]
+@0116 ldi.b        0x01
+@0118 sub.w
+@0119 push.w
+@011a lst.b        0x02 ; temp[2]
+@011c lat.b        0x08 ; temp[8]
+@011e add.w
+@011f push.w
+@0120 lst.b        0x03 ; temp[3]
+@0122 ldi.b        0x01
+@0124 sub.w
+@0125 push.w
+@0126 lst.b        0x04 ; temp[4]
+@0128 lat.b        0x08 ; temp[8]
+@012a sub.w
+@012b push.w
+@012c pTos.b       0x2e
+@012e pushi.b      0xff ; possible selector: changeScore
+@0130 dup.w
+@0131 callk.b      0x6c 0x10 ; Graph
+@0134 pushi.b      0x08 ; possible selector: underBits
+@0136 pushi.b      0x04 ; possible selector: x
+@0138 lst.b        0x03 ; temp[3]
+@013a ldi.b        0x03
+@013c sub.w
+@013d push.w
+@013e lst.b        0x02 ; temp[2]
+@0140 lat.b        0x08 ; temp[8]
+@0142 add.w
+@0143 push.w
+@0144 lst.b        0x03 ; temp[3]
+@0146 ldi.b        0x03
+@0148 sub.w
+@0149 push.w
+@014a lst.b        0x04 ; temp[4]
+@014c lat.b        0x08 ; temp[8]
+@014e sub.w
+@014f push.w
+@0150 pTos.b       0x2e
+@0152 pushi.b      0xff ; possible selector: changeScore
+@0154 dup.w
+@0155 callk.b      0x6c 0x10 ; Graph
+@0158 pushi.b      0x08 ; possible selector: underBits
+@015a pushi.b      0x04 ; possible selector: x
+@015c lst.b        0x01 ; temp[1]
+@015e lat.b        0x07 ; temp[7]
+@0160 add.w
+@0161 push.w
+@0162 lst.b        0x02 ; temp[2]
+@0164 lst.b        0x03 ; temp[3]
+@0166 lat.b        0x07 ; temp[7]
+@0168 sub.w
+@0169 push.w
+@016a lst.b        0x02 ; temp[2]
+@016c pTos.b       0x2e
+@016e pushi.b      0xff ; possible selector: changeScore
+@0170 dup.w
+@0171 callk.b      0x6c 0x10 ; Graph
+@0174 pushi.b      0x08 ; possible selector: underBits
+@0176 pushi.b      0x04 ; possible selector: x
+@0178 lst.b        0x01 ; temp[1]
+@017a lat.b        0x07 ; temp[7]
+@017c add.w
+@017d push.w
+@017e lst.b        0x02 ; temp[2]
+@0180 ldi.b        0x02
+@0182 add.w
+@0183 push.w
+@0184 lst.b        0x03 ; temp[3]
+@0186 lat.b        0x07 ; temp[7]
+@0188 sub.w
+@0189 push.w
+@018a lst.b        0x02 ; temp[2]
+@018c ldi.b        0x02
+@018e add.w
+@018f push.w
+@0190 pTos.b       0x2e
+@0192 pushi.b      0xff ; possible selector: changeScore
+@0194 dup.w
+@0195 callk.b      0x6c 0x10 ; Graph
+@0198 pushi.b      0x08 ; possible selector: underBits
+@019a pushi.b      0x04 ; possible selector: x
+@019c lst.b        0x01 ; temp[1]
+@019e lat.b        0x07 ; temp[7]
+@01a0 add.w
+@01a1 push.w
+@01a2 lst.b        0x04 ; temp[4]
+@01a4 ldi.b        0x01
+@01a6 sub.w
+@01a7 push.w
+@01a8 lst.b        0x03 ; temp[3]
+@01aa lat.b        0x07 ; temp[7]
+@01ac sub.w
+@01ad push.w
+@01ae lst.b        0x04 ; temp[4]
+@01b0 ldi.b        0x01
+@01b2 sub.w
+@01b3 push.w
+@01b4 pTos.b       0x2e
+@01b6 pushi.b      0xff ; possible selector: changeScore
+@01b8 dup.w
+@01b9 callk.b      0x6c 0x10 ; Graph
+@01bc pushi.b      0x08 ; possible selector: underBits
+@01be pushi.b      0x04 ; possible selector: x
+@01c0 lst.b        0x01 ; temp[1]
+@01c2 lat.b        0x07 ; temp[7]
+@01c4 add.w
+@01c5 push.w
+@01c6 lst.b        0x04 ; temp[4]
+@01c8 ldi.b        0x03
+@01ca sub.w
+@01cb push.w
+@01cc lst.b        0x03 ; temp[3]
+@01ce lat.b        0x07 ; temp[7]
+@01d0 sub.w
+@01d1 push.w
+@01d2 lst.b        0x04 ; temp[4]
+@01d4 ldi.b        0x03
+@01d6 sub.w
+@01d7 push.w
+@01d8 pTos.b       0x2e
+@01da pushi.b      0xff ; possible selector: changeScore
+@01dc dup.w
+@01dd callk.b      0x6c 0x10 ; Graph
+@01e0 pushi.b      0x06 ; possible selector: loop
+@01e2 pushi.b      0x0c ; possible selector: nsRight
+@01e4 lst.b        0x01 ; temp[1]
+@01e6 lst.b        0x02 ; temp[2]
+@01e8 lst.b        0x03 ; temp[3]
+@01ea lst.b        0x04 ; temp[4]
+@01ec push1.w
+@01ed callk.b      0x6c 0x0c ; Graph
+@01f0 ldi.w        0x0081
+@01f3 aTop.b       0x18
+@01f5 pushi.w      0x00a3 ; possible selector: open
+@01f8 push0.w
+@01f9 super.b      0x24 0x04
+@01fc ret.w
+; MyWindow::dispose
+@01fd push1.w
+@01fe push0.w
+@01ff callk.b      0x15 0x02 ; SetPort
+@0202 push2.w
+@0203 pushi.b      0x08 ; possible selector: underBits
+@0205 pTos.b       0x2a
+@0207 callk.b      0x6c 0x04 ; Graph
+@020a pushi.b      0x06 ; possible selector: loop
+@020c pushi.b      0x0c ; possible selector: nsRight
+@020e pTos.b       0x08
+@0210 ldi.b        0x08
+@0212 sub.w
+@0213 push.w
+@0214 pTos.b       0x0a
+@0216 ldi.b        0x08
+@0218 sub.w
+@0219 push.w
+@021a pTos.b       0x0c
+@021c ldi.b        0x08
+@021e add.w
+@021f push.w
+@0220 pTos.b       0x0e
+@0222 ldi.b        0x08
+@0224 add.w
+@0225 push.w
+@0226 push1.w
+@0227 callk.b      0x6c 0x0c ; Graph
+@022a push1.w
+@022b pTos.b       0x30
+@022d callk.b      0x15 0x02 ; SetPort
+@0230 push1.w
+@0231 pTos.b       0x16
+@0233 callk.b      0x16 0x02 ; DisposeWindow
+@0236 push1.w
+@0237 pushSelf.w
+@0238 callk.b      0x05 0x02 ; DisposeClone
+@023b ret.w
+
+; CLASS @0x023c size=124
+@023c .hex 06 00 7c 00 34 12 00 00 66 00 19 00 45 00 24 00 ; ..|.4...f...E.$.
+@024c .hex 00 80 bc 02 00 00 00 00 00 00 00 00 c8 00 29 00 ; ..............).
+@025c .hex 32 00 00 00 81 00 00 00 04 00 04 00 00 00 00 00 ; 2...............
+@026c .hex be 00 40 01 00 00 00 00 64 00 64 00 00 00 00 00 ; ..@.....d.d.....
+@027c .hex 01 00 02 00 17 00 a5 00 a6 00 a7 00 a8 00 1c 00 ; ................
+@028c .hex 1d 00 3f 00 23 00 22 00 50 00 a9 00 aa 00 13 00 ; ..?.#.".P.......
+@029c .hex 14 00 15 00 16 00 3c 01 08 00 05 00 66 01 6d 01 ; ......<.....f.m.
+@02ac .hex 02 00 67 00 a3 00 00 00 fd 01 04 00 ; ..g.........
+
+; STRINGS @0x02b8 size=14
+@02b8 .hex 05 00 0e 00 4d 79 57 69 6e 64 6f 77 00 00 ; ....MyWindow..
+
+; RELOCATIONS @0x02c6 size=8
+@02c6 .hex 08 00 08 00 01 00 4e 02 ; ......N.
+
+; END @0x02ce size=2
+@02ce .hex 00 00 ; ..

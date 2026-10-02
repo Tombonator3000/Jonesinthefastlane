@@ -1,0 +1,423 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 898
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 906,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 934,
+      "size": 370
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1304,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1378,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1450,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1522,
+      "size": 190
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1712,
+      "size": 92
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1804,
+      "size": 110
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1914,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1988,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2072,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2122,
+      "size": 90
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 2212,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2216,
+      "size": 20
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2236,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 906,
+      "address": 918,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        2126,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1304,
+      "address": 1316,
+      "name": "newspaper",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        2141,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 938
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1378,
+      "address": 1390,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2151,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        603,
+        1,
+        1,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1450,
+      "address": 1462,
+      "name": "doneButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2162,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        2,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1712,
+      "address": 1724,
+      "name": "newsPaper",
+      "species": 50,
+      "superclass": 50,
+      "properties": [
+        50,
+        50,
+        0,
+        2173,
+        4,
+        0,
+        35,
+        56,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        603,
+        0,
+        0,
+        14,
+        0,
+        6,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1526
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1573
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 1597
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1914,
+      "address": 1926,
+      "name": "newspaperText",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        2183,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1808
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2072,
+      "address": 2084,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        2197,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 1992
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1316
+  ],
+  "strings": [
+    {
+      "offset": 2126,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 2141,
+      "text": "newspaper",
+      "terminated": true
+    },
+    {
+      "offset": 2151,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 2162,
+      "text": "doneButton",
+      "terminated": true
+    },
+    {
+      "offset": 2173,
+      "text": "newsPaper",
+      "terminated": true
+    },
+    {
+      "offset": 2183,
+      "text": "newspaperText",
+      "terminated": true
+    },
+    {
+      "offset": 2197,
+      "text": "computerScript",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

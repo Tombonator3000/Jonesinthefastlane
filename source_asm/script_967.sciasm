@@ -1,0 +1,126 @@
+; SCI1 script 967: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 364 bytes.
+
+; EXPORTS @0x0000 size=8
+@0000 .hex 07 00 08 00 01 00 b6 00 ; ........
+
+; CODE @0x0008 size=162
+@0008 .hex 02 00 a2 00 ; ....
+; DCIcon::cycle
+@000c link.b       0x02
+@000e pToa.b       0x38
+@0010 bnt.w        0x0024 ; target @0x0037
+@0013 pToa.b       0x34
+@0015 sat.b        0x00 ; temp[0]
+@0017 pToa.b       0x32
+@0019 sat.b        0x01 ; temp[1]
+@001b pushi.b      0x3c ; possible selector: doit
+@001d push0.w
+@001e pToa.b       0x38
+@0020 send.w       0x04
+@0022 pTos.b       0x34
+@0024 lat.b        0x00 ; temp[0]
+@0026 ne?.w
+@0027 bt.w         0x0005 ; target @0x002f
+@002a pTos.b       0x32
+@002c lat.b        0x01 ; temp[1]
+@002e ne?.w
+@002f bnt.w        0x0005 ; target @0x0037
+@0032 pushi.b      0x53 ; possible selector: draw
+@0034 push0.w
+@0035 self.w       0x04
+@0037 ret.w
+; DCIcon::dispose
+@0038 pToa.b       0x38
+@003a bnt.w        0x0009 ; target @0x0046
+@003d pushi.b      0x67 ; possible selector: dispose
+@003f push0.w
+@0040 send.w       0x04
+@0042 ldi.b        0x00
+@0044 aTop.b       0x38
+@0046 pushi.b      0x67 ; possible selector: dispose
+@0048 push0.w
+@0049 super.b      0x0c 0x04
+@004c ret.w
+; DCIcon::lastCel
+@004d push1.w
+@004e pushSelf.w
+@004f callk.b      0x0e 0x02 ; NumCels
+@0052 push.w
+@0053 ldi.b        0x01
+@0055 sub.w
+@0056 ret.w
+; DCIcon::draw
+@0057 pushi.w      0x012a ; possible selector: setPort
+@005a push0.w
+@005b self.w       0x04
+@005d push1.w
+@005e pushSelf.w
+@005f callk.b      0x17 0x02 ; DrawControl
+@0062 pushi.w      0x012b ; possible selector: resetPort
+@0065 push0.w
+@0066 self.w       0x04
+@0068 ret.w
+; DCIcon::cue
+@0069 selfID.w
+@006a ret.w
+; DCIcon::setCycle
+@006b pToa.b       0x38
+@006d bnt.w        0x0005 ; target @0x0075
+@0070 pushi.b      0x67 ; possible selector: dispose
+@0072 push0.w
+@0073 send.w       0x04
+@0075 ldi.b        0x00
+@0077 aTop.b       0x38
+@0079 lap.b        0x01 ; param[1]
+@007b bnt.w        0x0013 ; target @0x0091
+@007e pushi.b      0x65 ; possible selector: new
+@0080 push0.w
+@0081 send.w       0x04
+@0083 aTop.b       0x38
+@0085 pushi.b      0x66 ; possible selector: init
+@0087 push2.w
+@0088 pushSelf.w
+@0089 lsp.b        0x02 ; param[2]
+@008b &rest.b      0x03
+@008d pToa.b       0x38
+@008f send.w       0x08
+@0091 ret.w
+; DCIcon::motionCue
+@0092 pToa.b       0x38
+@0094 bnt.w        0x0011 ; target @0x00a8
+@0097 pushi.w      0x00ad ; possible selector: completed
+@009a push0.w
+@009b send.w       0x04
+@009d bnt.w        0x0008 ; target @0x00a8
+@00a0 pushi.w      0x00b2 ; possible selector: motionCue
+@00a3 push0.w
+@00a4 pToa.b       0x38
+@00a6 send.w       0x04
+@00a8 ret.w
+@00a9 bnot.w
+
+; CLASS @0x00aa size=172
+@00aa .hex 06 00 ac 00 34 12 00 00 82 00 20 00 32 00 0c 00 ; ....4..... .2...
+@00ba .hex 00 80 5a 01 04 00 00 00 00 00 00 00 00 00 00 00 ; ..Z.............
+@00ca .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@00da .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@00ea .hex 00 00 ff ff 00 00 06 00 00 00 00 00 00 00 01 00 ; ................
+@00fa .hex 02 00 17 00 22 00 20 00 09 00 0a 00 0b 00 0c 00 ; ....". .........
+@010a .hex 18 00 4b 00 4d 00 08 00 0d 00 0e 00 0f 00 10 00 ; ..K.M...........
+@011a .hex 2d 00 26 01 2d 01 2f 01 2e 01 30 01 05 00 06 00 ; -.&.-./...0.....
+@012a .hex 07 00 3f 00 b5 00 b4 00 11 00 ae 00 07 00 67 00 ; ..?...........g.
+@013a .hex 53 00 31 01 b2 00 b6 00 87 00 d8 00 00 00 38 00 ; S.1...........8.
+@014a .hex 57 00 0c 00 92 00 4d 00 69 00 6b 00 ; W.....M.i.k.
+
+; STRINGS @0x0156 size=12
+@0156 .hex 05 00 0c 00 44 43 49 63 6f 6e 00 00 ; ....DCIcon..
+
+; RELOCATIONS @0x0162 size=8
+@0162 .hex 08 00 08 00 01 00 bc 00 ; ........
+
+; END @0x016a size=2
+@016a .hex 00 00 ; ..

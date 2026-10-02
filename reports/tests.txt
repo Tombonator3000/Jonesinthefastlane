@@ -1,0 +1,20 @@
+test_01_map_and_resources (test_workbench.WorkbenchTests.test_01_map_and_resources) ... ok
+test_02_original_checksums (test_workbench.WorkbenchTests.test_02_original_checksums) ... ok
+test_03_assembly_roundtrip_all_69 (test_workbench.WorkbenchTests.test_03_assembly_roundtrip_all_69) ... ok
+test_04_text_roundtrip_all_39 (test_workbench.WorkbenchTests.test_04_text_roundtrip_all_39) ... ok
+test_05_patches_all_266 (test_workbench.WorkbenchTests.test_05_patches_all_266) ... ok
+test_06_all_752_png_pixels (test_workbench.WorkbenchTests.test_06_all_752_png_pixels) ... ok
+test_07_rle_roundtrip_all_frames (test_workbench.WorkbenchTests.test_07_rle_roundtrip_all_frames) ... ok
+test_08_view_reimport_and_shared_loops (test_workbench.WorkbenchTests.test_08_view_reimport_and_shared_loops) ... ok
+test_09_repacked_archives_roundtrip (test_workbench.WorkbenchTests.test_09_repacked_archives_roundtrip) ... ok
+test_10_fixed_layout_rejected (test_workbench.WorkbenchTests.test_10_fixed_layout_rejected) ... ok
+test_11_truncated_bitstream_rejected (test_workbench.WorkbenchTests.test_11_truncated_bitstream_rejected) ... ok
+test_12_truncated_map_rejected (test_workbench.WorkbenchTests.test_12_truncated_map_rejected) ... ok
+test_13_text_patch_build (test_workbench.WorkbenchTests.test_13_text_patch_build) ... ok
+test_14_assembler_operand_edit (test_workbench.WorkbenchTests.test_14_assembler_operand_edit) ... ok
+test_15_no_branch_target_warnings (test_workbench.WorkbenchTests.test_15_no_branch_target_warnings) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.906s
+
+OK

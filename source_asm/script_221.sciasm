@@ -1,0 +1,375 @@
+; SCI1 script 221: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 2242 bytes.
+
+; EXPORTS @0x0000 size=8
+@0000 .hex 07 00 08 00 01 00 c6 01 ; ........
+
+; OBJECT @0x0008 size=28
+@0008 .hex 01 00 1c 00 34 12 00 00 0e 00 06 00 04 00 04 00 ; ....4...........
+@0018 .hex 00 00 f2 06 00 00 00 00 00 00 00 00 ; ............
+
+; CODE @0x0024 size=406
+@0024 .hex 02 00 96 01 ; ....
+; factoryJobs::init
+@0028 link.b       0x02
+@002a lag.w        0x0206 ; global[518]
+@002d not.w
+@002e bnt.w        0x00d8 ; target @0x0109
+@0031 pushi.w      0x0090 ; possible selector: pause
+@0034 push1.w
+@0035 push0.w
+@0036 lag.w        0x01dd ; global[477]
+@0039 send.w       0x06
+@003b lag.w        0x019d ; global[413]
+@003e aTop.b       0x32
+@0040 ldi.b        0x00
+@0042 sag.w        0x019d ; global[413]
+@0045 push1.w
+@0046 pushi.b      0x03 ; possible selector: y
+@0048 callb.b      0x11 0x02
+@004b lofsa.w      0xffc6
+@004e aTop.b       0x2e
+@0050 lag.w        0x01f6 ; global[502]
+@0053 aTop.b       0x30
+@0055 selfID.w
+@0056 sag.w        0x01f6 ; global[502]
+@0059 lap.b        0x01 ; param[1]
+@005b aTop.b       0x22
+@005d ldi.b        0x05
+@005f sag.w        0x01a3 ; global[419]
+@0062 pushi.w      0x012c ; possible selector: playing
+@0065 push0.w
+@0066 lag.w        0x012e ; global[302]
+@0069 send.w       0x04
+@006b push.w
+@006c ldi.b        0x1d
+@006e eq?.w
+@006f bnt.w        0x0013 ; target @0x0085
+@0072 pushi.w      0x0088 ; possible selector: setScript
+@0075 push2.w
+@0076 class.b      0x4d
+@0078 push.w
+@0079 pushi.b      0xff ; possible selector: changeScore
+@007b self.w       0x08
+@007d pushi.w      0x0087 ; possible selector: cue
+@0080 push0.w
+@0081 class.b      0x4d
+@0083 send.w       0x04
+@0085 pushi.b      0x23 ; possible selector: window
+@0087 push1.w
+@0088 lsg.b        0x3b ; global[59]
+@008a pushi.b      0x6e ; possible selector: add
+@008c pushi.b      0x0c ; possible selector: nsRight
+@008e lofsa.w      0x017f
+@0091 push.w
+@0092 lofsa.w      0x01c3
+@0095 push.w
+@0096 lofsa.w      0x020f
+@0099 push.w
+@009a lofsa.w      0x027b
+@009d push.w
+@009e lofsa.w      0x02e7
+@00a1 push.w
+@00a2 lofsa.w      0x0353
+@00a5 push.w
+@00a6 lofsa.w      0x03bf
+@00a9 push.w
+@00aa lofsa.w      0x042b
+@00ad push.w
+@00ae lofsa.w      0x0497
+@00b1 push.w
+@00b2 lofsa.w      0x0503
+@00b5 push.w
+@00b6 lofsa.w      0x056f
+@00b9 push.w
+@00ba lofsa.w      0x05f1
+@00bd push.w
+@00be pushi.b      0x6f ; possible selector: eachElementDo
+@00c0 push1.w
+@00c1 pushi.b      0x66 ; possible selector: init
+@00c3 pushi.b      0x6f ; possible selector: eachElementDo
+@00c5 push1.w
+@00c6 pushi.w      0x0099 ; possible selector: setSize
+@00c9 pushi.w      0x009b ; possible selector: moveTo
+@00cc push2.w
+@00cd pushi.b      0x0a ; possible selector: nsLeft
+@00cf push0.w
+@00d0 pToa.b       0x22
+@00d2 send.w       0x04
+@00d4 push.w
+@00d5 pushi.b      0x09 ; possible selector: nsTop
+@00d7 push0.w
+@00d8 pToa.b       0x22
+@00da send.w       0x04
+@00dc push.w
+@00dd pushi.w      0x00a3 ; possible selector: open
+@00e0 push2.w
+@00e1 push0.w
+@00e2 pushi.b      0x0f ; possible selector: lsBottom
+@00e4 self.w       0x3e
+@00e6 pushi.w      0x0125 ; possible selector: curItem
+@00e9 push0.w
+@00ea class.b      0x30
+@00ec send.w       0x04
+@00ee sat.b        0x01 ; temp[1]
+@00f0 pushi.b      0x03 ; possible selector: y
+@00f2 pushSelf.w
+@00f3 pTos.b       0x2e
+@00f5 lofsa.w      0x0220
+@00f8 push.w
+@00f9 callb.b      0x09 0x06
+@00fc pushi.w      0x0129 ; possible selector: setList
+@00ff push1.w
+@0100 pTos.b       0x2e
+@0102 class.b      0x30
+@0104 send.w       0x06
+@0106 jmp.w        0x000f ; target @0x0118
+@0109 pushi.w      0x0102 ; possible selector: setCursor
+@010c push1.w
+@010d pTos.b       0x10
+@010f class.b      0x30
+@0111 send.w       0x06
+@0113 ldi.b        0x01
+@0115 sag.w        0x0207 ; global[519]
+@0118 pushi.b      0x3c ; possible selector: doit
+@011a push2.w
+@011b push0.w
+@011c push0.w
+@011d self.w       0x08
+@011f sat.b        0x00 ; temp[0]
+@0121 push1.w
+@0122 push.w
+@0123 callk.b      0x06 0x02 ; IsObject
+@0126 bnt.w        0x0011 ; target @0x013a
+@0129 pushi.b      0x72 ; possible selector: contains
+@012b push1.w
+@012c lst.b        0x00 ; temp[0]
+@012e self.w       0x06
+@0130 bnt.w        0x000b ; target @0x013e
+@0133 ldi.b        0x00
+@0135 sat.b        0x00 ; temp[0]
+@0137 jmp.w        0x0004 ; target @0x013e
+@013a ldi.b        0x01
+@013c sat.b        0x00 ; temp[0]
+@013e pushi.w      0x0129 ; possible selector: setList
+@0141 push1.w
+@0142 pToa.b       0x30
+@0144 bnt.w        0x0009 ; target @0x0150
+@0147 pushi.w      0x0138 ; possible selector: keyMouseList
+@014a push0.w
+@014b send.w       0x04
+@014d jmp.w        0x0003 ; target @0x0153
+@0150 lag.w        0x01b0 ; global[432]
+@0153 push.w
+@0154 class.b      0x30
+@0156 send.w       0x06
+@0158 pushi.w      0x0125 ; possible selector: curItem
+@015b push1.w
+@015c lst.b        0x01 ; temp[1]
+@015e class.b      0x30
+@0160 send.w       0x06
+@0162 lag.w        0x01bf ; global[447]
+@0165 bnt.w        0x000a ; target @0x0172
+@0168 pushi.w      0x0102 ; possible selector: setCursor
+@016b push1.w
+@016c lst.b        0x01 ; temp[1]
+@016e class.b      0x30
+@0170 send.w       0x06
+@0172 pushi.b      0x75 ; possible selector: release
+@0174 push0.w
+@0175 pToa.b       0x2e
+@0177 send.w       0x04
+@0179 pushi.b      0x67 ; possible selector: dispose
+@017b push0.w
+@017c pToa.b       0x2e
+@017e send.w       0x04
+@0180 pToa.b       0x30
+@0182 sag.w        0x01f6 ; global[502]
+@0185 push2.w
+@0186 pushSelf.w
+@0187 pushi.w      0x0123 ; possible selector: erase
+@018a callb.b      0x0f 0x04
+@018d pushi.b      0x67 ; possible selector: dispose
+@018f push0.w
+@0190 self.w       0x04
+@0192 push1.w
+@0193 push0.w
+@0194 callb.b      0x11 0x02
+@0197 pToa.b       0x32
+@0199 sag.w        0x019d ; global[413]
+@019c lag.w        0x0207 ; global[519]
+@019f bnt.w        0x000d ; target @0x01af
+@01a2 pushi.b      0x53 ; possible selector: draw
+@01a4 push0.w
+@01a5 lag.w        0x01f6 ; global[502]
+@01a8 send.w       0x04
+@01aa push0.w
+@01ab calle.b      0xce 0x01 0x00
+@01af lat.b        0x00 ; temp[0]
+@01b1 push1.w
+@01b2 pushi.w      0x00dd ; possible selector: setMotion
+@01b5 callk.b      0x03 0x02 ; DisposeScript
+@01b8 ret.w
+@01b9 bnot.w
+
+; OBJECT @0x01ba size=74
+@01ba .hex 01 00 4a 00 34 12 00 00 38 00 1b 00 10 00 10 00 ; ..J.4...8.......
+@01ca .hex 00 00 01 07 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01da .hex 00 00 77 00 b8 00 00 00 00 00 00 00 00 00 00 00 ; ..w.............
+@01ea .hex 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01fa .hex 00 00 01 00 66 00 00 00 28 00 ; ....f...(.
+
+; OBJECT @0x0204 size=72
+@0204 .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@0214 .hex 00 00 0d 07 04 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0224 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0234 .hex 00 00 00 00 00 00 00 00 00 00 00 00 c2 02 00 00 ; ................
+@0244 .hex 01 00 ff ff 00 00 00 00 ; ........
+
+; OBJECT @0x024c size=80
+@024c .hex 01 00 50 00 34 12 00 00 42 00 20 00 36 00 36 00 ; ..P.4...B. .6.6.
+@025c .hex 00 00 30 07 00 00 00 00 13 00 28 00 00 00 00 00 ; ..0.......(.....
+@026c .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@027c .hex 00 00 00 00 00 00 00 00 00 00 00 00 18 07 00 00 ; ................
+@028c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 00 00 ; ......k.d.......
+
+; OBJECT @0x029c size=112
+@029c .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@02ac .hex 00 00 55 07 00 00 23 00 1e 00 19 00 00 00 00 00 ; ..U...#.........
+@02bc .hex 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@02cc .hex 00 00 00 00 00 00 00 00 00 00 00 00 3e 07 00 00 ; ............>...
+@02dc .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 2b 00 ; ......k.d.....+.
+@02ec .hex 00 00 01 00 ff ff 07 00 00 00 00 00 04 00 00 00 ; ................
+@02fc .hex 1e 00 1e 00 00 00 00 00 12 00 24 00 00 00 00 00 ; ..........$.....
+
+; OBJECT @0x030c size=112
+@030c .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@031c .hex 00 00 75 07 00 00 23 00 26 00 19 00 00 00 00 00 ; ..u...#.&.......
+@032c .hex 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@033c .hex 00 00 00 00 00 00 00 00 00 00 00 00 5d 07 00 00 ; ............]...
+@034c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 32 00 ; ......k.d.....2.
+@035c .hex 00 00 01 00 ff ff 08 00 00 00 00 00 04 00 00 00 ; ................
+@036c .hex 1e 00 1e 00 0a 00 00 00 11 00 24 00 00 00 00 00 ; ..........$.....
+
+; OBJECT @0x037c size=112
+@037c .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@038c .hex 00 00 9a 07 00 00 23 00 2e 00 19 00 00 00 00 00 ; ......#.........
+@039c .hex 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@03ac .hex 00 00 00 00 00 00 00 00 00 00 00 00 84 07 00 00 ; ................
+@03bc .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 33 00 ; ......k.d.....3.
+@03cc .hex 00 00 01 00 ff ff 09 00 00 00 00 00 04 00 00 00 ; ................
+@03dc .hex 28 00 28 00 0e 00 00 00 13 00 23 00 00 00 00 00 ; (.(.......#.....
+
+; OBJECT @0x03ec size=112
+@03ec .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@03fc .hex 00 00 bb 07 00 00 23 00 36 00 19 00 00 00 00 00 ; ......#.6.......
+@040c .hex 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@041c .hex 00 00 00 00 00 00 00 00 00 00 00 00 a4 07 00 00 ; ................
+@042c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 34 00 ; ......k.d.....4.
+@043c .hex 00 00 01 00 ff ff 0a 00 00 00 00 00 04 00 00 00 ; ................
+@044c .hex 28 00 28 00 0c 00 00 00 14 00 24 00 00 00 00 00 ; (.(.......$.....
+
+; OBJECT @0x045c size=112
+@045c .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@046c .hex 00 00 e3 07 00 00 23 00 3e 00 19 00 00 00 00 00 ; ......#.>.......
+@047c .hex 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@048c .hex 00 00 00 00 00 00 00 00 00 00 00 00 cc 07 00 00 ; ................
+@049c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 35 00 ; ......k.d.....5.
+@04ac .hex 00 00 01 00 ff ff 12 00 00 00 00 00 04 00 00 00 ; ................
+@04bc .hex 32 00 32 00 0f 00 00 00 15 00 22 00 00 00 00 00 ; 2.2.......".....
+
+; OBJECT @0x04cc size=112
+@04cc .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@04dc .hex 00 00 0b 08 00 00 23 00 46 00 19 00 00 00 00 00 ; ......#.F.......
+@04ec .hex 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@04fc .hex 00 00 00 00 00 00 00 00 00 00 00 00 f6 07 00 00 ; ................
+@050c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 36 00 ; ......k.d.....6.
+@051c .hex 00 00 01 00 ff ff 13 00 00 00 00 00 04 00 00 00 ; ................
+@052c .hex 32 00 32 00 0d 00 00 00 16 00 24 00 00 00 00 00 ; 2.2.......$.....
+
+; OBJECT @0x053c size=112
+@053c .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@054c .hex 00 00 29 08 00 00 23 00 4e 00 19 00 00 00 00 00 ; ..)...#.N.......
+@055c .hex 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@056c .hex 00 00 00 00 00 00 00 00 00 00 00 00 15 08 00 00 ; ................
+@057c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 38 00 ; ......k.d.....8.
+@058c .hex 00 00 01 00 ff ff 16 00 00 00 00 00 04 00 00 00 ; ................
+@059c .hex 3c 00 3c 00 0e 00 0d 00 17 00 22 00 00 00 00 00 ; <.<.......".....
+
+; OBJECT @0x05ac size=112
+@05ac .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@05bc .hex 00 00 50 08 00 00 23 00 56 00 19 00 00 00 00 00 ; ..P...#.V.......
+@05cc .hex 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@05dc .hex 00 00 00 00 00 00 00 00 00 00 00 00 3b 08 00 00 ; ............;...
+@05ec .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 37 00 ; ......k.d.....7.
+@05fc .hex 00 00 01 00 ff ff 17 00 00 00 00 00 04 00 00 00 ; ................
+@060c .hex 3c 00 3c 00 0d 00 0e 00 18 00 22 00 00 00 00 00 ; <.<.......".....
+
+; OBJECT @0x061c size=112
+@061c .hex 01 00 70 00 34 12 00 00 62 00 30 00 4c 00 4c 00 ; ..p.4...b.0.L.L.
+@062c .hex 00 00 6f 08 00 00 23 00 5e 00 19 00 00 00 00 00 ; ..o...#.^.......
+@063c .hex 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@064c .hex 00 00 00 00 00 00 00 00 00 00 00 00 59 08 00 00 ; ............Y...
+@065c .hex 0a 00 00 00 ff ff 6b 00 64 00 00 00 00 00 39 00 ; ......k.d.....9.
+@066c .hex 00 00 01 00 ff ff 19 00 00 00 00 00 04 00 00 00 ; ................
+@067c .hex 46 00 46 00 0f 00 0d 00 19 00 22 00 00 00 00 00 ; F.F.......".....
+
+; CODE @0x068c size=22
+@068c .hex 02 00 16 00 ; ....
+; exitButton::doit
+@0690 link.b       0x01
+@0692 pushi.b      0x3c ; possible selector: doit
+@0694 push0.w
+@0695 super.b      0x31 0x04
+@0698 sat.b        0x00 ; temp[0]
+@069a ldi.b        0xfe
+@069c sag.w        0x01b1 ; global[433]
+@069f lat.b        0x00 ; temp[0]
+@06a1 ret.w
+
+; OBJECT @0x06a2 size=76
+@06a2 .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..L.4...:...1.1.
+@06b2 .hex 00 00 7e 08 04 00 63 00 6c 00 8f 00 00 00 00 00 ; ..~...c.l.......
+@06c2 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06d2 .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 00 00 ; ................
+@06e2 .hex 00 00 ff ff 01 00 3c 00 00 00 90 06 ; ......<.....
+
+; STRINGS @0x06ee size=412
+@06ee .hex 05 00 9c 01 64 69 61 6c 6f 67 4b 65 79 4d 6f 75 ; ....dialogKeyMou
+@06fe .hex 73 65 00 66 61 63 74 6f 72 79 4a 6f 62 73 00 62 ; se.factoryJobs.b
+@070e .hex 61 63 6b 67 72 6f 75 6e 64 00 46 61 63 74 6f 72 ; ackground.Factor
+@071e .hex 79 20 4a 6f 62 73 20 41 76 61 69 6c 61 62 6c 65 ; y Jobs Available
+@072e .hex 3a 00 6a 6f 62 73 41 76 61 69 6c 61 62 6c 65 00 ; :.jobsAvailable.
+@073e .hex 4a 61 6e 69 74 6f 72 20 20 20 20 20 20 20 20 20 ; Janitor         
+@074e .hex 20 20 20 7c 7c 7c 00 6a 61 6e 69 74 6f 72 00 41 ;    |||.janitor.A
+@075e .hex 73 73 65 6d 62 6c 79 20 57 6f 72 6b 65 72 20 20 ; ssembly Worker  
+@076e .hex 20 20 7c 7c 7c 7c 00 61 73 73 65 6d 62 6c 79 57 ;   ||||.assemblyW
+@077e .hex 6f 72 6b 65 72 00 53 65 63 72 65 74 61 72 79 20 ; orker.Secretary 
+@078e .hex 20 20 20 20 20 20 20 20 20 7c 7c 00 73 65 63 72 ;          ||.secr
+@079e .hex 65 74 61 72 79 00 4d 61 63 68 69 6e 69 73 74 27 ; etary.Machinist'
+@07ae .hex 73 20 48 65 6c 70 65 72 20 20 20 7c 00 6d 61 63 ; s Helper   |.mac
+@07be .hex 68 69 6e 69 73 74 73 48 65 6c 70 65 72 00 45 78 ; hinistsHelper.Ex
+@07ce .hex 65 63 75 74 69 76 65 20 53 65 63 72 65 74 61 72 ; ecutive Secretar
+@07de .hex 79 20 7c 7c 00 65 78 65 63 75 74 69 76 65 53 65 ; y ||.executiveSe
+@07ee .hex 63 72 65 74 61 72 79 00 4d 61 63 68 69 6e 69 73 ; cretary.Machinis
+@07fe .hex 74 20 20 20 20 20 20 20 20 20 20 20 00 6d 61 63 ; t           .mac
+@080e .hex 68 69 6e 69 73 74 00 44 65 70 61 72 74 6d 65 6e ; hinist.Departmen
+@081e .hex 74 20 4d 61 6e 61 67 65 72 20 00 64 65 70 61 72 ; t Manager .depar
+@082e .hex 74 6d 65 6e 74 4d 61 6e 61 67 65 72 00 45 6e 67 ; tmentManager.Eng
+@083e .hex 69 6e 65 65 72 20 20 20 20 20 20 20 20 20 20 20 ; ineer           
+@084e .hex 20 00 65 6e 67 69 6e 65 65 72 00 47 65 6e 65 72 ;  .engineer.Gener
+@085e .hex 61 6c 20 4d 61 6e 61 67 65 72 20 20 20 20 7c 7c ; al Manager    ||
+@086e .hex 00 67 65 6e 65 72 61 6c 4d 61 6e 61 67 65 72 00 ; .generalManager.
+@087e .hex 65 78 69 74 42 75 74 74 6f 6e 00 00 ; exitButton..
+
+; RELOCATIONS @0x088a size=54
+@088a .hex 08 00 36 00 18 00 1a 00 cc 01 16 02 5e 02 88 02 ; ..6.........^...
+@089a .hex ae 02 d8 02 1e 03 48 03 8e 03 b8 03 fe 03 28 04 ; ......H.......(.
+@08aa .hex 6e 04 98 04 de 04 08 05 4e 05 78 05 be 05 e8 05 ; n.......N.x.....
+@08ba .hex 2e 06 58 06 b4 06 ; ..X...
+
+; END @0x08c0 size=2
+@08c0 .hex 00 00 ; ..

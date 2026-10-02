@@ -1,0 +1,139 @@
+; SCI1 script 103: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 378 bytes.
+
+; CODE @0x0000 size=114
+@0000 .hex 02 00 72 00 ; ..r.
+; FwdCount::init
+@0004 pushi.b      0x66 ; possible selector: init
+@0006 push1.w
+@0007 lsp.b        0x01 ; param[1]
+@0009 super.b      0x13 0x06
+@000c lsp.b        0x00 ; param[0]
+@000e ldi.b        0x02
+@0010 ge?.w
+@0011 bnt.w        0x0015 ; target @0x0029
+@0014 lap.b        0x02 ; param[2]
+@0016 aTop.b       0x0a
+@0018 lsp.b        0x00 ; param[0]
+@001a ldi.b        0x03
+@001c ge?.w
+@001d bnt.w        0x0005 ; target @0x0025
+@0020 lap.b        0x03 ; param[3]
+@0022 jmp.w        0x0002 ; target @0x0027
+@0025 ldi.b        0x00
+@0027 aTop.b       0x16
+@0029 ret.w
+; FwdCount::doit
+@002a link.b       0x01
+@002c pushi.w      0x00b0 ; possible selector: nextCel
+@002f push0.w
+@0030 self.w       0x04
+@0032 sat.b        0x00 ; temp[0]
+@0034 push.w
+@0035 pushi.w      0x00b6 ; possible selector: lastCel
+@0038 push0.w
+@0039 pToa.b       0x08
+@003b send.w       0x04
+@003d gt?.w
+@003e bnt.w        0x0009 ; target @0x004a
+@0041 pushi.w      0x00b1 ; possible selector: cycleDone
+@0044 push0.w
+@0045 self.w       0x04
+@0047 jmp.w        0x0009 ; target @0x0053
+@004a pushi.b      0x07 ; possible selector: cel
+@004c push1.w
+@004d lst.b        0x00 ; temp[0]
+@004f pToa.b       0x08
+@0051 send.w       0x06
+@0053 ret.w
+; FwdCount::cycleDone
+@0054 pushi.b      0x07 ; possible selector: cel
+@0056 push1.w
+@0057 push0.w
+@0058 pToa.b       0x08
+@005a send.w       0x06
+@005c pToa.b       0x16
+@005e bnt.w        0x0010 ; target @0x0071
+@0061 dpToa.b      0x16
+@0063 not.w
+@0064 bnt.w        0x000a ; target @0x0071
+@0067 ldi.b        0x01
+@0069 aTop.b       0x10
+@006b pushi.w      0x00b2 ; possible selector: motionCue
+@006e push0.w
+@006f self.w       0x04
+@0071 ret.w
+
+; CLASS @0x0072 size=76
+@0072 .hex 06 00 4c 00 34 12 00 00 32 00 0c 00 33 00 13 00 ; ..L.4...2...3...
+@0082 .hex 00 80 60 01 00 00 00 00 01 00 00 00 00 00 00 00 ; ..`.............
+@0092 .hex 00 00 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ; ............-...
+@00a2 .hex ab 00 ac 00 ad 00 ae 00 af 00 48 01 03 00 66 00 ; ..........H...f.
+@00b2 .hex 3c 00 b1 00 00 00 04 00 2a 00 54 00 ; <.......*.T.
+
+; CODE @0x00be size=78
+@00be .hex 02 00 4e 00 ; ..N.
+; RdmC::doit
+@00c2 link.b       0x01
+@00c4 pushi.w      0x00b0 ; possible selector: nextCel
+@00c7 push0.w
+@00c8 self.w       0x04
+@00ca sat.b        0x00 ; temp[0]
+@00cc pTos.b       0x16
+@00ce ldi.b        0x00
+@00d0 lt?.w
+@00d1 bnt.w        0x0009 ; target @0x00dd
+@00d4 pushi.w      0x00b1 ; possible selector: cycleDone
+@00d7 push0.w
+@00d8 self.w       0x04
+@00da jmp.w        0x0009 ; target @0x00e6
+@00dd pushi.b      0x07 ; possible selector: cel
+@00df push1.w
+@00e0 lst.b        0x00 ; temp[0]
+@00e2 pToa.b       0x08
+@00e4 send.w       0x06
+@00e6 ret.w
+; RdmC::cycleDone
+@00e7 pushi.b      0x07 ; possible selector: cel
+@00e9 push1.w
+@00ea push0.w
+@00eb pToa.b       0x08
+@00ed send.w       0x06
+@00ef ldi.b        0x01
+@00f1 aTop.b       0x10
+@00f3 pushi.w      0x00b2 ; possible selector: motionCue
+@00f6 push0.w
+@00f7 self.w       0x04
+@00f9 ret.w
+; RdmC::changeCel
+@00fa dpToa.b      0x16
+@00fc push2.w
+@00fd push0.w
+@00fe pushi.w      0x00b6 ; possible selector: lastCel
+@0101 push0.w
+@0102 pToa.b       0x08
+@0104 send.w       0x04
+@0106 push.w
+@0107 callk.b      0x3c 0x04 ; Random
+@010a ret.w
+@010b bnot.w
+
+; CLASS @0x010c size=80
+@010c .hex 06 00 50 00 34 12 00 00 36 00 0d 00 34 00 33 00 ; ..P.4...6...4.3.
+@011c .hex 00 80 69 01 00 00 00 00 01 00 00 00 00 00 00 00 ; ..i.............
+@012c .hex 00 00 00 00 ff ff 00 00 01 00 02 00 17 00 2d 00 ; ..............-.
+@013c .hex 84 00 ab 00 ac 00 ad 00 ae 00 af 00 48 01 49 01 ; ............H.I.
+@014c .hex 03 00 3c 00 b1 00 b3 00 00 00 c2 00 e7 00 fa 00 ; ..<.............
+
+; STRINGS @0x015c size=18
+@015c .hex 05 00 12 00 46 77 64 43 6f 75 6e 74 00 52 64 6d ; ....FwdCount.Rdm
+@016c .hex 43 00 ; C.
+
+; RELOCATIONS @0x016e size=10
+@016e .hex 08 00 0a 00 02 00 84 00 1e 01 ; ..........
+
+; END @0x0178 size=2
+@0178 .hex 00 00 ; ..

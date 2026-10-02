@@ -1,0 +1,104 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 308
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 308,
+      "size": 84
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 392,
+      "size": 18
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 410,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 418,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 308,
+      "address": 320,
+      "name": "DialogScript",
+      "species": 68,
+      "superclass": 6,
+      "properties": [
+        68,
+        6,
+        32768,
+        396,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 300
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 4
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        32,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 396,
+      "text": "DialogScript",
+      "terminated": true
+    },
+    {
+      "offset": 409,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

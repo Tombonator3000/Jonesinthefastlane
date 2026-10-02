@@ -1,0 +1,385 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 46
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 54,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 82,
+      "size": 248
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 330,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 404,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 432,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 508,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 536,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 612,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 640,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 716,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 744,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 820,
+      "size": 60
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 880,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 884,
+      "size": 18
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 902,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 54,
+      "address": 66,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        824,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 330,
+      "address": 342,
+      "name": "select1b",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        839,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 86
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 432,
+      "address": 444,
+      "name": "number1",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        848,
+        4,
+        35,
+        55,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 408
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 536,
+      "address": 548,
+      "name": "number2",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        856,
+        4,
+        35,
+        55,
+        60,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        1,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 512
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 640,
+      "address": 652,
+      "name": "number3",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        864,
+        4,
+        35,
+        55,
+        100,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        2,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 616
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 744,
+      "address": 756,
+      "name": "number4",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        872,
+        4,
+        35,
+        55,
+        140,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 720
+        }
+      ]
+    }
+  ],
+  "exports": [
+    342
+  ],
+  "strings": [
+    {
+      "offset": 824,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 839,
+      "text": "select1b",
+      "terminated": true
+    },
+    {
+      "offset": 848,
+      "text": "number1",
+      "terminated": true
+    },
+    {
+      "offset": 856,
+      "text": "number2",
+      "terminated": true
+    },
+    {
+      "offset": 864,
+      "text": "number3",
+      "terminated": true
+    },
+    {
+      "offset": 872,
+      "text": "number4",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

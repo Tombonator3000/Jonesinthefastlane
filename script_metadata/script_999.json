@@ -1,0 +1,637 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 10
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 10,
+      "size": 254
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 264,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 340,
+      "size": 6
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 346,
+      "size": 36
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 382,
+      "size": 408
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 790,
+      "size": 92
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 882,
+      "size": 290
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1172,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1244,
+      "size": 84
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1328,
+      "size": 48
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1376,
+      "size": 80
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1456,
+      "size": 44
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1500,
+      "size": 282
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1782,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1886,
+      "size": 290
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 2176,
+      "size": 72
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2248,
+      "size": 56
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 2304,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2308,
+      "size": 22
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2330,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 264,
+      "address": 276,
+      "name": "Obj",
+      "species": 0,
+      "superclass": 65535,
+      "properties": [
+        0,
+        65535,
+        32768,
+        2252
+      ],
+      "methods": [
+        {
+          "selector": 101,
+          "name": "new",
+          "address": 127
+        },
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 133
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 134
+        },
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 136
+        },
+        {
+          "selector": 104,
+          "name": "showStr",
+          "address": 142
+        },
+        {
+          "selector": 105,
+          "name": "showSelf",
+          "address": 151
+        },
+        {
+          "selector": 99,
+          "name": "perform",
+          "address": 169
+        },
+        {
+          "selector": 106,
+          "name": "isKindOf",
+          "address": 222
+        },
+        {
+          "selector": 107,
+          "name": "isMemberOf",
+          "address": 188
+        },
+        {
+          "selector": 108,
+          "name": "respondsTo",
+          "address": 180
+        },
+        {
+          "selector": 109,
+          "name": "yourself",
+          "address": 261
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 346,
+      "address": 358,
+      "name": "Code",
+      "species": 1,
+      "superclass": 0,
+      "properties": [
+        1,
+        0,
+        32768,
+        2256
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 344
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 790,
+      "address": 802,
+      "name": "Collect",
+      "species": 2,
+      "superclass": 0,
+      "properties": [
+        2,
+        0,
+        32768,
+        2261,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 515
+        },
+        {
+          "selector": 104,
+          "name": "showStr",
+          "address": 386
+        },
+        {
+          "selector": 105,
+          "name": "showSelf",
+          "address": 402
+        },
+        {
+          "selector": 110,
+          "name": "add",
+          "address": 427
+        },
+        {
+          "selector": 84,
+          "name": "delete",
+          "address": 479
+        },
+        {
+          "selector": 111,
+          "name": "eachElementDo",
+          "address": 584
+        },
+        {
+          "selector": 112,
+          "name": "firstTrue",
+          "address": 641
+        },
+        {
+          "selector": 113,
+          "name": "allTrue",
+          "address": 694
+        },
+        {
+          "selector": 114,
+          "name": "contains",
+          "address": 575
+        },
+        {
+          "selector": 115,
+          "name": "isEmpty",
+          "address": 560
+        },
+        {
+          "selector": 116,
+          "name": "first",
+          "address": 546
+        },
+        {
+          "selector": 68,
+          "name": "next",
+          "address": 553
+        },
+        {
+          "selector": 117,
+          "name": "release",
+          "address": 748
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1172,
+      "address": 1184,
+      "name": "List",
+      "species": 3,
+      "superclass": 2,
+      "properties": [
+        3,
+        2,
+        32768,
+        2269,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 104,
+          "name": "showStr",
+          "address": 886
+        },
+        {
+          "selector": 67,
+          "name": "at",
+          "address": 902
+        },
+        {
+          "selector": 118,
+          "name": "last",
+          "address": 942
+        },
+        {
+          "selector": 119,
+          "name": "prev",
+          "address": 949
+        },
+        {
+          "selector": 120,
+          "name": "addToFront",
+          "address": 956
+        },
+        {
+          "selector": 121,
+          "name": "addToEnd",
+          "address": 1010
+        },
+        {
+          "selector": 122,
+          "name": "addAfter",
+          "address": 1062
+        },
+        {
+          "selector": 123,
+          "name": "indexOf",
+          "address": 1122
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1328,
+      "address": 1340,
+      "name": "Set",
+      "species": 4,
+      "superclass": 3,
+      "properties": [
+        4,
+        3,
+        32768,
+        2274,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 104,
+          "name": "showStr",
+          "address": 1248
+        },
+        {
+          "selector": 110,
+          "name": "add",
+          "address": 1264
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1456,
+      "address": 1468,
+      "name": "EventHandler",
+      "species": 5,
+      "superclass": 4,
+      "properties": [
+        5,
+        4,
+        32768,
+        2278,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 1380
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1782,
+      "address": 1794,
+      "name": "Script",
+      "species": 6,
+      "superclass": 0,
+      "properties": [
+        6,
+        0,
+        32768,
+        2291,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1571
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1504
+        },
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 1634
+        },
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 1710
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 1715
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 1762
+        },
+        {
+          "selector": 136,
+          "name": "setScript",
+          "address": 1730
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        32,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 2176,
+      "address": 2188,
+      "name": "Event",
+      "species": 7,
+      "superclass": 0,
+      "properties": [
+        7,
+        0,
+        32768,
+        2298,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 101,
+          "name": "new",
+          "address": 1890
+        },
+        {
+          "selector": 138,
+          "name": "localize",
+          "address": 2024
+        },
+        {
+          "selector": 139,
+          "name": "globalize",
+          "address": 2127
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        40,
+        64,
+        3,
+        4,
+        76,
+        137
+      ]
+    }
+  ],
+  "exports": [
+    14,
+    33
+  ],
+  "strings": [
+    {
+      "offset": 2252,
+      "text": "Obj",
+      "terminated": true
+    },
+    {
+      "offset": 2256,
+      "text": "Code",
+      "terminated": true
+    },
+    {
+      "offset": 2261,
+      "text": "Collect",
+      "terminated": true
+    },
+    {
+      "offset": 2269,
+      "text": "List",
+      "terminated": true
+    },
+    {
+      "offset": 2274,
+      "text": "Set",
+      "terminated": true
+    },
+    {
+      "offset": 2278,
+      "text": "EventHandler",
+      "terminated": true
+    },
+    {
+      "offset": 2291,
+      "text": "Script",
+      "terminated": true
+    },
+    {
+      "offset": 2298,
+      "text": "Event",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

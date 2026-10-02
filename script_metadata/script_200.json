@@ -1,0 +1,492 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 468
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 504,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 578,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 650,
+      "size": 120
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 770,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 846,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 918,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 990,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1062,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1134,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1246,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1296,
+      "size": 104
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 1400,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1404,
+      "size": 24
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1428,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        1300,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 504,
+      "address": 516,
+      "name": "lowcost",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        1315,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 578,
+      "address": 590,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1323,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 770,
+      "address": 782,
+      "name": "relaxButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1334,
+        4,
+        65,
+        108,
+        9,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        3,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 654
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 846,
+      "address": 858,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1346,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 918,
+      "address": 930,
+      "name": "theChair",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1357,
+        4,
+        0,
+        60,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        700,
+        0,
+        1,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 990,
+      "address": 1002,
+      "name": "theSaying",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1366,
+        4,
+        0,
+        28,
+        49,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        700,
+        0,
+        2,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1062,
+      "address": 1074,
+      "name": "theStool",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1376,
+        4,
+        0,
+        81,
+        108,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        700,
+        0,
+        3,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1246,
+      "address": 1258,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        1385,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 1138
+        }
+      ]
+    }
+  ],
+  "exports": [
+    516
+  ],
+  "strings": [
+    {
+      "offset": 1300,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 1315,
+      "text": "lowcost",
+      "terminated": true
+    },
+    {
+      "offset": 1323,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 1334,
+      "text": "relaxButton",
+      "terminated": true
+    },
+    {
+      "offset": 1346,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 1357,
+      "text": "theChair",
+      "terminated": true
+    },
+    {
+      "offset": 1366,
+      "text": "theSaying",
+      "terminated": true
+    },
+    {
+      "offset": 1376,
+      "text": "theStool",
+      "terminated": true
+    },
+    {
+      "offset": 1385,
+      "text": "computerScript",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

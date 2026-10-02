@@ -1,0 +1,343 @@
+; SCI1 script 106: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 990 bytes.
+
+; CLASS @0x0000 size=48
+@0000 .hex 06 00 30 00 34 12 00 00 22 00 08 00 3c 00 00 00 ; ..0.4..."...<...
+@0010 .hex 00 80 76 03 01 00 01 00 00 00 00 00 00 00 01 00 ; ..v.............
+@0020 .hex 02 00 17 00 61 01 64 01 65 01 57 01 00 00 00 00 ; ....a.d.e.W.....
+
+; CODE @0x0030 size=12
+@0030 .hex 02 00 0c 00 ; ....
+; Consumable::doit
+@0034 pToa.b       0x08
+@0036 bnt.w        0x0002 ; target @0x003b
+@0039 dpToa.b      0x08
+@003b ret.w
+
+; CLASS @0x003c size=52
+@003c .hex 06 00 34 00 34 12 00 00 22 00 08 00 3d 00 3c 00 ; ..4.4..."...=.<.
+@004c .hex 00 80 7c 03 01 00 81 00 00 00 00 00 00 00 01 00 ; ..|.............
+@005c .hex 02 00 17 00 61 01 64 01 65 01 57 01 01 00 3c 00 ; ....a.d.e.W...<.
+@006c .hex 00 00 34 00 ; ..4.
+
+; CLASS @0x0070 size=52
+@0070 .hex 06 00 34 00 34 12 00 00 26 00 09 00 3e 00 3c 00 ; ..4.4...&...>.<.
+@0080 .hex 00 80 87 03 01 00 45 00 00 00 00 00 00 00 00 00 ; ......E.........
+@0090 .hex 01 00 02 00 17 00 61 01 64 01 65 01 57 01 6e 01 ; ......a.d.e.W.n.
+@00a0 .hex 00 00 00 00 ; ....
+
+; CLASS @0x00a4 size=52
+@00a4 .hex 06 00 34 00 34 12 00 00 26 00 09 00 3f 00 3c 00 ; ..4.4...&...?.<.
+@00b4 .hex 00 80 8f 03 01 00 01 00 00 00 00 00 0a 00 00 00 ; ................
+@00c4 .hex 01 00 02 00 17 00 61 01 64 01 65 01 57 01 62 01 ; ......a.d.e.W.b.
+@00d4 .hex 00 00 00 00 ; ....
+
+; CODE @0x00d8 size=434
+@00d8 .hex 02 00 b2 01 ; ....
+; ListOfGoods::newGoods
+@00dc ret.w
+; ListOfGoods::recieve
+@00dd link.b       0x02
+@00df lsp.b        0x00 ; param[0]
+@00e1 ldi.b        0x02
+@00e3 ge?.w
+@00e4 bnt.w        0x0005 ; target @0x00ec
+@00e7 lap.b        0x02 ; param[2]
+@00e9 jmp.w        0x0002 ; target @0x00ee
+@00ec ldi.b        0x01
+@00ee sat.b        0x01 ; temp[1]
+@00f0 pushi.w      0x016f ; possible selector: hasType
+@00f3 push2.w
+@00f4 lsp.b        0x01 ; param[1]
+@00f6 push.w
+@00f7 self.w       0x08
+@00f9 sat.b        0x00 ; temp[0]
+@00fb not.w
+@00fc bnt.w        0x001f ; target @0x011e
+@00ff pushi.b      0x6e ; possible selector: add
+@0101 push1.w
+@0102 pushi.w      0x0157 ; possible selector: indexNum
+@0105 push1.w
+@0106 lsp.b        0x01 ; param[1]
+@0108 pushi.w      0x0161 ; possible selector: quantity
+@010b push1.w
+@010c lst.b        0x01 ; temp[1]
+@010e pushi.b      0x6d ; possible selector: yourself
+@0110 push0.w
+@0111 pushi.w      0x0170 ; possible selector: newGoods
+@0114 push0.w
+@0115 self.w       0x04
+@0117 send.w       0x10
+@0119 sat.b        0x00 ; temp[0]
+@011b push.w
+@011c self.w       0x06
+@011e lat.b        0x00 ; temp[0]
+@0120 ret.w
+; ListOfGoods::hasType
+@0121 link.b       0x01
+@0123 ldi.b        0x00
+@0125 sat.b        0x00 ; temp[0]
+@0127 lst.b        0x00 ; temp[0]
+@0129 pToa.b       0x0a
+@012b lt?.w
+@012c bnt.w        0x0040 ; target @0x016f
+@012f pushi.w      0x0157 ; possible selector: indexNum
+@0132 push0.w
+@0133 pushi.b      0x43 ; possible selector: at
+@0135 push1.w
+@0136 lst.b        0x00 ; temp[0]
+@0138 self.w       0x06
+@013a send.w       0x04
+@013c push.w
+@013d lap.b        0x01 ; param[1]
+@013f eq?.w
+@0140 bnt.w        0x0027 ; target @0x016a
+@0143 pushi.w      0x0161 ; possible selector: quantity
+@0146 push1.w
+@0147 pushi.w      0x0161 ; possible selector: quantity
+@014a push0.w
+@014b pushi.b      0x43 ; possible selector: at
+@014d push1.w
+@014e lst.b        0x00 ; temp[0]
+@0150 self.w       0x06
+@0152 send.w       0x04
+@0154 push.w
+@0155 lap.b        0x02 ; param[2]
+@0157 add.w
+@0158 push.w
+@0159 pushi.b      0x43 ; possible selector: at
+@015b push1.w
+@015c lst.b        0x00 ; temp[0]
+@015e self.w       0x06
+@0160 send.w       0x06
+@0162 pushi.b      0x43 ; possible selector: at
+@0164 push1.w
+@0165 lst.b        0x00 ; temp[0]
+@0167 self.w       0x06
+@0169 ret.w
+@016a +at.b        0x00 ; temp[0]
+@016c jmp.w        0xffb8 ; target @0x0127
+@016f ldi.b        0x00
+@0171 ret.w
+; ListOfGoods::pack
+@0172 link.b       0x03
+@0174 push2.w
+@0175 push1.w
+@0176 push1.w
+@0177 callk.b      0x02 0x04 ; ScriptID
+@017a sat.b        0x01 ; temp[1]
+@017c ldi.b        0x00
+@017e sat.b        0x00 ; temp[0]
+@0180 lst.b        0x00 ; temp[0]
+@0182 pToa.b       0x0a
+@0184 lt?.w
+@0185 bnt.w        0x0043 ; target @0x01cb
+@0188 pushi.w      0x0164 ; possible selector: attributes
+@018b push0.w
+@018c pushi.b      0x43 ; possible selector: at
+@018e push1.w
+@018f lst.b        0x00 ; temp[0]
+@0191 self.w       0x06
+@0193 send.w       0x04
+@0195 push.w
+@0196 ldi.b        0x01
+@0198 and.w
+@0199 bnt.w        0x002a ; target @0x01c6
+@019c pushi.b      0x65 ; possible selector: new
+@019e push0.w
+@019f pushi.b      0x43 ; possible selector: at
+@01a1 push1.w
+@01a2 lst.b        0x00 ; temp[0]
+@01a4 self.w       0x06
+@01a6 send.w       0x04
+@01a8 sat.b        0x02 ; temp[2]
+@01aa pushi.w      0x0164 ; possible selector: attributes
+@01ad push1.w
+@01ae pushi.w      0x0164 ; possible selector: attributes
+@01b1 push0.w
+@01b2 send.w       0x04
+@01b4 push.w
+@01b5 ldi.b        0xfe
+@01b7 and.w
+@01b8 push.w
+@01b9 lat.b        0x02 ; temp[2]
+@01bb send.w       0x06
+@01bd pushi.b      0x6e ; possible selector: add
+@01bf push1.w
+@01c0 lst.b        0x02 ; temp[2]
+@01c2 lat.b        0x01 ; temp[1]
+@01c4 send.w       0x06
+@01c6 +at.b        0x00 ; temp[0]
+@01c8 jmp.w        0xffb5 ; target @0x0180
+@01cb pTos.b       0x0a
+@01cd ldi.b        0x01
+@01cf sub.w
+@01d0 sat.b        0x00 ; temp[0]
+@01d2 lst.b        0x00 ; temp[0]
+@01d4 ldi.b        0x00
+@01d6 ge?.w
+@01d7 bnt.w        0x002f ; target @0x0209
+@01da pushi.w      0x0164 ; possible selector: attributes
+@01dd push0.w
+@01de pushi.b      0x43 ; possible selector: at
+@01e0 push1.w
+@01e1 lst.b        0x00 ; temp[0]
+@01e3 self.w       0x06
+@01e5 send.w       0x04
+@01e7 push.w
+@01e8 ldi.b        0x01
+@01ea and.w
+@01eb bnt.w        0x0016 ; target @0x0204
+@01ee pushi.b      0x54 ; possible selector: delete
+@01f0 push1.w
+@01f1 pushi.b      0x43 ; possible selector: at
+@01f3 push1.w
+@01f4 lst.b        0x00 ; temp[0]
+@01f6 self.w       0x06
+@01f8 sat.b        0x02 ; temp[2]
+@01fa push.w
+@01fb self.w       0x06
+@01fd pushi.b      0x67 ; possible selector: dispose
+@01ff push0.w
+@0200 lat.b        0x02 ; temp[2]
+@0202 send.w       0x04
+@0204 -at.b        0x00 ; temp[0]
+@0206 jmp.w        0xffc9 ; target @0x01d2
+@0209 pushi.b      0x59 ; possible selector: size
+@020b push0.w
+@020c lat.b        0x01 ; temp[1]
+@020e send.w       0x04
+@0210 bnt.w        0x0025 ; target @0x0238
+@0213 ldi.b        0x00
+@0215 sat.b        0x00 ; temp[0]
+@0217 lst.b        0x00 ; temp[0]
+@0219 pushi.b      0x59 ; possible selector: size
+@021b push0.w
+@021c lat.b        0x01 ; temp[1]
+@021e send.w       0x04
+@0220 lt?.w
+@0221 bnt.w        0x0014 ; target @0x0238
+@0224 pushi.b      0x6e ; possible selector: add
+@0226 push1.w
+@0227 pushi.b      0x43 ; possible selector: at
+@0229 push1.w
+@022a lst.b        0x00 ; temp[0]
+@022c lat.b        0x01 ; temp[1]
+@022e send.w       0x06
+@0230 push.w
+@0231 self.w       0x06
+@0233 +at.b        0x00 ; temp[0]
+@0235 jmp.w        0xffdf ; target @0x0217
+@0238 pushi.b      0x75 ; possible selector: release
+@023a push0.w
+@023b lat.b        0x01 ; temp[1]
+@023d send.w       0x04
+@023f ret.w
+; ListOfGoods::objectAtIndex
+@0240 link.b       0x01
+@0242 ldi.b        0x00
+@0244 sat.b        0x00 ; temp[0]
+@0246 lst.b        0x00 ; temp[0]
+@0248 pToa.b       0x0a
+@024a lt?.w
+@024b bnt.w        0x0021 ; target @0x026f
+@024e pushi.w      0x0157 ; possible selector: indexNum
+@0251 push0.w
+@0252 pushi.b      0x43 ; possible selector: at
+@0254 push1.w
+@0255 lst.b        0x00 ; temp[0]
+@0257 self.w       0x06
+@0259 send.w       0x04
+@025b push.w
+@025c lap.b        0x01 ; param[1]
+@025e eq?.w
+@025f bnt.w        0x0008 ; target @0x026a
+@0262 pushi.b      0x43 ; possible selector: at
+@0264 push1.w
+@0265 lst.b        0x00 ; temp[0]
+@0267 self.w       0x06
+@0269 ret.w
+@026a +at.b        0x00 ; temp[0]
+@026c jmp.w        0xffd7 ; target @0x0246
+@026f ldi.b        0x00
+@0271 ret.w
+; ListOfGoods::objectAtIndexQuan
+@0272 link.b       0x01
+@0274 pushi.w      0x0171 ; possible selector: objectAtIndex
+@0277 push1.w
+@0278 lsp.b        0x01 ; param[1]
+@027a self.w       0x06
+@027c sat.b        0x00 ; temp[0]
+@027e bnt.w        0x0007 ; target @0x0288
+@0281 pushi.w      0x0161 ; possible selector: quantity
+@0284 push0.w
+@0285 send.w       0x04
+@0287 ret.w
+@0288 ret.w
+@0289 bnot.w
+
+; CLASS @0x028a size=64
+@028a .hex 06 00 40 00 34 12 00 00 1a 00 06 00 40 00 03 00 ; ..@.4.......@...
+@029a .hex 00 80 9b 03 00 00 00 00 00 00 01 00 02 00 17 00 ; ................
+@02aa .hex 1b 00 59 00 06 00 60 01 6f 01 41 01 70 01 71 01 ; ..Y...`.o.A.p.q.
+@02ba .hex 72 01 00 00 dd 00 21 01 72 01 dc 00 40 02 72 02 ; r.....!.r...@.r.
+
+; CODE @0x02ca size=12
+@02ca .hex 02 00 0c 00 ; ....
+; Consumables::newGoods
+@02ce pushi.b      0x65 ; possible selector: new
+@02d0 push0.w
+@02d1 class.b      0x3d
+@02d3 send.w       0x04
+@02d5 ret.w
+
+; CLASS @0x02d6 size=44
+@02d6 .hex 06 00 2c 00 34 12 00 00 1a 00 06 00 41 00 40 00 ; ..,.4.......A.@.
+@02e6 .hex 00 80 a7 03 00 00 00 00 00 00 01 00 02 00 17 00 ; ................
+@02f6 .hex 1b 00 59 00 01 00 70 01 00 00 ce 02 ; ..Y...p.....
+
+; CODE @0x0302 size=12
+@0302 .hex 02 00 0c 00 ; ....
+; Durables::newGoods
+@0306 pushi.b      0x65 ; possible selector: new
+@0308 push0.w
+@0309 class.b      0x3e
+@030b send.w       0x04
+@030d ret.w
+
+; CLASS @0x030e size=44
+@030e .hex 06 00 2c 00 34 12 00 00 1a 00 06 00 42 00 40 00 ; ..,.4.......B.@.
+@031e .hex 00 80 b3 03 00 00 00 00 00 00 01 00 02 00 17 00 ; ................
+@032e .hex 1b 00 59 00 01 00 70 01 00 00 06 03 ; ..Y...p.....
+
+; CODE @0x033a size=12
+@033a .hex 02 00 0c 00 ; ....
+; Education::newGoods
+@033e pushi.b      0x65 ; possible selector: new
+@0340 push0.w
+@0341 class.b      0x3f
+@0343 send.w       0x04
+@0345 ret.w
+
+; CLASS @0x0346 size=44
+@0346 .hex 06 00 2c 00 34 12 00 00 1a 00 06 00 43 00 40 00 ; ..,.4.......C.@.
+@0356 .hex 00 80 bc 03 00 00 00 00 00 00 01 00 02 00 17 00 ; ................
+@0366 .hex 1b 00 59 00 01 00 70 01 00 00 3e 03 ; ..Y...p...>.
+
+; STRINGS @0x0372 size=84
+@0372 .hex 05 00 54 00 47 6f 6f 64 73 00 43 6f 6e 73 75 6d ; ..T.Goods.Consum
+@0382 .hex 61 62 6c 65 00 44 75 72 61 62 6c 65 00 45 64 75 ; able.Durable.Edu
+@0392 .hex 63 61 74 69 6f 6e 61 6c 00 4c 69 73 74 4f 66 47 ; cational.ListOfG
+@03a2 .hex 6f 6f 64 73 00 43 6f 6e 73 75 6d 61 62 6c 65 73 ; oods.Consumables
+@03b2 .hex 00 44 75 72 61 62 6c 65 73 00 45 64 75 63 61 74 ; .Durables.Educat
+@03c2 .hex 69 6f 6e 00 ; ion.
+
+; RELOCATIONS @0x03c6 size=22
+@03c6 .hex 08 00 16 00 08 00 12 00 4e 00 82 00 b6 00 9c 02 ; ........N.......
+@03d6 .hex e8 02 20 03 58 03 ; .. .X.
+
+; END @0x03dc size=2
+@03dc .hex 00 00 ; ..

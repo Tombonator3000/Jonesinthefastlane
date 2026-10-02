@@ -1,0 +1,1136 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 900
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 936,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1010,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1082,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1154,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1226,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1298,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1370,
+      "size": 378
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1748,
+      "size": 152
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1900,
+      "size": 36
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1936,
+      "size": 78
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2014,
+      "size": 36
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2050,
+      "size": 78
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2128,
+      "size": 36
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2164,
+      "size": 78
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2242,
+      "size": 36
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2278,
+      "size": 78
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2356,
+      "size": 116
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2472,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2546,
+      "size": 130
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2676,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2752,
+      "size": 130
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2882,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2958,
+      "size": 130
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3088,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3164,
+      "size": 130
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3294,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3370,
+      "size": 56
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3426,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 3502,
+      "size": 244
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 3746,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 3750,
+      "size": 6
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 3756,
+      "size": 44
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 3800,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        3506,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 936,
+      "address": 948,
+      "name": "select3",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        3521,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1010,
+      "address": 1022,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3529,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        1,
+        0,
+        8
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1082,
+      "address": 1094,
+      "name": "windowTitle",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3540,
+        4,
+        0,
+        0,
+        24,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        0,
+        0,
+        9
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1154,
+      "address": 1166,
+      "name": "playerNumber1",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3552,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1226,
+      "address": 1238,
+      "name": "playerNumber2",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3566,
+        4,
+        0,
+        0,
+        158,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1298,
+      "address": 1310,
+      "name": "exButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3580,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        8,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "class",
+      "section_offset": 1748,
+      "address": 1760,
+      "name": "StarSlider",
+      "species": 82,
+      "superclass": 12,
+      "properties": [
+        82,
+        12,
+        32768,
+        3589,
+        4,
+        65,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        2,
+        0,
+        10,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 1374
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 1578
+        },
+        {
+          "selector": 152,
+          "name": "track",
+          "address": 1380
+        },
+        {
+          "selector": 307,
+          "name": "hilite",
+          "address": 1377
+        },
+        {
+          "selector": 483,
+          "name": "updStar",
+          "address": 1563
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        5,
+        6,
+        7,
+        63,
+        484
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1936,
+      "address": 1948,
+      "name": "wealthStar",
+      "species": 82,
+      "superclass": 82,
+      "properties": [
+        82,
+        82,
+        0,
+        3600,
+        4,
+        65,
+        38,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        2,
+        0,
+        10,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 483,
+          "name": "updStar",
+          "address": 1904
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2050,
+      "address": 2062,
+      "name": "happyStar",
+      "species": 82,
+      "superclass": 82,
+      "properties": [
+        82,
+        82,
+        0,
+        3611,
+        4,
+        65,
+        38,
+        68,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        2,
+        0,
+        10,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 483,
+          "name": "updStar",
+          "address": 2018
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2164,
+      "address": 2176,
+      "name": "educationStar",
+      "species": 82,
+      "superclass": 82,
+      "properties": [
+        82,
+        82,
+        0,
+        3621,
+        4,
+        65,
+        38,
+        104,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        2,
+        0,
+        10,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 483,
+          "name": "updStar",
+          "address": 2132
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2278,
+      "address": 2290,
+      "name": "careerStar",
+      "species": 82,
+      "superclass": 82,
+      "properties": [
+        82,
+        82,
+        0,
+        3635,
+        4,
+        65,
+        38,
+        139,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        2,
+        0,
+        10,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 483,
+          "name": "updStar",
+          "address": 2246
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2472,
+      "address": 2484,
+      "name": "goalPoints",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        3661,
+        2,
+        0,
+        29,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3646,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 2360
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2676,
+      "address": 2688,
+      "name": "currentWealth",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3672,
+        4,
+        0,
+        43,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        3,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 2550
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2882,
+      "address": 2894,
+      "name": "currentHappy",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3686,
+        4,
+        0,
+        43,
+        66,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        3,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 2756
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3088,
+      "address": 3100,
+      "name": "currentEducation",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3699,
+        4,
+        0,
+        80,
+        102,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        3,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 2962
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3294,
+      "address": 3306,
+      "name": "currentCareer",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        3716,
+        4,
+        0,
+        43,
+        137,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        3,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3168
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3426,
+      "address": 3438,
+      "name": "questionButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        3730,
+        4,
+        65,
+        108,
+        124,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        9,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3374
+        }
+      ]
+    }
+  ],
+  "exports": [
+    948
+  ],
+  "strings": [
+    {
+      "offset": 3506,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 3521,
+      "text": "select3",
+      "terminated": true
+    },
+    {
+      "offset": 3529,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 3540,
+      "text": "windowTitle",
+      "terminated": true
+    },
+    {
+      "offset": 3552,
+      "text": "playerNumber1",
+      "terminated": true
+    },
+    {
+      "offset": 3566,
+      "text": "playerNumber2",
+      "terminated": true
+    },
+    {
+      "offset": 3580,
+      "text": "exButton",
+      "terminated": true
+    },
+    {
+      "offset": 3589,
+      "text": "StarSlider",
+      "terminated": true
+    },
+    {
+      "offset": 3600,
+      "text": "wealthStar",
+      "terminated": true
+    },
+    {
+      "offset": 3611,
+      "text": "happyStar",
+      "terminated": true
+    },
+    {
+      "offset": 3621,
+      "text": "educationStar",
+      "terminated": true
+    },
+    {
+      "offset": 3635,
+      "text": "careerStar",
+      "terminated": true
+    },
+    {
+      "offset": 3646,
+      "text": "Goal Points = ",
+      "terminated": true
+    },
+    {
+      "offset": 3661,
+      "text": "goalPoints",
+      "terminated": true
+    },
+    {
+      "offset": 3672,
+      "text": "currentWealth",
+      "terminated": true
+    },
+    {
+      "offset": 3686,
+      "text": "currentHappy",
+      "terminated": true
+    },
+    {
+      "offset": 3699,
+      "text": "currentEducation",
+      "terminated": true
+    },
+    {
+      "offset": 3716,
+      "text": "currentCareer",
+      "terminated": true
+    },
+    {
+      "offset": 3730,
+      "text": "questionButton",
+      "terminated": true
+    },
+    {
+      "offset": 3745,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0
+  ]
+}

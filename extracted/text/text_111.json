@@ -1,0 +1,11 @@
+{
+  "resource": 111,
+  "encoding": "cp437",
+  "strings": [
+    "What should be done with the remaining player(s)?",
+    "%s",
+    "$%d an hour",
+    "$%d",
+    ""
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 376
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 412,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 486,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 558,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 638,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 750,
+      "size": 112
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 862,
+      "size": 22
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 884,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 960,
+      "size": 168
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1128,
+      "size": 26
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1154,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        964,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 412,
+      "address": 424,
+      "name": "rentJobs",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        979,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 486,
+      "address": 498,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        988,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        706,
+        0,
+        1,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 558,
+      "address": 570,
+      "name": "jobsAvailable",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        1027,
+        0,
+        0,
+        45,
+        33,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        999,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 638,
+      "address": 650,
+      "name": "groundsKeeper",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1065,
+        0,
+        35,
+        60,
+        25,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1041,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        62,
+        0,
+        1,
+        65535,
+        6,
+        0,
+        0,
+        4,
+        0,
+        20,
+        20,
+        0,
+        0,
+        36,
+        36
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 750,
+      "address": 762,
+      "name": "apartmentManager",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1099,
+        0,
+        35,
+        70,
+        25,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1079,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        63,
+        0,
+        1,
+        65535,
+        8,
+        0,
+        0,
+        4,
+        0,
+        30,
+        30,
+        14,
+        0,
+        37,
+        36
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 884,
+      "address": 896,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1116,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 866
+        }
+      ]
+    }
+  ],
+  "exports": [
+    424
+  ],
+  "strings": [
+    {
+      "offset": 964,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 979,
+      "text": "rentJobs",
+      "terminated": true
+    },
+    {
+      "offset": 988,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 999,
+      "text": "Rent Office Jobs Available:",
+      "terminated": true
+    },
+    {
+      "offset": 1027,
+      "text": "jobsAvailable",
+      "terminated": true
+    },
+    {
+      "offset": 1041,
+      "text": "Groundskeeper      ||||",
+      "terminated": true
+    },
+    {
+      "offset": 1065,
+      "text": "groundsKeeper",
+      "terminated": true
+    },
+    {
+      "offset": 1079,
+      "text": "Apartment Manager  ",
+      "terminated": true
+    },
+    {
+      "offset": 1099,
+      "text": "apartmentManager",
+      "terminated": true
+    },
+    {
+      "offset": 1116,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 1127,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

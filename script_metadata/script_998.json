@@ -1,0 +1,612 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 20
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 20,
+      "size": 56
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 76,
+      "size": 462
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 538,
+      "size": 196
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 734,
+      "size": 236
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 970,
+      "size": 172
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1142,
+      "size": 564
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1706,
+      "size": 272
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1978,
+      "size": 26
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2004,
+      "size": 14
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2018,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 20,
+      "address": 32,
+      "name": "Feature",
+      "species": 28,
+      "superclass": 0,
+      "properties": [
+        28,
+        0,
+        32768,
+        1982,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 4
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 11
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        3,
+        4,
+        85,
+        58
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 538,
+      "address": 550,
+      "name": "View",
+      "species": 29,
+      "superclass": 28,
+      "properties": [
+        29,
+        28,
+        32768,
+        1990,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 80
+        },
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 178
+        },
+        {
+          "selector": 105,
+          "name": "showSelf",
+          "address": 530
+        },
+        {
+          "selector": 206,
+          "name": "posn",
+          "address": 135
+        },
+        {
+          "selector": 207,
+          "name": "stopUpd",
+          "address": 262
+        },
+        {
+          "selector": 208,
+          "name": "forceUpd",
+          "address": 277
+        },
+        {
+          "selector": 209,
+          "name": "startUpd",
+          "address": 285
+        },
+        {
+          "selector": 66,
+          "name": "setPri",
+          "address": 300
+        },
+        {
+          "selector": 210,
+          "name": "setLoop",
+          "address": 354
+        },
+        {
+          "selector": 211,
+          "name": "setCel",
+          "address": 411
+        },
+        {
+          "selector": 212,
+          "name": "ignoreActors",
+          "address": 489
+        },
+        {
+          "selector": 149,
+          "name": "hide",
+          "address": 197
+        },
+        {
+          "selector": 213,
+          "name": "show",
+          "address": 205
+        },
+        {
+          "selector": 84,
+          "name": "delete",
+          "address": 213
+        },
+        {
+          "selector": 214,
+          "name": "addToPic",
+          "address": 490
+        },
+        {
+          "selector": 182,
+          "name": "lastCel",
+          "address": 520
+        },
+        {
+          "selector": 215,
+          "name": "isExtra",
+          "address": 531
+        },
+        {
+          "selector": 178,
+          "name": "motionCue",
+          "address": 536
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        3,
+        4,
+        85,
+        58,
+        55,
+        5,
+        6,
+        7,
+        63,
+        8,
+        17,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 970,
+      "address": 982,
+      "name": "Prop",
+      "species": 30,
+      "superclass": 29,
+      "properties": [
+        30,
+        29,
+        32768,
+        1995,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 738
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 789
+        },
+        {
+          "selector": 84,
+          "name": "delete",
+          "address": 865
+        },
+        {
+          "selector": 178,
+          "name": "motionCue",
+          "address": 947
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 809
+        },
+        {
+          "selector": 136,
+          "name": "setScript",
+          "address": 915
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 903
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        3,
+        4,
+        85,
+        58,
+        55,
+        5,
+        6,
+        7,
+        63,
+        8,
+        17,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21,
+        22,
+        180,
+        131,
+        181,
+        126,
+        174
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1706,
+      "address": 1718,
+      "name": "Act",
+      "species": 31,
+      "superclass": 30,
+      "properties": [
+        31,
+        30,
+        32768,
+        2000,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32768,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1146
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1161
+        },
+        {
+          "selector": 206,
+          "name": "posn",
+          "address": 1259
+        },
+        {
+          "selector": 84,
+          "name": "delete",
+          "address": 1402
+        },
+        {
+          "selector": 178,
+          "name": "motionCue",
+          "address": 1676
+        },
+        {
+          "selector": 221,
+          "name": "setMotion",
+          "address": 1281
+        },
+        {
+          "selector": 222,
+          "name": "setAvoider",
+          "address": 1359
+        },
+        {
+          "selector": 223,
+          "name": "ignoreHorizon",
+          "address": 1461
+        },
+        {
+          "selector": 224,
+          "name": "observeControl",
+          "address": 1462
+        },
+        {
+          "selector": 225,
+          "name": "ignoreControl",
+          "address": 1465
+        },
+        {
+          "selector": 226,
+          "name": "observeBlocks",
+          "address": 1468
+        },
+        {
+          "selector": 227,
+          "name": "ignoreBlocks",
+          "address": 1469
+        },
+        {
+          "selector": 183,
+          "name": "isStopped",
+          "address": 1360
+        },
+        {
+          "selector": 61,
+          "name": "isBlocked",
+          "address": 1395
+        },
+        {
+          "selector": 205,
+          "name": "findPosn",
+          "address": 1501
+        },
+        {
+          "selector": 228,
+          "name": "inRect",
+          "address": 1504
+        },
+        {
+          "selector": 229,
+          "name": "onControl",
+          "address": 1534
+        },
+        {
+          "selector": 230,
+          "name": "distanceTo",
+          "address": 1470
+        },
+        {
+          "selector": 57,
+          "name": "canBeHere",
+          "address": 1498
+        },
+        {
+          "selector": 231,
+          "name": "setStep",
+          "address": 1574
+        },
+        {
+          "selector": 232,
+          "name": "setDirection",
+          "address": 1673
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        3,
+        4,
+        85,
+        58,
+        55,
+        5,
+        6,
+        7,
+        63,
+        8,
+        17,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21,
+        22,
+        180,
+        131,
+        181,
+        126,
+        174,
+        18,
+        185,
+        186,
+        54,
+        56,
+        217,
+        218,
+        59,
+        62,
+        219,
+        220
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 1982,
+      "text": "Feature",
+      "terminated": true
+    },
+    {
+      "offset": 1990,
+      "text": "View",
+      "terminated": true
+    },
+    {
+      "offset": 1995,
+      "text": "Prop",
+      "terminated": true
+    },
+    {
+      "offset": 2000,
+      "text": "Act",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

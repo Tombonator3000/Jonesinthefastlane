@@ -1,0 +1,106 @@
+{
+  "new_files": [
+    "resource.map",
+    "resource.bak"
+  ],
+  "reuploaded_identical_files": [
+    "resource.cfg",
+    "sciv256.exe",
+    "sierra.bat",
+    "space.com",
+    "std.drv",
+    "tandy3v.drv",
+    "tandykbd.drv",
+    "sndblast.drv"
+  ],
+  "previous_20_files_unchanged": true,
+  "checks": [
+    {
+      "name": "adl.drv",
+      "identical": true
+    },
+    {
+      "name": "exists.com",
+      "identical": true
+    },
+    {
+      "name": "godir.com",
+      "identical": true
+    },
+    {
+      "name": "ibmkbd.drv",
+      "identical": true
+    },
+    {
+      "name": "install.exe",
+      "identical": true
+    },
+    {
+      "name": "install.hlp",
+      "identical": true
+    },
+    {
+      "name": "joystick.drv",
+      "identical": true
+    },
+    {
+      "name": "mt32.drv",
+      "identical": true
+    },
+    {
+      "name": "resource.001",
+      "identical": true
+    },
+    {
+      "name": "resource.002",
+      "identical": true
+    },
+    {
+      "name": "resource.cfg",
+      "identical": true
+    },
+    {
+      "name": "sciv256.exe",
+      "identical": true
+    },
+    {
+      "name": "sierra.bat",
+      "identical": true
+    },
+    {
+      "name": "sndblast.drv",
+      "identical": true
+    },
+    {
+      "name": "space.com",
+      "identical": true
+    },
+    {
+      "name": "std.drv",
+      "identical": true
+    },
+    {
+      "name": "tandy3v.drv",
+      "identical": true
+    },
+    {
+      "name": "tandykbd.drv",
+      "identical": true
+    },
+    {
+      "name": "version",
+      "identical": true
+    },
+    {
+      "name": "vga320.drv",
+      "identical": true
+    }
+  ],
+  "unique_original_filenames": 22,
+  "resource_bak_is": "Old text configuration (EGA, no mouse, joystick enabled). Not an extra resource volume.",
+  "active_config_drivers_present": [
+    "VGA320.DRV",
+    "STD.DRV",
+    "IBMKBD.DRV"
+  ]
+}

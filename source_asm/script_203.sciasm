@@ -1,0 +1,1511 @@
+; SCI1 script 203: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 4376 bytes.
+
+; EXPORTS @0x0000 size=8
+@0000 .hex 07 00 08 00 01 00 6c 06 ; ......l.
+
+; CODE @0x0008 size=770
+@0008 .hex 02 00 02 03 ; ....
+@000c pushi.b      0x03 ; possible selector: y
+@000e lea.b        0x00 0x64
+@0011 push.w
+@0012 pushi.w      0x00cb ; possible selector: outOfTouch
+@0015 push0.w
+@0016 callk.b      0x48 0x06 ; Format
+@0019 pushi.b      0x03 ; possible selector: y
+@001b lea.b        0x00 0x64
+@001e push.w
+@001f pushi.w      0x00cb ; possible selector: outOfTouch
+@0022 push1.w
+@0023 callk.b      0x48 0x06 ; Format
+@0026 pushi.b      0x03 ; possible selector: y
+@0028 lea.b        0x00 0x64
+@002b push.w
+@002c pushi.w      0x00cb ; possible selector: outOfTouch
+@002f push2.w
+@0030 callk.b      0x48 0x06 ; Format
+@0033 pushi.b      0x03 ; possible selector: y
+@0035 lea.b        0x00 0x64
+@0038 push.w
+@0039 pushi.w      0x00cb ; possible selector: outOfTouch
+@003c pushi.b      0x03 ; possible selector: y
+@003e callk.b      0x48 0x06 ; Format
+@0041 pushi.b      0x03 ; possible selector: y
+@0043 lea.b        0x00 0x64
+@0046 push.w
+@0047 pushi.w      0x00cb ; possible selector: outOfTouch
+@004a pushi.b      0x04 ; possible selector: x
+@004c callk.b      0x48 0x06 ; Format
+@004f pushi.b      0x03 ; possible selector: y
+@0051 lea.b        0x00 0x64
+@0054 push.w
+@0055 pushi.w      0x00cb ; possible selector: outOfTouch
+@0058 pushi.b      0x05 ; possible selector: view
+@005a callk.b      0x48 0x06 ; Format
+@005d pushi.b      0x03 ; possible selector: y
+@005f lea.b        0x00 0x64
+@0062 push.w
+@0063 pushi.w      0x00cb ; possible selector: outOfTouch
+@0066 pushi.b      0x06 ; possible selector: loop
+@0068 callk.b      0x48 0x06 ; Format
+@006b pushi.b      0x03 ; possible selector: y
+@006d lea.b        0x00 0x64
+@0070 push.w
+@0071 pushi.w      0x00cb ; possible selector: outOfTouch
+@0074 pushi.b      0x07 ; possible selector: cel
+@0076 callk.b      0x48 0x06 ; Format
+@0079 pushi.b      0x03 ; possible selector: y
+@007b lea.b        0x00 0x64
+@007e push.w
+@007f pushi.w      0x00cb ; possible selector: outOfTouch
+@0082 pushi.b      0x08 ; possible selector: underBits
+@0084 callk.b      0x48 0x06 ; Format
+@0087 pushi.b      0x03 ; possible selector: y
+@0089 lea.b        0x00 0x64
+@008c push.w
+@008d pushi.w      0x00cb ; possible selector: outOfTouch
+@0090 pushi.b      0x09 ; possible selector: nsTop
+@0092 callk.b      0x48 0x06 ; Format
+@0095 pushi.b      0x03 ; possible selector: y
+@0097 lea.b        0x00 0x64
+@009a push.w
+@009b pushi.w      0x00cb ; possible selector: outOfTouch
+@009e pushi.b      0x0a ; possible selector: nsLeft
+@00a0 callk.b      0x48 0x06 ; Format
+@00a3 pushi.b      0x03 ; possible selector: y
+@00a5 lea.b        0x00 0x64
+@00a8 push.w
+@00a9 pushi.w      0x00cb ; possible selector: outOfTouch
+@00ac pushi.b      0x0b ; possible selector: nsBottom
+@00ae callk.b      0x48 0x06 ; Format
+@00b1 pushi.b      0x03 ; possible selector: y
+@00b3 lea.b        0x00 0x64
+@00b6 push.w
+@00b7 pushi.w      0x00cb ; possible selector: outOfTouch
+@00ba pushi.b      0x0c ; possible selector: nsRight
+@00bc callk.b      0x48 0x06 ; Format
+@00bf pushi.b      0x03 ; possible selector: y
+@00c1 lea.b        0x00 0x64
+@00c4 push.w
+@00c5 pushi.w      0x00cb ; possible selector: outOfTouch
+@00c8 pushi.b      0x0d ; possible selector: lsTop
+@00ca callk.b      0x48 0x06 ; Format
+@00cd pushi.b      0x03 ; possible selector: y
+@00cf lea.b        0x00 0x64
+@00d2 push.w
+@00d3 pushi.w      0x00cb ; possible selector: outOfTouch
+@00d6 pushi.b      0x0e ; possible selector: lsLeft
+@00d8 callk.b      0x48 0x06 ; Format
+@00db pushi.b      0x03 ; possible selector: y
+@00dd lea.b        0x00 0x64
+@00e0 push.w
+@00e1 pushi.w      0x00cb ; possible selector: outOfTouch
+@00e4 pushi.b      0x0f ; possible selector: lsBottom
+@00e6 callk.b      0x48 0x06 ; Format
+@00e9 pushi.b      0x03 ; possible selector: y
+@00eb lea.b        0x00 0x64
+@00ee push.w
+@00ef pushi.w      0x00cb ; possible selector: outOfTouch
+@00f2 pushi.b      0x10 ; possible selector: lsRight
+@00f4 callk.b      0x48 0x06 ; Format
+@00f7 pushi.b      0x03 ; possible selector: y
+@00f9 lea.b        0x00 0x64
+@00fc push.w
+@00fd pushi.w      0x00cb ; possible selector: outOfTouch
+@0100 pushi.b      0x11 ; possible selector: signal
+@0102 callk.b      0x48 0x06 ; Format
+@0105 pushi.b      0x03 ; possible selector: y
+@0107 lea.b        0x00 0x64
+@010a push.w
+@010b pushi.w      0x00cb ; possible selector: outOfTouch
+@010e pushi.b      0x12 ; possible selector: illegalBits
+@0110 callk.b      0x48 0x06 ; Format
+@0113 pushi.b      0x03 ; possible selector: y
+@0115 lea.b        0x00 0x64
+@0118 push.w
+@0119 pushi.w      0x00cb ; possible selector: outOfTouch
+@011c pushi.b      0x13 ; possible selector: brTop
+@011e callk.b      0x48 0x06 ; Format
+@0121 pushi.b      0x03 ; possible selector: y
+@0123 lea.b        0x00 0x64
+@0126 push.w
+@0127 pushi.w      0x00cb ; possible selector: outOfTouch
+@012a pushi.b      0x14 ; possible selector: brLeft
+@012c callk.b      0x48 0x06 ; Format
+@012f pushi.b      0x03 ; possible selector: y
+@0131 lea.b        0x00 0x64
+@0134 push.w
+@0135 pushi.w      0x00cb ; possible selector: outOfTouch
+@0138 pushi.b      0x15 ; possible selector: brBottom
+@013a callk.b      0x48 0x06 ; Format
+@013d pushi.b      0x03 ; possible selector: y
+@013f lea.b        0x00 0x64
+@0142 push.w
+@0143 pushi.w      0x00cb ; possible selector: outOfTouch
+@0146 pushi.b      0x16 ; possible selector: brRight
+@0148 callk.b      0x48 0x06 ; Format
+@014b pushi.b      0x03 ; possible selector: y
+@014d lea.b        0x00 0x64
+@0150 push.w
+@0151 pushi.w      0x00cb ; possible selector: outOfTouch
+@0154 pushi.b      0x17 ; possible selector: name
+@0156 callk.b      0x48 0x06 ; Format
+@0159 pushi.b      0x03 ; possible selector: y
+@015b lea.b        0x00 0x64
+@015e push.w
+@015f pushi.w      0x00cb ; possible selector: outOfTouch
+@0162 pushi.b      0x18 ; possible selector: key
+@0164 callk.b      0x48 0x06 ; Format
+@0167 pushi.b      0x03 ; possible selector: y
+@0169 lea.b        0x00 0x64
+@016c push.w
+@016d pushi.w      0x00cb ; possible selector: outOfTouch
+@0170 pushi.b      0x19 ; possible selector: time
+@0172 callk.b      0x48 0x06 ; Format
+@0175 pushi.b      0x03 ; possible selector: y
+@0177 lea.b        0x00 0x64
+@017a push.w
+@017b pushi.w      0x00cb ; possible selector: outOfTouch
+@017e pushi.b      0x1a ; possible selector: text
+@0180 callk.b      0x48 0x06 ; Format
+@0183 pushi.b      0x03 ; possible selector: y
+@0185 lea.b        0x00 0x64
+@0188 push.w
+@0189 pushi.w      0x00cb ; possible selector: outOfTouch
+@018c pushi.b      0x1b ; possible selector: elements
+@018e callk.b      0x48 0x06 ; Format
+@0191 pushi.b      0x03 ; possible selector: y
+@0193 lea.b        0x00 0x64
+@0196 push.w
+@0197 pushi.w      0x00cb ; possible selector: outOfTouch
+@019a pushi.b      0x1c ; possible selector: color
+@019c callk.b      0x48 0x06 ; Format
+@019f pushi.b      0x03 ; possible selector: y
+@01a1 lea.b        0x00 0x64
+@01a4 push.w
+@01a5 pushi.w      0x00cb ; possible selector: outOfTouch
+@01a8 pushi.b      0x1d ; possible selector: back
+@01aa callk.b      0x48 0x06 ; Format
+@01ad pushi.b      0x03 ; possible selector: y
+@01af lea.b        0x00 0x64
+@01b2 push.w
+@01b3 pushi.w      0x00cb ; possible selector: outOfTouch
+@01b6 pushi.b      0x1e ; possible selector: mode
+@01b8 callk.b      0x48 0x06 ; Format
+@01bb pushi.b      0x03 ; possible selector: y
+@01bd lea.b        0x00 0x64
+@01c0 push.w
+@01c1 pushi.w      0x00cb ; possible selector: outOfTouch
+@01c4 pushi.b      0x1f ; possible selector: style
+@01c6 callk.b      0x48 0x06 ; Format
+@01c9 pushi.b      0x03 ; possible selector: y
+@01cb lea.b        0x00 0x64
+@01ce push.w
+@01cf pushi.w      0x00cb ; possible selector: outOfTouch
+@01d2 pushi.b      0x20 ; possible selector: state
+@01d4 callk.b      0x48 0x06 ; Format
+@01d7 pushi.b      0x03 ; possible selector: y
+@01d9 lea.b        0x00 0x64
+@01dc push.w
+@01dd pushi.w      0x00cb ; possible selector: outOfTouch
+@01e0 pushi.b      0x21 ; possible selector: font
+@01e2 callk.b      0x48 0x06 ; Format
+@01e5 pushi.b      0x03 ; possible selector: y
+@01e7 lea.b        0x00 0x64
+@01ea push.w
+@01eb pushi.w      0x00cb ; possible selector: outOfTouch
+@01ee pushi.b      0x22 ; possible selector: type
+@01f0 callk.b      0x48 0x06 ; Format
+@01f3 pushi.b      0x03 ; possible selector: y
+@01f5 lea.b        0x00 0x64
+@01f8 push.w
+@01f9 pushi.w      0x00cb ; possible selector: outOfTouch
+@01fc pushi.b      0x23 ; possible selector: window
+@01fe callk.b      0x48 0x06 ; Format
+@0201 pushi.b      0x03 ; possible selector: y
+@0203 lea.b        0x00 0x64
+@0206 push.w
+@0207 pushi.w      0x00cb ; possible selector: outOfTouch
+@020a pushi.b      0x24 ; possible selector: cursor
+@020c callk.b      0x48 0x06 ; Format
+@020f pushi.b      0x03 ; possible selector: y
+@0211 lea.b        0x00 0x64
+@0214 push.w
+@0215 pushi.w      0x00cb ; possible selector: outOfTouch
+@0218 pushi.b      0x25 ; possible selector: max
+@021a callk.b      0x48 0x06 ; Format
+@021d pushi.b      0x03 ; possible selector: y
+@021f lea.b        0x00 0x64
+@0222 push.w
+@0223 pushi.w      0x00cb ; possible selector: outOfTouch
+@0226 pushi.b      0x26 ; possible selector: mark
+@0228 callk.b      0x48 0x06 ; Format
+@022b pushi.b      0x03 ; possible selector: y
+@022d lea.b        0x00 0x64
+@0230 push.w
+@0231 pushi.w      0x00cb ; possible selector: outOfTouch
+@0234 pushi.b      0x27 ; possible selector: who
+@0236 callk.b      0x48 0x06 ; Format
+@0239 pushi.b      0x03 ; possible selector: y
+@023b lea.b        0x00 0x64
+@023e push.w
+@023f pushi.w      0x00cb ; possible selector: outOfTouch
+@0242 pushi.b      0x28 ; possible selector: message
+@0244 callk.b      0x48 0x06 ; Format
+@0247 pushi.b      0x03 ; possible selector: y
+@0249 lea.b        0x00 0x64
+@024c push.w
+@024d pushi.w      0x00cb ; possible selector: outOfTouch
+@0250 pushi.b      0x29 ; possible selector: edit
+@0252 callk.b      0x48 0x06 ; Format
+@0255 pushi.b      0x03 ; possible selector: y
+@0257 lea.b        0x00 0x64
+@025a push.w
+@025b pushi.w      0x00cb ; possible selector: outOfTouch
+@025e pushi.b      0x2a ; possible selector: play
+@0260 callk.b      0x48 0x06 ; Format
+@0263 pushi.b      0x03 ; possible selector: y
+@0265 lea.b        0x00 0x64
+@0268 push.w
+@0269 pushi.w      0x00cb ; possible selector: outOfTouch
+@026c pushi.b      0x2b ; possible selector: number
+@026e callk.b      0x48 0x06 ; Format
+@0271 pushi.b      0x03 ; possible selector: y
+@0273 lea.b        0x00 0x64
+@0276 push.w
+@0277 pushi.w      0x00cb ; possible selector: outOfTouch
+@027a pushi.b      0x2c ; possible selector: nodePtr
+@027c callk.b      0x48 0x06 ; Format
+@027f pushi.b      0x03 ; possible selector: y
+@0281 lea.b        0x00 0x64
+@0284 push.w
+@0285 pushi.w      0x00cb ; possible selector: outOfTouch
+@0288 pushi.b      0x2d ; possible selector: client
+@028a callk.b      0x48 0x06 ; Format
+@028d pushi.b      0x03 ; possible selector: y
+@028f lea.b        0x00 0x64
+@0292 push.w
+@0293 pushi.w      0x00cb ; possible selector: outOfTouch
+@0296 pushi.b      0x2e ; possible selector: dx
+@0298 callk.b      0x48 0x06 ; Format
+@029b ret.w
+; boughtItem::doit
+@029c link.b       0x02
+@029e lsp.b        0x01 ; param[1]
+@02a0 lofsa.w      0x07f9
+@02a3 ne?.w
+@02a4 bnt.w        0x0061 ; target @0x0308
+@02a7 ldi.b        0x00
+@02a9 sat.b        0x01 ; temp[1]
+@02ab lsp.b        0x01 ; param[1]
+@02ad lofsa.w      0x06ce
+@02b0 eq?.w
+@02b1 bnt.w        0x0017 ; target @0x02cb
+@02b4 lal.b        0x02 ; local[2]
+@02b6 not.w
+@02b7 bnt.w        0x000d ; target @0x02c7
+@02ba pushi.b      0x66 ; possible selector: init
+@02bc push1.w
+@02bd push2.w
+@02be lag.w        0x019d ; global[413]
+@02c1 send.w       0x06
+@02c3 ldi.b        0x01
+@02c5 sat.b        0x01 ; temp[1]
+@02c7 ldi.b        0x00
+@02c9 sal.b        0x02 ; local[2]
+@02cb lat.b        0x01 ; temp[1]
+@02cd not.w
+@02ce bnt.w        0x0037 ; target @0x0308
+@02d1 lsl.b        0x01 ; local[1]
+@02d3 push2.w
+@02d4 pushi.b      0x0f ; possible selector: lsBottom
+@02d6 pushi.b      0x2e ; possible selector: dx
+@02d8 callk.b      0x3c 0x04 ; Random
+@02db sat.b        0x00 ; temp[0]
+@02dd eq?.w
+@02de bnt.w        0x0005 ; target @0x02e6
+@02e1 ldi.b        0x01
+@02e3 jmp.w        0xffeb ; target @0x02d1
+@02e6 lat.b        0x00 ; temp[0]
+@02e8 sal.b        0x01 ; local[1]
+@02ea pushi.b      0x09 ; possible selector: nsTop
+@02ec pushi.w      0x00cb ; possible selector: outOfTouch
+@02ef push.w
+@02f0 pushi.w      0x0136 ; possible selector: tail
+@02f3 lsg.w        0x019d ; global[413]
+@02f6 lsg.w        0x01b8 ; global[440]
+@02f9 lsg.w        0x01b9 ; global[441]
+@02fc lsg.w        0x01ba ; global[442]
+@02ff pushi.b      0x19 ; possible selector: time
+@0301 lsg.w        0x01aa ; global[426]
+@0304 calle.b      0xff 0x00 0x12
+@0308 ret.w
+@0309 bnot.w
+
+; OBJECT @0x030a size=28
+@030a .hex 01 00 1c 00 34 12 00 00 0a 00 04 00 00 00 00 00 ; ....4...........
+@031a .hex 00 00 ae 0f 01 00 3c 00 00 00 9c 02 ; ......<.....
+
+; CODE @0x0326 size=50
+@0326 .hex 02 00 32 00 ; ..2.
+; notEnoughCash::doit
+@032a pushi.b      0x66 ; possible selector: init
+@032c push1.w
+@032d pushi.b      0x10 ; possible selector: lsRight
+@032f lag.w        0x019d ; global[413]
+@0332 send.w       0x06
+@0334 pushi.b      0x0b ; possible selector: nsBottom
+@0336 pushi.w      0x00cb ; possible selector: outOfTouch
+@0339 pushi.b      0x2f ; possible selector: dy
+@033b pushi.w      0x0136 ; possible selector: tail
+@033e lsg.w        0x019d ; global[413]
+@0341 lsg.w        0x01b8 ; global[440]
+@0344 lsg.w        0x01b9 ; global[441]
+@0347 lsg.w        0x01ba ; global[442]
+@034a pushi.b      0x46 ; possible selector: width
+@034c dup.w
+@034d pushi.b      0x19 ; possible selector: time
+@034f lsg.w        0x01aa ; global[426]
+@0352 calle.b      0xff 0x00 0x16
+@0356 ret.w
+@0357 bnot.w
+
+; OBJECT @0x0358 size=28
+@0358 .hex 01 00 1c 00 34 12 00 00 0a 00 04 00 00 00 00 00 ; ....4...........
+@0368 .hex 00 00 b9 0f 01 00 3c 00 00 00 2a 03 ; ......<...*.
+
+; OBJECT @0x0374 size=28
+@0374 .hex 01 00 1c 00 34 12 00 00 0e 00 06 00 04 00 04 00 ; ....4...........
+@0384 .hex 00 00 c7 0f 00 00 00 00 00 00 00 00 ; ............
+
+; CODE @0x0390 size=720
+@0390 .hex 02 00 d0 02 ; ....
+; market::init
+@0394 link.b       0x01
+@0396 lag.w        0x0206 ; global[518]
+@0399 not.w
+@039a bnt.w        0x01cf ; target @0x056c
+@039d push2.w
+@039e pushi.w      0x0083 ; possible selector: script
+@03a1 pushi.w      0x00cb ; possible selector: outOfTouch
+@03a4 callk.b      0x00 0x04 ; Load
+@03a7 push1.w
+@03a8 push2.w
+@03a9 callb.b      0x11 0x02
+@03ac lofsa.w      0xffd1
+@03af aTop.b       0x2e
+@03b1 lag.w        0x01f6 ; global[502]
+@03b4 aTop.b       0x30
+@03b6 selfID.w
+@03b7 sag.w        0x01f6 ; global[502]
+@03ba ldi.b        0x03
+@03bc sag.w        0x01b8 ; global[440]
+@03bf ldi.w        0x00cf
+@03c2 sag.w        0x01b9 ; global[441]
+@03c5 ldi.b        0x4e
+@03c7 sag.w        0x01ba ; global[442]
+@03ca lsg.w        0x0216 ; global[534]
+@03cd ldi.b        0x02
+@03cf lt?.w
+@03d0 bnt.w        0x0010 ; target @0x03e3
+@03d3 push2.w
+@03d4 pushi.w      0x0080 ; possible selector: seconds
+@03d7 pushi.b      0x05 ; possible selector: view
+@03d9 push0.w
+@03da lofsa.w      0x08a9
+@03dd send.w       0x04
+@03df push.w
+@03e0 callk.b      0x00 0x04 ; Load
+@03e3 lofsa.w      0xff7e
+@03e6 sag.w        0x01a8 ; global[424]
+@03e9 lofsa.w      0xff2a
+@03ec sag.w        0x01a9 ; global[425]
+@03ef lofsa.w      0x095c
+@03f2 sag.w        0x01b2 ; global[434]
+@03f5 lap.b        0x01 ; param[1]
+@03f7 aTop.b       0x22
+@03f9 pushi.b      0x3c ; possible selector: doit
+@03fb push1.w
+@03fc push2.w
+@03fd lag.w        0x01a1 ; global[417]
+@0400 send.w       0x06
+@0402 ldi.b        0x03
+@0404 sag.w        0x0190 ; global[400]
+@0407 pushi.w      0x0172 ; possible selector: objectAtIndexQuan
+@040a push1.w
+@040b pushi.b      0x15 ; possible selector: brBottom
+@040d pushi.w      0x0142 ; possible selector: durables
+@0410 push0.w
+@0411 lag.w        0x012e ; global[302]
+@0414 send.w       0x04
+@0416 send.w       0x06
+@0418 sal.b        0x00 ; local[0]
+@041a pushi.w      0x012c ; possible selector: playing
+@041d push0.w
+@041e lag.w        0x012e ; global[302]
+@0421 send.w       0x04
+@0423 push.w
+@0424 ldi.b        0x1d
+@0426 eq?.w
+@0427 bnt.w        0x0013 ; target @0x043d
+@042a pushi.w      0x0088 ; possible selector: setScript
+@042d push1.w
+@042e lofsa.w      0x0b53
+@0431 push.w
+@0432 self.w       0x06
+@0434 pushi.w      0x0087 ; possible selector: cue
+@0437 push0.w
+@0438 lofsa.w      0x0b49
+@043b send.w       0x04
+@043d lofsa.w      0x0846
+@0440 sag.w        0x019d ; global[413]
+@0443 pushi.b      0x23 ; possible selector: window
+@0445 push1.w
+@0446 lsg.b        0x3b ; global[59]
+@0448 pushi.b      0x6e ; possible selector: add
+@044a pushi.b      0x08 ; possible selector: underBits
+@044c lofsa.w      0x026b
+@044f push.w
+@0450 lofsa.w      0x0833
+@0453 push.w
+@0454 lofsa.w      0x08f7
+@0457 push.w
+@0458 lofsa.w      0x02fb
+@045b push.w
+@045c lofsa.w      0x03b7
+@045f push.w
+@0460 lofsa.w      0x0475
+@0463 push.w
+@0464 lofsa.w      0x0517
+@0467 push.w
+@0468 lofsa.w      0x0631
+@046b push.w
+@046c self.w       0x1a
+@046e pushi.w      0x0173 ; possible selector: worksAt
+@0471 push0.w
+@0472 lag.w        0x012e ; global[302]
+@0475 send.w       0x04
+@0477 push.w
+@0478 ldi.b        0x03
+@047a eq?.w
+@047b bnt.w        0x0009 ; target @0x0487
+@047e pushi.b      0x6e ; possible selector: add
+@0480 push1.w
+@0481 lofsa.w      0x0734
+@0484 push.w
+@0485 self.w       0x06
+@0487 pushi.b      0x6e ; possible selector: add
+@0489 push1.w
+@048a lofsa.w      0x067b
+@048d push.w
+@048e self.w       0x06
+@0490 pushi.b      0x6f ; possible selector: eachElementDo
+@0492 push2.w
+@0493 pushi.b      0x66 ; possible selector: init
+@0495 push1.w
+@0496 pushi.b      0x6f ; possible selector: eachElementDo
+@0498 push1.w
+@0499 pushi.w      0x0099 ; possible selector: setSize
+@049c pushi.w      0x009b ; possible selector: moveTo
+@049f push2.w
+@04a0 pushi.b      0x45 ; possible selector: done
+@04a2 pushi.b      0x2c ; possible selector: nodePtr
+@04a4 pushi.w      0x00a3 ; possible selector: open
+@04a7 push2.w
+@04a8 push0.w
+@04a9 pushi.b      0x0f ; possible selector: lsBottom
+@04ab self.w       0x1e
+@04ad pushi.w      0x0173 ; possible selector: worksAt
+@04b0 push0.w
+@04b1 lag.w        0x012e ; global[302]
+@04b4 send.w       0x04
+@04b6 push.w
+@04b7 ldi.b        0x03
+@04b9 eq?.w
+@04ba bnt.w        0x0012 ; target @0x04cf
+@04bd pushi.b      0x6e ; possible selector: add
+@04bf push1.w
+@04c0 lofsa.w      0x076b
+@04c3 push.w
+@04c4 self.w       0x06
+@04c6 pushi.w      0x0099 ; possible selector: setSize
+@04c9 push0.w
+@04ca lofsa.w      0x0761
+@04cd send.w       0x04
+@04cf pushi.w      0x008e ; possible selector: playBed
+@04d2 push1.w
+@04d3 pushi.b      0x31 ; possible selector: b-i1
+@04d5 lag.w        0x01dd ; global[477]
+@04d8 send.w       0x06
+@04da pushi.b      0x03 ; possible selector: y
+@04dc pushSelf.w
+@04dd pTos.b       0x2e
+@04df lofsa.w      0x0274
+@04e2 push.w
+@04e3 callb.b      0x09 0x06
+@04e6 pushi.w      0x0129 ; possible selector: setList
+@04e9 push1.w
+@04ea pTos.b       0x2e
+@04ec class.b      0x30
+@04ee send.w       0x06
+@04f0 pushi.w      0x0099 ; possible selector: setSize
+@04f3 push0.w
+@04f4 pushi.b      0x4d ; possible selector: value
+@04f6 push1.w
+@04f7 pushi.w      0x0175 ; possible selector: cash
+@04fa push0.w
+@04fb lag.w        0x012e ; global[302]
+@04fe send.w       0x04
+@0500 push.w
+@0501 ldi.b        0x01
+@0503 sub.w
+@0504 push.w
+@0505 pushi.b      0x53 ; possible selector: draw
+@0507 push0.w
+@0508 lag.w        0x0131 ; global[305]
+@050b send.w       0x0e
+@050d pushi.w      0x00f2 ; possible selector: canControl
+@0510 push1.w
+@0511 push1.w
+@0512 class.b      0x20
+@0514 send.w       0x06
+@0516 push0.w
+@0517 callb.b      0x0e 0x00
+@051a bnt.w        0x0031 ; target @0x054e
+@051d pushi.b      0x66 ; possible selector: init
+@051f push0.w
+@0520 lag.w        0x019d ; global[413]
+@0523 send.w       0x04
+@0525 pushi.b      0x0b ; possible selector: nsBottom
+@0527 pushi.w      0x00cb ; possible selector: outOfTouch
+@052a push2.w
+@052b push0.w
+@052c pushi.b      0x0d ; possible selector: lsTop
+@052e callk.b      0x3c 0x04 ; Random
+@0531 push.w
+@0532 pushi.w      0x0136 ; possible selector: tail
+@0535 lsg.w        0x019d ; global[413]
+@0538 lsg.w        0x01b8 ; global[440]
+@053b lsg.w        0x01b9 ; global[441]
+@053e lsg.w        0x01ba ; global[442]
+@0541 pushi.b      0x46 ; possible selector: width
+@0543 pushi.b      0x64 ; possible selector: moveDone
+@0545 pushi.b      0x19 ; possible selector: time
+@0547 lsg.w        0x01aa ; global[426]
+@054a calle.b      0xff 0x00 0x16
+@054e push2.w
+@054f push0.w
+@0550 pushi.b      0x32 ; possible selector: b-i2
+@0552 callk.b      0x3c 0x04 ; Random
+@0555 not.w
+@0556 bnt.w        0x001d ; target @0x0576
+@0559 push0.w
+@055a callb.b      0x0b 0x00
+@055d push.w
+@055e ldi.b        0x00
+@0560 gt?.w
+@0561 bnt.w        0x0012 ; target @0x0576
+@0564 ldi.b        0x01
+@0566 sag.w        0x01be ; global[446]
+@0569 jmp.w        0x000a ; target @0x0576
+@056c pushi.w      0x0102 ; possible selector: setCursor
+@056f push1.w
+@0570 pTos.b       0x10
+@0572 class.b      0x30
+@0574 send.w       0x06
+@0576 ldi.b        0x00
+@0578 sag.w        0x0206 ; global[518]
+@057b pushi.b      0x3c ; possible selector: doit
+@057d push2.w
+@057e push0.w
+@057f push0.w
+@0580 self.w       0x08
+@0582 sat.b        0x00 ; temp[0]
+@0584 push1.w
+@0585 push.w
+@0586 callk.b      0x06 0x02 ; IsObject
+@0589 bnt.w        0x0011 ; target @0x059d
+@058c pushi.b      0x72 ; possible selector: contains
+@058e push1.w
+@058f lst.b        0x00 ; temp[0]
+@0591 self.w       0x06
+@0593 bnt.w        0x000b ; target @0x05a1
+@0596 ldi.b        0x00
+@0598 sat.b        0x00 ; temp[0]
+@059a jmp.w        0x0004 ; target @0x05a1
+@059d ldi.b        0x01
+@059f sat.b        0x00 ; temp[0]
+@05a1 lag.w        0x01be ; global[446]
+@05a4 bnt.w        0x000f ; target @0x05b6
+@05a7 pushi.w      0x0175 ; possible selector: cash
+@05aa push1.w
+@05ab push0.w
+@05ac pushi.w      0x0176 ; possible selector: cashHi
+@05af push1.w
+@05b0 push0.w
+@05b1 lag.w        0x012e ; global[302]
+@05b4 send.w       0x0c
+@05b6 pushi.w      0x0091 ; possible selector: fade
+@05b9 push0.w
+@05ba lag.w        0x01dd ; global[477]
+@05bd send.w       0x04
+@05bf pushi.b      0x67 ; possible selector: dispose
+@05c1 push0.w
+@05c2 lofsa.w      0x0669
+@05c5 send.w       0x04
+@05c7 pushi.w      0x0129 ; possible selector: setList
+@05ca push1.w
+@05cb pToa.b       0x30
+@05cd bnt.w        0x0009 ; target @0x05d9
+@05d0 pushi.w      0x0138 ; possible selector: keyMouseList
+@05d3 push0.w
+@05d4 send.w       0x04
+@05d6 jmp.w        0x0003 ; target @0x05dc
+@05d9 lag.w        0x01b0 ; global[432]
+@05dc push.w
+@05dd class.b      0x30
+@05df send.w       0x06
+@05e1 pushi.b      0x75 ; possible selector: release
+@05e3 push0.w
+@05e4 pToa.b       0x2e
+@05e6 send.w       0x04
+@05e8 pushi.b      0x67 ; possible selector: dispose
+@05ea push0.w
+@05eb pToa.b       0x2e
+@05ed send.w       0x04
+@05ef pToa.b       0x30
+@05f1 sag.w        0x01f6 ; global[502]
+@05f4 push2.w
+@05f5 pushSelf.w
+@05f6 pushi.w      0x0123 ; possible selector: erase
+@05f9 callb.b      0x0f 0x04
+@05fc pushi.b      0x67 ; possible selector: dispose
+@05fe push0.w
+@05ff lofsa.w      0x05b6
+@0602 send.w       0x04
+@0604 pushi.b      0x67 ; possible selector: dispose
+@0606 push0.w
+@0607 self.w       0x04
+@0609 pushi.b      0x08 ; possible selector: underBits
+@060b pushi.b      0x0b ; possible selector: nsBottom
+@060d pTos.b       0x12
+@060f ldi.b        0x01
+@0611 add.w
+@0612 push.w
+@0613 pTos.b       0x14
+@0615 pTos.b       0x16
+@0617 ldi.b        0x01
+@0619 sub.w
+@061a push.w
+@061b pTos.b       0x18
+@061d ldi.b        0x03
+@061f sub.w
+@0620 push.w
+@0621 push2.w
+@0622 push0.w
+@0623 push0.w
+@0624 callk.b      0x6c 0x10 ; Graph
+@0627 push1.w
+@0628 push0.w
+@0629 callb.b      0x11 0x02
+@062c lat.b        0x00 ; temp[0]
+@062e push1.w
+@062f pushi.w      0x00cb ; possible selector: outOfTouch
+@0632 callk.b      0x03 0x02 ; DisposeScript
+@0635 ret.w
+; market::draw
+@0636 pushi.b      0x53 ; possible selector: draw
+@0638 push0.w
+@0639 super.b      0x10 0x04
+@063c lag.w        0x0206 ; global[518]
+@063f bnt.w        0x001d ; target @0x065f
+@0642 pushi.w      0x0099 ; possible selector: setSize
+@0645 push0.w
+@0646 pushi.b      0x4d ; possible selector: value
+@0648 push1.w
+@0649 pushi.w      0x0175 ; possible selector: cash
+@064c push0.w
+@064d lag.w        0x012e ; global[302]
+@0650 send.w       0x04
+@0652 push.w
+@0653 ldi.b        0x01
+@0655 sub.w
+@0656 push.w
+@0657 pushi.b      0x53 ; possible selector: draw
+@0659 push0.w
+@065a lag.w        0x0131 ; global[305]
+@065d send.w       0x0e
+@065f ret.w
+
+; OBJECT @0x0660 size=78
+@0660 .hex 01 00 4e 00 34 12 00 00 38 00 1b 00 10 00 10 00 ; ..N.4...8.......
+@0670 .hex 00 00 d6 0f 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0680 .hex 00 00 77 00 b8 00 00 00 00 00 00 00 00 00 00 00 ; ..w.............
+@0690 .hex 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06a0 .hex 00 00 02 00 66 00 53 00 00 00 94 03 36 06 ; ....f.S.....6.
+
+; OBJECT @0x06ae size=72
+@06ae .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 0c 00 0c 00 ; ..H.4...:.......
+@06be .hex 00 00 dd 0f 04 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06ce .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@06de .hex 00 00 00 00 00 00 00 00 00 00 00 00 23 03 00 00 ; ............#...
+@06ee .hex 00 00 0d 00 00 00 00 00 ; ........
+
+; CODE @0x06f6 size=84
+@06f6 .hex 02 00 54 00 ; ..T.
+; foodFor1Week::doFormat
+@06fa pTos.b       0x40
+@06fc ldi.b        0x64
+@06fe lt?.w
+@06ff bnt.w        0x0013 ; target @0x0715
+@0702 pushi.b      0x05 ; possible selector: view
+@0704 lsp.b        0x01 ; param[1]
+@0706 pushi.w      0x00cb ; possible selector: outOfTouch
+@0709 pushi.b      0x30 ; possible selector: b-moveCnt
+@070b pTos.b       0x30
+@070d pTos.b       0x40
+@070f callk.b      0x48 0x0a ; Format
+@0712 jmp.w        0x0010 ; target @0x0725
+@0715 pushi.b      0x05 ; possible selector: view
+@0717 lsp.b        0x01 ; param[1]
+@0719 pushi.w      0x00cb ; possible selector: outOfTouch
+@071c pushi.b      0x31 ; possible selector: b-i1
+@071e pTos.b       0x30
+@0720 pTos.b       0x40
+@0722 callk.b      0x48 0x0a ; Format
+@0725 ret.w
+; foodFor1Week::doit
+@0726 link.b       0x01
+@0728 pushi.b      0x3c ; possible selector: doit
+@072a push0.w
+@072b super.b      0x37 0x04
+@072e sat.b        0x00 ; temp[0]
+@0730 lag.w        0x01a0 ; global[416]
+@0733 bnt.w        0x0011 ; target @0x0747
+@0736 lag.w        0x01d6 ; global[470]
+@0739 not.w
+@073a bnt.w        0x000a ; target @0x0747
+@073d ldi.b        0x01
+@073f sag.w        0x01d6 ; global[470]
+@0742 push1.w
+@0743 push1.w
+@0744 callb.b      0x0d 0x02
+@0747 lat.b        0x00 ; temp[0]
+@0749 ret.w
+
+; OBJECT @0x074a size=108
+@074a .hex 01 00 6c 00 34 12 00 00 56 00 2a 00 37 00 37 00 ; ..l.4...V.*.7.7.
+@075a .hex 00 00 fc 0f 00 00 01 00 1f 00 06 00 00 00 00 00 ; ................
+@076a .hex 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@077a .hex 00 00 00 00 00 00 00 00 00 00 00 00 e8 0f 00 00 ; ................
+@078a .hex 0a 00 25 00 ff ff 70 00 64 00 00 00 00 00 01 00 ; ..%...p.d.......
+@079a .hex 01 00 01 00 ff ff 37 00 00 00 00 00 00 00 00 00 ; ......7.........
+@07aa .hex 02 00 3c 00 52 01 00 00 26 07 fa 06 ; ..<.R...&...
+
+; CODE @0x07b6 size=84
+@07b6 .hex 02 00 54 00 ; ..T.
+; foodFor2Weeks::doFormat
+@07ba pTos.b       0x40
+@07bc ldi.b        0x64
+@07be lt?.w
+@07bf bnt.w        0x0013 ; target @0x07d5
+@07c2 pushi.b      0x05 ; possible selector: view
+@07c4 lsp.b        0x01 ; param[1]
+@07c6 pushi.w      0x00cb ; possible selector: outOfTouch
+@07c9 pushi.b      0x30 ; possible selector: b-moveCnt
+@07cb pTos.b       0x30
+@07cd pTos.b       0x40
+@07cf callk.b      0x48 0x0a ; Format
+@07d2 jmp.w        0x0010 ; target @0x07e5
+@07d5 pushi.b      0x05 ; possible selector: view
+@07d7 lsp.b        0x01 ; param[1]
+@07d9 pushi.w      0x00cb ; possible selector: outOfTouch
+@07dc pushi.b      0x31 ; possible selector: b-i1
+@07de pTos.b       0x30
+@07e0 pTos.b       0x40
+@07e2 callk.b      0x48 0x0a ; Format
+@07e5 ret.w
+; foodFor2Weeks::doit
+@07e6 link.b       0x01
+@07e8 pushi.b      0x3c ; possible selector: doit
+@07ea push0.w
+@07eb super.b      0x37 0x04
+@07ee sat.b        0x00 ; temp[0]
+@07f0 lag.w        0x01a0 ; global[416]
+@07f3 bnt.w        0x0011 ; target @0x0807
+@07f6 lag.w        0x01d6 ; global[470]
+@07f9 not.w
+@07fa bnt.w        0x000a ; target @0x0807
+@07fd ldi.b        0x01
+@07ff sag.w        0x01d6 ; global[470]
+@0802 push1.w
+@0803 push2.w
+@0804 callb.b      0x0d 0x02
+@0807 lat.b        0x00 ; temp[0]
+@0809 ret.w
+
+; OBJECT @0x080a size=108
+@080a .hex 01 00 6c 00 34 12 00 00 56 00 2a 00 37 00 37 00 ; ..l.4...V.*.7.7.
+@081a .hex 00 00 1d 10 00 00 01 00 2e 00 06 00 00 00 00 00 ; ................
+@082a .hex 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@083a .hex 00 00 00 00 00 00 00 00 00 00 00 00 09 10 00 00 ; ................
+@084a .hex 0a 00 25 00 ff ff 70 00 64 00 00 00 00 00 01 00 ; ..%...p.d.......
+@085a .hex 01 00 02 00 ff ff 64 00 00 00 00 00 00 00 01 00 ; ......d.........
+@086a .hex 02 00 3c 00 52 01 00 00 e6 07 ba 07 ; ..<.R.......
+
+; CODE @0x0876 size=86
+@0876 .hex 02 00 56 00 ; ..V.
+; foodFor4Weeks::doFormat
+@087a pTos.b       0x40
+@087c ldi.b        0x64
+@087e lt?.w
+@087f bnt.w        0x0013 ; target @0x0895
+@0882 pushi.b      0x05 ; possible selector: view
+@0884 lsp.b        0x01 ; param[1]
+@0886 pushi.w      0x00cb ; possible selector: outOfTouch
+@0889 pushi.b      0x30 ; possible selector: b-moveCnt
+@088b pTos.b       0x30
+@088d pTos.b       0x40
+@088f callk.b      0x48 0x0a ; Format
+@0892 jmp.w        0x0010 ; target @0x08a5
+@0895 pushi.b      0x05 ; possible selector: view
+@0897 lsp.b        0x01 ; param[1]
+@0899 pushi.w      0x00cb ; possible selector: outOfTouch
+@089c pushi.b      0x31 ; possible selector: b-i1
+@089e pTos.b       0x30
+@08a0 pTos.b       0x40
+@08a2 callk.b      0x48 0x0a ; Format
+@08a5 ret.w
+; foodFor4Weeks::doit
+@08a6 link.b       0x01
+@08a8 pushi.b      0x3c ; possible selector: doit
+@08aa push0.w
+@08ab super.b      0x37 0x04
+@08ae sat.b        0x00 ; temp[0]
+@08b0 lag.w        0x01a0 ; global[416]
+@08b3 bnt.w        0x0012 ; target @0x08c8
+@08b6 lag.w        0x01d6 ; global[470]
+@08b9 not.w
+@08ba bnt.w        0x000b ; target @0x08c8
+@08bd ldi.b        0x01
+@08bf sag.w        0x01d6 ; global[470]
+@08c2 push1.w
+@08c3 pushi.b      0x04 ; possible selector: x
+@08c5 callb.b      0x0d 0x02
+@08c8 lat.b        0x00 ; temp[0]
+@08ca ret.w
+@08cb bnot.w
+
+; OBJECT @0x08cc size=108
+@08cc .hex 01 00 6c 00 34 12 00 00 56 00 2a 00 37 00 37 00 ; ..l.4...V.*.7.7.
+@08dc .hex 00 00 3e 10 00 00 01 00 40 00 4b 00 00 00 00 00 ; ..>.....@.K.....
+@08ec .hex 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@08fc .hex 00 00 00 00 00 00 00 00 00 00 00 00 2b 10 00 00 ; ............+...
+@090c .hex 0a 00 25 00 ff ff 70 00 64 00 00 00 00 00 01 00 ; ..%...p.d.......
+@091c .hex 01 00 04 00 ff ff be 00 00 00 00 00 00 00 02 00 ; ................
+@092c .hex 02 00 3c 00 52 01 00 00 a6 08 7a 08 ; ..<.R.....z.
+
+; CODE @0x0938 size=58
+@0938 .hex 02 00 3a 00 ; ..:.
+; lotteryTickets::doFormat
+@093c pushi.b      0x05 ; possible selector: view
+@093e lsp.b        0x01 ; param[1]
+@0940 pushi.w      0x00cb ; possible selector: outOfTouch
+@0943 pushi.b      0x32 ; possible selector: b-i2
+@0945 pTos.b       0x30
+@0947 pTos.b       0x40
+@0949 callk.b      0x48 0x0a ; Format
+@094c ret.w
+; lotteryTickets::doit
+@094d link.b       0x01
+@094f pushi.b      0x3c ; possible selector: doit
+@0951 push0.w
+@0952 super.b      0x37 0x04
+@0955 sat.b        0x00 ; temp[0]
+@0957 lag.w        0x01a0 ; global[416]
+@095a bnt.w        0x0011 ; target @0x096e
+@095d lag.w        0x01d5 ; global[469]
+@0960 not.w
+@0961 bnt.w        0x000a ; target @0x096e
+@0964 ldi.b        0x01
+@0966 sag.w        0x01d5 ; global[469]
+@0969 push1.w
+@096a push2.w
+@096b callb.b      0x0d 0x02
+@096e lat.b        0x00 ; temp[0]
+@0970 ret.w
+@0971 bnot.w
+
+; OBJECT @0x0972 size=108
+@0972 .hex 01 00 6c 00 34 12 00 00 56 00 2a 00 37 00 37 00 ; ..l.4...V.*.7.7.
+@0982 .hex 00 00 64 10 00 00 01 00 4f 00 4a 00 00 00 00 00 ; ..d.....O.J.....
+@0992 .hex 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@09a2 .hex 00 00 00 00 00 00 00 00 00 00 00 00 4c 10 00 00 ; ............L...
+@09b2 .hex 0a 00 25 00 ff ff 70 00 64 00 00 00 0a 00 09 00 ; ..%...p.d.......
+@09c2 .hex 01 00 0a 00 ff ff 00 00 01 00 00 00 00 00 03 00 ; ................
+@09d2 .hex 02 00 3c 00 52 01 00 00 4d 09 3c 09 ; ..<.R...M.<.
+
+; CODE @0x09de size=178
+@09de .hex 02 00 b2 00 ; ....
+; newspaper::doFormat
+@09e2 pushi.b      0x05 ; possible selector: view
+@09e4 lsp.b        0x01 ; param[1]
+@09e6 pushi.w      0x00cb ; possible selector: outOfTouch
+@09e9 pushi.b      0x33 ; possible selector: b-di
+@09eb pTos.b       0x30
+@09ed pTos.b       0x40
+@09ef callk.b      0x48 0x0a ; Format
+@09f2 ret.w
+; newspaper::doit
+@09f3 link.b       0x01
+@09f5 lsg.w        0x0143 ; global[323]
+@09f8 ldi.b        0x3c
+@09fa ne?.w
+@09fb bnt.w        0x0063 ; target @0x0a61
+@09fe pushi.b      0x3c ; possible selector: doit
+@0a00 push0.w
+@0a01 super.b      0x37 0x04
+@0a04 lag.w        0x01a0 ; global[416]
+@0a07 bnt.w        0x0083 ; target @0x0a8d
+@0a0a pushi.w      0x0091 ; possible selector: fade
+@0a0d push0.w
+@0a0e lag.w        0x01dd ; global[477]
+@0a11 send.w       0x04
+@0a13 pushi.b      0x3c ; possible selector: doit
+@0a15 push1.w
+@0a16 push1.w
+@0a17 lag.w        0x01a1 ; global[417]
+@0a1a send.w       0x06
+@0a1c push2.w
+@0a1d lofsa.w      0xfc4c
+@0a20 push.w
+@0a21 pushi.w      0x0123 ; possible selector: erase
+@0a24 callb.b      0x0f 0x04
+@0a27 pushi.b      0x66 ; possible selector: init
+@0a29 push1.w
+@0a2a pTos.b       0x24
+@0a2c push2.w
+@0a2d pushi.w      0x00d7 ; possible selector: isExtra
+@0a30 push0.w
+@0a31 callk.b      0x02 0x04 ; ScriptID
+@0a34 send.w       0x06
+@0a36 sat.b        0x00 ; temp[0]
+@0a38 pushi.b      0x2a ; possible selector: play
+@0a3a push1.w
+@0a3b pushi.b      0x31 ; possible selector: b-i1
+@0a3d lag.w        0x01dd ; global[477]
+@0a40 send.w       0x06
+@0a42 pushi.b      0x53 ; possible selector: draw
+@0a44 push0.w
+@0a45 lag.w        0x01f6 ; global[502]
+@0a48 send.w       0x04
+@0a4a pushi.b      0x07 ; possible selector: cel
+@0a4c push1.w
+@0a4d push0.w
+@0a4e pushi.w      0x00d8 ; possible selector: setCycle
+@0a51 push1.w
+@0a52 push0.w
+@0a53 pushi.b      0x53 ; possible selector: draw
+@0a55 push0.w
+@0a56 lag.w        0x019d ; global[413]
+@0a59 send.w       0x10
+@0a5b lat.b        0x00 ; temp[0]
+@0a5d ret.w
+@0a5e jmp.w        0x002c ; target @0x0a8d
+@0a61 pushi.b      0x66 ; possible selector: init
+@0a63 push1.w
+@0a64 pushi.b      0x10 ; possible selector: lsRight
+@0a66 lag.w        0x019d ; global[413]
+@0a69 send.w       0x06
+@0a6b pushi.b      0x0b ; possible selector: nsBottom
+@0a6d pushi.w      0x00cb ; possible selector: outOfTouch
+@0a70 pushi.b      0x34 ; possible selector: b-xAxis
+@0a72 pushi.w      0x0136 ; possible selector: tail
+@0a75 lsg.w        0x019d ; global[413]
+@0a78 lsg.w        0x01b8 ; global[440]
+@0a7b lsg.w        0x01b9 ; global[441]
+@0a7e lsg.w        0x01ba ; global[442]
+@0a81 pushi.b      0x46 ; possible selector: width
+@0a83 dup.w
+@0a84 pushi.b      0x19 ; possible selector: time
+@0a86 lsg.w        0x01aa ; global[426]
+@0a89 calle.b      0xff 0x00 0x16
+@0a8d ldi.b        0x00
+@0a8f ret.w
+
+; OBJECT @0x0a90 size=108
+@0a90 .hex 01 00 6c 00 34 12 00 00 56 00 2a 00 37 00 37 00 ; ..l.4...V.*.7.7.
+@0aa0 .hex 00 00 8e 10 00 00 01 00 5e 00 4b 00 00 00 00 00 ; ........^.K.....
+@0ab0 .hex 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0ac0 .hex 00 00 00 00 00 00 00 00 00 00 00 00 73 10 00 00 ; ............s...
+@0ad0 .hex 0a 00 25 00 ff ff 70 00 64 00 00 00 01 00 08 00 ; ..%...p.d.......
+@0ae0 .hex 03 00 01 00 ff ff 00 00 01 00 00 00 01 00 04 00 ; ................
+@0af0 .hex 02 00 3c 00 52 01 00 00 f3 09 e2 09 ; ..<.R.......
+
+; OBJECT @0x0afc size=72
+@0afc .hex 01 00 48 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..H.4...:...1.1.
+@0b0c .hex 00 00 98 10 04 00 63 00 6c 00 8f 00 00 00 00 00 ; ......c.l.......
+@0b1c .hex 78 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; x...............
+@0b2c .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 00 00 ; ................
+@0b3c .hex 00 00 0f 00 00 00 00 00 ; ........
+
+; CODE @0x0b44 size=104
+@0b44 .hex 02 00 68 00 ; ..h.
+; workButton::doit
+@0b48 link.b       0x01
+@0b4a pushi.b      0x2a ; possible selector: play
+@0b4c push1.w
+@0b4d pushi.b      0x17 ; possible selector: name
+@0b4f lag.w        0x01dc ; global[476]
+@0b52 send.w       0x06
+@0b54 pushi.b      0x07 ; possible selector: cel
+@0b56 push1.w
+@0b57 push0.w
+@0b58 pushi.b      0x53 ; possible selector: draw
+@0b5a push0.w
+@0b5b lofsa.w      0x00d0
+@0b5e send.w       0x0a
+@0b60 push0.w
+@0b61 calle.b      0x6c 0x00 0x00
+@0b65 sat.b        0x00 ; temp[0]
+@0b67 push.w
+@0b68 ldi.b        0xff
+@0b6a eq?.w
+@0b6b bnt.w        0x0012 ; target @0x0b80
+@0b6e pushi.b      0x54 ; possible selector: delete
+@0b70 push1.w
+@0b71 pushSelf.w
+@0b72 lofsa.w      0xfaf7
+@0b75 send.w       0x06
+@0b77 pushi.w      0x0123 ; possible selector: erase
+@0b7a push0.w
+@0b7b self.w       0x04
+@0b7d jmp.w        0x0023 ; target @0x0ba3
+@0b80 lsg.w        0x0143 ; global[323]
+@0b83 ldi.b        0x3c
+@0b85 lt?.w
+@0b86 bnt.w        0x001a ; target @0x0ba3
+@0b89 lst.b        0x00 ; temp[0]
+@0b8b ldi.b        0x00
+@0b8d gt?.w
+@0b8e bnt.w        0x0012 ; target @0x0ba3
+@0b91 pushi.w      0x00d8 ; possible selector: setCycle
+@0b94 push1.w
+@0b95 push0.w
+@0b96 lofsa.w      0x01b5
+@0b99 send.w       0x06
+@0b9b pushi.b      0x3c ; possible selector: doit
+@0b9d push0.w
+@0b9e lofsa.w      0x008d
+@0ba1 send.w       0x04
+@0ba3 pushi.b      0x3c ; possible selector: doit
+@0ba5 push1.w
+@0ba6 push0.w
+@0ba7 super.b      0x31 0x06
+@0baa ret.w
+@0bab bnot.w
+
+; OBJECT @0x0bac size=76
+@0bac .hex 01 00 4c 00 34 12 00 00 3a 00 1c 00 31 00 31 00 ; ..L.4...:...1.1.
+@0bbc .hex 00 00 a3 10 04 00 41 00 6c 00 4b 00 00 00 00 00 ; ......A.l.K.....
+@0bcc .hex 77 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; w...............
+@0bdc .hex 00 00 00 00 00 00 00 00 00 00 00 00 fa 00 01 00 ; ................
+@0bec .hex 00 00 0f 00 01 00 3c 00 00 00 48 0b ; ......<...H.
+
+; CODE @0x0bf8 size=42
+@0bf8 .hex 02 00 2a 00 ; ..*.
+; timeClock::cue
+@0bfc pushi.w      0x00d8 ; possible selector: setCycle
+@0bff push1.w
+@0c00 push0.w
+@0c01 self.w       0x06
+@0c03 pushi.b      0x66 ; possible selector: init
+@0c05 push0.w
+@0c06 lofsa.w      0x0145
+@0c09 send.w       0x04
+@0c0b ret.w
+; timeClock::setSize
+@0c0c pushi.w      0x013b ; possible selector: aTimeClock
+@0c0f push1.w
+@0c10 lofsa.w      0x001b
+@0c13 push.w
+@0c14 lag.w        0x01f6 ; global[502]
+@0c17 send.w       0x06
+@0c19 pushi.w      0x0099 ; possible selector: setSize
+@0c1c push0.w
+@0c1d super.b      0x39 0x04
+@0c20 ret.w
+@0c21 bnot.w
+
+; OBJECT @0x0c22 size=88
+@0c22 .hex 01 00 58 00 34 12 00 00 42 00 20 00 39 00 39 00 ; ..X.4...B. .9.9.
+@0c32 .hex 00 00 ae 10 04 00 00 00 39 00 00 00 00 00 00 00 ; ........9.......
+@0c42 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0c52 .hex 00 00 00 00 00 00 00 00 00 00 00 00 ee 02 00 00 ; ................
+@0c62 .hex 00 00 0e 00 00 00 0a 00 00 00 00 00 02 00 99 00 ; ................
+@0c72 .hex 87 00 00 00 0c 0c fc 0b ; ........
+
+; OBJECT @0x0c7a size=80
+@0c7a .hex 01 00 50 00 34 12 00 00 42 00 20 00 38 00 38 00 ; ..P.4...B. .8.8.
+@0c8a .hex 00 00 b8 10 04 00 00 00 00 00 73 00 00 00 00 00 ; ..........s.....
+@0c9a .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0caa .hex 00 00 00 00 00 00 00 00 00 00 00 00 61 01 00 00 ; ............a...
+@0cba .hex 00 00 0e 00 00 00 0a 00 00 00 00 00 00 00 00 00 ; ................
+
+; CODE @0x0cca size=120
+@0cca .hex 02 00 78 00 ; ..x.
+; items::init
+@0cce lsg.w        0x0216 ; global[534]
+@0cd1 ldi.b        0x02
+@0cd3 lt?.w
+@0cd4 bnt.w        0x000a ; target @0x0ce1
+@0cd7 pushi.w      0x00d8 ; possible selector: setCycle
+@0cda push2.w
+@0cdb class.b      0x33
+@0cdd push.w
+@0cde pushSelf.w
+@0cdf self.w       0x08
+@0ce1 ret.w
+; items::doit
+@0ce2 lsg.w        0x0216 ; global[534]
+@0ce5 ldi.b        0x02
+@0ce7 lt?.w
+@0ce8 bnt.w        0x001e ; target @0x0d09
+@0ceb lag.w        0x01a0 ; global[416]
+@0cee bnt.w        0x0018 ; target @0x0d09
+@0cf1 pToa.b       0x38
+@0cf3 bnt.w        0x0009 ; target @0x0cff
+@0cf6 pushi.w      0x00ac ; possible selector: cycleCnt
+@0cf9 push1.w
+@0cfa pushi.w      0xff38
+@0cfd send.w       0x06
+@0cff pushi.b      0x07 ; possible selector: cel
+@0d01 push1.w
+@0d02 lsp.b        0x01 ; param[1]
+@0d04 pushi.b      0x53 ; possible selector: draw
+@0d06 push0.w
+@0d07 self.w       0x0a
+@0d09 ret.w
+; items::setCycle
+@0d0a lsg.w        0x0216 ; global[534]
+@0d0d ldi.b        0x02
+@0d0f lt?.w
+@0d10 bnt.w        0x0009 ; target @0x0d1c
+@0d13 pushi.w      0x00d8 ; possible selector: setCycle
+@0d16 push0.w
+@0d17 &rest.b      0x01
+@0d19 super.b      0x32 0x04
+@0d1c ret.w
+; items::draw
+@0d1d lsg.w        0x0216 ; global[534]
+@0d20 ldi.b        0x02
+@0d22 lt?.w
+@0d23 bnt.w        0x0008 ; target @0x0d2e
+@0d26 pushi.b      0x53 ; possible selector: draw
+@0d28 push0.w
+@0d29 &rest.b      0x01
+@0d2b super.b      0x32 0x04
+@0d2e ret.w
+; items::setSize
+@0d2f lsg.w        0x0216 ; global[534]
+@0d32 ldi.b        0x02
+@0d34 lt?.w
+@0d35 bnt.w        0x0009 ; target @0x0d41
+@0d38 pushi.w      0x0099 ; possible selector: setSize
+@0d3b push0.w
+@0d3c &rest.b      0x01
+@0d3e super.b      0x32 0x04
+@0d41 ret.w
+
+; OBJECT @0x0d42 size=100
+@0d42 .hex 01 00 64 00 34 12 00 00 42 00 20 00 32 00 32 00 ; ..d.4...B. .2.2.
+@0d52 .hex 00 00 c2 10 04 00 00 00 39 00 00 00 00 00 00 00 ; ........9.......
+@0d62 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@0d72 .hex 00 00 00 00 00 00 00 00 00 00 00 00 bf 02 01 00 ; ................
+@0d82 .hex 00 00 0e 00 00 00 64 00 00 00 00 00 05 00 66 00 ; ......d.......f.
+@0d92 .hex 3c 00 99 00 53 00 d8 00 00 00 ce 0c e2 0c 2f 0d ; <...S........./.
+@0da2 .hex 1d 0d 0a 0d ; ....
+
+; CODE @0x0da6 size=466
+@0da6 .hex 02 00 d2 01 ; ....
+; computerScript::handleEvent
+@0daa pToa.b       0x16
+@0dac bnt.w        0x01c8 ; target @0x0f77
+@0daf ldi.b        0x00
+@0db1 aTop.b       0x16
+@0db3 ldi.b        0x01
+@0db5 aTop.b       0x10
+@0db7 pushi.b      0x22 ; possible selector: type
+@0db9 push1.w
+@0dba pushi.b      0x04 ; possible selector: x
+@0dbc dup.w
+@0dbd push1.w
+@0dbe pushi.w      0x00a0 ; possible selector: retreat
+@0dc1 pushi.b      0x03 ; possible selector: y
+@0dc3 push1.w
+@0dc4 pushi.b      0x64 ; possible selector: moveDone
+@0dc6 lap.b        0x01 ; param[1]
+@0dc8 send.w       0x12
+@0dca pTos.b       0x0a
+@0dcc dup.w
+@0dcd ldi.b        0x02
+@0dcf eq?.w
+@0dd0 bnt.w        0x0067 ; target @0x0e3a
+@0dd3 push1.w
+@0dd4 push2.w
+@0dd5 callb.b      0x06 0x02
+@0dd8 bnt.w        0x019b ; target @0x0f76
+@0ddb lal.b        0x00 ; local[0]
+@0ddd bnt.w        0x0196 ; target @0x0f76
+@0de0 ldi.b        0x3c
+@0de2 aTop.b       0x10
+@0de4 push0.w
+@0de5 callb.b      0x0b 0x00
+@0de8 push.w
+@0de9 ldi.w        0x00c8
+@0dec lt?.w
+@0ded bnt.w        0x0013 ; target @0x0e03
+@0df0 pushi.b      0x28 ; possible selector: message
+@0df2 push1.w
+@0df3 pushi.b      0x18 ; possible selector: key
+@0df5 push0.w
+@0df6 lofsa.w      0xf95d
+@0df9 send.w       0x04
+@0dfb push.w
+@0dfc lap.b        0x01 ; param[1]
+@0dfe send.w       0x06
+@0e00 jmp.w        0x002f ; target @0x0e32
+@0e03 push0.w
+@0e04 callb.b      0x0b 0x00
+@0e07 push.w
+@0e08 ldi.w        0x0190
+@0e0b lt?.w
+@0e0c bnt.w        0x0013 ; target @0x0e22
+@0e0f pushi.b      0x28 ; possible selector: message
+@0e11 push1.w
+@0e12 pushi.b      0x18 ; possible selector: key
+@0e14 push0.w
+@0e15 lofsa.w      0xf9fe
+@0e18 send.w       0x04
+@0e1a push.w
+@0e1b lap.b        0x01 ; param[1]
+@0e1d send.w       0x06
+@0e1f jmp.w        0x0010 ; target @0x0e32
+@0e22 pushi.b      0x28 ; possible selector: message
+@0e24 push1.w
+@0e25 pushi.b      0x18 ; possible selector: key
+@0e27 push0.w
+@0e28 lofsa.w      0xfaad
+@0e2b send.w       0x04
+@0e2d push.w
+@0e2e lap.b        0x01 ; param[1]
+@0e30 send.w       0x06
+@0e32 ldi.b        0x01
+@0e34 sag.w        0x019b ; global[411]
+@0e37 jmp.w        0x013c ; target @0x0f76
+@0e3a dup.w
+@0e3b ldi.b        0x03
+@0e3d eq?.w
+@0e3e bnt.w        0x0030 ; target @0x0e71
+@0e41 push1.w
+@0e42 push2.w
+@0e43 callb.b      0x06 0x02
+@0e46 bnt.w        0x012d ; target @0x0f76
+@0e49 lal.b        0x00 ; local[0]
+@0e4b bnt.w        0x0128 ; target @0x0f76
+@0e4e ldi.b        0x3c
+@0e50 aTop.b       0x10
+@0e52 push0.w
+@0e53 callb.b      0x0b 0x00
+@0e56 push.w
+@0e57 ldi.w        0x0320
+@0e5a gt?.w
+@0e5b bnt.w        0x0118 ; target @0x0f76
+@0e5e pushi.b      0x28 ; possible selector: message
+@0e60 push1.w
+@0e61 pushi.b      0x18 ; possible selector: key
+@0e63 push0.w
+@0e64 lofsa.w      0xfa71
+@0e67 send.w       0x04
+@0e69 push.w
+@0e6a lap.b        0x01 ; param[1]
+@0e6c send.w       0x06
+@0e6e jmp.w        0x0105 ; target @0x0f76
+@0e71 dup.w
+@0e72 ldi.b        0x04
+@0e74 eq?.w
+@0e75 bnt.w        0x0044 ; target @0x0ebc
+@0e78 push1.w
+@0e79 push2.w
+@0e7a callb.b      0x06 0x02
+@0e7d bnt.w        0x00f6 ; target @0x0f76
+@0e80 pushi.w      0x0172 ; possible selector: objectAtIndexQuan
+@0e83 push1.w
+@0e84 pushi.b      0x16 ; possible selector: brRight
+@0e86 pushi.w      0x0142 ; possible selector: durables
+@0e89 push0.w
+@0e8a lag.w        0x012e ; global[302]
+@0e8d send.w       0x04
+@0e8f send.w       0x06
+@0e91 bnt.w        0x00e2 ; target @0x0f76
+@0e94 lal.b        0x00 ; local[0]
+@0e96 bnt.w        0x00dd ; target @0x0f76
+@0e99 ldi.b        0x3c
+@0e9b aTop.b       0x10
+@0e9d push0.w
+@0e9e callb.b      0x0b 0x00
+@0ea1 push.w
+@0ea2 ldi.w        0x0320
+@0ea5 gt?.w
+@0ea6 bnt.w        0x00cd ; target @0x0f76
+@0ea9 pushi.b      0x28 ; possible selector: message
+@0eab push1.w
+@0eac pushi.b      0x18 ; possible selector: key
+@0eae push0.w
+@0eaf lofsa.w      0xfa26
+@0eb2 send.w       0x04
+@0eb4 push.w
+@0eb5 lap.b        0x01 ; param[1]
+@0eb7 send.w       0x06
+@0eb9 jmp.w        0x00ba ; target @0x0f76
+@0ebc dup.w
+@0ebd ldi.b        0x05
+@0ebf eq?.w
+@0ec0 bnt.w        0x002b ; target @0x0eee
+@0ec3 push2.w
+@0ec4 push0.w
+@0ec5 pushi.b      0x03 ; possible selector: y
+@0ec7 callk.b      0x3c 0x04 ; Random
+@0eca not.w
+@0ecb bnt.w        0x00a8 ; target @0x0f76
+@0ece lsg.w        0x0143 ; global[323]
+@0ed1 ldi.b        0x3c
+@0ed3 lt?.w
+@0ed4 bnt.w        0x009f ; target @0x0f76
+@0ed7 ldi.b        0x3c
+@0ed9 aTop.b       0x10
+@0edb pushi.b      0x28 ; possible selector: message
+@0edd push1.w
+@0ede pushi.b      0x18 ; possible selector: key
+@0ee0 push0.w
+@0ee1 lofsa.w      0xfbb8
+@0ee4 send.w       0x04
+@0ee6 push.w
+@0ee7 lap.b        0x01 ; param[1]
+@0ee9 send.w       0x06
+@0eeb jmp.w        0x0088 ; target @0x0f76
+@0eee dup.w
+@0eef ldi.b        0x06
+@0ef1 eq?.w
+@0ef2 bnt.w        0x0043 ; target @0x0f38
+@0ef5 push2.w
+@0ef6 push0.w
+@0ef7 push2.w
+@0ef8 callk.b      0x3c 0x04 ; Random
+@0efb not.w
+@0efc bt.w         0x0006 ; target @0x0f05
+@0eff push1.w
+@0f00 pushi.b      0x0d ; possible selector: lsTop
+@0f02 callb.b      0x06 0x02
+@0f05 bnt.w        0x006e ; target @0x0f76
+@0f08 push0.w
+@0f09 callb.b      0x0b 0x00
+@0f0c push.w
+@0f0d ldi.b        0x64
+@0f0f ge?.w
+@0f10 bnt.w        0x0063 ; target @0x0f76
+@0f13 ldi.b        0x0d
+@0f15 sag.w        0x0197 ; global[407]
+@0f18 push2.w
+@0f19 push1.w
+@0f1a push0.w
+@0f1b callb.b      0x0b 0x00
+@0f1e push.w
+@0f1f ldi.b        0x64
+@0f21 div.w
+@0f22 push.w
+@0f23 callk.b      0x3c 0x04 ; Random
+@0f26 sag.w        0x0198 ; global[408]
+@0f29 push.w
+@0f2a ldi.b        0x05
+@0f2c gt?.w
+@0f2d bnt.w        0x0046 ; target @0x0f76
+@0f30 ldi.b        0x05
+@0f32 sag.w        0x0198 ; global[408]
+@0f35 jmp.w        0x003e ; target @0x0f76
+@0f38 dup.w
+@0f39 ldi.b        0x07
+@0f3b eq?.w
+@0f3c bnt.w        0x002e ; target @0x0f6d
+@0f3f lsg.w        0x0197 ; global[407]
+@0f42 ldi.b        0x0d
+@0f44 eq?.w
+@0f45 bnt.w        0x002e ; target @0x0f76
+@0f48 lag.w        0x0198 ; global[408]
+@0f4b bnt.w        0x0028 ; target @0x0f76
+@0f4e ldi.b        0x3c
+@0f50 aTop.b       0x10
+@0f52 pushi.b      0x28 ; possible selector: message
+@0f54 push1.w
+@0f55 pushi.b      0x18 ; possible selector: key
+@0f57 push0.w
+@0f58 lofsa.w      0xfa23
+@0f5b send.w       0x04
+@0f5d push.w
+@0f5e lap.b        0x01 ; param[1]
+@0f60 send.w       0x06
+@0f62 -ag.w        0x0198 ; global[408]
+@0f65 bnt.w        0x000e ; target @0x0f76
+@0f68 dpToa.b      0x0a
+@0f6a jmp.w        0x0009 ; target @0x0f76
+@0f6d pushi.b      0x7c ; possible selector: handleEvent
+@0f6f push2.w
+@0f70 lsp.b        0x01 ; param[1]
+@0f72 push1.w
+@0f73 super.b      0x44 0x08
+@0f76 toss.w
+@0f77 ret.w
+
+; OBJECT @0x0f78 size=50
+@0f78 .hex 01 00 32 00 34 12 00 00 20 00 0f 00 44 00 44 00 ; ..2.4... ...D.D.
+@0f88 .hex 00 00 c8 10 00 00 ff ff 00 00 00 00 00 00 00 00 ; ................
+@0f98 .hex 00 00 00 00 00 00 00 00 00 00 01 00 7c 00 00 00 ; ............|...
+@0fa8 .hex aa 0d ; ..
+
+; STRINGS @0x0faa size=302
+@0faa .hex 05 00 2e 01 62 6f 75 67 68 74 49 74 65 6d 00 6e ; ....boughtItem.n
+@0fba .hex 6f 74 45 6e 6f 75 67 68 43 61 73 68 00 64 69 61 ; otEnoughCash.dia
+@0fca .hex 6c 6f 67 4b 65 79 4d 6f 75 73 65 00 6d 61 72 6b ; logKeyMouse.mark
+@0fda .hex 65 74 00 62 61 63 6b 67 72 6f 75 6e 64 00 46 6f ; et.background.Fo
+@0fea .hex 6f 64 20 46 6f 72 20 31 20 57 65 65 6b 2e 2e 2e ; od For 1 Week...
+@0ffa .hex 2e 00 66 6f 6f 64 46 6f 72 31 57 65 65 6b 00 46 ; ..foodFor1Week.F
+@100a .hex 6f 6f 64 20 46 6f 72 20 32 20 57 65 65 6b 73 2e ; ood For 2 Weeks.
+@101a .hex 2e 7c 00 66 6f 6f 64 46 6f 72 32 57 65 65 6b 73 ; .|.foodFor2Weeks
+@102a .hex 00 46 6f 6f 64 20 46 6f 72 20 34 20 57 65 65 6b ; .Food For 4 Week
+@103a .hex 73 2e 2e 00 66 6f 6f 64 46 6f 72 34 57 65 65 6b ; s...foodFor4Week
+@104a .hex 73 00 31 30 20 4c 6f 74 74 65 72 79 20 54 69 63 ; s.10 Lottery Tic
+@105a .hex 6b 65 74 73 7c 2e 2e 2e 7c 00 6c 6f 74 74 65 72 ; kets|...|.lotter
+@106a .hex 79 54 69 63 6b 65 74 73 00 4e 65 77 73 70 61 70 ; yTickets.Newspap
+@107a .hex 65 72 2e 2e 2e 2e 2e 2e 2e 2e 2e 2e 2e 2e 2e 2e ; er..............
+@108a .hex 2e 2e 7c 00 6e 65 77 73 70 61 70 65 72 00 65 78 ; ..|.newspaper.ex
+@109a .hex 69 74 42 75 74 74 6f 6e 00 77 6f 72 6b 42 75 74 ; itButton.workBut
+@10aa .hex 74 6f 6e 00 74 69 6d 65 43 6c 6f 63 6b 00 74 68 ; ton.timeClock.th
+@10ba .hex 65 54 61 6c 6b 65 72 00 69 74 65 6d 73 00 63 6f ; eTalker.items.co
+@10ca .hex 6d 70 75 74 65 72 53 63 72 69 70 74 00 00 ; mputerScript..
+
+; PRELOAD @0x10d8 size=4
+@10d8 .hex 09 00 04 00 ; ....
+
+; LOCALS @0x10dc size=10
+@10dc .hex 0a 00 0a 00 00 00 ff ff 01 00 ; ..........
+
+; RELOCATIONS @0x10e6 size=48
+@10e6 .hex 08 00 30 00 15 00 1c 03 6a 03 86 03 72 06 c0 06 ; ..0.....j...r...
+@10f6 .hex 5c 07 86 07 1c 08 46 08 de 08 08 09 84 09 ae 09 ; \.....F.........
+@1106 .hex a2 0a cc 0a 0e 0b be 0b 34 0c 8c 0c 54 0d 8a 0f ; ........4...T...
+
+; END @0x1116 size=2
+@1116 .hex 00 00 ; ..

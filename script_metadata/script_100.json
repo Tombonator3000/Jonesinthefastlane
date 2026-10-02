@@ -1,0 +1,124 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 572
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 572,
+      "size": 124
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 696,
+      "size": 14
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 710,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 718,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 572,
+      "address": 584,
+      "name": "MyWindow",
+      "species": 69,
+      "superclass": 36,
+      "properties": [
+        69,
+        36,
+        32768,
+        700,
+        0,
+        0,
+        0,
+        0,
+        200,
+        41,
+        50,
+        0,
+        129,
+        0,
+        4,
+        4,
+        0,
+        0,
+        190,
+        320,
+        0,
+        0,
+        100,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 509
+        },
+        {
+          "selector": 163,
+          "name": "open",
+          "address": 4
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        165,
+        166,
+        167,
+        168,
+        28,
+        29,
+        63,
+        35,
+        34,
+        80,
+        169,
+        170,
+        19,
+        20,
+        21,
+        22,
+        316,
+        8,
+        5,
+        358,
+        365
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 700,
+      "text": "MyWindow",
+      "terminated": true
+    },
+    {
+      "offset": 709,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

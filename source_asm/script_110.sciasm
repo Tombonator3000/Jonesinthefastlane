@@ -1,0 +1,168 @@
+; SCI1 script 110: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 420 bytes.
+
+; CODE @0x0000 size=308
+@0000 .hex 02 00 34 01 ; ..4.
+; DialogScript::handleEvent
+@0004 pTos.b       0x0a
+@0006 dup.w
+@0007 ldi.b        0x00
+@0009 eq?.w
+@000a bnt.w        0x0007 ; target @0x0014
+@000d ldi.b        0x0a
+@000f aTop.b       0x10
+@0011 jmp.w        0x0116 ; target @0x012a
+@0014 dup.w
+@0015 ldi.b        0x01
+@0017 eq?.w
+@0018 bnt.w        0x004b ; target @0x0066
+@001b ldi.b        0xff
+@001d sag.w        0x0191 ; global[401]
+@0020 lsg.w        0x0143 ; global[323]
+@0023 ldi.b        0x3c
+@0025 lt?.w
+@0026 bnt.w        0x0101 ; target @0x012a
+@0029 lsg.w        0x0197 ; global[407]
+@002c ldi.b        0x01
+@002e eq?.w
+@002f bnt.w        0x00f8 ; target @0x012a
+@0032 lag.w        0x0198 ; global[408]
+@0035 bnt.w        0x00f2 ; target @0x012a
+@0038 pushi.w      0x0173 ; possible selector: worksAt
+@003b push0.w
+@003c lag.w        0x012e ; global[302]
+@003f send.w       0x04
+@0041 push.w
+@0042 lag.w        0x0190 ; global[400]
+@0045 eq?.w
+@0046 bnt.w        0x00e1 ; target @0x012a
+@0049 lap.b        0x02 ; param[2]
+@004b bnt.w        0x00dc ; target @0x012a
+@004e pushi.b      0x28 ; possible selector: message
+@0050 push1.w
+@0051 pushi.b      0x77 ; possible selector: prev
+@0053 lap.b        0x01 ; param[1]
+@0055 send.w       0x06
+@0057 -ag.w        0x0198 ; global[408]
+@005a bnt.w        0x0002 ; target @0x005f
+@005d dpToa.b      0x0a
+@005f ldi.b        0x0a
+@0061 aTop.b       0x10
+@0063 jmp.w        0x00c4 ; target @0x012a
+@0066 dup.w
+@0067 ldi.b        0x0a
+@0069 eq?.w
+@006a bnt.w        0x0079 ; target @0x00e6
+@006d ldi.b        0x00
+@006f sag.w        0x0197 ; global[407]
+@0072 lsg.w        0x0143 ; global[323]
+@0075 ldi.b        0x3c
+@0077 lt?.w
+@0078 bnt.w        0x0044 ; target @0x00bf
+@007b lsg.w        0x0197 ; global[407]
+@007e ldi.b        0x01
+@0080 ne?.w
+@0081 bnt.w        0x003b ; target @0x00bf
+@0084 pushi.w      0x0173 ; possible selector: worksAt
+@0087 push0.w
+@0088 lag.w        0x012e ; global[302]
+@008b send.w       0x04
+@008d push.w
+@008e lag.w        0x0190 ; global[400]
+@0091 eq?.w
+@0092 bnt.w        0x002a ; target @0x00bf
+@0095 lag.w        0x0149 ; global[329]
+@0098 bnt.w        0x0024 ; target @0x00bf
+@009b lap.b        0x02 ; param[2]
+@009d bnt.w        0x001f ; target @0x00bf
+@00a0 pushi.w      0x0174 ; possible selector: dressedForWork
+@00a3 push0.w
+@00a4 lag.w        0x012e ; global[302]
+@00a7 send.w       0x04
+@00a9 bnt.w        0x0013 ; target @0x00bf
+@00ac ldi.b        0x01
+@00ae sag.w        0x0197 ; global[407]
+@00b1 ldi.b        0x03
+@00b3 sag.w        0x0198 ; global[408]
+@00b6 lag.w        0x0227 ; global[551]
+@00b9 bnt.w        0x0003 ; target @0x00bf
+@00bc +ag.w        0x0198 ; global[408]
+@00bf lsg.w        0x0197 ; global[407]
+@00c2 ldi.b        0x01
+@00c4 eq?.w
+@00c5 bnt.w        0x0062 ; target @0x012a
+@00c8 lag.w        0x0198 ; global[408]
+@00cb bnt.w        0x005c ; target @0x012a
+@00ce pushi.b      0x28 ; possible selector: message
+@00d0 push1.w
+@00d1 pushi.b      0x77 ; possible selector: prev
+@00d3 lap.b        0x01 ; param[1]
+@00d5 send.w       0x06
+@00d7 -ag.w        0x0198 ; global[408]
+@00da bnt.w        0x0002 ; target @0x00df
+@00dd dpToa.b      0x0a
+@00df ldi.b        0x0a
+@00e1 aTop.b       0x10
+@00e3 jmp.w        0x0044 ; target @0x012a
+@00e6 dup.w
+@00e7 ldi.b        0x13
+@00e9 eq?.w
+@00ea bnt.w        0x002d ; target @0x011a
+@00ed pushi.b      0x3c ; possible selector: doit
+@00ef push1.w
+@00f0 lsg.w        0x012e ; global[302]
+@00f3 push2.w
+@00f4 pushi.w      0x012c ; possible selector: playing
+@00f7 push0.w
+@00f8 callk.b      0x02 0x04 ; ScriptID
+@00fb send.w       0x06
+@00fd sag.w        0x0191 ; global[401]
+@0100 lsg.w        0x0143 ; global[323]
+@0103 ldi.b        0x3c
+@0105 lt?.w
+@0106 bnt.w        0x0021 ; target @0x012a
+@0109 lsg.w        0x0191 ; global[401]
+@010c lag.w        0x0190 ; global[400]
+@010f eq?.w
+@0110 bnt.w        0x0017 ; target @0x012a
+@0113 ldi.b        0x00
+@0115 aTop.b       0x0a
+@0117 jmp.w        0x0010 ; target @0x012a
+@011a dup.w
+@011b ldi.b        0x14
+@011d eq?.w
+@011e bnt.w        0x0009 ; target @0x012a
+@0121 pushi.b      0x28 ; possible selector: message
+@0123 push1.w
+@0124 pushi.b      0x78 ; possible selector: addToFront
+@0126 lap.b        0x01 ; param[1]
+@0128 send.w       0x06
+@012a toss.w
+@012b ret.w
+; DialogScript::cue
+@012c ipToa.b      0x0a
+@012e ldi.b        0x01
+@0130 aTop.b       0x16
+@0132 ret.w
+@0133 bnot.w
+
+; CLASS @0x0134 size=84
+@0134 .hex 06 00 54 00 34 12 00 00 3e 00 0f 00 44 00 06 00 ; ..T.4...>...D...
+@0144 .hex 00 80 8c 01 00 00 ff ff 00 00 00 00 00 00 00 00 ; ................
+@0154 .hex 00 00 00 00 00 00 00 00 00 00 00 00 01 00 02 00 ; ................
+@0164 .hex 17 00 2d 00 20 00 7d 00 7e 00 7f 00 80 00 81 00 ; ..-. .}.~.......
+@0174 .hex 82 00 83 00 84 00 85 00 02 00 87 00 7c 00 00 00 ; ............|...
+@0184 .hex 2c 01 04 00 ; ,...
+
+; STRINGS @0x0188 size=18
+@0188 .hex 05 00 12 00 44 69 61 6c 6f 67 53 63 72 69 70 74 ; ....DialogScript
+@0198 .hex 00 00 ; ..
+
+; RELOCATIONS @0x019a size=8
+@019a .hex 08 00 08 00 01 00 46 01 ; ......F.
+
+; END @0x01a2 size=2
+@01a2 .hex 00 00 ; ..

@@ -1,0 +1,1426 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 768
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 776,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 804,
+      "size": 50
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 854,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 882,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 910,
+      "size": 672
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1582,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1660,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1732,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1826,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1934,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2028,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2136,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2230,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2338,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2432,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2540,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2634,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2742,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2836,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2944,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3038,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3146,
+      "size": 96
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3242,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3350,
+      "size": 96
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3446,
+      "size": 108
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3554,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3626,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3730,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3806,
+      "size": 124
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3930,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4034,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4076,
+      "size": 88
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4164,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4244,
+      "size": 658
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4902,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 4952,
+      "size": 404
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 5356,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 5360,
+      "size": 6
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 5366,
+      "size": 64
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 5430,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 776,
+      "address": 788,
+      "name": "boughtItem",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        4956
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 717
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 854,
+      "address": 866,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        4967
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 808
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 882,
+      "address": 894,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        4981,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1582,
+      "address": 1594,
+      "name": "appliance",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        4996,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 914
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1539
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1660,
+      "address": 1672,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5006,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        808,
+        0,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1826,
+      "address": 1838,
+      "name": "refrigerator",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5038,
+        0,
+        1,
+        31,
+        77,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5017,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        21,
+        0,
+        1,
+        65535,
+        876,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1781
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 1736
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2028,
+      "address": 2040,
+      "name": "freezer",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5075,
+        0,
+        1,
+        39,
+        77,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5051,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        22,
+        0,
+        1,
+        65535,
+        513,
+        0,
+        0,
+        0,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1983
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 1938
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2230,
+      "address": 2242,
+      "name": "stove",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5107,
+        0,
+        1,
+        47,
+        77,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5083,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        23,
+        0,
+        1,
+        65535,
+        570,
+        0,
+        0,
+        0,
+        2
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2185
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2140
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2432,
+      "address": 2444,
+      "name": "colorTV",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5135,
+        0,
+        1,
+        60,
+        10,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5113,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        24,
+        0,
+        1,
+        65535,
+        525,
+        0,
+        0,
+        0,
+        3
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2387
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2342
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2634,
+      "address": 2646,
+      "name": "vcr",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5167,
+        0,
+        1,
+        68,
+        10,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5143,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        25,
+        0,
+        1,
+        65535,
+        333,
+        0,
+        0,
+        0,
+        4
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2589
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2544
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2836,
+      "address": 2848,
+      "name": "stereo",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5195,
+        0,
+        1,
+        76,
+        10,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5171,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        26,
+        0,
+        1,
+        65535,
+        412,
+        0,
+        0,
+        0,
+        5
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2791
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2746
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3038,
+      "address": 3050,
+      "name": "microwave",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5223,
+        0,
+        1,
+        84,
+        10,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5202,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        27,
+        0,
+        1,
+        65535,
+        330,
+        0,
+        0,
+        0,
+        6
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2993
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2948
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3242,
+      "address": 3254,
+      "name": "hotTub",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5255,
+        0,
+        1,
+        92,
+        10,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5233,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        28,
+        0,
+        1,
+        65535,
+        1255,
+        0,
+        0,
+        0,
+        7
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3195
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 3150
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3446,
+      "address": 3458,
+      "name": "computer",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5283,
+        0,
+        1,
+        100,
+        10,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5262,
+        0,
+        10,
+        39,
+        65535,
+        115,
+        100,
+        0,
+        0,
+        29,
+        0,
+        1,
+        65535,
+        1599,
+        0,
+        0,
+        0,
+        8
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3399
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 3354
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3554,
+      "address": 3566,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5292,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3730,
+      "address": 3742,
+      "name": "workButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5303,
+        4,
+        65,
+        108,
+        75,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        1,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3630
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3930,
+      "address": 3942,
+      "name": "items",
+      "species": 50,
+      "superclass": 50,
+      "properties": [
+        50,
+        50,
+        0,
+        5314,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        708,
+        1,
+        0,
+        14,
+        0,
+        100,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 3810
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3830
+        },
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 3910
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3892
+        },
+        {
+          "selector": 182,
+          "name": "lastCel",
+          "address": 3870
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 3873
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4076,
+      "address": 4088,
+      "name": "timeClock",
+      "species": 57,
+      "superclass": 57,
+      "properties": [
+        57,
+        57,
+        0,
+        5320,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 4054
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 4038
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4164,
+      "address": 4176,
+      "name": "theTalker",
+      "species": 56,
+      "superclass": 56,
+      "properties": [
+        56,
+        56,
+        0,
+        5330,
+        4,
+        0,
+        57,
+        115,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        358,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4902,
+      "address": 4914,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        5340,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 4248
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1594
+  ],
+  "strings": [
+    {
+      "offset": 4956,
+      "text": "boughtItem",
+      "terminated": true
+    },
+    {
+      "offset": 4967,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 4981,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 4996,
+      "text": "appliance",
+      "terminated": true
+    },
+    {
+      "offset": 5006,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 5017,
+      "text": "Refrigerator|.......",
+      "terminated": true
+    },
+    {
+      "offset": 5038,
+      "text": "refrigerator",
+      "terminated": true
+    },
+    {
+      "offset": 5051,
+      "text": "Freezer|..............|",
+      "terminated": true
+    },
+    {
+      "offset": 5075,
+      "text": "freezer",
+      "terminated": true
+    },
+    {
+      "offset": 5083,
+      "text": "Stove.................|",
+      "terminated": true
+    },
+    {
+      "offset": 5107,
+      "text": "stove",
+      "terminated": true
+    },
+    {
+      "offset": 5113,
+      "text": "Color TV.............",
+      "terminated": true
+    },
+    {
+      "offset": 5135,
+      "text": "colorTV",
+      "terminated": true
+    },
+    {
+      "offset": 5143,
+      "text": "VCR....................",
+      "terminated": true
+    },
+    {
+      "offset": 5167,
+      "text": "vcr",
+      "terminated": true
+    },
+    {
+      "offset": 5171,
+      "text": "Stereo................|",
+      "terminated": true
+    },
+    {
+      "offset": 5195,
+      "text": "stereo",
+      "terminated": true
+    },
+    {
+      "offset": 5202,
+      "text": "Microwave..........|",
+      "terminated": true
+    },
+    {
+      "offset": 5223,
+      "text": "microwave",
+      "terminated": true
+    },
+    {
+      "offset": 5233,
+      "text": "Hot Tub..............",
+      "terminated": true
+    },
+    {
+      "offset": 5255,
+      "text": "hotTub",
+      "terminated": true
+    },
+    {
+      "offset": 5262,
+      "text": "Computer............",
+      "terminated": true
+    },
+    {
+      "offset": 5283,
+      "text": "computer",
+      "terminated": true
+    },
+    {
+      "offset": 5292,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 5303,
+      "text": "workButton",
+      "terminated": true
+    },
+    {
+      "offset": 5314,
+      "text": "items",
+      "terminated": true
+    },
+    {
+      "offset": 5320,
+      "text": "timeClock",
+      "terminated": true
+    },
+    {
+      "offset": 5330,
+      "text": "theTalker",
+      "terminated": true
+    },
+    {
+      "offset": 5340,
+      "text": "computerScript",
+      "terminated": true
+    },
+    {
+      "offset": 5355,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    65535
+  ]
+}

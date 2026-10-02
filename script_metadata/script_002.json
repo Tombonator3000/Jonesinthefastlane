@@ -1,0 +1,876 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 144
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 152,
+      "size": 44
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 196,
+      "size": 1228
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1424,
+      "size": 50
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1474,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1502,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1576,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1602,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1676,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1704,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1778,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1804,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1878,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1906,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1980,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2006,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2080,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2108,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2182,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2208,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2282,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2310,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2384,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2412,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2486,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2512,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2586,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2614,
+      "size": 74
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2688,
+      "size": 178
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 2866,
+      "size": 10
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2876,
+      "size": 34
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2910,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 152,
+      "address": 164,
+      "name": "introRoom",
+      "species": 42,
+      "superclass": 42,
+      "properties": [
+        42,
+        42,
+        0,
+        2692,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 12
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 33
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1424,
+      "address": 1436,
+      "name": "introDuction",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        2702,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 200
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1502,
+      "address": 1514,
+      "name": "littlepic1",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2715,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1478
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1602,
+      "address": 1614,
+      "name": "littlename1",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2726,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1580
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1704,
+      "address": 1716,
+      "name": "littlepic2",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2738,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1680
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1804,
+      "address": 1816,
+      "name": "littlename2",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2749,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1782
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1906,
+      "address": 1918,
+      "name": "littlepic3",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2761,
+        0,
+        0,
+        0,
+        0,
+        2,
+        3,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1882
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2006,
+      "address": 2018,
+      "name": "littlename3",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2772,
+        0,
+        0,
+        0,
+        0,
+        2,
+        3,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1984
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2108,
+      "address": 2120,
+      "name": "littlepic4",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2784,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2084
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2208,
+      "address": 2220,
+      "name": "littlename4top",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2795,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2186
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2310,
+      "address": 2322,
+      "name": "littlename4bot",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2810,
+        0,
+        0,
+        0,
+        0,
+        2,
+        4,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2286
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2412,
+      "address": 2424,
+      "name": "littlepic5",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2825,
+        0,
+        0,
+        0,
+        0,
+        2,
+        5,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2388
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2512,
+      "address": 2524,
+      "name": "littlename5top",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2836,
+        0,
+        0,
+        0,
+        0,
+        2,
+        5,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2490
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2614,
+      "address": 2626,
+      "name": "littlename5bot",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        2851,
+        0,
+        0,
+        0,
+        0,
+        2,
+        5,
+        0,
+        0,
+        5,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2590
+        }
+      ]
+    }
+  ],
+  "exports": [
+    164
+  ],
+  "strings": [
+    {
+      "offset": 2692,
+      "text": "introRoom",
+      "terminated": true
+    },
+    {
+      "offset": 2702,
+      "text": "introDuction",
+      "terminated": true
+    },
+    {
+      "offset": 2715,
+      "text": "littlepic1",
+      "terminated": true
+    },
+    {
+      "offset": 2726,
+      "text": "littlename1",
+      "terminated": true
+    },
+    {
+      "offset": 2738,
+      "text": "littlepic2",
+      "terminated": true
+    },
+    {
+      "offset": 2749,
+      "text": "littlename2",
+      "terminated": true
+    },
+    {
+      "offset": 2761,
+      "text": "littlepic3",
+      "terminated": true
+    },
+    {
+      "offset": 2772,
+      "text": "littlename3",
+      "terminated": true
+    },
+    {
+      "offset": 2784,
+      "text": "littlepic4",
+      "terminated": true
+    },
+    {
+      "offset": 2795,
+      "text": "littlename4top",
+      "terminated": true
+    },
+    {
+      "offset": 2810,
+      "text": "littlename4bot",
+      "terminated": true
+    },
+    {
+      "offset": 2825,
+      "text": "littlepic5",
+      "terminated": true
+    },
+    {
+      "offset": 2836,
+      "text": "littlename5top",
+      "terminated": true
+    },
+    {
+      "offset": 2851,
+      "text": "littlename5bot",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0
+  ]
+}

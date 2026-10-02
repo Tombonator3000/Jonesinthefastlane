@@ -1,0 +1,23 @@
+{
+  "resource": 206,
+  "encoding": "cp437",
+  "strings": [
+    "Why are you asking for less money?",
+    "Why are you asking for the same wage?",
+    "Congratulations. You have been given a raise.",
+    "Sorry. We cannot grant your request at this time.",
+    "Congratulations.  You got the job.",
+    "Sorry. We're closing. You'll have to come back next week.",
+    "Welcome to ACNE Employment. Why work for the best when you can work like the rest.",
+    "Welcome to ACNE Employment. We'll either find you a job, or we won't.",
+    "Welcome to ACNE Employment, where your skills and our expertise add up to disappointment!",
+    "Welcome to ACNE Employment, where every lost job is a blemish on your resume!",
+    "Welcome to ACNE Employment. We'll get you a job no matter what it costs you!",
+    "Welcome to ACNE Employment, where your resume zits in our files!",
+    "Welcome to ACNE Employment. No matter how bad your skills are, we have a job to match!",
+    "Sorry. You didn't get the job for the following reasons:\n\n",
+    "%s  $%d Hr.",
+    "%s $%d Hr.",
+    ""
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 1120
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1128,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1156,
+      "size": 444
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1600,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1678,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1750,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1822,
+      "size": 410
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2232,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2306,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2388,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2438,
+      "size": 76
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 2514,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 2518,
+      "size": 22
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2540,
+      "size": 18
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2558,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 1128,
+      "address": 1140,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        2442,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1600,
+      "address": 1612,
+      "name": "weekend",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        2457,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1160
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1558
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1678,
+      "address": 1690,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2465,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        608,
+        0,
+        0,
+        9
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1750,
+      "address": 1762,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2476,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2232,
+      "address": 2244,
+      "name": "weekendText",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        2487,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1826
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2388,
+      "address": 2400,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        2499,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 2310
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1612
+  ],
+  "strings": [
+    {
+      "offset": 2442,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 2457,
+      "text": "weekend",
+      "terminated": true
+    },
+    {
+      "offset": 2465,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 2476,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 2487,
+      "text": "weekendText",
+      "terminated": true
+    },
+    {
+      "offset": 2499,
+      "text": "computerScript",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

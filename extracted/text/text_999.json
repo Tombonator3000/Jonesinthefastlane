@@ -1,0 +1,10 @@
+{
+  "resource": 999,
+  "encoding": "cp437",
+  "strings": [
+    "%s\n[Collection of size %d]",
+    "%s\n[List of size %d]",
+    "%s\n[Set of size %d]",
+    ""
+  ]
+}

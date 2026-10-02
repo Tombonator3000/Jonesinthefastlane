@@ -1,0 +1,595 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 232
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 232,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 312,
+      "size": 56
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 368,
+      "size": 68
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 436,
+      "size": 26
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 462,
+      "size": 64
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 526,
+      "size": 172
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 698,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 774,
+      "size": 40
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 814,
+      "size": 68
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 882,
+      "size": 34
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 916,
+      "size": 68
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 984,
+      "size": 292
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1276,
+      "size": 116
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1392,
+      "size": 68
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1460,
+      "size": 100
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1560,
+      "size": 44
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1604,
+      "size": 22
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1626,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 232,
+      "address": 244,
+      "name": "Cycle",
+      "species": 19,
+      "superclass": 0,
+      "properties": [
+        19,
+        0,
+        32768,
+        1564,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 4
+        },
+        {
+          "selector": 176,
+          "name": "nextCel",
+          "address": 29
+        },
+        {
+          "selector": 177,
+          "name": "cycleDone",
+          "address": 193
+        },
+        {
+          "selector": 178,
+          "name": "motionCue",
+          "address": 194
+        },
+        {
+          "selector": 179,
+          "name": "changeCel",
+          "address": 181
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 368,
+      "address": 380,
+      "name": "Fwd",
+      "species": 20,
+      "superclass": 19,
+      "properties": [
+        20,
+        19,
+        32768,
+        1570,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 316
+        },
+        {
+          "selector": 177,
+          "name": "cycleDone",
+          "address": 358
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 462,
+      "address": 474,
+      "name": "Walk",
+      "species": 21,
+      "superclass": 20,
+      "properties": [
+        21,
+        20,
+        32768,
+        1574,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 440
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 698,
+      "address": 710,
+      "name": "CT",
+      "species": 22,
+      "superclass": 19,
+      "properties": [
+        22,
+        19,
+        32768,
+        1579,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 530
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 582
+        },
+        {
+          "selector": 177,
+          "name": "cycleDone",
+          "address": 675
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175,
+        184
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 814,
+      "address": 826,
+      "name": "End",
+      "species": 23,
+      "superclass": 22,
+      "properties": [
+        23,
+        22,
+        32768,
+        1582,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 778
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175,
+        184
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 916,
+      "address": 928,
+      "name": "Beg",
+      "species": 24,
+      "superclass": 22,
+      "properties": [
+        24,
+        22,
+        32768,
+        1586,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 886
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175,
+        184
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1276,
+      "address": 1288,
+      "name": "Motion",
+      "species": 25,
+      "superclass": 0,
+      "properties": [
+        25,
+        0,
+        32768,
+        1590,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 988
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1192
+        },
+        {
+          "selector": 100,
+          "name": "moveDone",
+          "address": 1216
+        },
+        {
+          "selector": 187,
+          "name": "setTarget",
+          "address": 1178
+        },
+        {
+          "selector": 188,
+          "name": "onTarget",
+          "address": 1152
+        },
+        {
+          "selector": 178,
+          "name": "motionCue",
+          "address": 1239
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        4,
+        3,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        173,
+        185,
+        186
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1460,
+      "address": 1472,
+      "name": "MoveTo",
+      "species": 26,
+      "superclass": 25,
+      "properties": [
+        26,
+        25,
+        32768,
+        1597,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1396
+        },
+        {
+          "selector": 188,
+          "name": "onTarget",
+          "address": 1405
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        4,
+        3,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        173,
+        185,
+        186
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 1564,
+      "text": "Cycle",
+      "terminated": true
+    },
+    {
+      "offset": 1570,
+      "text": "Fwd",
+      "terminated": true
+    },
+    {
+      "offset": 1574,
+      "text": "Walk",
+      "terminated": true
+    },
+    {
+      "offset": 1579,
+      "text": "CT",
+      "terminated": true
+    },
+    {
+      "offset": 1582,
+      "text": "End",
+      "terminated": true
+    },
+    {
+      "offset": 1586,
+      "text": "Beg",
+      "terminated": true
+    },
+    {
+      "offset": 1590,
+      "text": "Motion",
+      "terminated": true
+    },
+    {
+      "offset": 1597,
+      "text": "MoveTo",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

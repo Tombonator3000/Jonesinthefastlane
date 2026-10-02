@@ -1,0 +1,320 @@
+; SCI1 script 101: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 1378 bytes.
+
+; EXPORTS @0x0000 size=8
+@0000 .hex 07 00 08 00 01 00 56 02 ; ......V.
+
+; CODE @0x0008 size=442
+@0008 .hex 02 00 ba 01 ; ....
+; MarblePath::init
+@000c lap.b        0x01 ; param[1]
+@000e aTop.b       0x08
+@0010 lap.b        0x04 ; param[4]
+@0012 aTop.b       0x0a
+@0014 lap.b        0x03 ; param[3]
+@0016 aTop.b       0x2a
+@0018 lap.b        0x02 ; param[2]
+@001a aTop.b       0x2c
+@001c pushi.b      0x38 ; possible selector: moveSpeed
+@001e push0.w
+@001f pToa.b       0x08
+@0021 send.w       0x04
+@0023 push.w
+@0024 ldi.b        0x01
+@0026 sub.w
+@0027 aTop.b       0x14
+@0029 pushi.w      0x017d ; possible selector: index
+@002c push0.w
+@002d pushi.b      0x43 ; possible selector: at
+@002f push1.w
+@0030 pTos.b       0x2a
+@0032 lag.w        0x012d ; global[301]
+@0035 send.w       0x06
+@0037 send.w       0x04
+@0039 aTop.b       0x2e
+@003b pushi.b      0x04 ; possible selector: x
+@003d push0.w
+@003e pToa.b       0x08
+@0040 send.w       0x04
+@0042 aTop.b       0x0c
+@0044 pushi.b      0x03 ; possible selector: y
+@0046 push0.w
+@0047 pToa.b       0x08
+@0049 send.w       0x04
+@004b aTop.b       0x0e
+@004d ldi.b        0x01
+@004f aTop.b       0x30
+@0051 pushi.w      0x00e8 ; possible selector: setDirection
+@0054 push0.w
+@0055 pushi.b      0x44 ; possible selector: next
+@0057 push0.w
+@0058 self.w       0x08
+@005a pushi.w      0x00d8 ; possible selector: setCycle
+@005d push1.w
+@005e class.b      0x14
+@0060 push.w
+@0061 lag.w        0x012f ; global[303]
+@0064 send.w       0x06
+@0066 ret.w
+; MarblePath::doit
+@0067 pushi.b      0x38 ; possible selector: moveSpeed
+@0069 push0.w
+@006a pToa.b       0x08
+@006c send.w       0x04
+@006e bnt.w        0x0033 ; target @0x00a4
+@0071 ipToa.b      0x14
+@0073 pTos.b       0x14
+@0075 pushi.b      0x38 ; possible selector: moveSpeed
+@0077 push0.w
+@0078 pToa.b       0x08
+@007a send.w       0x04
+@007c eq?.w
+@007d bnt.w        0x0024 ; target @0x00a4
+@0080 ldi.b        0x00
+@0082 aTop.b       0x14
+@0084 pushi.b      0x44 ; possible selector: next
+@0086 push0.w
+@0087 self.w       0x04
+@0089 pTos.b       0x26
+@008b pToa.b       0x2e
+@008d eq?.w
+@008e bnt.w        0x0013 ; target @0x00a4
+@0091 pushi.w      0x00d8 ; possible selector: setCycle
+@0094 push1.w
+@0095 push0.w
+@0096 pushi.w      0x00cf ; possible selector: stopUpd
+@0099 push0.w
+@009a lag.w        0x012f ; global[303]
+@009d send.w       0x0a
+@009f pushi.b      0x64 ; possible selector: moveDone
+@00a1 push0.w
+@00a2 self.w       0x04
+@00a4 ret.w
+; MarblePath::next
+@00a5 pToa.b       0x30
+@00a7 bnt.w        0x0007 ; target @0x00b1
+@00aa ldi.b        0x00
+@00ac aTop.b       0x30
+@00ae jmp.w        0x000f ; target @0x00c0
+@00b1 pTos.b       0x28
+@00b3 ldi.b        0x01
+@00b5 eq?.w
+@00b6 bnt.w        0x0005 ; target @0x00be
+@00b9 ipToa.b      0x26
+@00bb jmp.w        0x0002 ; target @0x00c0
+@00be dpToa.b      0x26
+@00c0 pushi.b      0x43 ; possible selector: at
+@00c2 push0.w
+@00c3 self.w       0x04
+@00c5 pushi.b      0x3a ; possible selector: heading
+@00c7 push1.w
+@00c8 pushi.b      0x04 ; possible selector: x
+@00ca dup.w
+@00cb push0.w
+@00cc pToa.b       0x08
+@00ce send.w       0x04
+@00d0 push.w
+@00d1 pushi.b      0x03 ; possible selector: y
+@00d3 push0.w
+@00d4 pToa.b       0x08
+@00d6 send.w       0x04
+@00d8 push.w
+@00d9 pTos.b       0x0c
+@00db pTos.b       0x0e
+@00dd callk.b      0x3f 0x08 ; GetAngle
+@00e0 push.w
+@00e1 pToa.b       0x08
+@00e3 send.w       0x06
+@00e5 pushi.w      0x00ce ; possible selector: posn
+@00e8 push2.w
+@00e9 pTos.b       0x0c
+@00eb pTos.b       0x0e
+@00ed pToa.b       0x08
+@00ef send.w       0x08
+@00f1 pushi.b      0x3e ; possible selector: looper
+@00f3 push0.w
+@00f4 pToa.b       0x08
+@00f6 send.w       0x04
+@00f8 bnt.w        0x0016 ; target @0x0111
+@00fb pushi.b      0x3c ; possible selector: doit
+@00fd push2.w
+@00fe pTos.b       0x08
+@0100 pushi.b      0x3a ; possible selector: heading
+@0102 push0.w
+@0103 pToa.b       0x08
+@0105 send.w       0x04
+@0107 push.w
+@0108 pushi.b      0x3e ; possible selector: looper
+@010a push0.w
+@010b pToa.b       0x08
+@010d send.w       0x04
+@010f send.w       0x08
+@0111 ret.w
+; MarblePath::at
+@0112 pToa.b       0x26
+@0114 not.w
+@0115 bnt.w        0x0006 ; target @0x011e
+@0118 ldi.b        0x00
+@011a lali.b       0x00 ; local[0]
+@011c aTop.b       0x26
+@011e pTos.b       0x26
+@0120 ldi.b        0x00
+@0122 lsli.b       0x00 ; local[0]
+@0124 ldi.b        0x01
+@0126 add.w
+@0127 eq?.w
+@0128 bnt.w        0x0004 ; target @0x012f
+@012b ldi.b        0x01
+@012d aTop.b       0x26
+@012f pToa.b       0x26
+@0131 lali.b       0x00 ; local[0]
+@0133 aTop.b       0x0c
+@0135 pToa.b       0x26
+@0137 lali.b       0xab ; local[171]
+@0139 aTop.b       0x0e
+@013b ret.w
+; MarblePath::setDirection
+@013c link.b       0x04
+@013e ldi.b        0x00
+@0140 sat.b        0x01 ; temp[1]
+@0142 lst.b        0x01 ; temp[1]
+@0144 ldi.b        0x00
+@0146 lali.b       0x00 ; local[0]
+@0148 le?.w
+@0149 bnt.w        0x0020 ; target @0x016c
+@014c pTos.b       0x0c
+@014e lat.b        0x01 ; temp[1]
+@0150 lali.b       0x00 ; local[0]
+@0152 eq?.w
+@0153 bnt.w        0x0011 ; target @0x0167
+@0156 pTos.b       0x0e
+@0158 lat.b        0x01 ; temp[1]
+@015a lali.b       0xab ; local[171]
+@015c eq?.w
+@015d bnt.w        0x0007 ; target @0x0167
+@0160 lat.b        0x01 ; temp[1]
+@0162 sat.b        0x02 ; temp[2]
+@0164 jmp.w        0x0005 ; target @0x016c
+@0167 +at.b        0x01 ; temp[1]
+@0169 jmp.w        0xffd6 ; target @0x0142
+@016c pushi.w      0x017d ; possible selector: index
+@016f push0.w
+@0170 pushi.b      0x43 ; possible selector: at
+@0172 push1.w
+@0173 pTos.b       0x2a
+@0175 lag.w        0x012d ; global[301]
+@0178 send.w       0x06
+@017a send.w       0x04
+@017c sat.b        0x03 ; temp[3]
+@017e lst.b        0x02 ; temp[2]
+@0180 gt?.w
+@0181 bnt.w        0x001f ; target @0x01a3
+@0184 lst.b        0x02 ; temp[2]
+@0186 lat.b        0x03 ; temp[3]
+@0188 sub.w
+@0189 sat.b        0x00 ; temp[0]
+@018b push.w
+@018c ldi.b        0x00
+@018e lsli.b       0x00 ; local[0]
+@0190 ldi.b        0x02
+@0192 div.w
+@0193 ge?.w
+@0194 bnt.w        0x0005 ; target @0x019c
+@0197 ldi.b        0x01
+@0199 jmp.w        0x0002 ; target @0x019e
+@019c ldi.b        0x00
+@019e aTop.b       0x28
+@01a0 jmp.w        0x001c ; target @0x01bf
+@01a3 lst.b        0x03 ; temp[3]
+@01a5 lat.b        0x02 ; temp[2]
+@01a7 sub.w
+@01a8 sat.b        0x00 ; temp[0]
+@01aa push.w
+@01ab ldi.b        0x00
+@01ad lsli.b       0x00 ; local[0]
+@01af ldi.b        0x02
+@01b1 div.w
+@01b2 ge?.w
+@01b3 bnt.w        0x0005 ; target @0x01bb
+@01b6 ldi.b        0x00
+@01b8 jmp.w        0x0002 ; target @0x01bd
+@01bb ldi.b        0x01
+@01bd aTop.b       0x28
+@01bf lat.b        0x00 ; temp[0]
+@01c1 ret.w
+
+; CLASS @0x01c2 size=136
+@01c2 .hex 06 00 88 00 34 12 00 00 66 00 19 00 46 00 1a 00 ; ....4...f...F...
+@01d2 .hex 00 80 90 02 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01e2 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@01f2 .hex 00 00 01 00 00 00 00 00 00 00 00 00 01 00 00 00 ; ................
+@0202 .hex 01 00 02 00 17 00 2d 00 84 00 04 00 03 00 2e 00 ; ......-.........
+@0212 .hex 2f 00 30 00 31 00 32 00 33 00 34 00 35 00 ad 00 ; /.0.1.2.3.4.5...
+@0222 .hex b9 00 ba 00 7d 01 7e 01 7f 01 80 01 81 01 82 01 ; ....}.~.........
+@0232 .hex 05 00 66 00 3c 00 e8 00 44 00 43 00 00 00 0c 00 ; ..f.<...D.C.....
+@0242 .hex 67 00 3c 01 a5 00 12 01 ; g.<.....
+
+; OBJECT @0x024a size=66
+@024a .hex 01 00 42 00 34 12 00 00 34 00 19 00 46 00 46 00 ; ..B.4...4...F.F.
+@025a .hex 00 00 9b 02 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@026a .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@027a .hex 00 00 01 00 00 00 00 00 00 00 00 00 01 00 00 00 ; ................
+@028a .hex 00 00 ; ..
+
+; STRINGS @0x028c size=26
+@028c .hex 05 00 1a 00 4d 61 72 62 6c 65 50 61 74 68 00 6d ; ....MarblePath.m
+@029c .hex 61 72 62 6c 65 50 61 74 68 00 ; arblePath.
+
+; LOCALS @0x02a6 size=688
+@02a6 .hex 0a 00 b0 02 aa 00 90 00 96 00 9c 00 a2 00 a8 00 ; ................
+@02b6 .hex ae 00 b4 00 ba 00 c0 00 c6 00 cc 00 d2 00 d8 00 ; ................
+@02c6 .hex de 00 e4 00 ea 00 f0 00 f6 00 fc 00 02 01 08 01 ; ................
+@02d6 .hex 0e 01 14 01 1a 01 18 01 13 01 0e 01 08 01 03 01 ; ................
+@02e6 .hex 01 01 03 01 08 01 0e 01 14 01 1a 01 20 01 26 01 ; ............ .&.
+@02f6 .hex 2b 01 30 01 32 01 32 01 30 01 2b 01 26 01 20 01 ; +.0.2.2.0.+.&. .
+@0306 .hex 1a 01 14 01 19 01 1e 01 23 01 28 01 2d 01 31 01 ; ........#.(.-.1.
+@0316 .hex 31 01 32 01 32 01 32 01 32 01 33 01 33 01 30 01 ; 1.2.2.2.2.3.3.0.
+@0326 .hex 2b 01 26 01 20 01 1a 01 14 01 0e 01 08 01 02 01 ; +.&. ...........
+@0336 .hex fc 00 f6 00 f0 00 ea 00 e4 00 de 00 d8 00 d2 00 ; ................
+@0346 .hex cc 00 c6 00 c1 00 bc 00 b7 00 b2 00 ac 00 a7 00 ; ................
+@0356 .hex a2 00 9e 00 98 00 94 00 8f 00 8a 00 85 00 80 00 ; ................
+@0366 .hex 7b 00 76 00 71 00 6c 00 67 00 61 00 5b 00 55 00 ; {.v.q.l.g.a.[.U.
+@0376 .hex 4f 00 49 00 43 00 3d 00 37 00 31 00 2b 00 25 00 ; O.I.C.=.7.1.+.%.
+@0386 .hex 1f 00 19 00 13 00 0e 00 0b 00 0b 00 0e 00 13 00 ; ................
+@0396 .hex 15 00 17 00 18 00 1e 00 24 00 2a 00 30 00 36 00 ; ........$.*.0.6.
+@03a6 .hex 3b 00 3e 00 3f 00 3e 00 3d 00 3a 00 36 00 31 00 ; ;.>.?.>.=.:.6.1.
+@03b6 .hex 2b 00 25 00 1f 00 19 00 13 00 10 00 0e 00 0d 00 ; +.%.............
+@03c6 .hex 0f 00 13 00 18 00 1d 00 22 00 27 00 28 00 26 00 ; ........".'.(.&.
+@03d6 .hex 21 00 1d 00 23 00 29 00 2f 00 35 00 3a 00 3f 00 ; !...#.)./.5.:.?.
+@03e6 .hex 44 00 4a 00 50 00 56 00 5c 00 62 00 68 00 6d 00 ; D.J.P.V.\.b.h.m.
+@03f6 .hex 73 00 78 00 7e 00 84 00 8a 00 aa 00 25 00 25 00 ; s.x.~.......%.%.
+@0406 .hex 26 00 27 00 28 00 28 00 27 00 27 00 27 00 27 00 ; &.'.(.(.'.'.'.'.
+@0416 .hex 27 00 28 00 28 00 28 00 28 00 28 00 27 00 26 00 ; '.(.(.(.(.(.'.&.
+@0426 .hex 25 00 25 00 26 00 27 00 28 00 27 00 2b 00 2f 00 ; %.%.&.'.(.'.+./.
+@0436 .hex 34 00 37 00 3c 00 42 00 48 00 4c 00 4f 00 50 00 ; 4.7.<.B.H.L.O.P.
+@0446 .hex 51 00 53 00 56 00 59 00 5e 00 64 00 6a 00 70 00 ; Q.S.V.Y.^.d.j.p.
+@0456 .hex 75 00 77 00 78 00 79 00 79 00 7e 00 80 00 82 00 ; u.w.x.y.y.~.....
+@0466 .hex 85 00 89 00 8e 00 94 00 98 00 9e 00 a4 00 aa 00 ; ................
+@0476 .hex b0 00 b6 00 bb 00 bd 00 bd 00 bd 00 bc 00 bb 00 ; ................
+@0486 .hex bb 00 bc 00 bc 00 bc 00 be 00 bf 00 be 00 bd 00 ; ................
+@0496 .hex bc 00 bc 00 bd 00 bd 00 bd 00 ba 00 b8 00 b3 00 ; ................
+@04a6 .hex b1 00 af 00 ad 00 a9 00 a9 00 a9 00 a9 00 aa 00 ; ................
+@04b6 .hex ad 00 b0 00 b4 00 b7 00 b9 00 bb 00 bc 00 bc 00 ; ................
+@04c6 .hex bc 00 bc 00 bc 00 bb 00 ba 00 b9 00 b9 00 b9 00 ; ................
+@04d6 .hex ba 00 bb 00 bb 00 bb 00 bb 00 bb 00 b7 00 b2 00 ; ................
+@04e6 .hex ad 00 a7 00 a2 00 9d 00 99 00 95 00 96 00 96 00 ; ................
+@04f6 .hex 96 00 96 00 95 00 92 00 8d 00 87 00 81 00 7b 00 ; ..............{.
+@0506 .hex 76 00 72 00 6f 00 6e 00 6d 00 6c 00 6b 00 69 00 ; v.r.o.n.m.l.k.i.
+@0516 .hex 64 00 5e 00 58 00 53 00 4e 00 4a 00 46 00 42 00 ; d.^.X.S.N.J.F.B.
+@0526 .hex 3f 00 3b 00 36 00 32 00 2d 00 2d 00 2d 00 2c 00 ; ?.;.6.2.-.-.-.,.
+@0536 .hex 2c 00 2a 00 28 00 25 00 25 00 25 00 26 00 26 00 ; ,.*.(.%.%.%.&.&.
+@0546 .hex 27 00 27 00 27 00 27 00 27 00 26 00 26 00 25 00 ; '.'.'.'.'.&.&.%.
+
+; RELOCATIONS @0x0556 size=10
+@0556 .hex 08 00 0a 00 02 00 d4 01 5c 02 ; ........\.
+
+; END @0x0560 size=2
+@0560 .hex 00 00 ; ..

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "scummvm",
+    "--path",
+    "/mnt/data/Jones_decomp_arbeidsprosjekt/original",
+    "--detect"
+  ],
+  "status": "blocked",
+  "reason": "ScummVM executable is not installed in this execution environment. External binary download also unavailable.",
+  "gameplay_tested": false
+}

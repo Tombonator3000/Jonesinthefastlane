@@ -1,0 +1,521 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 380
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 416,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 490,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 562,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 642,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 754,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 866,
+      "size": 112
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 978,
+      "size": 22
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1000,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1076,
+      "size": 202
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1278,
+      "size": 30
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1308,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        1080,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 416,
+      "address": 428,
+      "name": "applianceJobs",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        1095,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 490,
+      "address": 502,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1109,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        706,
+        0,
+        1,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 562,
+      "address": 574,
+      "name": "jobsAvailable",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        1148,
+        0,
+        0,
+        35,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1120,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 642,
+      "address": 654,
+      "name": "salesperson",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1185,
+        0,
+        35,
+        50,
+        25,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1162,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        47,
+        0,
+        1,
+        65535,
+        5,
+        0,
+        0,
+        4,
+        0,
+        30,
+        20,
+        0,
+        0,
+        11,
+        35
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 754,
+      "address": 766,
+      "name": "electronicsRepair",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1220,
+        0,
+        35,
+        60,
+        25,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1197,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        64,
+        0,
+        1,
+        65535,
+        11,
+        0,
+        0,
+        4,
+        0,
+        40,
+        40,
+        11,
+        0,
+        12,
+        36
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 866,
+      "address": 878,
+      "name": "manager",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1259,
+        0,
+        35,
+        70,
+        25,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1238,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        46,
+        0,
+        1,
+        65535,
+        14,
+        0,
+        0,
+        4,
+        0,
+        40,
+        40,
+        14,
+        11,
+        13,
+        34
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1000,
+      "address": 1012,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1267,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 982
+        }
+      ]
+    }
+  ],
+  "exports": [
+    428
+  ],
+  "strings": [
+    {
+      "offset": 1080,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 1095,
+      "text": "applianceJobs",
+      "terminated": true
+    },
+    {
+      "offset": 1109,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 1120,
+      "text": "Socket City Jobs Available:",
+      "terminated": true
+    },
+    {
+      "offset": 1148,
+      "text": "jobsAvailable",
+      "terminated": true
+    },
+    {
+      "offset": 1162,
+      "text": "Salesperson         ||",
+      "terminated": true
+    },
+    {
+      "offset": 1185,
+      "text": "salesperson",
+      "terminated": true
+    },
+    {
+      "offset": 1197,
+      "text": "Electronic's Repair   ",
+      "terminated": true
+    },
+    {
+      "offset": 1220,
+      "text": "electronicsRepair",
+      "terminated": true
+    },
+    {
+      "offset": 1238,
+      "text": "Manager            |",
+      "terminated": true
+    },
+    {
+      "offset": 1259,
+      "text": "manager",
+      "terminated": true
+    },
+    {
+      "offset": 1267,
+      "text": "exitButton",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

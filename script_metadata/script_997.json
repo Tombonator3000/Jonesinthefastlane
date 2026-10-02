@@ -1,0 +1,283 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 12
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 12,
+      "size": 1910
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1922,
+      "size": 44
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1966,
+      "size": 470
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2436,
+      "size": 642
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 3078,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 3082,
+      "size": 24
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 3106,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 3114,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 1922,
+      "address": 1934,
+      "name": "MenuBar",
+      "species": 18,
+      "superclass": 9,
+      "properties": [
+        18,
+        9,
+        32768,
+        2475,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 80
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 184
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        32
+      ]
+    }
+  ],
+  "exports": [
+    0,
+    1970,
+    2204
+  ],
+  "strings": [
+    {
+      "offset": 2440,
+      "text": "Turn Messages Off",
+      "terminated": true
+    },
+    {
+      "offset": 2458,
+      "text": "Turn Messages On",
+      "terminated": true
+    },
+    {
+      "offset": 2475,
+      "text": "MenuBar",
+      "terminated": true
+    },
+    {
+      "offset": 2483,
+      "text": " \u0001 ",
+      "terminated": true
+    },
+    {
+      "offset": 2487,
+      "text": "About JONES `#0:Help `#1",
+      "terminated": true
+    },
+    {
+      "offset": 2512,
+      "text": " Game ",
+      "terminated": true
+    },
+    {
+      "offset": 2519,
+      "text": "Save Game`#5:Set Save Directory `^Y:Restore Game`#7:--!:Quit `^Q:Restart `#9",
+      "terminated": true
+    },
+    {
+      "offset": 2596,
+      "text": " Options ",
+      "terminated": true
+    },
+    {
+      "offset": 2606,
+      "text": "Change Reading Speed `^R:Turn Messages Off `#8:Delete Current Player `^Z:Change Animation Speed `^S:Graphics Detail Level `^T :--!:Change Volume `^V:Turn Music Off `#2:Turn Sound Effects Off `#3",
+      "terminated": true
+    },
+    {
+      "offset": 2801,
+      "text": " Status ",
+      "terminated": true
+    },
+    {
+      "offset": 2810,
+      "text": "Statistics`#4:Goals`#6",
+      "terminated": true
+    },
+    {
+      "offset": 2833,
+      "text": "Next",
+      "terminated": true
+    },
+    {
+      "offset": 2838,
+      "text": "OK",
+      "terminated": true
+    },
+    {
+      "offset": 2841,
+      "text": "Yes",
+      "terminated": true
+    },
+    {
+      "offset": 2845,
+      "text": "No",
+      "terminated": true
+    },
+    {
+      "offset": 2848,
+      "text": "YES",
+      "terminated": true
+    },
+    {
+      "offset": 2852,
+      "text": "NO",
+      "terminated": true
+    },
+    {
+      "offset": 2855,
+      "text": "Change reading speed.",
+      "terminated": true
+    },
+    {
+      "offset": 2877,
+      "text": "Reading Speed",
+      "terminated": true
+    },
+    {
+      "offset": 2891,
+      "text": "More Time",
+      "terminated": true
+    },
+    {
+      "offset": 2901,
+      "text": "Less Time",
+      "terminated": true
+    },
+    {
+      "offset": 2911,
+      "text": "Change animation speed.",
+      "terminated": true
+    },
+    {
+      "offset": 2935,
+      "text": "Game Speed",
+      "terminated": true
+    },
+    {
+      "offset": 2946,
+      "text": "Faster",
+      "terminated": true
+    },
+    {
+      "offset": 2953,
+      "text": "Slower",
+      "terminated": true
+    },
+    {
+      "offset": 2960,
+      "text": "Change sound volume.",
+      "terminated": true
+    },
+    {
+      "offset": 2981,
+      "text": "Sound Volume",
+      "terminated": true
+    },
+    {
+      "offset": 2994,
+      "text": "Louder",
+      "terminated": true
+    },
+    {
+      "offset": 3001,
+      "text": "Softer",
+      "terminated": true
+    },
+    {
+      "offset": 3008,
+      "text": "Change graphics detail level.",
+      "terminated": true
+    },
+    {
+      "offset": 3038,
+      "text": "Graphic Detail",
+      "terminated": true
+    },
+    {
+      "offset": 3053,
+      "text": "More Detail",
+      "terminated": true
+    },
+    {
+      "offset": 3065,
+      "text": "Less Detail",
+      "terminated": true
+    },
+    {
+      "offset": 3077,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    136,
+    133,
+    129,
+    127,
+    0,
+    0,
+    0,
+    35
+  ]
+}

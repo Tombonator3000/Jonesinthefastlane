@@ -1,0 +1,10 @@
+{
+  "repository": "sluicebox/sci-scripts",
+  "commit": "870a8015b689474484bf3d8b41416956d4315432",
+  "directory": "jones-dos-1.000.060",
+  "game_ini_included_and_git_blob_verified": true,
+  "high_level_sc_files_included": false,
+  "download_tool_included": true,
+  "source_binary_equivalence_checked": false,
+  "recompilation_checked": false
+}

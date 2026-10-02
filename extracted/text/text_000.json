@@ -1,0 +1,11 @@
+{
+  "resource": 0,
+  "encoding": "cp437",
+  "strings": [
+    "Music is ON",
+    "Music is OFF",
+    "Sound Effects are ON",
+    "Sound Effects are OFF",
+    ""
+  ]
+}

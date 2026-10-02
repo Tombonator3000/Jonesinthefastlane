@@ -1,0 +1,1501 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 1674
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1682,
+      "size": 160
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1842,
+      "size": 254
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2096,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2124,
+      "size": 50
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2174,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2202,
+      "size": 766
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2968,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3046,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3118,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3190,
+      "size": 60
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3250,
+      "size": 112
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3362,
+      "size": 118
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3480,
+      "size": 86
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3566,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3648,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3730,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3812,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3894,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3976,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4058,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4140,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4222,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4304,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4388,
+      "size": 6
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4394,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4470,
+      "size": 282
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4752,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4828,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4922,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5002,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5028,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5112,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5192,
+      "size": 624
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5816,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 5866,
+      "size": 304
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 6170,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 6174,
+      "size": 40
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 6214,
+      "size": 56
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 6270,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 1682,
+      "address": 1694,
+      "name": "UniversityDIcon",
+      "species": 80,
+      "superclass": 12,
+      "properties": [
+        80,
+        12,
+        32768,
+        5870,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        0,
+        2,
+        1,
+        6
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 855
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 1681
+        },
+        {
+          "selector": 481,
+          "name": "addCourse",
+          "address": 781
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        5,
+        6,
+        7,
+        63,
+        482,
+        343,
+        344,
+        348,
+        350
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2096,
+      "address": 2108,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        5886,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2174,
+      "address": 2186,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        5901
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2128
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2968,
+      "address": 2980,
+      "name": "university",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        5915,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2206
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 2920
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3046,
+      "address": 3058,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5926,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        807,
+        0,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3118,
+      "address": 3130,
+      "name": "books",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5937,
+        4,
+        64,
+        0,
+        71,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        1,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3250,
+      "address": 3262,
+      "name": "enrollmentFee",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5959,
+        0,
+        1,
+        32,
+        85,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5943,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        0,
+        0,
+        4,
+        1,
+        65535,
+        50,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 3194
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3207
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 3248
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3480,
+      "address": 3492,
+      "name": "tradeSchool",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        5973,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        0,
+        13,
+        0,
+        10,
+        2,
+        1,
+        6
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 3366
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3566,
+      "address": 3578,
+      "name": "electronics",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        5985,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        1,
+        13,
+        10,
+        11,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3648,
+      "address": 3660,
+      "name": "preEngineering",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        5997,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        2,
+        13,
+        10,
+        12,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3730,
+      "address": 3742,
+      "name": "engineering",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6012,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        3,
+        13,
+        12,
+        13,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3812,
+      "address": 3824,
+      "name": "juniorCollege",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6024,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        4,
+        13,
+        0,
+        14,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3894,
+      "address": 3906,
+      "name": "ba",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6038,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        5,
+        13,
+        14,
+        15,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3976,
+      "address": 3988,
+      "name": "academic",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6041,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        6,
+        13,
+        14,
+        16,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4058,
+      "address": 4070,
+      "name": "graduate",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6050,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        7,
+        13,
+        16,
+        17,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4140,
+      "address": 4152,
+      "name": "postDoctoral",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6059,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        8,
+        13,
+        17,
+        18,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4222,
+      "address": 4234,
+      "name": "research",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6072,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        9,
+        13,
+        18,
+        19,
+        2,
+        1,
+        6
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4304,
+      "address": 4316,
+      "name": "publishing",
+      "species": 80,
+      "superclass": 80,
+      "properties": [
+        80,
+        80,
+        0,
+        6081,
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        707,
+        2,
+        10,
+        13,
+        19,
+        20,
+        2,
+        1,
+        6,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4394,
+      "address": 4406,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        6092,
+        4,
+        99,
+        108,
+        147,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 4392
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4752,
+      "address": 4764,
+      "name": "enrollButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        6110,
+        4,
+        65,
+        108,
+        105,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        10,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4474
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4922,
+      "address": 4934,
+      "name": "workButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        6123,
+        4,
+        65,
+        108,
+        71,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        1,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4832
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 4921
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5028,
+      "address": 5040,
+      "name": "timeClock",
+      "species": 57,
+      "superclass": 57,
+      "properties": [
+        57,
+        57,
+        0,
+        6134,
+        4,
+        0,
+        56,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 5006
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5112,
+      "address": 5124,
+      "name": "theTalker",
+      "species": 56,
+      "superclass": 56,
+      "properties": [
+        56,
+        56,
+        0,
+        6144,
+        4,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        357,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 5816,
+      "address": 5828,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        6154,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 5196
+        }
+      ]
+    }
+  ],
+  "exports": [
+    2980
+  ],
+  "strings": [
+    {
+      "offset": 5870,
+      "text": "UniversityDIcon",
+      "terminated": true
+    },
+    {
+      "offset": 5886,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 5901,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 5915,
+      "text": "university",
+      "terminated": true
+    },
+    {
+      "offset": 5926,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 5937,
+      "text": "books",
+      "terminated": true
+    },
+    {
+      "offset": 5943,
+      "text": "Enrollment Fee ",
+      "terminated": true
+    },
+    {
+      "offset": 5959,
+      "text": "enrollmentFee",
+      "terminated": true
+    },
+    {
+      "offset": 5973,
+      "text": "tradeSchool",
+      "terminated": true
+    },
+    {
+      "offset": 5985,
+      "text": "electronics",
+      "terminated": true
+    },
+    {
+      "offset": 5997,
+      "text": "preEngineering",
+      "terminated": true
+    },
+    {
+      "offset": 6012,
+      "text": "engineering",
+      "terminated": true
+    },
+    {
+      "offset": 6024,
+      "text": "juniorCollege",
+      "terminated": true
+    },
+    {
+      "offset": 6038,
+      "text": "ba",
+      "terminated": true
+    },
+    {
+      "offset": 6041,
+      "text": "academic",
+      "terminated": true
+    },
+    {
+      "offset": 6050,
+      "text": "graduate",
+      "terminated": true
+    },
+    {
+      "offset": 6059,
+      "text": "postDoctoral",
+      "terminated": true
+    },
+    {
+      "offset": 6072,
+      "text": "research",
+      "terminated": true
+    },
+    {
+      "offset": 6081,
+      "text": "publishing",
+      "terminated": true
+    },
+    {
+      "offset": 6092,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 6103,
+      "text": "Yes",
+      "terminated": true
+    },
+    {
+      "offset": 6107,
+      "text": "No",
+      "terminated": true
+    },
+    {
+      "offset": 6110,
+      "text": "enrollButton",
+      "terminated": true
+    },
+    {
+      "offset": 6123,
+      "text": "workButton",
+      "terminated": true
+    },
+    {
+      "offset": 6134,
+      "text": "timeClock",
+      "terminated": true
+    },
+    {
+      "offset": 6144,
+      "text": "theTalker",
+      "terminated": true
+    },
+    {
+      "offset": 6154,
+      "text": "computerScript",
+      "terminated": true
+    },
+    {
+      "offset": 6169,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    97,
+    111,
+    125,
+    139,
+    98,
+    75,
+    87,
+    56,
+    13,
+    12,
+    9,
+    10,
+    0
+  ]
+}

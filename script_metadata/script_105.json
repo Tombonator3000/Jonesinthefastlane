@@ -1,0 +1,115 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 138
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 138,
+      "size": 116
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 254,
+      "size": 20
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 274,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 282,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 138,
+      "address": 150,
+      "name": "InvisibleWindow",
+      "species": 59,
+      "superclass": 36,
+      "properties": [
+        59,
+        36,
+        32768,
+        258,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        65535,
+        0,
+        129,
+        0,
+        4,
+        4,
+        0,
+        0,
+        190,
+        320,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 82
+        },
+        {
+          "selector": 163,
+          "name": "open",
+          "address": 4
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        165,
+        166,
+        167,
+        168,
+        28,
+        29,
+        63,
+        35,
+        34,
+        80,
+        169,
+        170,
+        19,
+        20,
+        21,
+        22,
+        316,
+        8,
+        294
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 258,
+      "text": "InvisibleWindow",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

@@ -1,0 +1,521 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 380
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 416,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 490,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 562,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 642,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 754,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 866,
+      "size": 112
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 978,
+      "size": 22
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1000,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1076,
+      "size": 192
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1268,
+      "size": 30
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1298,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        1080,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 416,
+      "address": 428,
+      "name": "clothingJobs",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        1095,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 490,
+      "address": 502,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1108,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        706,
+        0,
+        1,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 562,
+      "address": 574,
+      "name": "jobsAvailable",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        1147,
+        0,
+        0,
+        35,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1119,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 642,
+      "address": 654,
+      "name": "salesPerson",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1183,
+        0,
+        35,
+        50,
+        25,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1161,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        47,
+        0,
+        1,
+        65535,
+        7,
+        0,
+        0,
+        4,
+        0,
+        30,
+        30,
+        0,
+        0,
+        8,
+        35
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 754,
+      "address": 766,
+      "name": "assistManager",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1215,
+        0,
+        35,
+        60,
+        25,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1195,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        45,
+        0,
+        1,
+        65535,
+        9,
+        0,
+        0,
+        4,
+        0,
+        40,
+        40,
+        14,
+        0,
+        9,
+        34
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 866,
+      "address": 878,
+      "name": "manager",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1249,
+        0,
+        35,
+        70,
+        25,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1229,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        46,
+        0,
+        1,
+        65535,
+        12,
+        0,
+        0,
+        4,
+        0,
+        50,
+        50,
+        15,
+        0,
+        10,
+        34
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1000,
+      "address": 1012,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1257,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 982
+        }
+      ]
+    }
+  ],
+  "exports": [
+    428
+  ],
+  "strings": [
+    {
+      "offset": 1080,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 1095,
+      "text": "clothingJobs",
+      "terminated": true
+    },
+    {
+      "offset": 1108,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 1119,
+      "text": "QT Clothing Jobs Available:",
+      "terminated": true
+    },
+    {
+      "offset": 1147,
+      "text": "jobsAvailable",
+      "terminated": true
+    },
+    {
+      "offset": 1161,
+      "text": "Salesperson        ||",
+      "terminated": true
+    },
+    {
+      "offset": 1183,
+      "text": "salesPerson",
+      "terminated": true
+    },
+    {
+      "offset": 1195,
+      "text": "Assistant Manager  ",
+      "terminated": true
+    },
+    {
+      "offset": 1215,
+      "text": "assistManager",
+      "terminated": true
+    },
+    {
+      "offset": 1229,
+      "text": "Manager           |",
+      "terminated": true
+    },
+    {
+      "offset": 1249,
+      "text": "manager",
+      "terminated": true
+    },
+    {
+      "offset": 1257,
+      "text": "exitButton",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

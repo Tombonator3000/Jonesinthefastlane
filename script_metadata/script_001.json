@@ -1,0 +1,2396 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 26
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 26,
+      "size": 234
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 260,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 340,
+      "size": 24
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 364,
+      "size": 50
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 414,
+      "size": 1222
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1636,
+      "size": 120
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1756,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1784,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1812,
+      "size": 56
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1868,
+      "size": 56
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1924,
+      "size": 56
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1980,
+      "size": 56
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2036,
+      "size": 30
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2066,
+      "size": 60
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2126,
+      "size": 56
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2182,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2208,
+      "size": 60
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2268,
+      "size": 56
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2324,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2350,
+      "size": 60
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2410,
+      "size": 56
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2466,
+      "size": 30
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2496,
+      "size": 60
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2556,
+      "size": 56
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2612,
+      "size": 24
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2636,
+      "size": 60
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2696,
+      "size": 20
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 2716,
+      "size": 48
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2764,
+      "size": 1854
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 4618,
+      "size": 384
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5002,
+      "size": 478
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5480,
+      "size": 36
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5516,
+      "size": 172
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5688,
+      "size": 172
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5860,
+      "size": 172
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 6032,
+      "size": 172
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 6204,
+      "size": 52
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 6256,
+      "size": 110
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 6366,
+      "size": 678
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 7044,
+      "size": 110
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 7154,
+      "size": 1940
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9094,
+      "size": 48
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 9142,
+      "size": 176
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9318,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9398,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 9426,
+      "size": 268
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9694,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9772,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9842,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9912,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 9982,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 10052,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 10122,
+      "size": 70
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 10192,
+      "size": 378
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 10570,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 10574,
+      "size": 6
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 10580,
+      "size": 90
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 10670,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 260,
+      "address": 272,
+      "name": "door",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        10196,
+        0,
+        0,
+        0,
+        0,
+        2,
+        751,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 364,
+      "address": 376,
+      "name": "marbleMoved",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        10201,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 344
+        }
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1636,
+      "address": 1648,
+      "name": "Place",
+      "species": 71,
+      "superclass": 0,
+      "properties": [
+        71,
+        0,
+        32768,
+        10213,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 418
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 558
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 869
+        },
+        {
+          "selector": 399,
+          "name": "openDoor",
+          "address": 437
+        },
+        {
+          "selector": 400,
+          "name": "closeDoor",
+          "address": 535
+        },
+        {
+          "selector": 401,
+          "name": "endCue",
+          "address": 1345
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        388,
+        381,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        301,
+        303,
+        302,
+        304
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1756,
+      "address": 1768,
+      "name": "places",
+      "species": 5,
+      "superclass": 5,
+      "properties": [
+        5,
+        5,
+        0,
+        10219,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1784,
+      "address": 1796,
+      "name": "mainKeyMouseList",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        10226,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1812,
+      "address": 1824,
+      "name": "apartmentsP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10243,
+        0,
+        1,
+        10,
+        130,
+        43,
+        190,
+        200,
+        134,
+        2,
+        0,
+        144,
+        30,
+        160,
+        25,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1868,
+      "address": 1880,
+      "name": "rentOfficeP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10255,
+        1,
+        164,
+        10,
+        68,
+        43,
+        129,
+        201,
+        85,
+        3,
+        1,
+        105,
+        29,
+        98,
+        25,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1924,
+      "address": 1936,
+      "name": "securityP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10267,
+        2,
+        151,
+        10,
+        7,
+        43,
+        67,
+        202,
+        9,
+        2,
+        2,
+        29,
+        44,
+        37,
+        25,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1980,
+      "address": 1992,
+      "name": "marketP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10277,
+        3,
+        134,
+        69,
+        24,
+        114,
+        67,
+        203,
+        26,
+        70,
+        3,
+        46,
+        105,
+        44,
+        89,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2066,
+      "address": 2078,
+      "name": "bankP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10285,
+        4,
+        120,
+        119,
+        7,
+        154,
+        67,
+        204,
+        11,
+        92,
+        4,
+        20,
+        147,
+        37,
+        139,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2040
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2126,
+      "address": 2138,
+      "name": "factoryP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10291,
+        5,
+        107,
+        155,
+        7,
+        192,
+        67,
+        205,
+        25,
+        134,
+        5,
+        50,
+        181,
+        37,
+        182,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2208,
+      "address": 2220,
+      "name": "employmentP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10300,
+        6,
+        99,
+        168,
+        68,
+        192,
+        128,
+        206,
+        79,
+        151,
+        6,
+        97,
+        183,
+        98,
+        182,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2186
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2268,
+      "address": 2280,
+      "name": "universityP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10312,
+        7,
+        75,
+        158,
+        190,
+        192,
+        250,
+        207,
+        190,
+        141,
+        7,
+        220,
+        179,
+        220,
+        182,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2350,
+      "address": 2362,
+      "name": "applianceP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10324,
+        8,
+        66,
+        133,
+        251,
+        192,
+        311,
+        208,
+        256,
+        133,
+        8,
+        277,
+        183,
+        281,
+        182,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2328
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2410,
+      "address": 2422,
+      "name": "clothingP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10335,
+        9,
+        47,
+        82,
+        251,
+        118,
+        311,
+        209,
+        257,
+        80,
+        9,
+        277,
+        113,
+        281,
+        97,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2496,
+      "address": 2508,
+      "name": "fastFoodP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10345,
+        10,
+        35,
+        44,
+        251,
+        81,
+        311,
+        210,
+        264,
+        32,
+        10,
+        288,
+        75,
+        281,
+        64,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2470
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2556,
+      "address": 2568,
+      "name": "discountP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10355,
+        11,
+        24,
+        10,
+        251,
+        43,
+        311,
+        211,
+        258,
+        2,
+        11,
+        282,
+        34,
+        281,
+        25,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2636,
+      "address": 2648,
+      "name": "pawnShopP",
+      "species": 71,
+      "superclass": 71,
+      "properties": [
+        71,
+        71,
+        0,
+        10365,
+        12,
+        14,
+        10,
+        191,
+        43,
+        250,
+        212,
+        201,
+        4,
+        12,
+        221,
+        34,
+        221,
+        25,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2616
+        }
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 2716,
+      "address": 2728,
+      "name": "I",
+      "species": 72,
+      "superclass": 0,
+      "properties": [
+        72,
+        0,
+        32768,
+        10375,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2700
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        379,
+        347,
+        343
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 4618,
+      "address": 4630,
+      "name": "Player",
+      "species": 73,
+      "superclass": 0,
+      "properties": [
+        73,
+        0,
+        32768,
+        10379,
+        10377,
+        0,
+        0,
+        50,
+        50,
+        50,
+        50,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        200,
+        0,
+        200,
+        0,
+        200,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        36,
+        36,
+        0,
+        325,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        10,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2768
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3290
+        },
+        {
+          "selector": 459,
+          "name": "numDegrees",
+          "address": 4331
+        },
+        {
+          "selector": 460,
+          "name": "hasDegree",
+          "address": 4397
+        },
+        {
+          "selector": 461,
+          "name": "calcNetWorth",
+          "address": 4019
+        },
+        {
+          "selector": 462,
+          "name": "calcLiquidAssets",
+          "address": 4114
+        },
+        {
+          "selector": 463,
+          "name": "addLiquid",
+          "address": 4307
+        },
+        {
+          "selector": 464,
+          "name": "startTurn",
+          "address": 3435
+        },
+        {
+          "selector": 465,
+          "name": "endTurn",
+          "address": 3483
+        },
+        {
+          "selector": 466,
+          "name": "doScandal",
+          "address": 3932
+        },
+        {
+          "selector": 372,
+          "name": "dressedForWork",
+          "address": 3060
+        },
+        {
+          "selector": 318,
+          "name": "weeksOfClothing",
+          "address": 3183
+        },
+        {
+          "selector": 467,
+          "name": "courseActive",
+          "address": 4503
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 3422
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        404,
+        300,
+        405,
+        406,
+        407,
+        408,
+        409,
+        375,
+        378,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        380,
+        373,
+        374,
+        416,
+        417,
+        377,
+        376,
+        418,
+        419,
+        420,
+        421,
+        387,
+        422,
+        371,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        319,
+        429,
+        430,
+        431,
+        432,
+        402,
+        433,
+        434,
+        435,
+        436,
+        437,
+        355,
+        438,
+        439,
+        320,
+        322,
+        323,
+        440,
+        441,
+        442,
+        443,
+        444,
+        403,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        131,
+        451,
+        452,
+        453,
+        454,
+        455,
+        317,
+        456,
+        457,
+        458
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5480,
+      "address": 5492,
+      "name": "players",
+      "species": 3,
+      "superclass": 3,
+      "properties": [
+        3,
+        3,
+        0,
+        10399,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 5006
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 5159
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5516,
+      "address": 5528,
+      "name": "player1",
+      "species": 73,
+      "superclass": 73,
+      "properties": [
+        73,
+        73,
+        0,
+        10416,
+        10407,
+        1,
+        0,
+        50,
+        50,
+        50,
+        50,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        200,
+        0,
+        200,
+        0,
+        200,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        36,
+        36,
+        0,
+        325,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        10,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 5688,
+      "address": 5700,
+      "name": "player2",
+      "species": 73,
+      "superclass": 73,
+      "properties": [
+        73,
+        73,
+        0,
+        10433,
+        10424,
+        0,
+        0,
+        50,
+        50,
+        50,
+        50,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        200,
+        0,
+        200,
+        0,
+        200,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        36,
+        36,
+        0,
+        325,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        10,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 5860,
+      "address": 5872,
+      "name": "player3",
+      "species": 73,
+      "superclass": 73,
+      "properties": [
+        73,
+        73,
+        0,
+        10450,
+        10441,
+        0,
+        1,
+        50,
+        50,
+        50,
+        50,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        200,
+        0,
+        200,
+        0,
+        200,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        36,
+        36,
+        0,
+        325,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        10,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 6032,
+      "address": 6044,
+      "name": "player4",
+      "species": 73,
+      "superclass": 73,
+      "properties": [
+        73,
+        73,
+        0,
+        10467,
+        10458,
+        0,
+        1,
+        50,
+        50,
+        50,
+        50,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        200,
+        0,
+        200,
+        0,
+        200,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        25,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        36,
+        36,
+        0,
+        325,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20,
+        0,
+        10,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 6256,
+      "address": 6268,
+      "name": "theWalker",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        10475,
+        146,
+        160,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        32768,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 6208
+        },
+        {
+          "selector": 213,
+          "name": "show",
+          "address": 6226
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 7044,
+      "address": 7056,
+      "name": "marble",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        10485,
+        37,
+        144,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        32768,
+        0,
+        0,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 6370
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 6384
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 9094,
+      "address": 9106,
+      "name": "room1",
+      "species": 42,
+      "superclass": 42,
+      "properties": [
+        42,
+        42,
+        0,
+        10492,
+        0,
+        0,
+        0,
+        11,
+        2,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 7158
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 8787
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 8662
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 9318,
+      "address": 9330,
+      "name": "calc",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        10498,
+        4,
+        64,
+        160,
+        252,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 9158
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 9146
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 9398,
+      "address": 9410,
+      "name": "tempList",
+      "species": 3,
+      "superclass": 3,
+      "properties": [
+        3,
+        3,
+        0,
+        10503,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 9694,
+      "address": 9706,
+      "name": "timeKeep",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10512,
+        180,
+        159,
+        0,
+        0,
+        2,
+        270,
+        0,
+        0,
+        10,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 9430
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 9464
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 9772,
+      "address": 9784,
+      "name": "number1",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10521,
+        67,
+        80,
+        0,
+        0,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 9842,
+      "address": 9854,
+      "name": "number2",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10529,
+        67,
+        238,
+        0,
+        0,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 9912,
+      "address": 9924,
+      "name": "number3",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10537,
+        155,
+        80,
+        0,
+        0,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 9982,
+      "address": 9994,
+      "name": "number4",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10545,
+        155,
+        238,
+        0,
+        0,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 10052,
+      "address": 10064,
+      "name": "picPatch",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10553,
+        155,
+        159,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        9,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 10122,
+      "address": 10134,
+      "name": "outline",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        10562,
+        155,
+        159,
+        0,
+        0,
+        2,
+        0,
+        0,
+        4,
+        8,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    }
+  ],
+  "exports": [
+    9106,
+    9410,
+    5492,
+    5528,
+    5700,
+    5872,
+    6044,
+    7056,
+    30,
+    130
+  ],
+  "strings": [
+    {
+      "offset": 10196,
+      "text": "door",
+      "terminated": true
+    },
+    {
+      "offset": 10201,
+      "text": "marbleMoved",
+      "terminated": true
+    },
+    {
+      "offset": 10213,
+      "text": "Place",
+      "terminated": true
+    },
+    {
+      "offset": 10219,
+      "text": "places",
+      "terminated": true
+    },
+    {
+      "offset": 10226,
+      "text": "mainKeyMouseList",
+      "terminated": true
+    },
+    {
+      "offset": 10243,
+      "text": "apartmentsP",
+      "terminated": true
+    },
+    {
+      "offset": 10255,
+      "text": "rentOfficeP",
+      "terminated": true
+    },
+    {
+      "offset": 10267,
+      "text": "securityP",
+      "terminated": true
+    },
+    {
+      "offset": 10277,
+      "text": "marketP",
+      "terminated": true
+    },
+    {
+      "offset": 10285,
+      "text": "bankP",
+      "terminated": true
+    },
+    {
+      "offset": 10291,
+      "text": "factoryP",
+      "terminated": true
+    },
+    {
+      "offset": 10300,
+      "text": "employmentP",
+      "terminated": true
+    },
+    {
+      "offset": 10312,
+      "text": "universityP",
+      "terminated": true
+    },
+    {
+      "offset": 10324,
+      "text": "applianceP",
+      "terminated": true
+    },
+    {
+      "offset": 10335,
+      "text": "clothingP",
+      "terminated": true
+    },
+    {
+      "offset": 10345,
+      "text": "fastFoodP",
+      "terminated": true
+    },
+    {
+      "offset": 10355,
+      "text": "discountP",
+      "terminated": true
+    },
+    {
+      "offset": 10365,
+      "text": "pawnShopP",
+      "terminated": true
+    },
+    {
+      "offset": 10375,
+      "text": "I",
+      "terminated": true
+    },
+    {
+      "offset": 10377,
+      "text": "",
+      "terminated": true
+    },
+    {
+      "offset": 10378,
+      "text": "",
+      "terminated": true
+    },
+    {
+      "offset": 10379,
+      "text": "Player",
+      "terminated": true
+    },
+    {
+      "offset": 10386,
+      "text": "Restart",
+      "terminated": true
+    },
+    {
+      "offset": 10394,
+      "text": "Quit",
+      "terminated": true
+    },
+    {
+      "offset": 10399,
+      "text": "players",
+      "terminated": true
+    },
+    {
+      "offset": 10407,
+      "text": "Player 1",
+      "terminated": true
+    },
+    {
+      "offset": 10416,
+      "text": "player1",
+      "terminated": true
+    },
+    {
+      "offset": 10424,
+      "text": "Player 2",
+      "terminated": true
+    },
+    {
+      "offset": 10433,
+      "text": "player2",
+      "terminated": true
+    },
+    {
+      "offset": 10441,
+      "text": "Player 3",
+      "terminated": true
+    },
+    {
+      "offset": 10450,
+      "text": "player3",
+      "terminated": true
+    },
+    {
+      "offset": 10458,
+      "text": "Player 4",
+      "terminated": true
+    },
+    {
+      "offset": 10467,
+      "text": "player4",
+      "terminated": true
+    },
+    {
+      "offset": 10475,
+      "text": "theWalker",
+      "terminated": true
+    },
+    {
+      "offset": 10485,
+      "text": "marble",
+      "terminated": true
+    },
+    {
+      "offset": 10492,
+      "text": "room1",
+      "terminated": true
+    },
+    {
+      "offset": 10498,
+      "text": "calc",
+      "terminated": true
+    },
+    {
+      "offset": 10503,
+      "text": "tempList",
+      "terminated": true
+    },
+    {
+      "offset": 10512,
+      "text": "timeKeep",
+      "terminated": true
+    },
+    {
+      "offset": 10521,
+      "text": "number1",
+      "terminated": true
+    },
+    {
+      "offset": 10529,
+      "text": "number2",
+      "terminated": true
+    },
+    {
+      "offset": 10537,
+      "text": "number3",
+      "terminated": true
+    },
+    {
+      "offset": 10545,
+      "text": "number4",
+      "terminated": true
+    },
+    {
+      "offset": 10553,
+      "text": "picPatch",
+      "terminated": true
+    },
+    {
+      "offset": 10562,
+      "text": "outline",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0
+  ]
+}

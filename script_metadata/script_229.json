@@ -1,0 +1,632 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 176
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 184,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 212,
+      "size": 302
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 514,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 588,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 660,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 732,
+      "size": 36
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 768,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 844,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 916,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 988,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1060,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1132,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1204,
+      "size": 64
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1268,
+      "size": 74
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1342,
+      "size": 832
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 2174,
+      "size": 6
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2180,
+      "size": 30
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2210,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 184,
+      "address": 196,
+      "name": "dKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        2070,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 514,
+      "address": 526,
+      "name": "goalsDefine",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        2080,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 216
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 588,
+      "address": 600,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2092,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        4,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 660,
+      "address": 672,
+      "name": "doneButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2103,
+        4,
+        99,
+        108,
+        106,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        2,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 768,
+      "address": 780,
+      "name": "rightArrow",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        2114,
+        4,
+        65,
+        108,
+        47,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        8,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 736
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 844,
+      "address": 856,
+      "name": "corner1",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2125,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        6,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 916,
+      "address": 928,
+      "name": "corner2",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2133,
+        4,
+        0,
+        0,
+        147,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        6,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 988,
+      "address": 1000,
+      "name": "corner3",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2141,
+        4,
+        0,
+        88,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        6,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1060,
+      "address": 1072,
+      "name": "corner4",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2149,
+        4,
+        0,
+        88,
+        147,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        6,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1132,
+      "address": 1144,
+      "name": "theTitle",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2157,
+        4,
+        0,
+        4,
+        41,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        501,
+        5,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1268,
+      "address": 1280,
+      "name": "textOne",
+      "species": 11,
+      "superclass": 11,
+      "properties": [
+        11,
+        11,
+        0,
+        2166,
+        2,
+        0,
+        30,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1346,
+        4,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1208
+        }
+      ]
+    }
+  ],
+  "exports": [
+    526
+  ],
+  "strings": [
+    {
+      "offset": 1346,
+      "text": "Wealth is defined as the total accumulation of money, savings, and investments. Try the stock market, and be on the watch for Wild Willy. And most importantly... sorry, out of room.",
+      "terminated": true
+    },
+    {
+      "offset": 1528,
+      "text": "Happiness is accumulated by acquiring goods, achieving goals, taking time off from work, and helping little old ladies cross the street so that they don't get hit by any speeding marbles.",
+      "terminated": true
+    },
+    {
+      "offset": 1716,
+      "text": "Education is accumulated by attending the university and graduating from the classes offered. A computer and some reference books can be very beneficial to your studies.",
+      "terminated": true
+    },
+    {
+      "offset": 1886,
+      "text": "Career is achieved by working hard, climbing the corporate ladder, improving your skills, dependability, and advancing your education. Remember, hire a kid, they have all the answers.",
+      "terminated": true
+    },
+    {
+      "offset": 2070,
+      "text": "dKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 2080,
+      "text": "goalsDefine",
+      "terminated": true
+    },
+    {
+      "offset": 2092,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 2103,
+      "text": "doneButton",
+      "terminated": true
+    },
+    {
+      "offset": 2114,
+      "text": "rightArrow",
+      "terminated": true
+    },
+    {
+      "offset": 2125,
+      "text": "corner1",
+      "terminated": true
+    },
+    {
+      "offset": 2133,
+      "text": "corner2",
+      "terminated": true
+    },
+    {
+      "offset": 2141,
+      "text": "corner3",
+      "terminated": true
+    },
+    {
+      "offset": 2149,
+      "text": "corner4",
+      "terminated": true
+    },
+    {
+      "offset": 2157,
+      "text": "theTitle",
+      "terminated": true
+    },
+    {
+      "offset": 2166,
+      "text": "textOne",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0
+  ]
+}

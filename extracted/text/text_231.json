@@ -1,0 +1,29 @@
+{
+  "resource": 231,
+  "encoding": "cp437",
+  "strings": [
+    "%=25s",
+    "Works at %-16s",
+    "As a %-20s",
+    "Hourly wage: $%-11d",
+    "%-25s",
+    "Unemployed",
+    "Cash: $%-18s",
+    "Savings: $%-15s",
+    "Rent Owed: $%-13d",
+    "Loan Balance: $%-10d",
+    "Total Goods: $%-11d",
+    "Investment Total: $%-6s",
+    "Net Worth: $%-13s",
+    "-----GOODS-----",
+    "Casual Clothes  ",
+    "Dress Clothes   ",
+    "Business Suit   ",
+    "%3d Weeks of Food        ",
+    "%3d %-21s",
+    "---EDUCATION---",
+    "--INVESTMENTS--",
+    "%d %s",
+    ""
+  ]
+}

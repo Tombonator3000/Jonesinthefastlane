@@ -1,0 +1,695 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 324
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 360,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 438,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 510,
+      "size": 24
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 534,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 610,
+      "size": 172
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 782,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 858,
+      "size": 172
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1030,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1106,
+      "size": 176
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1282,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1358,
+      "size": 172
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1530,
+      "size": 76
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1606,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1678,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1750,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1822,
+      "size": 72
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1894,
+      "size": 140
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2034,
+      "size": 30
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2064,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        1898,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 360,
+      "address": 372,
+      "name": "select2",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        1913,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 289
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 438,
+      "address": 450,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1921,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        500,
+        0,
+        0,
+        12
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 534,
+      "address": 546,
+      "name": "playerNumber",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1932,
+        4,
+        0,
+        1,
+        42,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        499,
+        1,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 514
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 782,
+      "address": 794,
+      "name": "firstPlayer",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1945,
+        4,
+        65,
+        108,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        7,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 614
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1030,
+      "address": 1042,
+      "name": "secondPlayer",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1957,
+        4,
+        65,
+        108,
+        52,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        7,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 862
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1282,
+      "address": 1294,
+      "name": "thirdPlayer",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1970,
+        4,
+        65,
+        108,
+        98,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        7,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1110
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1530,
+      "address": 1542,
+      "name": "fourthPlayer",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1982,
+        4,
+        65,
+        108,
+        144,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        7,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1362
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1606,
+      "address": 1618,
+      "name": "firstDim",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1995,
+        4,
+        0,
+        14,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        499,
+        0,
+        0,
+        14
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1678,
+      "address": 1690,
+      "name": "secondDim",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2004,
+        4,
+        0,
+        14,
+        47,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        499,
+        0,
+        1,
+        14
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1750,
+      "address": 1762,
+      "name": "thirdDim",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2014,
+        4,
+        0,
+        14,
+        93,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        499,
+        0,
+        2,
+        14
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1822,
+      "address": 1834,
+      "name": "fourthDim",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        2023,
+        4,
+        0,
+        14,
+        139,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        499,
+        0,
+        3,
+        14
+      ],
+      "methods": []
+    }
+  ],
+  "exports": [
+    372
+  ],
+  "strings": [
+    {
+      "offset": 1898,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 1913,
+      "text": "select2",
+      "terminated": true
+    },
+    {
+      "offset": 1921,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 1932,
+      "text": "playerNumber",
+      "terminated": true
+    },
+    {
+      "offset": 1945,
+      "text": "firstPlayer",
+      "terminated": true
+    },
+    {
+      "offset": 1957,
+      "text": "secondPlayer",
+      "terminated": true
+    },
+    {
+      "offset": 1970,
+      "text": "thirdPlayer",
+      "terminated": true
+    },
+    {
+      "offset": 1982,
+      "text": "fourthPlayer",
+      "terminated": true
+    },
+    {
+      "offset": 1995,
+      "text": "firstDim",
+      "terminated": true
+    },
+    {
+      "offset": 2004,
+      "text": "secondDim",
+      "terminated": true
+    },
+    {
+      "offset": 2014,
+      "text": "thirdDim",
+      "terminated": true
+    },
+    {
+      "offset": 2023,
+      "text": "fourthDim",
+      "terminated": true
+    },
+    {
+      "offset": 2033,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

@@ -1,0 +1,394 @@
+; SCI1 script 891: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 800 bytes.
+
+; CODE @0x0000 size=674
+@0000 .hex 02 00 a2 02 ; ....
+; KeyMouse::setPort
+@0004 push0.w
+@0005 callk.b      0x14 0x00 ; GetPort
+@0008 aTop.b       0x0c
+@000a push1.w
+@000b push0.w
+@000c callk.b      0x15 0x02 ; SetPort
+@000f ret.w
+; KeyMouse::resetPort
+@0010 push1.w
+@0011 pTos.b       0x0c
+@0013 callk.b      0x15 0x02 ; SetPort
+@0016 ret.w
+; KeyMouse::setList
+@0017 lap.b        0x01 ; param[1]
+@0019 aTop.b       0x08
+@001b ret.w
+; KeyMouse::setCursor
+@001c lag.w        0x012e ; global[302]
+@001f bnt.w        0x001e ; target @0x0040
+@0022 lag.w        0x01b7 ; global[439]
+@0025 bnt.w        0x0018 ; target @0x0040
+@0028 lag.w        0x01bb ; global[443]
+@002b not.w
+@002c bnt.w        0x0011 ; target @0x0040
+@002f pushi.w      0x012c ; possible selector: playing
+@0032 push0.w
+@0033 lag.w        0x012e ; global[302]
+@0036 send.w       0x04
+@0038 push.w
+@0039 ldi.b        0x1d
+@003b eq?.w
+@003c bnt.w        0x0001 ; target @0x0040
+@003f ret.w
+@0040 lag.w        0x01bf ; global[447]
+@0043 bt.w         0x0003 ; target @0x0049
+@0046 lag.w        0x0206 ; global[518]
+@0049 bnt.w        0x0052 ; target @0x009e
+@004c pushi.w      0x012a ; possible selector: setPort
+@004f push0.w
+@0050 self.w       0x04
+@0052 push1.w
+@0053 lsp.b        0x01 ; param[1]
+@0055 callk.b      0x06 0x02 ; IsObject
+@0058 bnt.w        0x0039 ; target @0x0094
+@005b pushi.b      0x04 ; possible selector: x
+@005d lsg.b        0x13 ; global[19]
+@005f push1.w
+@0060 pushi.w      0x012d ; possible selector: keyMouseX
+@0063 push0.w
+@0064 lap.b        0x01 ; param[1]
+@0066 send.w       0x04
+@0068 push.w
+@0069 pushi.w      0x012e ; possible selector: offsetX
+@006c push0.w
+@006d lap.b        0x01 ; param[1]
+@006f send.w       0x04
+@0071 add.w
+@0072 aTop.b       0x0e
+@0074 push.w
+@0075 pushi.w      0x012f ; possible selector: keyMouseY
+@0078 push0.w
+@0079 lap.b        0x01 ; param[1]
+@007b send.w       0x04
+@007d push.w
+@007e pushi.w      0x0130 ; possible selector: offsetY
+@0081 push0.w
+@0082 lap.b        0x01 ; param[1]
+@0084 send.w       0x04
+@0086 add.w
+@0087 aTop.b       0x10
+@0089 push.w
+@008a callk.b      0x28 0x08 ; SetCursor
+@008d lap.b        0x01 ; param[1]
+@008f aTop.b       0x0a
+@0091 jmp.w        0x0004 ; target @0x0098
+@0094 ldi.b        0x00
+@0096 aTop.b       0x0a
+@0098 pushi.w      0x012b ; possible selector: resetPort
+@009b push0.w
+@009c self.w       0x04
+@009e ret.w
+; KeyMouse::handleEvent
+@009f link.b       0x09
+@00a1 pToa.b       0x08
+@00a3 bnt.w        0x0159 ; target @0x01ff
+@00a6 pushi.b      0x59 ; possible selector: size
+@00a8 push0.w
+@00a9 send.w       0x04
+@00ab bnt.w        0x0151 ; target @0x01ff
+@00ae pushi.b      0x4c ; possible selector: claimed
+@00b0 push0.w
+@00b1 lap.b        0x01 ; param[1]
+@00b3 send.w       0x04
+@00b5 not.w
+@00b6 bnt.w        0x0146 ; target @0x01ff
+@00b9 push0.w
+@00ba pushi.b      0x28 ; possible selector: message
+@00bc push0.w
+@00bd lap.b        0x01 ; param[1]
+@00bf send.w       0x04
+@00c1 le?.w
+@00c2 bnt.w        0x013a ; target @0x01ff
+@00c5 pprev.w
+@00c6 ldi.b        0x07
+@00c8 le?.w
+@00c9 bnt.w        0x0133 ; target @0x01ff
+@00cc pushi.b      0x28 ; possible selector: message
+@00ce push0.w
+@00cf lap.b        0x01 ; param[1]
+@00d1 send.w       0x04
+@00d3 lali.b       0x00 ; local[0]
+@00d5 sat.b        0x06 ; temp[6]
+@00d7 ldi.b        0x3c
+@00d9 sat.b        0x03 ; temp[3]
+@00db ldi.w        0x0190
+@00de sat.b        0x04 ; temp[4]
+@00e0 ldi.b        0x00
+@00e2 sat.b        0x02 ; temp[2]
+@00e4 sat.b        0x05 ; temp[5]
+@00e6 lst.b        0x05 ; temp[5]
+@00e8 pushi.b      0x59 ; possible selector: size
+@00ea push0.w
+@00eb pToa.b       0x08
+@00ed send.w       0x04
+@00ef lt?.w
+@00f0 bnt.w        0x00f7 ; target @0x01ea
+@00f3 pushi.b      0x43 ; possible selector: at
+@00f5 push1.w
+@00f6 lst.b        0x05 ; temp[5]
+@00f8 pToa.b       0x08
+@00fa send.w       0x06
+@00fc sat.b        0x01 ; temp[1]
+@00fe pushi.b      0x04 ; possible selector: x
+@0100 push0.w
+@0101 lap.b        0x01 ; param[1]
+@0103 send.w       0x04
+@0105 push.w
+@0106 pushi.w      0x012d ; possible selector: keyMouseX
+@0109 push0.w
+@010a lat.b        0x01 ; temp[1]
+@010c send.w       0x04
+@010e ne?.w
+@010f bt.w         0x0011 ; target @0x0123
+@0112 pushi.b      0x03 ; possible selector: y
+@0114 push0.w
+@0115 lap.b        0x01 ; param[1]
+@0117 send.w       0x04
+@0119 push.w
+@011a pushi.w      0x012f ; possible selector: keyMouseY
+@011d push0.w
+@011e lat.b        0x01 ; temp[1]
+@0120 send.w       0x04
+@0122 ne?.w
+@0123 bnt.w        0x00bf ; target @0x01e5
+@0126 pushi.b      0x04 ; possible selector: x
+@0128 dup.w
+@0129 push0.w
+@012a lap.b        0x01 ; param[1]
+@012c send.w       0x04
+@012e push.w
+@012f pushi.b      0x03 ; possible selector: y
+@0131 push0.w
+@0132 lap.b        0x01 ; param[1]
+@0134 send.w       0x04
+@0136 push.w
+@0137 pushi.w      0x012d ; possible selector: keyMouseX
+@013a push0.w
+@013b lat.b        0x01 ; temp[1]
+@013d send.w       0x04
+@013f push.w
+@0140 pushi.w      0x012f ; possible selector: keyMouseY
+@0143 push0.w
+@0144 lat.b        0x01 ; temp[1]
+@0146 send.w       0x04
+@0148 push.w
+@0149 callk.b      0x3f 0x08 ; GetAngle
+@014c sat.b        0x07 ; temp[7]
+@014e pushi.b      0x04 ; possible selector: x
+@0150 dup.w
+@0151 push0.w
+@0152 lap.b        0x01 ; param[1]
+@0154 send.w       0x04
+@0156 push.w
+@0157 pushi.b      0x03 ; possible selector: y
+@0159 push0.w
+@015a lap.b        0x01 ; param[1]
+@015c send.w       0x04
+@015e push.w
+@015f pushi.w      0x012d ; possible selector: keyMouseX
+@0162 push0.w
+@0163 lat.b        0x01 ; temp[1]
+@0165 send.w       0x04
+@0167 push.w
+@0168 pushi.w      0x012f ; possible selector: keyMouseY
+@016b push0.w
+@016c lat.b        0x01 ; temp[1]
+@016e send.w       0x04
+@0170 push.w
+@0171 callk.b      0x40 0x08 ; GetDistance
+@0174 sat.b        0x00 ; temp[0]
+@0176 push1.w
+@0177 lst.b        0x06 ; temp[6]
+@0179 lat.b        0x07 ; temp[7]
+@017b sub.w
+@017c push.w
+@017d callk.b      0x3d 0x02 ; Abs
+@0180 sat.b        0x08 ; temp[8]
+@0182 push.w
+@0183 ldi.w        0x00b4
+@0186 gt?.w
+@0187 bnt.w        0x0008 ; target @0x0192
+@018a pushi.w      0x0168 ; possible selector: tailLeft
+@018d lat.b        0x08 ; temp[8]
+@018f sub.w
+@0190 sat.b        0x08 ; temp[8]
+@0192 lst.b        0x08 ; temp[8]
+@0194 lst.b        0x03 ; temp[3]
+@0196 ldi.b        0x0a
+@0198 sub.w
+@0199 le?.w
+@019a bt.w         0x0039 ; target @0x01d6
+@019d lst.b        0x08 ; temp[8]
+@019f lst.b        0x03 ; temp[3]
+@01a1 ldi.b        0x0a
+@01a3 add.w
+@01a4 le?.w
+@01a5 bnt.w        0x000c ; target @0x01b4
+@01a8 lst.b        0x08 ; temp[8]
+@01aa lat.b        0x00 ; temp[0]
+@01ac add.w
+@01ad push.w
+@01ae lst.b        0x03 ; temp[3]
+@01b0 lat.b        0x04 ; temp[4]
+@01b2 add.w
+@01b3 lt?.w
+@01b4 bt.w         0x001f ; target @0x01d6
+@01b7 lst.b        0x08 ; temp[8]
+@01b9 lst.b        0x03 ; temp[3]
+@01bb ldi.b        0x0a
+@01bd add.w
+@01be le?.w
+@01bf bnt.w        0x0023 ; target @0x01e5
+@01c2 lst.b        0x08 ; temp[8]
+@01c4 lat.b        0x00 ; temp[0]
+@01c6 add.w
+@01c7 push.w
+@01c8 lst.b        0x03 ; temp[3]
+@01ca lat.b        0x04 ; temp[4]
+@01cc add.w
+@01cd eq?.w
+@01ce bnt.w        0x0014 ; target @0x01e5
+@01d1 lst.b        0x08 ; temp[8]
+@01d3 lat.b        0x03 ; temp[3]
+@01d5 lt?.w
+@01d6 bnt.w        0x000c ; target @0x01e5
+@01d9 lat.b        0x08 ; temp[8]
+@01db sat.b        0x03 ; temp[3]
+@01dd lat.b        0x00 ; temp[0]
+@01df sat.b        0x04 ; temp[4]
+@01e1 lat.b        0x01 ; temp[1]
+@01e3 sat.b        0x02 ; temp[2]
+@01e5 +at.b        0x05 ; temp[5]
+@01e7 jmp.w        0xfefc ; target @0x00e6
+@01ea lat.b        0x02 ; temp[2]
+@01ec bnt.w        0x0010 ; target @0x01ff
+@01ef pushi.b      0x4c ; possible selector: claimed
+@01f1 push1.w
+@01f2 push1.w
+@01f3 lap.b        0x01 ; param[1]
+@01f5 send.w       0x06
+@01f7 pushi.w      0x0102 ; possible selector: setCursor
+@01fa push1.w
+@01fb lst.b        0x02 ; temp[2]
+@01fd self.w       0x06
+@01ff ret.w
+; KeyMouse::advance
+@0200 link.b       0x01
+@0202 lag.w        0x01bf ; global[447]
+@0205 bnt.w        0x004b ; target @0x0253
+@0208 pushi.b      0x72 ; possible selector: contains
+@020a push1.w
+@020b pTos.b       0x0a
+@020d pToa.b       0x08
+@020f send.w       0x06
+@0211 bnt.w        0x003f ; target @0x0253
+@0214 pushi.b      0x7b ; possible selector: indexOf
+@0216 push1.w
+@0217 pTos.b       0x0a
+@0219 pToa.b       0x08
+@021b send.w       0x06
+@021d sat.b        0x00 ; temp[0]
+@021f push.w
+@0220 pushi.b      0x59 ; possible selector: size
+@0222 push0.w
+@0223 pToa.b       0x08
+@0225 send.w       0x04
+@0227 push.w
+@0228 ldi.b        0x01
+@022a sub.w
+@022b eq?.w
+@022c bnt.w        0x0004 ; target @0x0233
+@022f ldi.b        0xff
+@0231 sat.b        0x00 ; temp[0]
+@0233 pushi.w      0x012a ; possible selector: setPort
+@0236 push0.w
+@0237 self.w       0x04
+@0239 pushi.w      0x0102 ; possible selector: setCursor
+@023c push1.w
+@023d pushi.b      0x43 ; possible selector: at
+@023f push1.w
+@0240 lst.b        0x00 ; temp[0]
+@0242 ldi.b        0x01
+@0244 add.w
+@0245 push.w
+@0246 pToa.b       0x08
+@0248 send.w       0x06
+@024a push.w
+@024b self.w       0x06
+@024d pushi.w      0x012b ; possible selector: resetPort
+@0250 push0.w
+@0251 self.w       0x04
+@0253 ret.w
+; KeyMouse::retreat
+@0254 link.b       0x01
+@0256 lag.w        0x01bf ; global[447]
+@0259 bnt.w        0x0044 ; target @0x02a0
+@025c pushi.b      0x72 ; possible selector: contains
+@025e push1.w
+@025f pTos.b       0x0a
+@0261 pToa.b       0x08
+@0263 send.w       0x06
+@0265 bnt.w        0x0038 ; target @0x02a0
+@0268 pushi.b      0x7b ; possible selector: indexOf
+@026a push1.w
+@026b pTos.b       0x0a
+@026d pToa.b       0x08
+@026f send.w       0x06
+@0271 sat.b        0x00 ; temp[0]
+@0273 not.w
+@0274 bnt.w        0x0009 ; target @0x0280
+@0277 pushi.b      0x59 ; possible selector: size
+@0279 push0.w
+@027a pToa.b       0x08
+@027c send.w       0x04
+@027e sat.b        0x00 ; temp[0]
+@0280 pushi.w      0x012a ; possible selector: setPort
+@0283 push0.w
+@0284 self.w       0x04
+@0286 pushi.w      0x0102 ; possible selector: setCursor
+@0289 push1.w
+@028a pushi.b      0x43 ; possible selector: at
+@028c push1.w
+@028d lst.b        0x00 ; temp[0]
+@028f ldi.b        0x01
+@0291 sub.w
+@0292 push.w
+@0293 pToa.b       0x08
+@0295 send.w       0x06
+@0297 push.w
+@0298 self.w       0x06
+@029a pushi.w      0x012b ; possible selector: resetPort
+@029d push0.w
+@029e self.w       0x04
+@02a0 ret.w
+@02a1 bnot.w
+
+; CLASS @0x02a2 size=80
+@02a2 .hex 06 00 50 00 34 12 00 00 26 00 09 00 30 00 00 00 ; ..P.4...&...0...
+@02b2 .hex 00 80 f6 02 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@02c2 .hex 01 00 02 00 17 00 24 01 25 01 26 01 27 01 28 01 ; ......$.%.&.'.(.
+@02d2 .hex 07 00 7c 00 02 01 29 01 9f 00 a0 00 2a 01 2b 01 ; ..|...).....*.+.
+@02e2 .hex 00 00 9f 00 1c 00 17 00 00 02 54 02 04 00 10 00 ; ..........T.....
+
+; STRINGS @0x02f2 size=14
+@02f2 .hex 05 00 0e 00 4b 65 79 4d 6f 75 73 65 00 00 ; ....KeyMouse..
+
+; LOCALS @0x0300 size=22
+@0300 .hex 0a 00 16 00 b4 00 00 00 2d 00 5a 00 87 00 b4 00 ; ........-.Z.....
+@0310 .hex e1 00 0e 01 3b 01 ; ....;.
+
+; RELOCATIONS @0x0316 size=8
+@0316 .hex 08 00 08 00 01 00 b4 02 ; ........
+
+; END @0x031e size=2
+@031e .hex 00 00 ; ..

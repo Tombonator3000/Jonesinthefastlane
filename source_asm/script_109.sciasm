@@ -1,0 +1,89 @@
+; SCI1 script 109: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 136 bytes.
+
+; EXPORTS @0x0000 size=8
+@0000 .hex 07 00 08 00 01 00 0c 00 ; ........
+
+; CODE @0x0008 size=126
+@0008 .hex 02 00 7e 00 ; ..~.
+; export_0
+@000c link.b       0x03
+@000e lsp.b        0x01 ; param[1]
+@0010 ldi.b        0x64
+@0012 lt?.w
+@0013 bnt.w        0x0013 ; target @0x0029
+@0016 lsp.b        0x01 ; param[1]
+@0018 pushi.b      0x64 ; possible selector: moveDone
+@001a lap.b        0x01 ; param[1]
+@001c sub.w
+@001d push.w
+@001e ldi.b        0x02
+@0020 mul.w
+@0021 push.w
+@0022 ldi.b        0x03
+@0024 div.w
+@0025 sub.w
+@0026 jmp.w        0x000f ; target @0x0038
+@0029 lsp.b        0x01 ; param[1]
+@002b dup.w
+@002c ldi.b        0x64
+@002e sub.w
+@002f push.w
+@0030 ldi.b        0x02
+@0032 mul.w
+@0033 push.w
+@0034 ldi.b        0x03
+@0036 div.w
+@0037 add.w
+@0038 sat.b        0x00 ; temp[0]
+@003a push.w
+@003b ldi.b        0x32
+@003d lt?.w
+@003e bnt.w        0x0004 ; target @0x0045
+@0041 ldi.b        0x32
+@0043 sat.b        0x00 ; temp[0]
+@0045 lsp.b        0x02 ; param[2]
+@0047 lst.b        0x00 ; temp[0]
+@0049 ldi.b        0x0a
+@004b div.w
+@004c mul.w
+@004d push.w
+@004e ldi.b        0x00
+@0050 lt?.w
+@0051 bnt.w        0x0006 ; target @0x005a
+@0054 ldi.w        0x7fff
+@0057 jmp.w        0x0008 ; target @0x0062
+@005a lsp.b        0x02 ; param[2]
+@005c lst.b        0x00 ; temp[0]
+@005e ldi.b        0x0a
+@0060 div.w
+@0061 mul.w
+@0062 sat.b        0x02 ; temp[2]
+@0064 push.w
+@0065 ldi.b        0x0a
+@0067 div.w
+@0068 push.w
+@0069 lsp.b        0x02 ; param[2]
+@006b lst.b        0x00 ; temp[0]
+@006d ldi.b        0x0a
+@006f mod.w
+@0070 mul.w
+@0071 push.w
+@0072 ldi.b        0x64
+@0074 div.w
+@0075 add.w
+@0076 sat.b        0x01 ; temp[1]
+@0078 push.w
+@0079 ldi.b        0x01
+@007b lt?.w
+@007c bnt.w        0x0004 ; target @0x0083
+@007f ldi.b        0x01
+@0081 sat.b        0x01 ; temp[1]
+@0083 lat.b        0x01 ; temp[1]
+@0085 ret.w
+
+; END @0x0086 size=2
+@0086 .hex 00 00 ; ..

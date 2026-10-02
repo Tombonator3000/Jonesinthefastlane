@@ -1,0 +1,1022 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 10
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 10,
+      "size": 370
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 380,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 408,
+      "size": 46
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 454,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 482,
+      "size": 902
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1384,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1462,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1534,
+      "size": 190
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1724,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1828,
+      "size": 960
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2788,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2872,
+      "size": 482
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3354,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3458,
+      "size": 482
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3940,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4044,
+      "size": 136
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4180,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4284,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4356,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4450,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4526,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4552,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4636,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4708,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4780,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4860,
+      "size": 376
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5236,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 5286,
+      "size": 340
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 5626,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 5630,
+      "size": 48
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 5678,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 380,
+      "address": 392,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        5290
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 334
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 454,
+      "address": 466,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        5304,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1384,
+      "address": 1396,
+      "name": "rentOffice",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        5319,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 486
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1342
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1462,
+      "address": 1474,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5330,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        701,
+        1,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1724,
+      "address": 1736,
+      "name": "payRent",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5365,
+        0,
+        65,
+        60,
+        20,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5341,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        325,
+        40,
+        1,
+        4,
+        65535,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1538
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2788,
+      "address": 2800,
+      "name": "moreTime",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5399,
+        0,
+        1,
+        70,
+        20,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5373,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1832
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3354,
+      "address": 3366,
+      "name": "rentLowCost",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5445,
+        0,
+        1,
+        80,
+        20,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5408,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        0,
+        40,
+        1,
+        4,
+        65535,
+        325,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2876
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3940,
+      "address": 3952,
+      "name": "rentSecurity",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5483,
+        0,
+        1,
+        90,
+        20,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5457,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        0,
+        41,
+        1,
+        4,
+        65535,
+        475,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3462
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4180,
+      "address": 4192,
+      "name": "payGarnishment",
+      "species": 55,
+      "superclass": 55,
+      "properties": [
+        55,
+        55,
+        0,
+        5522,
+        0,
+        65,
+        100,
+        20,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5496,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        0,
+        0,
+        4,
+        1,
+        65535,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4048
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4284,
+      "address": 4296,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5537,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4450,
+      "address": 4462,
+      "name": "workButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5548,
+        4,
+        65,
+        108,
+        75,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        1,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4360
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4552,
+      "address": 4564,
+      "name": "timeClock",
+      "species": 57,
+      "superclass": 57,
+      "properties": [
+        57,
+        57,
+        0,
+        5559,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 4530
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4636,
+      "address": 4648,
+      "name": "theShortTitle",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5569,
+        4,
+        0,
+        0,
+        67,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        701,
+        0,
+        0,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4708,
+      "address": 4720,
+      "name": "theLongTitleLeft",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5583,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        701,
+        0,
+        1,
+        13
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 4780,
+      "address": 4792,
+      "name": "theTalker",
+      "species": 56,
+      "superclass": 56,
+      "properties": [
+        56,
+        56,
+        0,
+        5600,
+        4,
+        0,
+        0,
+        115,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        351,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 5236,
+      "address": 5248,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        5610,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 4864
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1396,
+    412
+  ],
+  "strings": [
+    {
+      "offset": 5290,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 5304,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 5319,
+      "text": "rentOffice",
+      "terminated": true
+    },
+    {
+      "offset": 5330,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 5341,
+      "text": "Pay rent for 1 month.  ",
+      "terminated": true
+    },
+    {
+      "offset": 5365,
+      "text": "payRent",
+      "terminated": true
+    },
+    {
+      "offset": 5373,
+      "text": "Ask For More Time.       ",
+      "terminated": true
+    },
+    {
+      "offset": 5399,
+      "text": "moreTime",
+      "terminated": true
+    },
+    {
+      "offset": 5408,
+      "text": "Rent Low-Cost Apartment  ",
+      "terminated": true
+    },
+    {
+      "offset": 5434,
+      "text": " YES ",
+      "terminated": true
+    },
+    {
+      "offset": 5440,
+      "text": " NO ",
+      "terminated": true
+    },
+    {
+      "offset": 5445,
+      "text": "rentLowCost",
+      "terminated": true
+    },
+    {
+      "offset": 5457,
+      "text": "Rent Security Apartment  ",
+      "terminated": true
+    },
+    {
+      "offset": 5483,
+      "text": "rentSecurity",
+      "terminated": true
+    },
+    {
+      "offset": 5496,
+      "text": "Pay Garnishment Balance  ",
+      "terminated": true
+    },
+    {
+      "offset": 5522,
+      "text": "payGarnishment",
+      "terminated": true
+    },
+    {
+      "offset": 5537,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 5548,
+      "text": "workButton",
+      "terminated": true
+    },
+    {
+      "offset": 5559,
+      "text": "timeClock",
+      "terminated": true
+    },
+    {
+      "offset": 5569,
+      "text": "theShortTitle",
+      "terminated": true
+    },
+    {
+      "offset": 5583,
+      "text": "theLongTitleLeft",
+      "terminated": true
+    },
+    {
+      "offset": 5600,
+      "text": "theTalker",
+      "terminated": true
+    },
+    {
+      "offset": 5610,
+      "text": "computerScript",
+      "terminated": true
+    },
+    {
+      "offset": 5625,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

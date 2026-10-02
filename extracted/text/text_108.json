@@ -1,0 +1,13 @@
+{
+  "resource": 108,
+  "encoding": "cp437",
+  "strings": [
+    "You are not properly dressed for work!",
+    "You have missed too much work! You're fired!",
+    "Your work habits better pick up soon or you're fired!",
+    "No time is left to work.",
+    "I'm sorry. I had to garnish $%d.",
+    "Your Landlord garnished $%d.",
+    ""
+  ]
+}

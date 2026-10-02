@@ -1,0 +1,6 @@
+videoDrv=EGA.DRV
+soundDrv=STD.DRV
+kbdDrv=IBMKBD.DRV
+mouseDrv= NO  
+joyDrv=joystick.drv
+

@@ -1,0 +1,24 @@
+{
+  "map_entries": 299,
+  "unique_resources": 266,
+  "identical_resource_duplicates": 33,
+  "counts_by_type": {
+    "view": 90,
+    "pic": 7,
+    "script": 69,
+    "text": 39,
+    "sound": 34,
+    "vocab": 13,
+    "font": 8,
+    "cursor": 2,
+    "patch": 3,
+    "palette": 1
+  },
+  "decompression_failures": 0,
+  "scripts_roundtrip_equal": 69,
+  "disassembled_instructions": 53923,
+  "branch_target_warnings": 0,
+  "runtime_tested": false,
+  "high_level_decompilation_complete": false,
+  "modern_source_port_complete": false
+}

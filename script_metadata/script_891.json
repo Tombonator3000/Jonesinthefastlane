@@ -1,0 +1,133 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 674
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 674,
+      "size": 80
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 754,
+      "size": 14
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 768,
+      "size": 22
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 790,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 798,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 674,
+      "address": 686,
+      "name": "KeyMouse",
+      "species": 48,
+      "superclass": 0,
+      "properties": [
+        48,
+        0,
+        32768,
+        758,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 159
+        },
+        {
+          "selector": 258,
+          "name": "setCursor",
+          "address": 28
+        },
+        {
+          "selector": 297,
+          "name": "setList",
+          "address": 23
+        },
+        {
+          "selector": 159,
+          "name": "advance",
+          "address": 512
+        },
+        {
+          "selector": 160,
+          "name": "retreat",
+          "address": 596
+        },
+        {
+          "selector": 298,
+          "name": "setPort",
+          "address": 4
+        },
+        {
+          "selector": 299,
+          "name": "resetPort",
+          "address": 16
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        292,
+        293,
+        294,
+        295,
+        296
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 758,
+      "text": "KeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 767,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    180,
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315
+  ]
+}

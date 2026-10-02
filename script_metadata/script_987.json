@@ -1,0 +1,229 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 810
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 810,
+      "size": 164
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 974,
+      "size": 36
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 1010,
+      "size": 98
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1108,
+      "size": 12
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1120,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 810,
+      "address": 822,
+      "name": "Gauge",
+      "species": 44,
+      "superclass": 16,
+      "properties": [
+        44,
+        16,
+        32768,
+        1003,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        978,
+        981,
+        7,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 4
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 455
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 676
+        },
+        {
+          "selector": 286,
+          "name": "update",
+          "address": 597
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89,
+        26,
+        35,
+        161,
+        9,
+        10,
+        11,
+        12,
+        25,
+        162,
+        128,
+        129,
+        45,
+        308,
+        131,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 978,
+      "text": "up",
+      "terminated": true
+    },
+    {
+      "offset": 981,
+      "text": "down",
+      "terminated": true
+    },
+    {
+      "offset": 986,
+      "text": "OK",
+      "terminated": true
+    },
+    {
+      "offset": 989,
+      "text": "Normal",
+      "terminated": true
+    },
+    {
+      "offset": 996,
+      "text": "Cancel",
+      "terminated": true
+    },
+    {
+      "offset": 1003,
+      "text": "Gauge",
+      "terminated": true
+    },
+    {
+      "offset": 1009,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

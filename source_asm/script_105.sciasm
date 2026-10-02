@@ -1,0 +1,103 @@
+; SCI1 script 105: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 284 bytes.
+
+; CODE @0x0000 size=138
+@0000 .hex 02 00 8a 00 ; ....
+; InvisibleWindow::open
+@0004 push0.w
+@0005 callk.b      0x14 0x00 ; GetPort
+@0008 aTop.b       0x2c
+@000a push1.w
+@000b push0.w
+@000c callk.b      0x15 0x02 ; SetPort
+@000f pToa.b       0x2a
+@0011 bnt.w        0x0017 ; target @0x002b
+@0014 pushi.b      0x06 ; possible selector: loop
+@0016 pushi.b      0x07 ; possible selector: cel
+@0018 pTos.b       0x08
+@001a pTos.b       0x0a
+@001c ldi.b        0x01
+@001e sub.w
+@001f push.w
+@0020 pTos.b       0x0c
+@0022 pTos.b       0x0e
+@0024 pushi.b      0x03 ; possible selector: y
+@0026 callk.b      0x6c 0x0c ; Graph
+@0029 aTop.b       0x2a
+@002b pushi.b      0x08 ; possible selector: underBits
+@002d pushi.b      0x0b ; possible selector: nsBottom
+@002f pTos.b       0x08
+@0031 pTos.b       0x0a
+@0033 ldi.b        0x01
+@0035 sub.w
+@0036 push.w
+@0037 pTos.b       0x0c
+@0039 pTos.b       0x0e
+@003b ldi.b        0x03
+@003d sub.w
+@003e push.w
+@003f push2.w
+@0040 push0.w
+@0041 push0.w
+@0042 callk.b      0x6c 0x10 ; Graph
+@0045 ldi.w        0x0081
+@0048 aTop.b       0x18
+@004a pushi.w      0x00a3 ; possible selector: open
+@004d push0.w
+@004e super.b      0x24 0x04
+@0051 ret.w
+; InvisibleWindow::dispose
+@0052 push1.w
+@0053 push0.w
+@0054 callk.b      0x15 0x02 ; SetPort
+@0057 pToa.b       0x2a
+@0059 bnt.w        0x001b ; target @0x0077
+@005c push2.w
+@005d pushi.b      0x08 ; possible selector: underBits
+@005f push.w
+@0060 callk.b      0x6c 0x04 ; Graph
+@0063 pushi.b      0x06 ; possible selector: loop
+@0065 pushi.b      0x0c ; possible selector: nsRight
+@0067 pTos.b       0x08
+@0069 pTos.b       0x0a
+@006b ldi.b        0x01
+@006d sub.w
+@006e push.w
+@006f pTos.b       0x0c
+@0071 pTos.b       0x0e
+@0073 push1.w
+@0074 callk.b      0x6c 0x0c ; Graph
+@0077 push1.w
+@0078 pTos.b       0x16
+@007a callk.b      0x16 0x02 ; DisposeWindow
+@007d push1.w
+@007e pTos.b       0x2c
+@0080 callk.b      0x15 0x02 ; SetPort
+@0083 push1.w
+@0084 pushSelf.w
+@0085 callk.b      0x05 0x02 ; DisposeClone
+@0088 ret.w
+@0089 bnot.w
+
+; CLASS @0x008a size=116
+@008a .hex 06 00 74 00 34 12 00 00 5e 00 17 00 3b 00 24 00 ; ..t.4...^...;.$.
+@009a .hex 00 80 02 01 00 00 00 00 00 00 00 00 00 00 07 00 ; ................
+@00aa .hex ff ff 00 00 81 00 00 00 04 00 04 00 00 00 00 00 ; ................
+@00ba .hex be 00 40 01 00 00 00 00 00 00 00 00 01 00 02 00 ; ..@.............
+@00ca .hex 17 00 a5 00 a6 00 a7 00 a8 00 1c 00 1d 00 3f 00 ; ..............?.
+@00da .hex 23 00 22 00 50 00 a9 00 aa 00 13 00 14 00 15 00 ; #.".P...........
+@00ea .hex 16 00 3c 01 08 00 26 01 02 00 67 00 a3 00 00 00 ; ..<...&...g.....
+@00fa .hex 52 00 04 00 ; R...
+
+; STRINGS @0x00fe size=20
+@00fe .hex 05 00 14 00 49 6e 76 69 73 69 62 6c 65 57 69 6e ; ....InvisibleWin
+@010e .hex 64 6f 77 00 ; dow.
+
+; RELOCATIONS @0x0112 size=8
+@0112 .hex 08 00 08 00 01 00 9c 00 ; ........
+
+; END @0x011a size=2
+@011a .hex 00 00 ; ..

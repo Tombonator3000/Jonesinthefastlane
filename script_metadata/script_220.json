@@ -1,0 +1,521 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 380
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 416,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 490,
+      "size": 72
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 562,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 642,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 754,
+      "size": 112
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 866,
+      "size": 112
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 978,
+      "size": 22
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1000,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 1076,
+      "size": 184
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 1260,
+      "size": 30
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 1290,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        1080,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 416,
+      "address": 428,
+      "name": "universityJobs",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        1095,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 490,
+      "address": 502,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        1110,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        706,
+        0,
+        1,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 562,
+      "address": 574,
+      "name": "jobsAvailable",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        1148,
+        0,
+        0,
+        35,
+        34,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1121,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 642,
+      "address": 654,
+      "name": "janitor",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1183,
+        0,
+        35,
+        50,
+        25,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1162,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        43,
+        0,
+        1,
+        65535,
+        4,
+        0,
+        0,
+        4,
+        0,
+        10,
+        10,
+        0,
+        0,
+        14,
+        36
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 754,
+      "address": 766,
+      "name": "teacher",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1211,
+        0,
+        35,
+        60,
+        25,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1191,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        48,
+        0,
+        1,
+        65535,
+        11,
+        0,
+        0,
+        4,
+        0,
+        50,
+        40,
+        16,
+        0,
+        15,
+        35
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 866,
+      "address": 878,
+      "name": "professor",
+      "species": 76,
+      "superclass": 76,
+      "properties": [
+        76,
+        76,
+        0,
+        1239,
+        0,
+        35,
+        70,
+        25,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1219,
+        0,
+        10,
+        0,
+        65535,
+        107,
+        100,
+        0,
+        0,
+        49,
+        0,
+        1,
+        65535,
+        20,
+        0,
+        0,
+        4,
+        0,
+        60,
+        50,
+        19,
+        0,
+        16,
+        35
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1000,
+      "address": 1012,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        1249,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 982
+        }
+      ]
+    }
+  ],
+  "exports": [
+    428
+  ],
+  "strings": [
+    {
+      "offset": 1080,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 1095,
+      "text": "universityJobs",
+      "terminated": true
+    },
+    {
+      "offset": 1110,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 1121,
+      "text": "University Jobs Available:",
+      "terminated": true
+    },
+    {
+      "offset": 1148,
+      "text": "jobsAvailable",
+      "terminated": true
+    },
+    {
+      "offset": 1162,
+      "text": "Janitor            |",
+      "terminated": true
+    },
+    {
+      "offset": 1183,
+      "text": "janitor",
+      "terminated": true
+    },
+    {
+      "offset": 1191,
+      "text": "Teacher            ",
+      "terminated": true
+    },
+    {
+      "offset": 1211,
+      "text": "teacher",
+      "terminated": true
+    },
+    {
+      "offset": 1219,
+      "text": "Professor          ",
+      "terminated": true
+    },
+    {
+      "offset": 1239,
+      "text": "professor",
+      "terminated": true
+    },
+    {
+      "offset": 1249,
+      "text": "exitButton",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

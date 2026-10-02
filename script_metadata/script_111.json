@@ -1,0 +1,462 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 5062
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5070,
+      "size": 54
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5124,
+      "size": 714
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5838,
+      "size": 50
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5888,
+      "size": 52
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5940,
+      "size": 106
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 6046,
+      "size": 256
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 6302,
+      "size": 50
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 6352,
+      "size": 110
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 6462,
+      "size": 110
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 6572,
+      "size": 78
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 6650,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 6654,
+      "size": 168
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 6822,
+      "size": 16
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 6838,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 5070,
+      "address": 5082,
+      "name": "startTrn",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        6598,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 12
+        },
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 36
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5838,
+      "address": 5850,
+      "name": "moveNotice",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        6607,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 5128
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5940,
+      "address": 5952,
+      "name": "notice",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        6618,
+        0,
+        0,
+        0,
+        0,
+        2,
+        310,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32768,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 5892
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 6302,
+      "address": 6314,
+      "name": "moveAmbulance",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        6625,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 6050
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 6462,
+      "address": 6474,
+      "name": "ambulance",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        6639,
+        0,
+        0,
+        0,
+        0,
+        2,
+        608,
+        1,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        32768,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 6356
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 6417
+        }
+      ]
+    }
+  ],
+  "exports": [
+    5082
+  ],
+  "strings": [
+    {
+      "offset": 6576,
+      "text": "Continue",
+      "terminated": true
+    },
+    {
+      "offset": 6585,
+      "text": "Restart",
+      "terminated": true
+    },
+    {
+      "offset": 6593,
+      "text": "Quit",
+      "terminated": true
+    },
+    {
+      "offset": 6598,
+      "text": "startTrn",
+      "terminated": true
+    },
+    {
+      "offset": 6607,
+      "text": "moveNotice",
+      "terminated": true
+    },
+    {
+      "offset": 6618,
+      "text": "notice",
+      "terminated": true
+    },
+    {
+      "offset": 6625,
+      "text": "moveAmbulance",
+      "terminated": true
+    },
+    {
+      "offset": 6639,
+      "text": "ambulance",
+      "terminated": true
+    },
+    {
+      "offset": 6649,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

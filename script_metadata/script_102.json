@@ -1,0 +1,80 @@
+{
+  "sections": [
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 0,
+      "size": 44
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 44,
+      "size": 52
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 96,
+      "size": 10
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 106,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 114,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 44,
+      "address": 56,
+      "name": "WList",
+      "species": 53,
+      "superclass": 3,
+      "properties": [
+        53,
+        3,
+        32768,
+        100,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 332,
+          "name": "empty",
+          "address": 4
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        27,
+        89,
+        330,
+        331
+      ]
+    }
+  ],
+  "exports": [],
+  "strings": [
+    {
+      "offset": 100,
+      "text": "WList",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

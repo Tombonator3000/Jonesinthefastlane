@@ -1,0 +1,311 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 8,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 36,
+      "size": 224
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 260,
+      "size": 74
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 334,
+      "size": 22
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 356,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 432,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 460,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 536,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 578,
+      "size": 76
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 654,
+      "size": 62
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 716,
+      "size": 16
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 732,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 8,
+      "address": 20,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        658,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 260,
+      "address": 272,
+      "name": "select1",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        673,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 40
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 356,
+      "address": 368,
+      "name": "playGame",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        681,
+        4,
+        35,
+        17,
+        27,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        1,
+        0,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 338
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 460,
+      "address": 472,
+      "name": "restoreGame",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        690,
+        4,
+        35,
+        47,
+        27,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        1,
+        2,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 436
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 578,
+      "address": 590,
+      "name": "demonstration",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        702,
+        4,
+        35,
+        77,
+        27,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        1,
+        1,
+        13
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 540
+        }
+      ]
+    }
+  ],
+  "exports": [
+    272
+  ],
+  "strings": [
+    {
+      "offset": 658,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 673,
+      "text": "select1",
+      "terminated": true
+    },
+    {
+      "offset": 681,
+      "text": "playGame",
+      "terminated": true
+    },
+    {
+      "offset": 690,
+      "text": "restoreGame",
+      "terminated": true
+    },
+    {
+      "offset": 702,
+      "text": "demonstration",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

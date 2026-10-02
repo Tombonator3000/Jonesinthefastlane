@@ -1,0 +1,600 @@
+; SCI1 script 992: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 1628 bytes.
+
+; CODE @0x0000 size=232
+@0000 .hex 02 00 e8 00 ; ....
+; Cycle::init
+@0004 lap.b        0x01 ; param[1]
+@0006 aTop.b       0x08
+@0008 pushi.w      0x00ae ; possible selector: ticksToDo
+@000b push0.w
+@000c pToa.b       0x08
+@000e send.w       0x04
+@0010 aTop.b       0x12
+@0012 ldi.b        0x00
+@0014 aTop.b       0x0e
+@0016 push0.w
+@0017 callk.b      0x42 0x00 ; GetTime
+@001a aTop.b       0x14
+@001c ret.w
+; Cycle::nextCel
+@001d pToa.b       0x12
+@001f bnt.w        0x0055 ; target @0x0077
+@0022 push.w
+@0023 pToa.b       0x14
+@0025 add.w
+@0026 push.w
+@0027 push0.w
+@0028 callk.b      0x42 0x00 ; GetTime
+@002b ult?.w
+@002c bt.w         0x0013 ; target @0x0042
+@002f pTos.b       0x14
+@0031 push0.w
+@0032 callk.b      0x42 0x00 ; GetTime
+@0035 ugt?.w
+@0036 bnt.w        0x0034 ; target @0x006d
+@0039 pTos.b       0x12
+@003b pToa.b       0x14
+@003d add.w
+@003e push.w
+@003f pToa.b       0x14
+@0041 ugt?.w
+@0042 bnt.w        0x0028 ; target @0x006d
+@0045 pushi.b      0x11 ; possible selector: signal
+@0047 push0.w
+@0048 pToa.b       0x08
+@004a send.w       0x04
+@004c push.w
+@004d ldi.w        0x1000
+@0050 and.w
+@0051 bnt.w        0x000a ; target @0x005e
+@0054 pushi.b      0x07 ; possible selector: cel
+@0056 push0.w
+@0057 pToa.b       0x08
+@0059 send.w       0x04
+@005b jmp.w        0x0056 ; target @0x00b4
+@005e push0.w
+@005f callk.b      0x42 0x00 ; GetTime
+@0062 aTop.b       0x14
+@0064 pushi.w      0x00b3 ; possible selector: changeCel
+@0067 push0.w
+@0068 self.w       0x04
+@006a jmp.w        0x0047 ; target @0x00b4
+@006d pushi.b      0x07 ; possible selector: cel
+@006f push0.w
+@0070 pToa.b       0x08
+@0072 send.w       0x04
+@0074 jmp.w        0x003d ; target @0x00b4
+@0077 ipToa.b      0x0e
+@0079 pTos.b       0x0e
+@007b pushi.w      0x00b4 ; possible selector: cycleSpeed
+@007e push0.w
+@007f pToa.b       0x08
+@0081 send.w       0x04
+@0083 le?.w
+@0084 bnt.w        0x000a ; target @0x0091
+@0087 pushi.b      0x07 ; possible selector: cel
+@0089 push0.w
+@008a pToa.b       0x08
+@008c send.w       0x04
+@008e jmp.w        0x0023 ; target @0x00b4
+@0091 ldi.b        0x00
+@0093 aTop.b       0x0e
+@0095 pushi.b      0x11 ; possible selector: signal
+@0097 push0.w
+@0098 pToa.b       0x08
+@009a send.w       0x04
+@009c push.w
+@009d ldi.w        0x1000
+@00a0 and.w
+@00a1 bnt.w        0x000a ; target @0x00ae
+@00a4 pushi.b      0x07 ; possible selector: cel
+@00a6 push0.w
+@00a7 pToa.b       0x08
+@00a9 send.w       0x04
+@00ab jmp.w        0x0006 ; target @0x00b4
+@00ae pushi.w      0x00b3 ; possible selector: changeCel
+@00b1 push0.w
+@00b2 self.w       0x04
+@00b4 ret.w
+; Cycle::changeCel
+@00b5 pushi.b      0x07 ; possible selector: cel
+@00b7 push0.w
+@00b8 pToa.b       0x08
+@00ba send.w       0x04
+@00bc push.w
+@00bd pToa.b       0x0c
+@00bf add.w
+@00c0 ret.w
+; Cycle::cycleDone
+@00c1 ret.w
+; Cycle::motionCue
+@00c2 pushi.w      0x00b5 ; possible selector: cycler
+@00c5 push1.w
+@00c6 push0.w
+@00c7 pToa.b       0x08
+@00c9 send.w       0x06
+@00cb pToa.b       0x10
+@00cd bnt.w        0x0011 ; target @0x00e1
+@00d0 push1.w
+@00d1 pTos.b       0x0a
+@00d3 callk.b      0x06 0x02 ; IsObject
+@00d6 bnt.w        0x0008 ; target @0x00e1
+@00d9 pushi.w      0x0087 ; possible selector: cue
+@00dc push0.w
+@00dd pToa.b       0x0a
+@00df send.w       0x04
+@00e1 pushi.b      0x67 ; possible selector: dispose
+@00e3 push0.w
+@00e4 self.w       0x04
+@00e6 ret.w
+@00e7 bnot.w
+
+; CLASS @0x00e8 size=80
+@00e8 .hex 06 00 50 00 34 12 00 00 2e 00 0b 00 13 00 00 00 ; ..P.4...........
+@00f8 .hex 00 80 1c 06 00 00 00 00 01 00 00 00 00 00 00 00 ; ................
+@0108 .hex 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ab 00 ; ..........-.....
+@0118 .hex ac 00 ad 00 ae 00 af 00 05 00 66 00 b0 00 b1 00 ; ..........f.....
+@0128 .hex b2 00 b3 00 00 00 04 00 1d 00 c1 00 c2 00 b5 00 ; ................
+
+; CODE @0x0138 size=56
+@0138 .hex 02 00 38 00 ; ..8.
+; Fwd::doit
+@013c link.b       0x01
+@013e pushi.w      0x00b0 ; possible selector: nextCel
+@0141 push0.w
+@0142 self.w       0x04
+@0144 sat.b        0x00 ; temp[0]
+@0146 push.w
+@0147 pushi.w      0x00b6 ; possible selector: lastCel
+@014a push0.w
+@014b pToa.b       0x08
+@014d send.w       0x04
+@014f gt?.w
+@0150 bnt.w        0x0009 ; target @0x015c
+@0153 pushi.w      0x00b1 ; possible selector: cycleDone
+@0156 push0.w
+@0157 self.w       0x04
+@0159 jmp.w        0x0009 ; target @0x0165
+@015c pushi.b      0x07 ; possible selector: cel
+@015e push1.w
+@015f lst.b        0x00 ; temp[0]
+@0161 pToa.b       0x08
+@0163 send.w       0x06
+@0165 ret.w
+; Fwd::cycleDone
+@0166 pushi.b      0x07 ; possible selector: cel
+@0168 push1.w
+@0169 push0.w
+@016a pToa.b       0x08
+@016c send.w       0x06
+@016e ret.w
+@016f bnot.w
+
+; CLASS @0x0170 size=68
+@0170 .hex 06 00 44 00 34 12 00 00 2e 00 0b 00 14 00 13 00 ; ..D.4...........
+@0180 .hex 00 80 22 06 00 00 00 00 01 00 00 00 00 00 00 00 ; ..".............
+@0190 .hex 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ab 00 ; ..........-.....
+@01a0 .hex ac 00 ad 00 ae 00 af 00 02 00 3c 00 b1 00 00 00 ; ..........<.....
+@01b0 .hex 3c 01 66 01 ; <.f.
+
+; CODE @0x01b4 size=26
+@01b4 .hex 02 00 1a 00 ; ....
+; Walk::doit
+@01b8 link.b       0x01
+@01ba pushi.w      0x00b7 ; possible selector: isStopped
+@01bd push0.w
+@01be pToa.b       0x08
+@01c0 send.w       0x04
+@01c2 not.w
+@01c3 bnt.w        0x0006 ; target @0x01cc
+@01c6 pushi.b      0x3c ; possible selector: doit
+@01c8 push0.w
+@01c9 super.b      0x14 0x04
+@01cc ret.w
+@01cd bnot.w
+
+; CLASS @0x01ce size=64
+@01ce .hex 06 00 40 00 34 12 00 00 2e 00 0b 00 15 00 14 00 ; ..@.4...........
+@01de .hex 00 80 26 06 00 00 00 00 01 00 00 00 00 00 00 00 ; ..&.............
+@01ee .hex 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ab 00 ; ..........-.....
+@01fe .hex ac 00 ad 00 ae 00 af 00 01 00 3c 00 00 00 b8 01 ; ..........<.....
+
+; CODE @0x020e size=172
+@020e .hex 02 00 ac 00 ; ....
+; CT::init
+@0212 link.b       0x01
+@0214 pushi.b      0x66 ; possible selector: init
+@0216 push1.w
+@0217 lsp.b        0x01 ; param[1]
+@0219 super.b      0x13 0x06
+@021c lap.b        0x03 ; param[3]
+@021e aTop.b       0x0c
+@0220 lsp.b        0x00 ; param[0]
+@0222 ldi.b        0x04
+@0224 ge?.w
+@0225 bnt.w        0x0004 ; target @0x022c
+@0228 lap.b        0x04 ; param[4]
+@022a aTop.b       0x0a
+@022c pushi.w      0x00b6 ; possible selector: lastCel
+@022f push0.w
+@0230 pToa.b       0x08
+@0232 send.w       0x04
+@0234 sat.b        0x00 ; temp[0]
+@0236 lsp.b        0x02 ; param[2]
+@0238 gt?.w
+@0239 bnt.w        0x0005 ; target @0x0241
+@023c lat.b        0x00 ; temp[0]
+@023e jmp.w        0x0002 ; target @0x0243
+@0241 lap.b        0x02 ; param[2]
+@0243 aTop.b       0x16
+@0245 ret.w
+; CT::doit
+@0246 link.b       0x02
+@0248 pushi.w      0x00b6 ; possible selector: lastCel
+@024b push0.w
+@024c pToa.b       0x08
+@024e send.w       0x04
+@0250 sat.b        0x01 ; temp[1]
+@0252 pTos.b       0x16
+@0254 gt?.w
+@0255 bnt.w        0x0004 ; target @0x025c
+@0258 lat.b        0x01 ; temp[1]
+@025a aTop.b       0x16
+@025c pushi.w      0x00b0 ; possible selector: nextCel
+@025f push0.w
+@0260 self.w       0x04
+@0262 sat.b        0x00 ; temp[0]
+@0264 pushi.b      0x07 ; possible selector: cel
+@0266 push1.w
+@0267 push.w
+@0268 lat.b        0x01 ; temp[1]
+@026a gt?.w
+@026b bnt.w        0x0005 ; target @0x0273
+@026e ldi.b        0x00
+@0270 jmp.w        0x000f ; target @0x0282
+@0273 lst.b        0x00 ; temp[0]
+@0275 ldi.b        0x00
+@0277 lt?.w
+@0278 bnt.w        0x0005 ; target @0x0280
+@027b lat.b        0x01 ; temp[1]
+@027d jmp.w        0x0002 ; target @0x0282
+@0280 lat.b        0x00 ; temp[0]
+@0282 push.w
+@0283 pToa.b       0x08
+@0285 send.w       0x06
+@0287 pTos.b       0x0e
+@0289 ldi.b        0x00
+@028b eq?.w
+@028c bnt.w        0x0013 ; target @0x02a2
+@028f pTos.b       0x16
+@0291 pushi.b      0x07 ; possible selector: cel
+@0293 push0.w
+@0294 pToa.b       0x08
+@0296 send.w       0x04
+@0298 eq?.w
+@0299 bnt.w        0x0006 ; target @0x02a2
+@029c pushi.w      0x00b1 ; possible selector: cycleDone
+@029f push0.w
+@02a0 self.w       0x04
+@02a2 ret.w
+; CT::cycleDone
+@02a3 ldi.b        0x01
+@02a5 aTop.b       0x10
+@02a7 pToa.b       0x0a
+@02a9 bnt.w        0x0007 ; target @0x02b3
+@02ac ldi.b        0x01
+@02ae sag.b        0x3a ; global[58]
+@02b0 jmp.w        0x0006 ; target @0x02b9
+@02b3 pushi.w      0x00b2 ; possible selector: motionCue
+@02b6 push0.w
+@02b7 self.w       0x04
+@02b9 ret.w
+
+; CLASS @0x02ba size=76
+@02ba .hex 06 00 4c 00 34 12 00 00 32 00 0c 00 16 00 13 00 ; ..L.4...2.......
+@02ca .hex 00 80 2b 06 00 00 00 00 01 00 00 00 00 00 00 00 ; ..+.............
+@02da .hex 00 00 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ; ............-...
+@02ea .hex ab 00 ac 00 ad 00 ae 00 af 00 b8 00 03 00 66 00 ; ..............f.
+@02fa .hex 3c 00 b1 00 00 00 12 02 46 02 a3 02 ; <.......F...
+
+; CODE @0x0306 size=40
+@0306 .hex 02 00 28 00 ; ..(.
+; End::init
+@030a pushi.b      0x66 ; possible selector: init
+@030c pushi.b      0x04 ; possible selector: x
+@030e lsp.b        0x01 ; param[1]
+@0310 pushi.w      0x00b6 ; possible selector: lastCel
+@0313 push0.w
+@0314 lap.b        0x01 ; param[1]
+@0316 send.w       0x04
+@0318 push.w
+@0319 push1.w
+@031a lsp.b        0x00 ; param[0]
+@031c ldi.b        0x02
+@031e ge?.w
+@031f bnt.w        0x0005 ; target @0x0327
+@0322 lap.b        0x02 ; param[2]
+@0324 jmp.w        0x0002 ; target @0x0329
+@0327 ldi.b        0x00
+@0329 push.w
+@032a super.b      0x16 0x0c
+@032d ret.w
+
+; CLASS @0x032e size=68
+@032e .hex 06 00 44 00 34 12 00 00 32 00 0c 00 17 00 16 00 ; ..D.4...2.......
+@033e .hex 00 80 2e 06 00 00 00 00 01 00 00 00 00 00 00 00 ; ................
+@034e .hex 00 00 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ; ............-...
+@035e .hex ab 00 ac 00 ad 00 ae 00 af 00 b8 00 01 00 66 00 ; ..............f.
+@036e .hex 00 00 0a 03 ; ....
+
+; CODE @0x0372 size=34
+@0372 .hex 02 00 22 00 ; ..".
+; Beg::init
+@0376 pushi.b      0x66 ; possible selector: init
+@0378 pushi.b      0x04 ; possible selector: x
+@037a lsp.b        0x01 ; param[1]
+@037c push0.w
+@037d pushi.b      0xff ; possible selector: changeScore
+@037f lsp.b        0x00 ; param[0]
+@0381 ldi.b        0x02
+@0383 ge?.w
+@0384 bnt.w        0x0005 ; target @0x038c
+@0387 lap.b        0x02 ; param[2]
+@0389 jmp.w        0x0002 ; target @0x038e
+@038c ldi.b        0x00
+@038e push.w
+@038f super.b      0x16 0x0c
+@0392 ret.w
+@0393 bnot.w
+
+; CLASS @0x0394 size=68
+@0394 .hex 06 00 44 00 34 12 00 00 32 00 0c 00 18 00 16 00 ; ..D.4...2.......
+@03a4 .hex 00 80 32 06 00 00 00 00 01 00 00 00 00 00 00 00 ; ..2.............
+@03b4 .hex 00 00 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 ; ............-...
+@03c4 .hex ab 00 ac 00 ad 00 ae 00 af 00 b8 00 01 00 66 00 ; ..............f.
+@03d4 .hex 00 00 76 03 ; ..v.
+
+; CODE @0x03d8 size=292
+@03d8 .hex 02 00 24 01 ; ..$.
+; Motion::init
+@03dc link.b       0x04
+@03de lsp.b        0x00 ; param[0]
+@03e0 ldi.b        0x01
+@03e2 ge?.w
+@03e3 bnt.w        0x0028 ; target @0x040e
+@03e6 lap.b        0x01 ; param[1]
+@03e8 aTop.b       0x08
+@03ea lsp.b        0x00 ; param[0]
+@03ec ldi.b        0x02
+@03ee ge?.w
+@03ef bnt.w        0x001c ; target @0x040e
+@03f2 lap.b        0x02 ; param[2]
+@03f4 aTop.b       0x0c
+@03f6 lsp.b        0x00 ; param[0]
+@03f8 ldi.b        0x03
+@03fa ge?.w
+@03fb bnt.w        0x0010 ; target @0x040e
+@03fe lap.b        0x03 ; param[3]
+@0400 aTop.b       0x0e
+@0402 lsp.b        0x00 ; param[0]
+@0404 ldi.b        0x04
+@0406 ge?.w
+@0407 bnt.w        0x0004 ; target @0x040e
+@040a lap.b        0x04 ; param[4]
+@040c aTop.b       0x0a
+@040e ldi.b        0x00
+@0410 aTop.b       0x20
+@0412 aTop.b       0x14
+@0414 aTop.b       0x22
+@0416 aTop.b       0x24
+@0418 pushi.w      0x00b9 ; possible selector: xLast
+@041b push1.w
+@041c push0.w
+@041d pushi.w      0x00ba ; possible selector: yLast
+@0420 push1.w
+@0421 push0.w
+@0422 pToa.b       0x08
+@0424 send.w       0x0c
+@0426 pushi.w      0x00b5 ; possible selector: cycler
+@0429 push0.w
+@042a pToa.b       0x08
+@042c send.w       0x04
+@042e sat.b        0x03 ; temp[3]
+@0430 bnt.w        0x0007 ; target @0x043a
+@0433 pushi.w      0x00ac ; possible selector: cycleCnt
+@0436 push1.w
+@0437 push0.w
+@0438 send.w       0x06
+@043a pushi.b      0x3a ; possible selector: heading
+@043c push1.w
+@043d pushi.b      0x04 ; possible selector: x
+@043f dup.w
+@0440 push0.w
+@0441 pToa.b       0x08
+@0443 send.w       0x04
+@0445 push.w
+@0446 pushi.b      0x03 ; possible selector: y
+@0448 push0.w
+@0449 pToa.b       0x08
+@044b send.w       0x04
+@044d push.w
+@044e pTos.b       0x0c
+@0450 pTos.b       0x0e
+@0452 callk.b      0x3f 0x08 ; GetAngle
+@0455 push.w
+@0456 pToa.b       0x08
+@0458 send.w       0x06
+@045a pushi.b      0x3e ; possible selector: looper
+@045c push0.w
+@045d pToa.b       0x08
+@045f send.w       0x04
+@0461 bnt.w        0x0016 ; target @0x047a
+@0464 pushi.b      0x3c ; possible selector: doit
+@0466 push2.w
+@0467 pTos.b       0x08
+@0469 pushi.b      0x3a ; possible selector: heading
+@046b push0.w
+@046c pToa.b       0x08
+@046e send.w       0x04
+@0470 push.w
+@0471 pushi.b      0x3e ; possible selector: looper
+@0473 push0.w
+@0474 pToa.b       0x08
+@0476 send.w       0x04
+@0478 send.w       0x08
+@047a push1.w
+@047b pushSelf.w
+@047c callk.b      0x4f 0x02 ; InitBresen
+@047f ret.w
+; Motion::onTarget
+@0480 pushi.b      0x04 ; possible selector: x
+@0482 push0.w
+@0483 pToa.b       0x08
+@0485 send.w       0x04
+@0487 push.w
+@0488 pToa.b       0x0c
+@048a eq?.w
+@048b bnt.w        0x000b ; target @0x0499
+@048e pushi.b      0x03 ; possible selector: y
+@0490 push0.w
+@0491 pToa.b       0x08
+@0493 send.w       0x04
+@0495 push.w
+@0496 pToa.b       0x0e
+@0498 eq?.w
+@0499 ret.w
+; Motion::setTarget
+@049a lap.b        0x00 ; param[0]
+@049c bnt.w        0x0008 ; target @0x04a7
+@049f lap.b        0x01 ; param[1]
+@04a1 aTop.b       0x0c
+@04a3 lap.b        0x02 ; param[2]
+@04a5 aTop.b       0x0e
+@04a7 ret.w
+; Motion::doit
+@04a8 link.b       0x06
+@04aa push1.w
+@04ab pushSelf.w
+@04ac callk.b      0x50 0x02 ; DoBresen
+@04af pushi.w      0x00b9 ; possible selector: xLast
+@04b2 push1.w
+@04b3 pTos.b       0x22
+@04b5 pushi.w      0x00ba ; possible selector: yLast
+@04b8 push1.w
+@04b9 pTos.b       0x24
+@04bb pToa.b       0x08
+@04bd send.w       0x0c
+@04bf ret.w
+; Motion::moveDone
+@04c0 ldi.b        0x01
+@04c2 aTop.b       0x20
+@04c4 pToa.b       0x0a
+@04c6 bnt.w        0x0007 ; target @0x04d0
+@04c9 ldi.b        0x01
+@04cb sag.b        0x3a ; global[58]
+@04cd jmp.w        0x0006 ; target @0x04d6
+@04d0 pushi.w      0x00b2 ; possible selector: motionCue
+@04d3 push0.w
+@04d4 self.w       0x04
+@04d6 ret.w
+; Motion::motionCue
+@04d7 pushi.b      0x3b ; possible selector: mover
+@04d9 push1.w
+@04da push0.w
+@04db pToa.b       0x08
+@04dd send.w       0x06
+@04df pToa.b       0x20
+@04e1 bnt.w        0x0011 ; target @0x04f5
+@04e4 push1.w
+@04e5 pTos.b       0x0a
+@04e7 callk.b      0x06 0x02 ; IsObject
+@04ea bnt.w        0x0008 ; target @0x04f5
+@04ed pushi.w      0x0087 ; possible selector: cue
+@04f0 push0.w
+@04f1 pToa.b       0x0a
+@04f3 send.w       0x04
+@04f5 pushi.b      0x67 ; possible selector: dispose
+@04f7 push0.w
+@04f8 self.w       0x04
+@04fa ret.w
+@04fb bnot.w
+
+; CLASS @0x04fc size=116
+@04fc .hex 06 00 74 00 34 12 00 00 4e 00 13 00 19 00 00 00 ; ..t.4...N.......
+@050c .hex 00 80 36 06 00 00 00 00 00 00 00 00 00 00 00 00 ; ..6.............
+@051c .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@052c .hex 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 04 00 ; ..........-.....
+@053c .hex 03 00 2e 00 2f 00 30 00 31 00 32 00 33 00 34 00 ; ..../.0.1.2.3.4.
+@054c .hex 35 00 ad 00 b9 00 ba 00 06 00 66 00 3c 00 64 00 ; 5.........f.<.d.
+@055c .hex bb 00 bc 00 b2 00 00 00 dc 03 a8 04 c0 04 9a 04 ; ................
+@056c .hex 80 04 d7 04 ; ....
+
+; CODE @0x0570 size=68
+@0570 .hex 02 00 44 00 ; ..D.
+; MoveTo::init
+@0574 pushi.b      0x66 ; possible selector: init
+@0576 push0.w
+@0577 &rest.b      0x01
+@0579 super.b      0x19 0x04
+@057c ret.w
+; MoveTo::onTarget
+@057d push1.w
+@057e pushi.b      0x04 ; possible selector: x
+@0580 push0.w
+@0581 pToa.b       0x08
+@0583 send.w       0x04
+@0585 push.w
+@0586 pToa.b       0x0c
+@0588 sub.w
+@0589 push.w
+@058a callk.b      0x3d 0x02 ; Abs
+@058d push.w
+@058e pushi.b      0x36 ; possible selector: xStep
+@0590 push0.w
+@0591 pToa.b       0x08
+@0593 send.w       0x04
+@0595 le?.w
+@0596 bnt.w        0x0019 ; target @0x05b2
+@0599 push1.w
+@059a pushi.b      0x03 ; possible selector: y
+@059c push0.w
+@059d pToa.b       0x08
+@059f send.w       0x04
+@05a1 push.w
+@05a2 pToa.b       0x0e
+@05a4 sub.w
+@05a5 push.w
+@05a6 callk.b      0x3d 0x02 ; Abs
+@05a9 push.w
+@05aa pushi.b      0x37 ; possible selector: yStep
+@05ac push0.w
+@05ad pToa.b       0x08
+@05af send.w       0x04
+@05b1 le?.w
+@05b2 ret.w
+@05b3 bnot.w
+
+; CLASS @0x05b4 size=100
+@05b4 .hex 06 00 64 00 34 12 00 00 4e 00 13 00 1a 00 19 00 ; ..d.4...N.......
+@05c4 .hex 00 80 3d 06 00 00 00 00 00 00 00 00 00 00 00 00 ; ..=.............
+@05d4 .hex 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ; ................
+@05e4 .hex 00 00 00 00 01 00 02 00 17 00 2d 00 84 00 04 00 ; ..........-.....
+@05f4 .hex 03 00 2e 00 2f 00 30 00 31 00 32 00 33 00 34 00 ; ..../.0.1.2.3.4.
+@0604 .hex 35 00 ad 00 b9 00 ba 00 02 00 66 00 bc 00 00 00 ; 5.........f.....
+@0614 .hex 74 05 7d 05 ; t.}.
+
+; STRINGS @0x0618 size=44
+@0618 .hex 05 00 2c 00 43 79 63 6c 65 00 46 77 64 00 57 61 ; ..,.Cycle.Fwd.Wa
+@0628 .hex 6c 6b 00 43 54 00 45 6e 64 00 42 65 67 00 4d 6f ; lk.CT.End.Beg.Mo
+@0638 .hex 74 69 6f 6e 00 4d 6f 76 65 54 6f 00 ; tion.MoveTo.
+
+; RELOCATIONS @0x0644 size=22
+@0644 .hex 08 00 16 00 08 00 fa 00 82 01 e0 01 cc 02 40 03 ; ..............@.
+@0654 .hex a6 03 0e 05 c6 05 ; ......
+
+; END @0x065a size=2
+@065a .hex 00 00 ; ..

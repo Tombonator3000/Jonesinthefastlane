@@ -1,0 +1,16 @@
+{
+  "name": "Jones decompile arbeidsprosjekt",
+  "version": "0.1",
+  "created": "2026-10-02",
+  "original_files": 22,
+  "unique_resources": 266,
+  "source_asm_files": 69,
+  "indexed_png_files": 752,
+  "text_json_files": 39,
+  "data_tests_passed": 15,
+  "gameplay_tested": false,
+  "high_level_sources_included": false,
+  "modern_port_complete": false,
+  "graphics_viewer_interactive_test": "blocked",
+  "scummvm_bundled": false
+}

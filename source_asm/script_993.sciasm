@@ -1,0 +1,130 @@
+; SCI1 script 993: fixed-layout, lossless disassembly.
+; Not original high-level source. .hex holds headers, tables and strings.
+; Edit immediate operands without changing instruction widths or addresses.
+; The assembler rejects layout changes; it does not relocate jumps/pointers.
+; Expected size: 282 bytes.
+
+; CODE @0x0000 size=192
+@0000 .hex 02 00 c0 00 ; ....
+; gamefile.sh::open
+@0004 lsp.b        0x00 ; param[0]
+@0006 dup.w
+@0007 ldi.b        0x00
+@0009 eq?.w
+@000a bnt.w        0x000c ; target @0x0019
+@000d pushi.b      0x03 ; possible selector: y
+@000f push0.w
+@0010 pTos.b       0x06
+@0012 push0.w
+@0013 callk.b      0x74 0x06 ; FileIO
+@0016 jmp.w        0x0016 ; target @0x002f
+@0019 dup.w
+@001a ldi.b        0x01
+@001c eq?.w
+@001d bnt.w        0x000d ; target @0x002d
+@0020 pushi.b      0x03 ; possible selector: y
+@0022 push0.w
+@0023 pTos.b       0x06
+@0025 lsp.b        0x01 ; param[1]
+@0027 callk.b      0x74 0x06 ; FileIO
+@002a jmp.w        0x0002 ; target @0x002f
+@002d ldi.b        0xff
+@002f toss.w
+@0030 aTop.b       0x08
+@0032 pTos.b       0x08
+@0034 ldi.b        0xff
+@0036 eq?.w
+@0037 bnt.w        0x0005 ; target @0x003f
+@003a ldi.b        0x00
+@003c jmp.w        0x0001 ; target @0x0040
+@003f selfID.w
+@0040 ret.w
+; gamefile.sh::write
+@0041 link.b       0x01
+@0043 pToa.b       0x08
+@0045 not.w
+@0046 bnt.w        0x0006 ; target @0x004f
+@0049 pushi.w      0x00a3 ; possible selector: open
+@004c push0.w
+@004d self.w       0x04
+@004f ldi.b        0x00
+@0051 sat.b        0x00 ; temp[0]
+@0053 lst.b        0x00 ; temp[0]
+@0055 lap.b        0x00 ; param[0]
+@0057 lt?.w
+@0058 bnt.w        0x0012 ; target @0x006d
+@005b pushi.b      0x03 ; possible selector: y
+@005d pushi.b      0x06 ; possible selector: loop
+@005f pTos.b       0x08
+@0061 lat.b        0x00 ; temp[0]
+@0063 lspi.b       0x01 ; param[1]
+@0065 callk.b      0x74 0x06 ; FileIO
+@0068 +at.b        0x00 ; temp[0]
+@006a jmp.w        0xffe6 ; target @0x0053
+@006d ret.w
+; gamefile.sh::read
+@006e lsp.b        0x00 ; param[0]
+@0070 ldi.b        0x02
+@0072 ne?.w
+@0073 bnt.w        0x0003 ; target @0x0079
+@0076 ldi.b        0x00
+@0078 ret.w
+@0079 pToa.b       0x08
+@007b not.w
+@007c bnt.w        0x0007 ; target @0x0086
+@007f pushi.w      0x00a3 ; possible selector: open
+@0082 push1.w
+@0083 push1.w
+@0084 self.w       0x06
+@0086 pushi.b      0x04 ; possible selector: x
+@0088 pushi.b      0x05 ; possible selector: view
+@008a lsp.b        0x01 ; param[1]
+@008c lsp.b        0x02 ; param[2]
+@008e pTos.b       0x08
+@0090 callk.b      0x74 0x08 ; FileIO
+@0093 ret.w
+; gamefile.sh::close
+@0094 pToa.b       0x08
+@0096 bnt.w        0x000a ; target @0x00a3
+@0099 push2.w
+@009a push1.w
+@009b push.w
+@009c callk.b      0x74 0x04 ; FileIO
+@009f ldi.b        0x00
+@00a1 aTop.b       0x08
+@00a3 ret.w
+; gamefile.sh::dispose
+@00a4 pushi.w      0x00fb ; possible selector: close
+@00a7 push0.w
+@00a8 self.w       0x04
+@00aa pushi.b      0x67 ; possible selector: dispose
+@00ac push0.w
+@00ad super.b      0x00 0x04
+@00b0 ret.w
+; gamefile.sh::showStr
+@00b1 pushi.b      0x04 ; possible selector: x
+@00b3 lsp.b        0x01 ; param[1]
+@00b5 pushi.w      0x03e1
+@00b8 push0.w
+@00b9 pTos.b       0x06
+@00bb callk.b      0x48 0x08 ; Format
+@00be ret.w
+@00bf bnot.w
+
+; CLASS @0x00c0 size=60
+@00c0 .hex 06 00 3c 00 34 12 00 00 16 00 05 00 23 00 00 00 ; ..<.4.......#...
+@00d0 .hex 00 80 00 01 00 00 00 00 01 00 02 00 17 00 5d 00 ; ..............].
+@00e0 .hex 06 00 67 00 68 00 a3 00 f9 00 fa 00 fb 00 00 00 ; ..g.h...........
+@00f0 .hex a4 00 b1 00 04 00 41 00 6e 00 94 00 ; ......A.n...
+
+; STRINGS @0x00fc size=16
+@00fc .hex 05 00 10 00 67 61 6d 65 66 69 6c 65 2e 73 68 00 ; ....gamefile.sh.
+
+; PRELOAD @0x010c size=4
+@010c .hex 09 00 04 00 ; ....
+
+; RELOCATIONS @0x0110 size=8
+@0110 .hex 08 00 08 00 01 00 d2 00 ; ........
+
+; END @0x0118 size=2
+@0118 .hex 00 00 ; ..

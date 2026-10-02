@@ -1,0 +1,1131 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 1016
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1024,
+      "size": 62
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1086,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1190,
+      "size": 106
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1296,
+      "size": 10
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1306,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1390,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1416,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1500,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1526,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1610,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1636,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1720,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1746,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1830,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1856,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1940,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1966,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2050,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2076,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2160,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2186,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2270,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2296,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2380,
+      "size": 26
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2406,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2490,
+      "size": 178
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2668,
+      "size": 74
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2742,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2812,
+      "size": 70
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2882,
+      "size": 70
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2952,
+      "size": 140
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 3092,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 3096,
+      "size": 8
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 3104,
+      "size": 40
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 3144,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 1024,
+      "address": 1036,
+      "name": "winnerScript",
+      "species": 6,
+      "superclass": 6,
+      "properties": [
+        6,
+        6,
+        0,
+        2956,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 855
+        },
+        {
+          "selector": 134,
+          "name": "changeState",
+          "address": 12
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 826
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 982
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1190,
+      "address": 1202,
+      "name": "jonesGuy",
+      "species": 31,
+      "superclass": 31,
+      "properties": [
+        31,
+        31,
+        0,
+        2969,
+        0,
+        0,
+        0,
+        0,
+        2,
+        609,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32768,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 1090
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1306,
+      "address": 1318,
+      "name": "confetti",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        2978,
+        0,
+        0,
+        0,
+        0,
+        2,
+        609,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 1300
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1416,
+      "address": 1428,
+      "name": "star1",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        2987,
+        59,
+        129,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1394
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1526,
+      "address": 1538,
+      "name": "star2",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        2993,
+        74,
+        119,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1504
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1636,
+      "address": 1648,
+      "name": "star3",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        2999,
+        94,
+        114,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1614
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1746,
+      "address": 1758,
+      "name": "star4",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3005,
+        114,
+        119,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1724
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1856,
+      "address": 1868,
+      "name": "star5",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3011,
+        134,
+        124,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1834
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1966,
+      "address": 1978,
+      "name": "star6",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3017,
+        59,
+        186,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1944
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2076,
+      "address": 2088,
+      "name": "star7",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3023,
+        74,
+        196,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2054
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2186,
+      "address": 2198,
+      "name": "star8",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3029,
+        94,
+        201,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2164
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2296,
+      "address": 2308,
+      "name": "star9",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3035,
+        114,
+        196,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2274
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2406,
+      "address": 2418,
+      "name": "star10",
+      "species": 30,
+      "superclass": 30,
+      "properties": [
+        30,
+        30,
+        0,
+        3041,
+        134,
+        191,
+        0,
+        0,
+        2,
+        609,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2384
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2668,
+      "address": 2680,
+      "name": "pedistal",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        3048,
+        154,
+        160,
+        0,
+        0,
+        2,
+        609,
+        0,
+        0,
+        4,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2494
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2742,
+      "address": 2754,
+      "name": "theWinner",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        3057,
+        149,
+        160,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        3,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2812,
+      "address": 2824,
+      "name": "background1",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        3067,
+        44,
+        69,
+        0,
+        0,
+        2,
+        0,
+        0,
+        4,
+        1,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2882,
+      "address": 2894,
+      "name": "background2",
+      "species": 29,
+      "superclass": 29,
+      "properties": [
+        29,
+        29,
+        0,
+        3079,
+        45,
+        70,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        257,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": []
+    }
+  ],
+  "exports": [
+    1036
+  ],
+  "strings": [
+    {
+      "offset": 2956,
+      "text": "winnerScript",
+      "terminated": true
+    },
+    {
+      "offset": 2969,
+      "text": "jonesGuy",
+      "terminated": true
+    },
+    {
+      "offset": 2978,
+      "text": "confetti",
+      "terminated": true
+    },
+    {
+      "offset": 2987,
+      "text": "star1",
+      "terminated": true
+    },
+    {
+      "offset": 2993,
+      "text": "star2",
+      "terminated": true
+    },
+    {
+      "offset": 2999,
+      "text": "star3",
+      "terminated": true
+    },
+    {
+      "offset": 3005,
+      "text": "star4",
+      "terminated": true
+    },
+    {
+      "offset": 3011,
+      "text": "star5",
+      "terminated": true
+    },
+    {
+      "offset": 3017,
+      "text": "star6",
+      "terminated": true
+    },
+    {
+      "offset": 3023,
+      "text": "star7",
+      "terminated": true
+    },
+    {
+      "offset": 3029,
+      "text": "star8",
+      "terminated": true
+    },
+    {
+      "offset": 3035,
+      "text": "star9",
+      "terminated": true
+    },
+    {
+      "offset": 3041,
+      "text": "star10",
+      "terminated": true
+    },
+    {
+      "offset": 3048,
+      "text": "pedistal",
+      "terminated": true
+    },
+    {
+      "offset": 3057,
+      "text": "theWinner",
+      "terminated": true
+    },
+    {
+      "offset": 3067,
+      "text": "background1",
+      "terminated": true
+    },
+    {
+      "offset": 3079,
+      "text": "background2",
+      "terminated": true
+    },
+    {
+      "offset": 3091,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0
+  ]
+}

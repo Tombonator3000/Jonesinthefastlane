@@ -1,0 +1,171 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 162
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 170,
+      "size": 172
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 342,
+      "size": 12
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 354,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 362,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 170,
+      "address": 182,
+      "name": "DCIcon",
+      "species": 50,
+      "superclass": 12,
+      "properties": [
+        50,
+        12,
+        32768,
+        346,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        65535,
+        0,
+        6,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 103,
+          "name": "dispose",
+          "address": 56
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 87
+        },
+        {
+          "selector": 305,
+          "name": "cycle",
+          "address": 12
+        },
+        {
+          "selector": 178,
+          "name": "motionCue",
+          "address": 146
+        },
+        {
+          "selector": 182,
+          "name": "lastCel",
+          "address": 77
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 105
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 107
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        5,
+        6,
+        7,
+        63,
+        181,
+        180,
+        17,
+        174
+      ]
+    }
+  ],
+  "exports": [
+    182
+  ],
+  "strings": [
+    {
+      "offset": 346,
+      "text": "DCIcon",
+      "terminated": true
+    },
+    {
+      "offset": 353,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

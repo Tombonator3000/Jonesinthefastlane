@@ -1,0 +1,1409 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 14
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 22,
+      "size": 28
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 50,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 78,
+      "size": 990
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1068,
+      "size": 86
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1154,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1226,
+      "size": 92
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1318,
+      "size": 152
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1470,
+      "size": 78
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1548,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1628,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1712,
+      "size": 18
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1730,
+      "size": 82
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1812,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1892,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1976,
+      "size": 18
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1994,
+      "size": 82
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2076,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2156,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2240,
+      "size": 18
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2258,
+      "size": 82
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2340,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2420,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2504,
+      "size": 18
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2522,
+      "size": 82
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2604,
+      "size": 82
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2686,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2770,
+      "size": 18
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2788,
+      "size": 82
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2870,
+      "size": 80
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2950,
+      "size": 84
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3034,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3106,
+      "size": 202
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3308,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3392,
+      "size": 228
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3620,
+      "size": 84
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3704,
+      "size": 1210
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4914,
+      "size": 54
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 4968,
+      "size": 278
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 5246,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 5250,
+      "size": 80
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 5330,
+      "size": 48
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 5378,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 22,
+      "address": 34,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        4972
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 12
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 50,
+      "address": 62,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        4986,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1068,
+      "address": 1080,
+      "name": "broker",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        5001,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 82
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 638
+        },
+        {
+          "selector": 159,
+          "name": "advance",
+          "address": 542
+        },
+        {
+          "selector": 160,
+          "name": "retreat",
+          "address": 590
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1154,
+      "address": 1166,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        5008,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        0,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "class",
+      "section_offset": 1318,
+      "address": 1330,
+      "name": "InvestmentDIcon",
+      "species": 78,
+      "superclass": 12,
+      "properties": [
+        78,
+        12,
+        32768,
+        5019,
+        4,
+        1,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        0,
+        65535,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1271
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 1248
+        },
+        {
+          "selector": 472,
+          "name": "brite",
+          "address": 1230
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        5,
+        6,
+        7,
+        63,
+        342,
+        347,
+        348
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1470,
+      "address": 1482,
+      "name": "tBills",
+      "species": 78,
+      "superclass": 78,
+      "properties": [
+        78,
+        78,
+        0,
+        5035,
+        4,
+        1,
+        27,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        0,
+        65535,
+        100,
+        0,
+        1
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1628,
+      "address": 1640,
+      "name": "tBillsHoldings",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5042,
+        0,
+        64,
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        93,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1552
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1730,
+      "address": 1742,
+      "name": "gold",
+      "species": 78,
+      "superclass": 78,
+      "properties": [
+        78,
+        78,
+        0,
+        5057,
+        4,
+        1,
+        40,
+        8,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        1,
+        65535,
+        0,
+        413,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1716
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1892,
+      "address": 1904,
+      "name": "goldHoldings",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5062,
+        0,
+        64,
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        93,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1816
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 1994,
+      "address": 2006,
+      "name": "silver",
+      "species": 78,
+      "superclass": 78,
+      "properties": [
+        78,
+        78,
+        0,
+        5075,
+        4,
+        1,
+        53,
+        8,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        2,
+        65535,
+        0,
+        14,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1980
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2156,
+      "address": 2168,
+      "name": "silverHoldings",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5082,
+        0,
+        64,
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        93,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2080
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2258,
+      "address": 2270,
+      "name": "porkBellies",
+      "species": 78,
+      "superclass": 78,
+      "properties": [
+        78,
+        78,
+        0,
+        5097,
+        4,
+        1,
+        66,
+        8,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        3,
+        65535,
+        0,
+        20,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2244
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2420,
+      "address": 2432,
+      "name": "porkBelliesHoldings",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5109,
+        0,
+        64,
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        93,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2344
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2522,
+      "address": 2534,
+      "name": "blueChipStocks",
+      "species": 78,
+      "superclass": 78,
+      "properties": [
+        78,
+        78,
+        0,
+        5129,
+        4,
+        1,
+        79,
+        8,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        4,
+        65535,
+        0,
+        49,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2508
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2686,
+      "address": 2698,
+      "name": "blueChipStocksHoldings",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5144,
+        0,
+        64,
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        93,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2608
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2788,
+      "address": 2800,
+      "name": "pennyStocks",
+      "species": 78,
+      "superclass": 78,
+      "properties": [
+        78,
+        78,
+        0,
+        5167,
+        4,
+        1,
+        92,
+        8,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        696,
+        1,
+        5,
+        65535,
+        0,
+        7,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2774
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2950,
+      "address": 2962,
+      "name": "pennyStocksHoldings",
+      "species": 54,
+      "superclass": 54,
+      "properties": [
+        54,
+        54,
+        0,
+        5179,
+        0,
+        64,
+        0,
+        142,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        93,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 2874
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3034,
+      "address": 3046,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5199,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3308,
+      "address": 3320,
+      "name": "buyButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5210,
+        4,
+        65,
+        108,
+        7,
+        0,
+        0,
+        98,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        4,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3136
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 3110
+        },
+        {
+          "selector": 307,
+          "name": "hilite",
+          "address": 3298
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3620,
+      "address": 3632,
+      "name": "sellButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        5220,
+        4,
+        65,
+        108,
+        77,
+        0,
+        0,
+        106,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        5,
+        0,
+        65535
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3422
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 3396
+        },
+        {
+          "selector": 307,
+          "name": "hilite",
+          "address": 3610
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4914,
+      "address": 4926,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        5231,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 4883
+        },
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 3952
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1080
+  ],
+  "strings": [
+    {
+      "offset": 4972,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 4986,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 5001,
+      "text": "broker",
+      "terminated": true
+    },
+    {
+      "offset": 5008,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 5019,
+      "text": "InvestmentDIcon",
+      "terminated": true
+    },
+    {
+      "offset": 5035,
+      "text": "tBills",
+      "terminated": true
+    },
+    {
+      "offset": 5042,
+      "text": "tBillsHoldings",
+      "terminated": true
+    },
+    {
+      "offset": 5057,
+      "text": "gold",
+      "terminated": true
+    },
+    {
+      "offset": 5062,
+      "text": "goldHoldings",
+      "terminated": true
+    },
+    {
+      "offset": 5075,
+      "text": "silver",
+      "terminated": true
+    },
+    {
+      "offset": 5082,
+      "text": "silverHoldings",
+      "terminated": true
+    },
+    {
+      "offset": 5097,
+      "text": "porkBellies",
+      "terminated": true
+    },
+    {
+      "offset": 5109,
+      "text": "porkBelliesHoldings",
+      "terminated": true
+    },
+    {
+      "offset": 5129,
+      "text": "blueChipStocks",
+      "terminated": true
+    },
+    {
+      "offset": 5144,
+      "text": "blueChipStocksHoldings",
+      "terminated": true
+    },
+    {
+      "offset": 5167,
+      "text": "pennyStocks",
+      "terminated": true
+    },
+    {
+      "offset": 5179,
+      "text": "pennyStocksHoldings",
+      "terminated": true
+    },
+    {
+      "offset": 5199,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 5210,
+      "text": "buyButton",
+      "terminated": true
+    },
+    {
+      "offset": 5220,
+      "text": "sellButton",
+      "terminated": true
+    },
+    {
+      "offset": 5231,
+      "text": "computerScript",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "resource": 104,
+  "encoding": "cp437",
+  "strings": [
+    "%s",
+    "%s $%d",
+    "%s$%d",
+    ""
+  ]
+}

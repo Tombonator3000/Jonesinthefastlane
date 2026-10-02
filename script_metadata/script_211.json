@@ -1,0 +1,2318 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 438
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 446,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 474,
+      "size": 50
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 524,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 552,
+      "size": 122
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 674,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 750,
+      "size": 54
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 804,
+      "size": 188
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 992,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1020,
+      "size": 926
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 1946,
+      "size": 78
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2024,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2096,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2190,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2298,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2392,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2500,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2594,
+      "size": 108
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 2702,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2796,
+      "size": 108
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 2904,
+      "size": 100
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3004,
+      "size": 50
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3054,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3158,
+      "size": 50
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3208,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3312,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3354,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3458,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3500,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3604,
+      "size": 40
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3644,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3748,
+      "size": 40
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3788,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 3892,
+      "size": 40
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 3932,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4036,
+      "size": 94
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4130,
+      "size": 110
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4240,
+      "size": 92
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4332,
+      "size": 106
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4438,
+      "size": 92
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4530,
+      "size": 106
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4636,
+      "size": 30
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4666,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4770,
+      "size": 30
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4800,
+      "size": 104
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 4904,
+      "size": 30
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 4934,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5038,
+      "size": 72
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5110,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5214,
+      "size": 76
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5290,
+      "size": 42
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5332,
+      "size": 88
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5420,
+      "size": 150
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5570,
+      "size": 104
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5674,
+      "size": 80
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 5754,
+      "size": 498
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 6252,
+      "size": 50
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 6302,
+      "size": 694
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 6996,
+      "size": 4
+    },
+    {
+      "type": 10,
+      "name": "locals",
+      "offset": 7000,
+      "size": 20
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 7020,
+      "size": 104
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 7124,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 446,
+      "address": 458,
+      "name": "boughtItem",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        6306
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 388
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 524,
+      "address": 536,
+      "name": "notEnoughCash",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        6317
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 478
+        }
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 674,
+      "address": 686,
+      "name": "FS",
+      "species": 74,
+      "superclass": 19,
+      "properties": [
+        74,
+        19,
+        32768,
+        6331,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 556
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 575
+        },
+        {
+          "selector": 68,
+          "name": "next",
+          "address": 630
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        45,
+        132,
+        171,
+        172,
+        173,
+        174,
+        175,
+        328
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 804,
+      "address": 816,
+      "name": "DiscountDItem",
+      "species": 75,
+      "superclass": 55,
+      "properties": [
+        75,
+        55,
+        32768,
+        6334,
+        0,
+        1,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        0,
+        0,
+        0,
+        1,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 754
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        26,
+        33,
+        333,
+        334,
+        335,
+        336,
+        337,
+        70,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 992,
+      "address": 1004,
+      "name": "dialogKeyMouse",
+      "species": 4,
+      "superclass": 4,
+      "properties": [
+        4,
+        4,
+        0,
+        6348,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 1946,
+      "address": 1958,
+      "name": "discount",
+      "species": 16,
+      "superclass": 16,
+      "properties": [
+        16,
+        16,
+        0,
+        6363,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        119,
+        184,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1024
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1903
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2024,
+      "address": 2036,
+      "name": "background",
+      "species": 12,
+      "superclass": 12,
+      "properties": [
+        12,
+        12,
+        0,
+        6372,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        811,
+        0,
+        0,
+        65535
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 2190,
+      "address": 2202,
+      "name": "refrigerator",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6401,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6383,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        21,
+        0,
+        1,
+        65535,
+        650,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2145
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2100
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2392,
+      "address": 2404,
+      "name": "stove",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6437,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6414,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        23,
+        0,
+        1,
+        65535,
+        490,
+        0,
+        0,
+        0,
+        1
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2347
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2302
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2594,
+      "address": 2606,
+      "name": "stereo",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6466,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6443,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        26,
+        0,
+        1,
+        65535,
+        450,
+        0,
+        0,
+        0,
+        2
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2549
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2504
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2796,
+      "address": 2808,
+      "name": "colorTV",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6494,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6473,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        24,
+        0,
+        1,
+        65535,
+        349,
+        0,
+        0,
+        0,
+        3
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 2751
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 2706
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 2904,
+      "address": 2916,
+      "name": "bwTV",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6521,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6502,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        30,
+        0,
+        1,
+        65535,
+        110,
+        0,
+        0,
+        0,
+        4
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 3054,
+      "address": 3066,
+      "name": "microwave",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6547,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        6,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6526,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        27,
+        0,
+        1,
+        65535,
+        220,
+        0,
+        0,
+        0,
+        5
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3008
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3208,
+      "address": 3220,
+      "name": "vcr",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6581,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6557,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        25,
+        0,
+        1,
+        65535,
+        250,
+        0,
+        0,
+        0,
+        6
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3162
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3354,
+      "address": 3366,
+      "name": "casualClothes",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6603,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6585,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        36,
+        1,
+        9,
+        65535,
+        35,
+        0,
+        0,
+        0,
+        7
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3316
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3500,
+      "address": 3512,
+      "name": "leisureSuit",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6636,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        20,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6617,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        35,
+        1,
+        9,
+        65535,
+        90,
+        0,
+        0,
+        0,
+        8
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3462
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3644,
+      "address": 3656,
+      "name": "baseballTickets",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6667,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6648,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        37,
+        1,
+        4,
+        65535,
+        45,
+        0,
+        0,
+        0,
+        9
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3608
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3788,
+      "address": 3800,
+      "name": "theatreTickets",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6702,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6683,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        38,
+        1,
+        4,
+        65535,
+        30,
+        0,
+        0,
+        0,
+        10
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3752
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 3932,
+      "address": 3944,
+      "name": "concertTickets",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6737,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6717,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        39,
+        1,
+        4,
+        65535,
+        40,
+        0,
+        0,
+        0,
+        11
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 3896
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4130,
+      "address": 4142,
+      "name": "encyclopedia",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6770,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        23,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6752,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        31,
+        0,
+        1,
+        65535,
+        475,
+        0,
+        0,
+        0,
+        12,
+        5
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4085
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 4040
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4332,
+      "address": 4344,
+      "name": "dictionary",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6804,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6783,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        32,
+        0,
+        1,
+        65535,
+        70,
+        0,
+        0,
+        0,
+        13,
+        5
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4286
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4530,
+      "address": 4542,
+      "name": "atlas",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6839,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        24,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6815,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        33,
+        0,
+        1,
+        65535,
+        55,
+        0,
+        0,
+        0,
+        14,
+        5
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4484
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4666,
+      "address": 4678,
+      "name": "dogFood",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6866,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6845,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        0,
+        3,
+        1,
+        65535,
+        18,
+        0,
+        0,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4640
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4800,
+      "address": 4812,
+      "name": "eightTrack",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6892,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6874,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        0,
+        3,
+        1,
+        65535,
+        75,
+        0,
+        0,
+        0,
+        16
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4774
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 4934,
+      "address": 4946,
+      "name": "trumanCapote",
+      "species": 75,
+      "superclass": 75,
+      "properties": [
+        75,
+        75,
+        0,
+        6920,
+        0,
+        1,
+        0,
+        11,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6903,
+        0,
+        10,
+        26,
+        65535,
+        102,
+        100,
+        0,
+        0,
+        0,
+        3,
+        1,
+        65535,
+        100,
+        0,
+        0,
+        0,
+        17
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 4908
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5038,
+      "address": 5050,
+      "name": "exitButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        6933,
+        4,
+        99,
+        108,
+        143,
+        0,
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        0,
+        0,
+        15
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 5214,
+      "address": 5226,
+      "name": "workButton",
+      "species": 49,
+      "superclass": 49,
+      "properties": [
+        49,
+        49,
+        0,
+        6944,
+        4,
+        65,
+        108,
+        75,
+        0,
+        0,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        250,
+        1,
+        0,
+        15
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 5114
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5332,
+      "address": 5344,
+      "name": "timeClock",
+      "species": 57,
+      "superclass": 57,
+      "properties": [
+        57,
+        57,
+        0,
+        6955,
+        4,
+        0,
+        57,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 5310
+        },
+        {
+          "selector": 135,
+          "name": "cue",
+          "address": 5294
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5570,
+      "address": 5582,
+      "name": "items",
+      "species": 50,
+      "superclass": 50,
+      "properties": [
+        50,
+        50,
+        0,
+        6965,
+        4,
+        0,
+        57,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        711,
+        1,
+        0,
+        14,
+        0,
+        100,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 5424
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 5444
+        },
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 5548
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 5530
+        },
+        {
+          "selector": 182,
+          "name": "lastCel",
+          "address": 5567
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 5511
+        }
+      ]
+    },
+    {
+      "kind": "object",
+      "section_offset": 5674,
+      "address": 5686,
+      "name": "theTalker",
+      "species": 56,
+      "superclass": 56,
+      "properties": [
+        56,
+        56,
+        0,
+        6971,
+        4,
+        0,
+        0,
+        115,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        361,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": []
+    },
+    {
+      "kind": "object",
+      "section_offset": 6252,
+      "address": 6264,
+      "name": "computerScript",
+      "species": 68,
+      "superclass": 68,
+      "properties": [
+        68,
+        68,
+        0,
+        6981,
+        0,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 124,
+          "name": "handleEvent",
+          "address": 5758
+        }
+      ]
+    }
+  ],
+  "exports": [
+    1958
+  ],
+  "strings": [
+    {
+      "offset": 6306,
+      "text": "boughtItem",
+      "terminated": true
+    },
+    {
+      "offset": 6317,
+      "text": "notEnoughCash",
+      "terminated": true
+    },
+    {
+      "offset": 6331,
+      "text": "FS",
+      "terminated": true
+    },
+    {
+      "offset": 6334,
+      "text": "DiscountDItem",
+      "terminated": true
+    },
+    {
+      "offset": 6348,
+      "text": "dialogKeyMouse",
+      "terminated": true
+    },
+    {
+      "offset": 6363,
+      "text": "discount",
+      "terminated": true
+    },
+    {
+      "offset": 6372,
+      "text": "background",
+      "terminated": true
+    },
+    {
+      "offset": 6383,
+      "text": "Refrigerator.....",
+      "terminated": true
+    },
+    {
+      "offset": 6401,
+      "text": "refrigerator",
+      "terminated": true
+    },
+    {
+      "offset": 6414,
+      "text": "Stove|..............||",
+      "terminated": true
+    },
+    {
+      "offset": 6437,
+      "text": "stove",
+      "terminated": true
+    },
+    {
+      "offset": 6443,
+      "text": "Stereo|.............||",
+      "terminated": true
+    },
+    {
+      "offset": 6466,
+      "text": "stereo",
+      "terminated": true
+    },
+    {
+      "offset": 6473,
+      "text": "Color TV..........||",
+      "terminated": true
+    },
+    {
+      "offset": 6494,
+      "text": "colorTV",
+      "terminated": true
+    },
+    {
+      "offset": 6502,
+      "text": "Black & White TV||",
+      "terminated": true
+    },
+    {
+      "offset": 6521,
+      "text": "bwTV",
+      "terminated": true
+    },
+    {
+      "offset": 6526,
+      "text": "Microwave|.........|",
+      "terminated": true
+    },
+    {
+      "offset": 6547,
+      "text": "microwave",
+      "terminated": true
+    },
+    {
+      "offset": 6557,
+      "text": "VCR...................|",
+      "terminated": true
+    },
+    {
+      "offset": 6581,
+      "text": "vcr",
+      "terminated": true
+    },
+    {
+      "offset": 6585,
+      "text": "Casual Clothes...",
+      "terminated": true
+    },
+    {
+      "offset": 6603,
+      "text": "casualClothes",
+      "terminated": true
+    },
+    {
+      "offset": 6617,
+      "text": "Dress Clothes.....",
+      "terminated": true
+    },
+    {
+      "offset": 6636,
+      "text": "leisureSuit",
+      "terminated": true
+    },
+    {
+      "offset": 6648,
+      "text": "Baseball Tickets..",
+      "terminated": true
+    },
+    {
+      "offset": 6667,
+      "text": "baseballTickets",
+      "terminated": true
+    },
+    {
+      "offset": 6683,
+      "text": "Theatre Tickets...",
+      "terminated": true
+    },
+    {
+      "offset": 6702,
+      "text": "theatreTickets",
+      "terminated": true
+    },
+    {
+      "offset": 6717,
+      "text": "Concert Tickets|..|",
+      "terminated": true
+    },
+    {
+      "offset": 6737,
+      "text": "concertTickets",
+      "terminated": true
+    },
+    {
+      "offset": 6752,
+      "text": "Encyclopedia.....",
+      "terminated": true
+    },
+    {
+      "offset": 6770,
+      "text": "encyclopedia",
+      "terminated": true
+    },
+    {
+      "offset": 6783,
+      "text": "Dictionary..........",
+      "terminated": true
+    },
+    {
+      "offset": 6804,
+      "text": "dictionary",
+      "terminated": true
+    },
+    {
+      "offset": 6815,
+      "text": "Atlas.................|",
+      "terminated": true
+    },
+    {
+      "offset": 6839,
+      "text": "atlas",
+      "terminated": true
+    },
+    {
+      "offset": 6845,
+      "text": "Dog Food...........|",
+      "terminated": true
+    },
+    {
+      "offset": 6866,
+      "text": "dogFood",
+      "terminated": true
+    },
+    {
+      "offset": 6874,
+      "text": "8-Track Player...",
+      "terminated": true
+    },
+    {
+      "offset": 6892,
+      "text": "eightTrack",
+      "terminated": true
+    },
+    {
+      "offset": 6903,
+      "text": "Works of Capote|",
+      "terminated": true
+    },
+    {
+      "offset": 6920,
+      "text": "trumanCapote",
+      "terminated": true
+    },
+    {
+      "offset": 6933,
+      "text": "exitButton",
+      "terminated": true
+    },
+    {
+      "offset": 6944,
+      "text": "workButton",
+      "terminated": true
+    },
+    {
+      "offset": 6955,
+      "text": "timeClock",
+      "terminated": true
+    },
+    {
+      "offset": 6965,
+      "text": "items",
+      "terminated": true
+    },
+    {
+      "offset": 6971,
+      "text": "theTalker",
+      "terminated": true
+    },
+    {
+      "offset": 6981,
+      "text": "computerScript",
+      "terminated": true
+    }
+  ],
+  "locals": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    65535
+  ]
+}

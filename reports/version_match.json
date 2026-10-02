@@ -1,0 +1,20 @@
+{
+  "game": "Jones in the Fast Lane DOS VGA English",
+  "version_file": "1.000.060",
+  "scummvm_detection_entry_matches_all_three": true,
+  "fingerprints": {
+    "resource.map": {
+      "size": 1800,
+      "md5_first_5000_bytes": "65cbe19b36fffc71c8e7b2686bd49ad7"
+    },
+    "resource.001": {
+      "size": 313476,
+      "md5_first_5000_bytes": "bac3ec6cb3e3920984ab0f32becf5163"
+    },
+    "resource.002": {
+      "size": 719747,
+      "md5_first_5000_bytes": "b86daa3ba2784d1502da881eedb80d9b"
+    }
+  },
+  "source": "https://raw.githubusercontent.com/scummvm/scummvm/master/engines/sci/detection_tables.h"
+}

@@ -1,0 +1,11 @@
+{
+  "viewer_file": "graphics/index.html",
+  "javascript_syntax_check": "passed",
+  "interactive_browser_test": "blocked_by_administrator_policy",
+  "tested_routes": [
+    "file://",
+    "http://127.0.0.1"
+  ],
+  "images_pixel_tests_passed": 752,
+  "game_runtime_tested": false
+}

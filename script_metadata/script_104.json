@@ -1,0 +1,538 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 10
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 10,
+      "size": 638
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 648,
+      "size": 184
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 832,
+      "size": 478
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1310,
+      "size": 196
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1506,
+      "size": 188
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1694,
+      "size": 160
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 1854,
+      "size": 38
+    },
+    {
+      "type": 6,
+      "name": "class",
+      "offset": 1892,
+      "size": 148
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 2040,
+      "size": 40
+    },
+    {
+      "type": 9,
+      "name": "preload",
+      "offset": 2080,
+      "size": 4
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 2084,
+      "size": 14
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 2098,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "class",
+      "section_offset": 648,
+      "address": 660,
+      "name": "WButton",
+      "species": 54,
+      "superclass": 13,
+      "properties": [
+        54,
+        13,
+        32768,
+        2044,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 37
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 613
+        },
+        {
+          "selector": 151,
+          "name": "select",
+          "address": 14
+        },
+        {
+          "selector": 152,
+          "name": "track",
+          "address": 204
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 44
+        },
+        {
+          "selector": 307,
+          "name": "hilite",
+          "address": 130
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 457
+        },
+        {
+          "selector": 339,
+          "name": "setTextSize",
+          "address": 470
+        },
+        {
+          "selector": 340,
+          "name": "doDisplay",
+          "address": 549
+        },
+        {
+          "selector": 341,
+          "name": "hiliteControl",
+          "address": 417
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        26,
+        33,
+        333,
+        334,
+        335,
+        336,
+        337,
+        70
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1310,
+      "address": 1322,
+      "name": "CostDItem",
+      "species": 55,
+      "superclass": 54,
+      "properties": [
+        55,
+        54,
+        32768,
+        2052,
+        0,
+        1,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        65535,
+        6,
+        100,
+        0,
+        0,
+        0,
+        0,
+        1,
+        65535,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 836
+        },
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 941
+        },
+        {
+          "selector": 338,
+          "name": "doFormat",
+          "address": 885
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        26,
+        33,
+        333,
+        334,
+        335,
+        336,
+        337,
+        70,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1694,
+      "address": 1706,
+      "name": "Talker",
+      "species": 56,
+      "superclass": 50,
+      "properties": [
+        56,
+        50,
+        32768,
+        2062,
+        4,
+        0,
+        1,
+        115,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 102,
+          "name": "init",
+          "address": 1577
+        },
+        {
+          "selector": 153,
+          "name": "setSize",
+          "address": 1674
+        },
+        {
+          "selector": 83,
+          "name": "draw",
+          "address": 1637
+        },
+        {
+          "selector": 216,
+          "name": "setCycle",
+          "address": 1655
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        5,
+        6,
+        7,
+        63,
+        181,
+        180,
+        17,
+        174
+      ]
+    },
+    {
+      "kind": "class",
+      "section_offset": 1892,
+      "address": 1904,
+      "name": "TimeClock",
+      "species": 57,
+      "superclass": 50,
+      "properties": [
+        57,
+        50,
+        32768,
+        2069,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        750,
+        0,
+        0,
+        14,
+        0,
+        10,
+        0,
+        0
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 1858
+        }
+      ],
+      "property_selectors": [
+        0,
+        1,
+        2,
+        23,
+        34,
+        32,
+        9,
+        10,
+        11,
+        12,
+        24,
+        75,
+        77,
+        8,
+        13,
+        14,
+        15,
+        16,
+        45,
+        294,
+        301,
+        303,
+        302,
+        304,
+        5,
+        6,
+        7,
+        63,
+        181,
+        180,
+        17,
+        174
+      ]
+    }
+  ],
+  "exports": [
+    660,
+    1510
+  ],
+  "strings": [
+    {
+      "offset": 2044,
+      "text": "WButton",
+      "terminated": true
+    },
+    {
+      "offset": 2052,
+      "text": "CostDItem",
+      "terminated": true
+    },
+    {
+      "offset": 2062,
+      "text": "Talker",
+      "terminated": true
+    },
+    {
+      "offset": 2069,
+      "text": "TimeClock",
+      "terminated": true
+    },
+    {
+      "offset": 2079,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}

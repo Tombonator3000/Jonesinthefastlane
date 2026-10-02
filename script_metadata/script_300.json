@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "type": 7,
+      "name": "exports",
+      "offset": 0,
+      "size": 8
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 8,
+      "size": 5964
+    },
+    {
+      "type": 1,
+      "name": "object",
+      "offset": 5972,
+      "size": 28
+    },
+    {
+      "type": 2,
+      "name": "code",
+      "offset": 6000,
+      "size": 598
+    },
+    {
+      "type": 5,
+      "name": "strings",
+      "offset": 6598,
+      "size": 20
+    },
+    {
+      "type": 8,
+      "name": "relocations",
+      "offset": 6618,
+      "size": 8
+    },
+    {
+      "type": 0,
+      "name": "end",
+      "offset": 6626,
+      "size": 2
+    }
+  ],
+  "objects": [
+    {
+      "kind": "object",
+      "section_offset": 5972,
+      "address": 5984,
+      "name": "WhereShouldIGo",
+      "species": 0,
+      "superclass": 0,
+      "properties": [
+        0,
+        0,
+        0,
+        6602
+      ],
+      "methods": [
+        {
+          "selector": 60,
+          "name": "doit",
+          "address": 71
+        }
+      ]
+    }
+  ],
+  "exports": [
+    5984
+  ],
+  "strings": [
+    {
+      "offset": 6602,
+      "text": "WhereShouldIGo",
+      "terminated": true
+    },
+    {
+      "offset": 6617,
+      "text": "",
+      "terminated": true
+    }
+  ],
+  "locals": []
+}
