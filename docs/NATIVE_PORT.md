@@ -120,32 +120,22 @@ licences are recorded separately under `native/audio/vendor/`.
 and the separate byte-identical SCI assembly check remain useful evidence about
 the original files; neither alone proves behavioral parity of the native port.
 
-## Online play and deployment
+## Online play
 
-Choose the player count in the room and use the same count in the original
-game setup. Share the invitation, wait for the selected seats to connect and
-start the game. The server runs one native session at 60 ticks per second,
-accepts input only from its current owner and sends the same game frames to
-each player. Original alternating turns remain the game model.
+Free online play uses one player's browser as the authoritative host, with
+PeerJS/WebRTC connections to up to three guests. The existing native session
+runs the original game, including setup, turns and Jones. The host validates
+all input, including its own, before the session receives it. Guests receive
+the same original indexed frames and audio state. No Node game server is needed
+for this mode on GitHub Pages.
 
-The server rejects a different player count on the original count screen and
-explains the room's required count without changing the game's rules or chosen
-count behind the scenes. At a seat transfer, pending input from the previous
-seat is discarded. Reloading the page exposes **Resume online game** using the
-private credential stored in that tab; invitation links do not include it.
+The optional dedicated WebSocket server uses the same room authority. Public
+server mode requires its own HTTPS/WSS deployment. Configure `HOST`, `PORT` and
+`ALLOWED_ORIGINS` as before; select it under Advanced connection in the lobby.
 
-The server supports reconnection to an existing seat. An entirely disconnected
-room remains in memory for up to 30 minutes by default. Rooms and server-side
-saves are currently process memory: restarting the server loses them. Local
-single-browser Save/Restore uses browser local storage and is a separate save
-from an online room.
-
-For a reachable server, configure `HOST`, `PORT` and, where applicable, the
-comma-separated `ALLOWED_ORIGINS`. Serve public browser access over HTTPS and
-the WebSocket endpoint over WSS through the hosting platform or reverse proxy.
-GitHub Pages can serve the static `build/native/` client, but cannot run the
-WebSocket game server; online play there needs a separately deployed server.
-Local browser/network tests do not constitute a public deployment.
+Read [Free peer multiplayer](PEER_MULTIPLAYER.md) for the connection flow,
+original Save/Restore, private guest reconnection, host lifetime, custom
+signaling and the explicit limits of the free STUN path.
 
 ## Verification and remaining limits
 

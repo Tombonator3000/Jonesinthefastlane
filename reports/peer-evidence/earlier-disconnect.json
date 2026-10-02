@@ -1,0 +1,93 @@
+{
+  "started": "2026-10-02T09:19:35.850Z",
+  "finished": "2026-10-02T09:20:18.604Z",
+  "ok": false,
+  "checks": [
+    {
+      "name": "Default online UI creates and joins via a shareable peer invitation",
+      "ok": true,
+      "milliseconds": 1036,
+      "details": {
+        "hostSeat": 0,
+        "guestSeat": 1,
+        "players": 2,
+        "signaling": "local official PeerServer (CI)"
+      }
+    },
+    {
+      "name": "Host starts the shared original game over an actual WebRTC data channel",
+      "ok": true,
+      "milliseconds": 2371,
+      "details": {
+        "label": "original main menu",
+        "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
+        "pixels": 64000
+      }
+    },
+    {
+      "name": "Wrong-seat mouse input cannot advance the original shared menu",
+      "ok": true,
+      "milliseconds": 712,
+      "details": {
+        "label": "wrong-seat input rejected",
+        "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
+        "pixels": 64000
+      }
+    },
+    {
+      "name": "A real guest reload and Resume reconnect the same seat without a local game",
+      "ok": true,
+      "milliseconds": 713,
+      "details": {
+        "label": "reconnected original scene",
+        "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
+        "pixels": 64000
+      }
+    },
+    {
+      "name": "Room count is enforced by the original player-count controls",
+      "ok": true,
+      "milliseconds": 1106,
+      "details": {
+        "label": "two-player setup",
+        "sha256": "7ca2a0b49bc2ead0ed73664d4f40a70d017eb80165936e6ec4989ed8a53716bd",
+        "pixels": 64000
+      }
+    },
+    {
+      "name": "Both real peers complete their own original character and goal screens",
+      "ok": true,
+      "milliseconds": 3151,
+      "details": {
+        "label": "first human turn",
+        "sha256": "c536efd228d0394dae3c06ff1a00602f9acc15f1a5fdc66f2e787e769653df8a",
+        "pixels": 64000
+      }
+    },
+    {
+      "name": "Original F5/F7 saves on the host and restores shared original bank state",
+      "ok": false,
+      "milliseconds": 33087
+    }
+  ],
+  "errors": [],
+  "resourceErrors": [],
+  "loadedScripts": [
+    {
+      "page": "host",
+      "url": "http://127.0.0.1:42637/assets/index-C6fkJ3Gc.js",
+      "sha256": "a4b97369abc24738e69d4e0e80c42dd32d97e598760c1a11e63d4fdbb159ad76"
+    },
+    {
+      "page": "guest",
+      "url": "http://127.0.0.1:42637/assets/index-C6fkJ3Gc.js",
+      "sha256": "a4b97369abc24738e69d4e0e80c42dd32d97e598760c1a11e63d4fdbb159ad76"
+    },
+    {
+      "page": "guest",
+      "url": "http://127.0.0.1:42637/assets/index-C6fkJ3Gc.js",
+      "sha256": "a4b97369abc24738e69d4e0e80c42dd32d97e598760c1a11e63d4fdbb159ad76"
+    }
+  ],
+  "failure": "Error: Timeout guest receives bank change: {\"state\":{\"ticks\":462,\"seed\":894864425,\"week\":1,\"currentPlayer\":\"player1\",\"cash\":200,\"dialog\":null,\"trace\":[\"0:jones.play\"],\"warnings\":[],\"audio\":{\"tick\":462,\"masterVolume\":12,\"enabled\":true,\"sounds\":[{\"instance\":4100,\"id\":23,\"generation\":7,\"positionTicks\":5,\"durationTicks\":5,\"loopStartTick\":0,\"loop\":0,\"volume\":127,\"priority\":1,\"playing\":false,\"paused\":false,\"ended\":true,\"bed\":false},{\"instance\":4099,\"id\":5,\"generation\":2,\"positionTicks\":36,\"durationTicks\":1129,\"loopStartTick\":0,\"loop\":-1,\"volume\":127,\"priority\":0,\"playing\":true,\"paused\":false,\"ended\":false,\"bed\":false}]},\"connectionNotice\":null,\"finished\":false,\"error\":null,\"errorTrace\":null},\"seat\":1,\"role\":\"guest\",\"roomStatus\":\"running\",\"owner\":0}\n    at wait (/home/tombonator3000t/Documents/Codex/Jonesinthefastlane/tests/native_browser_peer.cjs:25:268)\n    at async /home/tombonator3000t/Documents/Codex/Jonesinthefastlane/tests/native_browser_peer.cjs:123:119\n    at async check (/home/tombonator3000t/Documents/Codex/Jonesinthefastlane/tests/native_browser_peer.cjs:26:72)\n    at async run (/home/tombonator3000t/Documents/Codex/Jonesinthefastlane/tests/native_browser_peer.cjs:117:3)"
+}

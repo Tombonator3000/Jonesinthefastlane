@@ -34,7 +34,7 @@ async function pageFor(context,label){const page=await context.newPage();page.on
   host=await pageFor(hostContext,'host');guest=await pageFor(guestContext,'guest');
   let invitation,roomId;
   await check('Create and join through production online controls',async()=>{
-    await host.goto(URL);await host.locator('#online').click();await host.locator('#players').selectOption('2');await host.locator('#create').click();
+    await host.goto(URL);await host.locator('#online').click();await host.locator('#advanced-network summary').click();await host.locator('#connection-mode').selectOption('server');await host.locator('#players').selectOption('2');await host.locator('#create').click();
     await host.waitForFunction(()=>document.querySelector('#invite-link').value.length>0);
     invitation=await host.locator('#invite-link').inputValue();
     const h=await wait(host,s=>s.seat===0&&s.room?.status==='waiting','host seat');roomId=h.room.roomId;
