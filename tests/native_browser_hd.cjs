@@ -112,6 +112,8 @@ async function start() {
   await check('Original speech punctuation keeps its small ink size in HD', async () => {
     await wait(s => s.dialog === 'bank' && s.trace.at(-1) === '204:bank.doit');
     await click(229, 157); await wait(s => s.dialog === null); await click(229, 182);
+    await wait(s => s.dialog === 'university' && s.trace.at(-1) === '207:university.doit');
+    await click(180, 153);
     await page.waitForFunction(() => window.jonesNative.getFrame()?.hd?.ops.some(op => op.kind === 'text' && op.font === 1 && op.glyphs.some(g => g.char === '.' && g.background !== null)));
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     const sample = await page.evaluate(() => {
