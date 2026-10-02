@@ -38,6 +38,10 @@ jobs:
           python -m unittest tests.test_sci_translation tests.test_native_assets -v
           pnpm typecheck:native
           pnpm test:native
+      - name: Verify HD images, original geometry and production provenance
+        run: |
+          python -m unittest tests.test_native_hd -v
+          pnpm verify:hd --report build/native-hd-validation.json
       - name: Build the native edition without an emulator
         run: pnpm build:native
       - name: Exercise the production build through original browser controls
@@ -49,6 +53,7 @@ jobs:
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:native
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:online
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd
+          JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd-props
           pnpm test:browser:lobby
       - name: Exercise free peer play from a static site over real WebRTC
         run: pnpm test:browser:peer
@@ -63,9 +68,11 @@ jobs:
             build/native-online-evidence/
             build/native-peer-evidence/
             build/native-hd-evidence/
+            build/native-hd-props-evidence/
             build/native-discovery-evidence/
             build/native-lobby-ui-evidence/
             build/native-server.log
+            build/native-hd-validation.json
       - uses: actions/upload-artifact@v4
         with:
           name: native-site
