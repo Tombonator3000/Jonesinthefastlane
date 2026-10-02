@@ -1,0 +1,113 @@
+{
+  "publishedCommit": "23c065f11c55950515f032b3ada393abc1e374d7",
+  "pullRequest": "https://github.com/Tombonator3000/Jonesinthefastlane/pull/1",
+  "workflow": {
+    "url": "https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36985121327",
+    "conclusion": "success",
+    "jobs": {
+      "native": "success",
+      "verify": "success",
+      "deploy": "success"
+    },
+    "publishedAt": "2026-10-02T08:47:05Z"
+  },
+  "publicBrowserCheck": {
+    "url": "https://tombonator3000.github.io/Jonesinthefastlane/native/",
+    "checkedAt": "2026-10-02T08:48:22.548Z",
+    "ok": true,
+    "hashes": [
+      {
+        "path": "assets/audio/sound-0006.flac",
+        "sha256": "fa959f112f9d66a8ec0be6bf3bd0185b67c6bc3d0aca9097a986dd408049c446"
+      },
+      {
+        "path": "assets/audio-manifest.json",
+        "sha256": "1088d7998c4336862dced641cd6aa48ecd0465ac960d0fc12d48130229bff07d"
+      },
+      {
+        "path": "assets/index-Bk-HmQ0o.js",
+        "sha256": "4217a13e31098e1828bdb56cc09e4ca3636e100ed876b8a4345e101e39c0ef24"
+      },
+      {
+        "path": "assets/index-D-E8fHFO.css",
+        "sha256": "0f420245107e8e4c56df28fb8c4249e5c0195dcca5f2e5ee0b0cab354099e425"
+      },
+      {
+        "path": "assets/manifest.json",
+        "sha256": "f98cd20f49aae142434e45601349868196dedcd1dbb67ab2a5dc52f57a4d0491"
+      },
+      {
+        "path": "index.html",
+        "sha256": "a7f52ae8f09b061292da2f8b72e92f3f7da4b95446fdb06badce94fd406e512c"
+      }
+    ],
+    "state": {
+      "ticks": 606,
+      "seed": 1018099125,
+      "week": 1,
+      "currentPlayer": "player1",
+      "cash": 200,
+      "dialog": "bank",
+      "trace": [
+        "0:jones.play",
+        "0:jones.doit",
+        "1:room1.doit",
+        "1:bankP.cue",
+        "204:bank.init",
+        "204:bank.doit"
+      ],
+      "warnings": [],
+      "audio": {
+        "tick": 606,
+        "masterVolume": 12,
+        "enabled": true,
+        "sounds": [
+          {
+            "instance": 4100,
+            "id": 23,
+            "generation": 7,
+            "positionTicks": 5,
+            "durationTicks": 5,
+            "loopStartTick": 0,
+            "loop": 0,
+            "volume": 127,
+            "priority": 1,
+            "playing": false,
+            "paused": false,
+            "ended": true,
+            "bed": false
+          },
+          {
+            "instance": 4099,
+            "id": 47,
+            "generation": 3,
+            "positionTicks": 229,
+            "durationTicks": 495,
+            "loopStartTick": 15,
+            "loop": -1,
+            "volume": 127,
+            "priority": 0,
+            "playing": true,
+            "paused": false,
+            "ended": false,
+            "bed": true
+          }
+        ]
+      },
+      "connectionNotice": null,
+      "finished": false,
+      "error": null,
+      "errorTrace": null
+    },
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "scummvmRequests": 0,
+    "fullscreen": "screen"
+  },
+  "hashCheckScope": "Six core/startup files out of 848 production files; not a complete public asset hash audit.",
+  "journey": "Original Play Game, one player, character, goals, no Jones, first turn and bank visit through actual browser input.",
+  "screenshot": "reports/native-evidence/public-bank.png",
+  "publicMultiplayerHostConfigured": false,
+  "exhaustiveParityVerified": false
+}

@@ -47,6 +47,23 @@ This is separate from the original-engine report in `browser_verification.md`.
 - All 22 original files retain their recorded SHA-256 checksums. Unchanged
   low-level scripts still assemble byte-identically to all 69 originals.
 
+## Published delivery
+
+The native edition is live at
+[the public game address](https://tombonator3000.github.io/Jonesinthefastlane/native/).
+[Deployment run 36985121327](https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36985121327)
+passed its native, original-reference and Pages deployment jobs for commit
+`23c065f11c55950515f032b3ada393abc1e374d7` on 2026-10-02.
+
+A real Chromium check of the public address completed original one-player setup
+and entered the bank in week 1 with $200. Browser fullscreen was active. There
+were no page errors, failed requests, HTTP resource errors, or ScummVM/WASM
+requests during that journey. Six public core/startup files matched the recorded
+production SHA-256 values; this was not a hash audit of every public asset.
+[Delivery evidence](native_delivery.json) records the result and
+[public bank capture](native-evidence/public-bank.png). Public online multiplayer
+still needs a separately hosted game server.
+
 ## Reproduce
 
 ```sh
