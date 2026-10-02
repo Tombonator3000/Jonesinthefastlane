@@ -1,11 +1,93 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><link rel="icon" href="data:,"/><title>Jones in the Fast Lane</title><link rel="stylesheet" href="./style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000"><link rel="icon" href="data:,">
+  <title>Jones in the Fast Lane</title><link rel="stylesheet" href="./style.css">
+</head>
 <body><main id="screen">
-  <div id="stage"><canvas id="game" width="320" height="200" tabindex="0" aria-label="Jones in the Fast Lane"></canvas></div>
-  <section id="launch" class="overlay"><div class="panel"><h1>Jones in the Fast Lane</h1><p id="loading" role="status">Loading…</p><button id="play" disabled>Play in fullscreen</button><button id="online" disabled>Play online</button></div></section>
-  <nav id="display-controls" aria-label="Display"><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="settings">Display</button><button id="connection-settings" hidden>Connection</button></nav>
-  <dialog id="display"><form method="dialog"><h2>Display</h2><label>Graphics pack <select id="graphics-pack"><option value="original">Original</option><option value="hd">HD artwork</option></select></label><label class="check-label"><input id="lighting" type="checkbox"> Town lighting (HD)</label><p class="small">HD artwork enhances supported scenes. Lighting adds optional effects to the town map.</p><label>Effect strength <input id="effect-strength" type="range" min="0" max="1" step="0.05" value="0.4"></label><p id="graphics-status" role="status"></p><label>Style <select id="mode"><option value="original">Original pixels</option><option value="smooth">Smooth</option><option value="modern">Modern</option><option value="crt">CRT</option></select></label><label>Resolution <select id="resolution"><option value="0">Automatic</option><option value="720">720p</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">2160p</option></select></label><button>Done</button></form></dialog>
-  <dialog id="network"><div class="panel"><h2>Play online</h2><p id="online-help"></p><button id="resume-online" hidden>Resume online game</button><details id="advanced-network"><summary>Advanced connection</summary><label>Connection <select id="connection-mode"><option value="peer">Free peer-to-peer</option><option value="server">Dedicated server</option></select></label><label id="server-label" hidden>Server <input id="server" spellcheck="false" value="ws://127.0.0.1:8787/multiplayer"></label></details><label>Players <select id="players"><option>2</option><option>3</option><option>4</option><option>1</option></select></label><div id="public-options"><label class="check-label"><input type="checkbox" id="public-room"> Public room</label><label id="room-name-label" hidden>Room name <input id="room-name" maxlength="48" value="Jones game" autocomplete="off"></label><p id="public-status" role="status"></p></div><button id="create">Create game</button><button id="find-games">Find games</button><section id="public-browser" hidden aria-label="Public games"><h3>Public games</h3><p class="small">Shared room names are public. The free room list is best effort; private invitations still work if it is unavailable.</p><div class="room-search"><label>Search by name <input id="room-search" type="search" maxlength="48" placeholder="Room name"></label><button id="refresh-games">Refresh</button></div><p id="discovery-status" role="status"></p><ul id="public-games"></ul><button id="close-games">Close list</button></section><label>Invitation <input id="invitation" spellcheck="false" placeholder="Paste an invitation link"></label><button id="join">Join game</button><p id="connection" role="status"></p><label id="invite-label" hidden>Share this invitation <input id="invite-link" readonly></label><button id="start-online" hidden>Start game</button><button id="leave-online" hidden>Leave online game</button><button id="close-online">Back</button></div></dialog>
+  <div id="stage">
+    <canvas id="game" width="320" height="200" tabindex="0" aria-label="Jones in the Fast Lane"></canvas>
+    <button id="menu-online" hidden>Play online</button>
+  </div>
+  <section id="launch" class="overlay">
+    <div class="panel launch-panel">
+      <h1 class="panel-title">Jones in the Fast Lane</h1>
+      <div class="launch-choices">
+        <p id="loading" role="status">Loading…</p>
+        <button id="play" disabled>Play in fullscreen</button>
+        <button id="online" disabled>Play online</button>
+      </div>
+    </div>
+  </section>
+  <nav id="display-controls" aria-label="Display">
+    <button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="settings">Display</button><button id="connection-settings" hidden>Connection</button>
+  </nav>
+  <dialog id="display" aria-labelledby="display-title">
+    <form method="dialog">
+      <h2 id="display-title">Display</h2>
+      <label>Graphics pack <select id="graphics-pack"><option value="original">Original</option><option value="hd">HD artwork</option></select></label>
+      <label class="check-label"><input id="lighting" type="checkbox"> Town lighting (HD)</label>
+      <p class="small">HD artwork enhances supported scenes. Lighting adds optional effects to the town map.</p>
+      <label>Effect strength <input id="effect-strength" type="range" min="0" max="1" step="0.05" value="0.4"></label>
+      <p id="graphics-status" role="status"></p>
+      <label>Style <select id="mode"><option value="original">Original pixels</option><option value="smooth">Smooth</option><option value="modern">Modern</option><option value="crt">CRT</option></select></label>
+      <label>Resolution <select id="resolution"><option value="0">Automatic</option><option value="720">720p</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">2160p</option></select></label>
+      <button>Done</button>
+    </form>
+  </dialog>
+  <dialog id="network" data-view="home" aria-labelledby="network-title" aria-describedby="online-help">
+    <div class="panel lobby-panel">
+      <h2 id="network-title" class="panel-title">Play online</h2>
+      <div class="lobby-body">
+        <p id="online-help"></p>
+        <button id="resume-online" hidden>Resume online game</button>
+        <section id="waiting-room" aria-label="Players in this game">
+          <p id="room-summary"></p><ul id="room-seats"></ul>
+        </section>
+        <div id="network-setup">
+          <section id="host-setup" class="lobby-choice">
+            <h3 id="host-heading">Create a game</h3>
+            <label id="players-label" class="inline-label">Players <select id="players"><option>2</option><option>3</option><option>4</option><option>1</option></select></label>
+            <div id="public-options">
+              <label class="check-label"><input type="checkbox" id="public-room"> Public room</label>
+              <label id="room-name-label" hidden>Room name <input id="room-name" maxlength="48" value="Jones game" autocomplete="off"></label>
+              <p id="public-status" role="status"></p>
+            </div>
+            <button id="create">Create game</button>
+          </section>
+          <section id="join-setup" class="lobby-choice">
+            <h3>Join a game</h3>
+            <button id="find-games">Find games</button>
+            <label>Invitation <input id="invitation" spellcheck="false" placeholder="Paste an invitation link" autocomplete="off"></label>
+            <button id="join">Join game</button>
+          </section>
+        </div>
+        <section id="public-browser" hidden aria-label="Public games">
+          <h3>Find games</h3>
+          <div class="room-search"><label>Search by name <input id="room-search" type="search" maxlength="48" placeholder="Room name"></label><button id="refresh-games">Refresh</button></div>
+          <p id="discovery-status" role="status"></p>
+          <ul id="public-games"></ul>
+          <p class="small">Public room names are shared. You can also join with a private invitation.</p>
+          <button id="close-games">Back</button>
+        </section>
+        <div id="invite-label" hidden>
+          <label>Share this invitation <input id="invite-link" readonly></label>
+          <button id="copy-invite">Copy invitation</button><span id="copy-status" role="status"></span>
+        </div>
+        <details id="advanced-network">
+          <summary>Advanced connection</summary>
+          <label>Connection <select id="connection-mode"><option value="peer">Free peer-to-peer</option><option value="server">Dedicated server</option></select></label>
+          <label id="server-label" hidden>Server <input id="server" spellcheck="false" value="ws://127.0.0.1:8787/multiplayer"></label>
+        </details>
+        <p id="connection" role="status"></p>
+      </div>
+      <footer class="lobby-footer">
+        <button id="start-online" hidden>Start game</button><button id="leave-online" hidden>Leave online game</button><button id="close-online">Back</button>
+      </footer>
+    </div>
+  </dialog>
   <div id="network-status" role="status" hidden></div>
   <section id="failure" class="overlay" hidden><div class="panel"><h2>The game stopped</h2><p id="error" role="alert"></p><button id="reload">Reload</button></div></section>
-</main><script type="module" src="./app.ts"></script></body></html>
+</main><script type="module" src="./app.ts"></script></body>
+</html>

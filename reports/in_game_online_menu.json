@@ -1,0 +1,143 @@
+{
+  "recordedAt": "2026-10-02T15:54:40.500762+00:00",
+  "delivery": "Local production candidate verified; GitHub PR and public Pages verification follow.",
+  "sourceBase": "bdc36779413c25fcf98fc2dfccbb597d37391c9d",
+  "branch": "feature/in-game-online-menu",
+  "runtime": {
+    "file": "assets/index-CntseEba.js",
+    "sha256": "29b574e99e13c040500dbc4419994ac3c02d962815e37aafa2dca6ea64953773"
+  },
+  "style": {
+    "file": "assets/index-B07IDSQ_.css",
+    "sha256": "c2ca7ee4384b861fdaba05cb50658bc8cebc4f22ae50972cfa579179544a2855"
+  },
+  "checks": {
+    "solo": {
+      "passed": 10,
+      "started": "2026-10-02T15:46:29.937Z",
+      "finished": "2026-10-02T15:48:21.316Z",
+      "sourceReport": "build/native-evidence/report.json",
+      "checks": [
+        "Native startup and original one-player menus",
+        "Original bank deposit and withdrawal",
+        "Original F5 saves and F7 restores native game state",
+        "Save survives closing the page and original Restore Game menu",
+        "Original F4 statistics renders its original text rows",
+        "Original job application, work and food purchase",
+        "Original school enrollment and Trade School lesson",
+        "Original full week via home relaxation",
+        "Fullscreen, display effects and aspect-ratio input mapping",
+        "Original Quit confirmation completes the game and returns to Play"
+      ]
+    },
+    "dedicated": {
+      "passed": 6,
+      "started": "2026-10-02T15:45:21.325Z",
+      "finished": "2026-10-02T15:45:30.528Z",
+      "sourceReport": "build/native-online-evidence/report.json",
+      "checks": [
+        "Create and join through production online controls",
+        "Host starts original shared game with no local simulation",
+        "Inactive browser input cannot choose original controls",
+        "Reload and Resume online game restore the same private seat",
+        "Original host control still reaches the same player-count screen",
+        "Room size validation keeps the original count screen usable"
+      ]
+    },
+    "hd": {
+      "passed": 9,
+      "started": "2026-10-02T15:45:31.100Z",
+      "finished": "2026-10-02T15:46:29.666Z",
+      "sourceReport": "build/native-hd-evidence/in-game-menu-fixed/report.json",
+      "checks": [
+        "Original remains the default; HD changes no original game pixels or rules",
+        "HD artwork contains detail within original pixel cells and optional lighting changes output",
+        "Original character selection and goals remain operable with HD artwork",
+        "Original bank actions and Save/Restore retain the complete HD scene",
+        "2160p and portrait aspect preserve original input coordinates",
+        "Display choice persists independently of the original save",
+        "Original speech punctuation keeps its small ink size in HD",
+        "WebGL loss falls back to the original visible game",
+        "An unavailable optional HD pack leaves the original game playable"
+      ]
+    },
+    "peer": {
+      "passed": 13,
+      "started": "2026-10-02T15:50:59.255Z",
+      "finished": "2026-10-02T15:51:59.130Z",
+      "sourceReport": "build/native-peer-evidence/in-game-menu-final/report.json",
+      "checks": [
+        "Default online UI creates and joins via a shareable peer invitation",
+        "Host starts the shared original game over an actual WebRTC data channel",
+        "Wrong-seat mouse input cannot advance the original shared menu",
+        "Guest chooses local HD while host keeps Original on the identical authoritative scene",
+        "A real guest reload and Resume reconnect the same seat without a local game",
+        "Room count is enforced by the original player-count controls",
+        "Both real peers complete their own original character and goal screens",
+        "Original F5/F7 saves on the host and restores shared original bank state",
+        "Original Relax actions finish player one and transfer gameplay to the guest",
+        "Continuous guest pointer movement preserves the following original clicks",
+        "Closing the real host page gives the guest actionable host-loss status",
+        "A fresh host page and new invitation restore the device save through the original menu",
+        "Observed production traffic uses peer signaling and WebRTC without a game-server connection"
+      ]
+    },
+    "directory": {
+      "passed": 7,
+      "started": "2026-10-02T15:47:23.177Z",
+      "finished": "2026-10-02T15:47:58.593Z",
+      "sourceReport": "build/native-discovery-evidence/in-game-menu-fixed/report.json",
+      "checks": [
+        "Personal display choices persist locally and do not change another player",
+        "Private is the default and does not publish a room",
+        "Explicit public room appears by name and free-seat count in another browser",
+        "Name search and Refresh operate on the actual broker list",
+        "An idle waiting room renews its real retained announcement after thirty seconds",
+        "Join from the list uses actual WebRTC; full room disappears for other browsers",
+        "Private invitation remains available when public broker is unavailable"
+      ]
+    },
+    "lobby": {
+      "passed": 8,
+      "started": "2026-10-02T15:51:05.741Z",
+      "finished": "2026-10-02T15:51:21.462Z",
+      "sourceReport": "build/native-lobby-ui-evidence/final/report.json",
+      "checks": [
+        "Launch shows the original town without starting a game session",
+        "Play online opens a themed fullscreen dialog without moving the game surface",
+        "Find games uses its own view; Back and Escape restore navigation and focus",
+        "The original menu adds online in its free header and resumes original controls after Escape",
+        "All three original menu buttons retain their original click positions and behavior",
+        "Creating a private waiting room uses the room view and does not start a local game",
+        "Portrait phone layout keeps online controls reachable without horizontal overflow",
+        "Short landscape layout scrolls inside the dialog and returns to the original game"
+      ]
+    }
+  },
+  "browserChecksPassed": 53,
+  "nativeTestsPassed": 95,
+  "typecheck": "passed",
+  "originalVerification": {
+    "records_validated": 299,
+    "unique_resources": 266,
+    "identical_duplicates": 33,
+    "original_hashes_verified": 22
+  },
+  "scope": "English in-game online presentation, menu input/focus and existing room controls. Original scripts, game rules, asset files and network protocol unchanged.",
+  "visualReview": "build/native-lobby-visual-review/fullscreen-fixed/report.json",
+  "screenshots": [
+    "reports/online-menu-evidence/original-online.png",
+    "reports/online-menu-evidence/hd-online.png",
+    "reports/online-menu-evidence/phone-online.png"
+  ],
+  "buildLineage": "Final CSS only moves Back/Leave to the panel bottom. The preceding BQP2d_HT and final CntseEba files have identical JavaScript bytes/SHA-256; final lobby8 and peer13 rerun on CntseEba.",
+  "resolved": [
+    "First fullscreen transition could leave an already-open modal unpainted despite DOM visibility and hit testing. Fullscreen completes before opening; existing invitation dialogs are re-layered while preserving form state. Browser regression checks inspect actual composited title pixels.",
+    "The prior peer attempt completed all13 checks but the process wrapper returned143 during cleanup. The final independent child-exit diagnostic confirms Node exit0 with no signal. Earlier evidence remains under build/native-peer-evidence/in-game-menu-fixed."
+  ],
+  "limits": [
+    "Local network tests use real WebRTC and MQTT in isolated browser contexts on one machine. Public Pages verification is still pending at this record time.",
+    "A game-styled accessible HTML panel overlays the original town. Original gameplay menus and hit regions retain their positions.",
+    "Existing free-service, host-lifetime and cross-network limitations remain as documented."
+  ]
+}

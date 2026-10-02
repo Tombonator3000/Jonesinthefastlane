@@ -19,7 +19,8 @@
     "test:browser:online": "node tests/native_browser_online.cjs",
     "test:browser:peer": "node tests/native_browser_peer.cjs",
     "test:browser:discovery": "node tests/native_browser_discovery.cjs",
-    "test:browser:hd": "node tests/native_browser_hd.cjs"
+    "test:browser:hd": "node tests/native_browser_hd.cjs",
+    "test:browser:lobby": "node tests/native_browser_lobby_ui.cjs"
   },
   "devDependencies": {
     "@types/node": "24.7.0",

@@ -6,6 +6,8 @@ The native edition translates all 69 original game/source modules into editable 
 
 **Play online for free from GitHub Pages:** the creator's browser hosts the same native game and guests join through an invitation link or **Find games**. Rooms are private by default; choose **Public room** to advertise available seats in the best-effort free room directory. PeerJS Cloud provides free connection signaling; game input and the authoritative original frames travel over WebRTC. Each player controls their own original turn. The creator must keep the game open. Private reconnect credentials let guests reload and return to the same seat while the host remains available.
 
+**Play online** opens a game-styled panel over the town, from the launch screen or the added button above the original main-menu controls. Create/Join, Find games and the room lobby share the original cream, turquoise and black presentation. The lobby shows player seats and **Copy invitation**; **Back** closes the panel, while **Leave online game** leaves the room. Original Play/Restore/Demo controls keep their positions.
+
 Original Save/Restore stores peer games on the creator's device, separately from single-player saves and by room player count. Closing the host ends the live room; a new room can use the original Restore Game menu to load the last saved game. Automatic host migration is not implemented. Some restrictive networks need a separately configured TURN relay; the default free path uses STUN and does not promise connectivity on every network.
 
 [Free multiplayer setup, architecture and limits](docs/PEER_MULTIPLAYER.md)

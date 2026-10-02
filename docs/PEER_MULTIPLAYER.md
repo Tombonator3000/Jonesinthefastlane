@@ -16,6 +16,28 @@ Invitation links connect friends. **Find games** also lists waiting public rooms
 by name, player count and available seats. Rooms are private by default; the host
 must explicitly choose **Public room** and a room name to advertise one.
 
+## In-game online menu
+
+The online menu uses the town backdrop and the original cream/turquoise palette.
+It is available from the launch screen and the added **Play online** button in
+the unused header strip above the original Play/Restore/Demo controls. During an
+online game, **Connection** reopens the same panel. A local game exposes the entry
+only at its original main menu, so it cannot discard an ongoing solo turn.
+
+Create/Join, Find games and the waiting room are separate views. Room seats show
+connected players and available or reserved places. **Copy invitation** copies
+the shared link, with manual selection if clipboard access is unavailable.
+**Back** or Escape closes the panel; **Leave online game** disconnects. The host
+can change a waiting room's public listing without leaving the room.
+
+The backdrop is a standalone graphics snapshot, with no local game simulation.
+DOM controls preserve text entry, keyboard navigation and screen-reader labels.
+Modal controls block game input; closing returns focus to the game. Online
+simulation and incoming frames continue while the panel is open. No original
+menu scripts, game coordinates, networking protocol or game rules are replaced.
+The same presentation works with Original and HD graphics, including portrait
+viewports. `pnpm test:browser:lobby` exercises these original-input UI journeys.
+
 ## Public room directory
 
 `native/network/discovery.ts` uses MQTT over secure WebSocket to the shared free
