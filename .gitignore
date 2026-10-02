@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+saves/
+logs/
+scummvm-local.ini
+*.download-part

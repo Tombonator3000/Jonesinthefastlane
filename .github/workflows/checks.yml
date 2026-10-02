@@ -1,0 +1,45 @@
+name: Workbench checks
+
+on:
+  push:
+    paths:
+      - 'tools/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - 'original/**'
+      - 'source_asm/**'
+      - 'graphics/**'
+      - 'extracted/**'
+      - '.github/workflows/checks.yml'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  data-and-tools:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and CLI checks
+        run: |
+          python -m compileall -q tools tests
+          python tools/jones.py --help
+      - name: Import safety tests without game data
+        run: python -m unittest discover -s tests -p test_import_workbench.py -v
+      - name: Full data tests only when original files have been imported
+        shell: bash
+        run: |
+          if [[ -f original/resource.map ]]; then
+            python -m pip install -r requirements.txt
+            python tools/jones.py verify
+            python -m unittest discover -s tests -v
+            echo 'Full datatest bestått. Dette er ikke en test av spilling eller lyd.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Originalfiler/grafikk venter på ZIP-import. Bare syntaks, CLI og importtester er kjørt; full spilldatatest er ikke kjørt.' >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,70 @@
+name: Import workbench
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Jones_decomp_arbeidsprosjekt.zip'
+      - 'imports/Jones_decomp_arbeidsprosjekt.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-workbench-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Locate the unchanged workbench archive
+        id: archive
+        shell: bash
+        run: |
+          if [[ -f Jones_decomp_arbeidsprosjekt.zip ]]; then
+            echo 'found=true' >> "$GITHUB_OUTPUT"
+            echo 'path=Jones_decomp_arbeidsprosjekt.zip' >> "$GITHUB_OUTPUT"
+          elif [[ -f imports/Jones_decomp_arbeidsprosjekt.zip ]]; then
+            echo 'found=true' >> "$GITHUB_OUTPUT"
+            echo 'path=imports/Jones_decomp_arbeidsprosjekt.zip' >> "$GITHUB_OUTPUT"
+          else
+            echo 'found=false' >> "$GITHUB_OUTPUT"
+            echo 'ZIP-en er ikke lastet opp. Ingen spillressurser er importert.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Verify archive and safely import missing files
+        if: steps.archive.outputs.found == 'true'
+        env:
+          PACKAGE: ${{ steps.archive.outputs.path }}
+        run: python tools/import_workbench.py "$PACKAGE"
+      - name: Install PNG dependency
+        if: steps.archive.outputs.found == 'true'
+        run: python -m pip install -r requirements.txt
+      - name: Verify originals and run all data tests
+        if: steps.archive.outputs.found == 'true'
+        shell: bash
+        run: |
+          python tools/jones.py verify
+          python -m unittest discover -s tests -v 2>&1 | tee reports/github_import_tests.txt
+      - name: Commit imported files without overwriting branch history
+        if: steps.archive.outputs.found == 'true'
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- original extracted source_asm script_metadata graphics tools tests reports reference docs mods .gitignore requirements.txt start_linux.sh start_windows.cmd README_NO.md LICENSE.tools.txt
+          if git diff --cached --quiet; then
+            echo 'Ingen nye filer å legge inn.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            git commit -m 'Import verified Jones workbench and game resources'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+            echo 'Arbeidspakken er importert og datatestet. Spillet er ikke gjennomspilt av denne arbeidsflyten.' >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,11 @@
+* text=auto eol=lf
+original/** -text
+extracted/raw/** -text
+extracted/patches/** -text
+*.png binary
+*.jpg binary
+*.zip binary
+*.bin binary
+*.drv binary
+*.exe binary
+*.com binary
