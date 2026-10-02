@@ -12,7 +12,37 @@ No paid game server, hosting account or server address is required for the
 default peer mode. This adopts Guild Life Adventures' host-browser architecture:
 [PeerManager reference](https://github.com/Tombonator3000/guild-life-adventures/blob/1fa067156a62de8837bb5c0df091716cd172e569/src/network/PeerManager.ts).
 It does not import Guild Life's gameplay, action rules or automatic turn skips.
-A public room directory is outside this slice; invitation links connect friends.
+Invitation links connect friends. **Find games** also lists waiting public rooms
+by name, player count and available seats. Rooms are private by default; the host
+must explicitly choose **Public room** and a room name to advertise one.
+
+## Public room directory
+
+`native/network/discovery.ts` uses MQTT over secure WebSocket to the shared free
+HiveMQ public broker, following [Guild Life's directory approach](https://github.com/Tombonator3000/guild-life-adventures/blob/1fa067156a62de8837bb5c0df091716cd172e569/src/network/gameListing.ts). It advertises
+only the room name, host peer ID, shared invitation token, capacity and occupied
+seats. Private reconnect credentials and game state are never published there.
+Room names are public, and anyone can join a public room's available seats.
+
+Announcements are renewed every 30 seconds and expire from clients after 90
+seconds without renewal. Closed, full and started rooms are removed; broker
+Last Will also removes an abruptly disconnected advertiser. Refresh performs a
+real resubscription, and stale entries are pruned without needing new traffic.
+The list filters compatible game versions and signaling configurations. It
+validates and bounds untrusted records, renders names as text, and preserves
+keyboard focus while unchanged rooms receive renewal messages.
+
+This directory is best effort. HiveMQ describes its public broker as intended
+for temporary testing, not production/private data:
+[official public broker guidance](https://www.hivemq.com/mqtt/public-mqtt-broker/).
+An unavailable directory does not stop private invitations or an established
+game. A room listing does not remove the host-lifetime or restrictive-network
+limitations described below.
+
+For a separately operated broker or the real local test fixture, use the page's
+`lobby=ws(s)://.../mqtt` query parameter. No broker account, private credentials or
+paid service is provisioned by the default implementation. A production directory
+can later replace this dependency without changing Jones' gameplay or PeerJS rooms.
 
 ## Authority and transport
 
@@ -33,6 +63,9 @@ The transport therefore bounds, compresses and splits messages, checks their
 assembly and applies backpressure. Frame ordering must remain the same as on
 the authoritative host; stale frames cannot replace a later reconnect snapshot.
 Original artwork is still drawn by Three.js with local display options.
+Complete optional HD scene descriptions travel with each authoritative frame.
+Peers load the static HD art locally and choose their own Original/HD settings;
+the host does not stream large high-resolution images. See [HD graphics](HD_GRAPHICS.md).
 
 Invitations contain a host peer ID, room ID and shared join token. They never
 contain private seat credentials. Each guest stores their own reconnect token
@@ -93,6 +126,10 @@ Only peer mode stores original saves on the creator's device.
   signaling is not evidence that the public signaling service was reachable.
 - Public Pages verification must target the published build and preserve the
   distinction between two isolated browser contexts and two physical networks.
+- `pnpm test:browser:discovery` uses a real local MQTT WebSocket broker and real
+  PeerJS/WebRTC to create, discover, search, refresh and join a public room. It
+  checks renewal, private defaults, full-room removal, fullscreen and focus.
+  `JONES_DISCOVERY_CLOUD=1` separately exercises the public HiveMQ and PeerJS services.
 
 Actual results and limitations belong in the delivery report. Do not call
 cross-network or TURN behavior verified without running those conditions.

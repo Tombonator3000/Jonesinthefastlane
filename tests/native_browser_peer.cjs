@@ -28,7 +28,7 @@ async function click(page,x,y,settle=180){const b=await page.locator('#game').bo
 async function capture(page,name){const file=path.join(OUTPUT,`${name}.png`);await page.screenshot({path:file,mask:[page.locator('#invite-link'),page.locator('#invitation')]});const s=await snapshot(page);report.screenshots.push({name,path:path.relative(ROOT,file),seat:s?.seat,role:s?.role,dialog:s?.state?.dialog,player:s?.state?.currentPlayer,connection:await page.locator('#connection').textContent(),networkStatus:await page.locator('#network-status').textContent()});}
 async function sharedFrame(label){
   for(let attempt=0;attempt<45;attempt++){
-    const read=page=>page.evaluate(()=>{const f=window.jonesNative.getFrame();return f?{width:f.width,height:f.height,pixels:f.pixels,palette:f.palette,cursor:f.cursor}:null;});
+    const read=page=>page.evaluate(()=>{const f=window.jonesNative.getFrame();return f?{width:f.width,height:f.height,pixels:f.pixels,palette:f.palette,cursor:f.cursor,hd:f.hd}:null;});
     const [a,b]=await Promise.all([read(host),read(guest)]);
     if(a&&b&&hash(a)===hash(b)){assert.equal(Buffer.from(a.pixels,'base64').length,64000);return {label,sha256:hash(a),pixels:64000};}
     await delay(80);
@@ -94,11 +94,21 @@ async function run(){
     await click(guest,160,70);await delay(300);assert.equal((await snapshot(host)).state.dialog,'select1');assert.equal((await snapshot(guest)).state.dialog,'select1');
     assert.match(await guest.locator('#network-status').textContent(),/Player 1/i);return sharedFrame('wrong-seat input rejected');
   });
+  await check('Guest chooses local HD while host keeps Original on the identical authoritative scene',async()=>{
+    await guest.locator('#settings').click();await guest.locator('#graphics-pack').selectOption('hd');await guest.locator('#lighting').check();await guest.locator('#display button').click();
+    await guest.waitForFunction(()=>window.jonesNative.getDisplay().hd.ready&&window.jonesNative.getDisplay().hd.layers>0);
+    assert.equal(await host.locator('#graphics-pack').inputValue(),'original');
+    assert.equal(await guest.locator('#graphics-pack').inputValue(),'hd');
+    assert.equal((await snapshot(guest)).hasRuntime,false);
+    await capture(guest,'02b-guest-hd-menu');return sharedFrame('different local packs, identical complete scene');
+  });
   await check('A real guest reload and Resume reconnect the same seat without a local game',async()=>{
     await guest.reload();await guest.waitForFunction(()=>window.jonesNative);
     if(!await guest.locator('#network').isVisible())await guest.locator('#online').click();
     await guest.locator('#resume-online').click();const g=await wait(guest,s=>s.seat===1&&s.room?.status==='running'&&s.state?.dialog==='select1','guest resumed');
     assert.equal(g.room.roomId,roomId);assert.equal(g.role,'guest');assert.equal(g.hasRuntime,false);
+    await guest.waitForFunction(()=>window.jonesNative.getDisplay().hd.ready&&window.jonesNative.getDisplay().hd.layers>0);
+    assert.equal(await guest.locator('#graphics-pack').inputValue(),'hd');
     await rtcStats(guest,'guest after actual reload');await capture(guest,'03-guest-resumed');return sharedFrame('reconnected original scene');
   });
   await check('Room count is enforced by the original player-count controls',async()=>{

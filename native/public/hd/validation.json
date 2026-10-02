@@ -1,0 +1,340 @@
+{
+  "schema": 1,
+  "timestamp": "2026-10-02T13:06:46.335346+00:00",
+  "method": "Read-only PNG/JSON/source-reference validation; no image modification or game-state mutation",
+  "passed": true,
+  "mappedPics": 1,
+  "mappedCels": 49,
+  "uniquePngs": 10,
+  "totalPngBytes": 18347861,
+  "checks": [
+    {
+      "kind": "pics",
+      "key": "11",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "500:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "354:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "354:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "354:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "354:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "354:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "354:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "353:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "353:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "353:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "353:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "353:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "353:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "357:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "357:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "357:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "357:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "357:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "357:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "360:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "360:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "360:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "360:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "360:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "360:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "351:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "351:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "351:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "351:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "351:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "351:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "358:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "358:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "358:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "358:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "358:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "358:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "359:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "359:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "359:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "359:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "359:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "359:0:5",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "361:0:0",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "361:0:1",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "361:0:2",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "361:0:3",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "361:0:4",
+      "passed": true
+    },
+    {
+      "kind": "cels",
+      "key": "361:0:5",
+      "passed": true
+    }
+  ],
+  "files": {
+    "pics/town-11-corrected.png": {
+      "width": 1586,
+      "height": 992,
+      "bytes": 2232244,
+      "sha256": "d6c7ad2f6ff652da4d3f5566e7fb846f26a1de0e8ab3a40a8f7087c17c3fd2df"
+    },
+    "cels/character-selection-500.png": {
+      "width": 1606,
+      "height": 979,
+      "bytes": 1666637,
+      "sha256": "fcaafaa5b8edb57906c9a13917e41434400bb951118744b7834d1fde0e340cb6"
+    },
+    "cels/bank-354-atlas.png": {
+      "width": 1662,
+      "height": 946,
+      "bytes": 1667124,
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee"
+    },
+    "cels/market-353-atlas.png": {
+      "width": 1708,
+      "height": 921,
+      "bytes": 1684929,
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9"
+    },
+    "cels/university-357-atlas.png": {
+      "width": 1707,
+      "height": 921,
+      "bytes": 1952434,
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b"
+    },
+    "cels/burger-360-atlas.png": {
+      "width": 1708,
+      "height": 920,
+      "bytes": 1566100,
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396"
+    },
+    "cels/rent-351-atlas.png": {
+      "width": 1707,
+      "height": 921,
+      "bytes": 2218953,
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599"
+    },
+    "cels/appliance-358-atlas.png": {
+      "width": 1583,
+      "height": 993,
+      "bytes": 1674548,
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3"
+    },
+    "cels/clothing-359-atlas.png": {
+      "width": 1635,
+      "height": 962,
+      "bytes": 1822229,
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2"
+    },
+    "cels/discount-361-atlas.png": {
+      "width": 1708,
+      "height": 921,
+      "bytes": 1862663,
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf"
+    }
+  },
+  "limitations": [
+    "Visual repaints are not pixel-identical reconstruction.",
+    "This validates assets; browser/runtime composition is verified separately.",
+    "Only declared resources have HD coverage; remaining resources use original fallback."
+  ],
+  "selectionHairCorrection": {
+    "maskTopSourceY": 122.375,
+    "observedDarkHairStartY": [
+      129,
+      134,
+      125,
+      152
+    ],
+    "passed": true,
+    "method": "Visual inspection plus read-only dark-hair row bounds at each face; browser compositor check follows separately."
+  }
+}

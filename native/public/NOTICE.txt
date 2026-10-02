@@ -15,8 +15,15 @@ https://github.com/Tombonator3000/Jonesinthefastlane
 
 Three.js: MIT license (licenses/three.txt).
 PeerJS and bundled WebRTC dependencies: licenses/peerjs-dependencies.txt.
+MQTT.js and dependency notices: licenses/mqtt-dependencies.txt.
+HD text uses unmodified Liberation fonts under SIL OFL 1.1: fonts/LICENSE.txt.
+Optional generated HD art: hd/README.md, hd/prompts.md and hd/provenance.json.
+These are derivative interpretations of original Sierra designs, not a grant
+of rights to the underlying characters, game, trademarks or artwork.
 Free peer-hosted multiplayer follows the architecture of Guild Life Adventures;
 Jones retains its own original game session and transport protocol.
+The optional public room directory uses the free shared HiveMQ broker on a
+best-effort basis; it is separate from the actual PeerJS/WebRTC game transport.
 GNU GPL v3: licenses/GPL-3.0.txt.
 The build-time FM renderer uses Nuked-OPL3 under LGPL-2.1-or-later;
 its source, license and provenance are in native/audio/vendor/ in the repo.

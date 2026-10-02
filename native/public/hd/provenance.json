@@ -1,0 +1,120 @@
+{
+  "generationDate": "2026-10-02",
+  "method": "Built-in ChatGPT image generator",
+  "model": "Not exposed by tool",
+  "scope": "Generated derivative optional artwork; no original game resources edited",
+  "promptRecord": "prompts.md",
+  "archiveRoot": "/home/tombonator3000t/.codex/generated_images/01a0fb42-ca96-7f12-b9ce-121aa48977c8",
+  "selected": [
+    {
+      "file": "pics/town-11-corrected.png",
+      "generated": "exec-de34f6e4-f28e-4cf6-9914-b4347852d3b8.png",
+      "derivedFrom": "exec-976371c8-3903-474e-a080-d6fe7d8769b7.png",
+      "source": "assets/pics/0011.png"
+    },
+    {
+      "file": "cels/character-selection-500.png",
+      "generated": "exec-93e39893-6335-4190-afa8-361d72abc071.png",
+      "source": "assets/views/0500/00_00.png",
+      "derivedFrom": "exec-88d2469a-bbd8-4cc0-af0c-36159eec2362.png",
+      "correction": "Move complete heads below the preserved original 14-pixel header."
+    },
+    {
+      "file": "cels/bank-354-atlas.png",
+      "generated": "exec-47a50ffc-e8c6-440a-8660-78f30026fe8f.png",
+      "sources": [
+        "assets/views/0354/00_00.png",
+        "assets/views/0354/00_01.png",
+        "assets/views/0354/00_02.png",
+        "assets/views/0354/00_03.png",
+        "assets/views/0354/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/market-353-atlas.png",
+      "generated": "exec-33c7471f-50f9-4aac-9a40-af69fb3a6238.png",
+      "sources": [
+        "assets/views/0353/00_00.png",
+        "assets/views/0353/00_01.png",
+        "assets/views/0353/00_02.png",
+        "assets/views/0353/00_03.png",
+        "assets/views/0353/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/university-357-atlas.png",
+      "generated": "exec-880414dd-cea3-4789-8f60-f1b7b88fbe90.png",
+      "sources": [
+        "assets/views/0357/00_00.png",
+        "assets/views/0357/00_01.png",
+        "assets/views/0357/00_02.png",
+        "assets/views/0357/00_03.png",
+        "assets/views/0357/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/burger-360-atlas.png",
+      "generated": "exec-e4f2c76a-3afc-4a0e-a1a6-32ada90e2607.png",
+      "sources": [
+        "assets/views/0360/00_00.png",
+        "assets/views/0360/00_01.png",
+        "assets/views/0360/00_02.png",
+        "assets/views/0360/00_03.png",
+        "assets/views/0360/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/rent-351-atlas.png",
+      "generated": "exec-808e8847-286e-4032-bd81-46416c2efa51.png",
+      "sources": [
+        "assets/views/0351/00_00.png",
+        "assets/views/0351/00_01.png",
+        "assets/views/0351/00_02.png",
+        "assets/views/0351/00_03.png",
+        "assets/views/0351/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/appliance-358-atlas.png",
+      "generated": "exec-09264c49-0601-4f39-93e5-e98a631e3dfa.png",
+      "sources": [
+        "assets/views/0358/00_00.png",
+        "assets/views/0358/00_01.png",
+        "assets/views/0358/00_02.png",
+        "assets/views/0358/00_03.png",
+        "assets/views/0358/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/clothing-359-atlas.png",
+      "generated": "exec-c3b2b549-6c99-47b9-93ef-32745ba600fa.png",
+      "sources": [
+        "assets/views/0359/00_00.png",
+        "assets/views/0359/00_01.png",
+        "assets/views/0359/00_02.png",
+        "assets/views/0359/00_03.png",
+        "assets/views/0359/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    },
+    {
+      "file": "cels/discount-361-atlas.png",
+      "generated": "exec-647f441d-3827-46c1-89a3-9a27b6e444b7.png",
+      "sources": [
+        "assets/views/0361/00_00.png",
+        "assets/views/0361/00_01.png",
+        "assets/views/0361/00_02.png",
+        "assets/views/0361/00_03.png",
+        "assets/views/0361/00_05.png"
+      ],
+      "layout": "3 columns by 2 rows, row-major frames 0..5"
+    }
+  ],
+  "rights": "Original Sierra game characters, artwork and designs remain separately attributed. Generated derivative art does not grant rights to those originals. This pack is distinct from new runtime code and its software license."
+}

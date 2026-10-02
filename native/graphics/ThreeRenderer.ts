@@ -2,11 +2,13 @@
 // Browser-only presentation of the native, serializable indexed graphics frame.
 import * as THREE from 'three';
 import { decodeBytes } from './bytes.js';
+import { HdPresentation } from './HdPresentation.js';
 import type { GraphicsFrame, NativeAssetManifest, Point } from './types.js';
 
 export type DisplayMode = 'original' | 'smooth' | 'modern' | 'crt';
 export interface ThreeRendererOptions {
   mode?: DisplayMode; resolutionHeight?: number; intensity?: number; drawCursor?: boolean;
+  pack?: 'original' | 'hd'; lighting?: boolean;
   onStatus?: (status: { backend: 'three' | 'canvas'; message?: string; width: number; height: number }) => void;
 }
 const vertex = `varying vec2 frameUv;
@@ -56,9 +58,12 @@ export class ThreeRenderer {
   private cursorCache = new Map<number, Uint8Array>();
   private contextLost = false;
   private disposed = false;
+  private readonly hd: HdPresentation;
+
+  get hdStatus() { return this.hd.diagnostics; }
 
   constructor(readonly canvas: HTMLCanvasElement, readonly assets: NativeAssetManifest, options: ThreeRendererOptions = {}) {
-    this.options = { mode: 'original', intensity: .4, resolutionHeight: 0, drawCursor: true, ...options };
+    this.options = { mode: 'original', pack: 'original', lighting: false, intensity: .4, resolutionHeight: 0, drawCursor: true, ...options };
     this.logicalCanvas.width = 320; this.logicalCanvas.height = 200;
     const context = this.logicalCanvas.getContext('2d', { alpha: false });
     const fallbackContext = this.fallback.getContext('2d', { alpha: false });
@@ -74,10 +79,18 @@ export class ThreeRenderer {
       effect: { value: 0 }, intensity: { value: this.options.intensity }
     }, depthTest: false, depthWrite: false, toneMapped: false });
     this.scene.add(new THREE.Mesh(this.geometry, this.material)); this.camera.position.z = 1;
+    this.hd = new HdPresentation(assets, () => { if (this.currentFrame) this.paintFrame(); }, message => {
+      this.options.onStatus?.({ backend: this.renderer && !this.contextLost ? 'three' : 'canvas', message, width: this.canvas.width, height: this.canvas.height });
+    });
+    this.scene.add(this.hd.group);
     let renderer: THREE.WebGLRenderer | null = null;
     try {
       renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, preserveDrawingBuffer: true, powerPreference: 'low-power' });
       renderer.setClearColor(0x000000, 1);
+      renderer.debug.onShaderError = () => {
+        this.contextLost = true;
+        this.showFallback('Graphics effects are unavailable; original pixels remain active.');
+      };
     } catch { /* Native game rasterization continues via Canvas fallback. */ }
     this.renderer = renderer;
     this.fallback.className = canvas.className;
@@ -102,7 +115,9 @@ export class ThreeRenderer {
     this.texture.minFilter = this.texture.magFilter = mode === 'smooth' ? THREE.LinearFilter : THREE.NearestFilter;
     this.material.uniforms.effect.value = mode === 'modern' ? 1 : mode === 'crt' ? 2 : 0;
     this.material.uniforms.intensity.value = Math.max(0, Math.min(1, this.options.intensity ?? .4));
+    this.hd.configure({ enabled: this.options.pack === 'hd' && !!this.renderer, lighting: !!this.options.lighting, intensity: this.options.intensity ?? .4, effect: this.material.uniforms.effect.value });
     this.texture.needsUpdate = true; this.resize();
+    if (this.currentFrame) this.paintFrame();
   }
   resize(): void {
     if (this.disposed) return;
@@ -135,6 +150,7 @@ export class ThreeRenderer {
   }
   private paintFrame(): void {
     const frame = this.currentFrame!, pixels = this.pixels!;
+    const cursorPixels: number[] = [];
     const image = this.context.createImageData(320, 200);
     for (let i = 0; i < pixels.length; i++) {
       const c = frame.palette[pixels[i]], offset = i * 4;
@@ -151,10 +167,12 @@ export class ThreeRenderer {
           if (index === c.clear || px < 0 || py < 0 || px >= 320 || py >= 200) continue;
           const value = index === 255 ? 255 : index === 7 ? 170 : 0, offset = (py * 320 + px) * 4;
           image.data[offset] = image.data[offset + 1] = image.data[offset + 2] = value;
+          cursorPixels.push(py * 320 + px);
         }
       }
     }
-    this.context.putImageData(image, 0, 0); this.texture.needsUpdate = true; this.render();
+    this.context.putImageData(image, 0, 0); this.texture.needsUpdate = true;
+    this.hd.update(frame, pixels, cursorPixels); this.render();
   }
   private renderFallback(): void {
     const ctx = this.fallbackContext, w = this.fallback.width, h = this.fallback.height;
@@ -174,6 +192,6 @@ export class ThreeRenderer {
     if (this.disposed) return;
     this.disposed = true; this.resizeObserver.disconnect();
     this.canvas.removeEventListener('webglcontextlost', this.onLost); this.canvas.removeEventListener('webglcontextrestored', this.onRestored);
-    this.texture.dispose(); this.material.dispose(); this.geometry.dispose(); this.renderer?.dispose(); this.fallback.remove();
+    this.hd.dispose(); this.texture.dispose(); this.material.dispose(); this.geometry.dispose(); this.renderer?.dispose(); this.fallback.remove();
   }
 }

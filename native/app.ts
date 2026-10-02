@@ -6,6 +6,7 @@ import { createNativeSession, type NativeSession } from './session.js';
 import { BrowserNetworkClient } from './network/client.js';
 import { BrowserPeerClient } from './network/peer.js';
 import type { PeerOptions } from 'peerjs';
+import { PublicRoomBrowser, PublicRoomAnnouncer, discoveryScope, type PublicRoom } from './network/discovery.js';
 import type { GameInput, PlayerCount, Serializable, Credentials, RoomInfo } from './network/types.js';
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -21,6 +22,19 @@ let timer: ReturnType<typeof setInterval> | undefined, onlineState: Serializable
 let connectionMode: ConnectionMode = 'peer', busy = false, connectionNotice = '', networkGeneration = 0;
 let peerSignal = query.get('signal') ?? '', peerIce = query.get('ice') ?? '';
 const saveKey = 'jones-native-save-v1';
+const displayKey = 'jones-display-v1';
+let roomBrowser: PublicRoomBrowser | undefined, roomAnnouncer: PublicRoomAnnouncer | undefined, listedRooms: PublicRoom[] = [];
+const lobbyBroker = query.get('lobby') ?? undefined;
+let displayPreferences = { mode: 'original' as DisplayMode, resolutionHeight: 0, pack: 'original' as 'original' | 'hd', lighting: false, intensity: .4 };
+try {
+  const saved = JSON.parse(localStorage.getItem(displayKey) ?? 'null');
+  if (saved && ['original','smooth','modern','crt'].includes(saved.mode)) displayPreferences.mode = saved.mode;
+  if (saved && [0,720,1080,1440,2160].includes(saved.resolutionHeight)) displayPreferences.resolutionHeight = saved.resolutionHeight;
+  if (saved?.pack === 'hd') displayPreferences.pack = 'hd';
+  if (typeof saved?.lighting === 'boolean') displayPreferences.lighting = saved.lighting;
+  if (typeof saved?.intensity === 'number' && Number.isFinite(saved.intensity)) displayPreferences.intensity = Math.max(0,Math.min(1,saved.intensity));
+} catch { /* Display choices remain available when local storage is blocked. */ }
+
 const audio = new NativeAudioPlayer({ baseUrl: new URL('./assets/', location.href).href, onError: error => showNetworkNotice(error.message) });
 let resume: Resume | undefined;
 try {
@@ -41,6 +55,12 @@ function controls() {
   $<HTMLSelectElement>('players').disabled = busy || joined;
   $<HTMLSelectElement>('connection-mode').disabled = busy || joined;
   $<HTMLInputElement>('server').disabled = busy || joined;
+  $('public-options').hidden = connectionMode !== 'peer';
+  const ownWaitingRoom = network instanceof BrowserPeerClient && network.peerRole === 'host' && network.room?.status === 'waiting';
+  $<HTMLInputElement>('public-room').disabled = busy || (joined && !ownWaitingRoom);
+  $<HTMLInputElement>('room-name').disabled = busy || (joined && !ownWaitingRoom);
+  $<HTMLButtonElement>('find-games').disabled = busy || joined || connectionMode !== 'peer';
+  $('room-name-label').hidden = !$<HTMLInputElement>('public-room').checked;
   $('leave-online').hidden = !network;
   $('connection-settings').hidden = !network;
   $('resume-online').hidden = !resume || joined;
@@ -50,6 +70,8 @@ function chooseMode(mode: ConnectionMode) {
   connectionMode = mode;
   $<HTMLSelectElement>('connection-mode').value = mode;
   $('server-label').hidden = mode !== 'server';
+  if (mode !== 'peer') closeRoomBrowser();
+  controls();
   $('online-help').textContent = mode === 'peer'
     ? 'Play together for free. The creator must keep this game open. Use the original Save Game menu to save on the creator’s device.'
     : 'Connect to a separately hosted game server.';
@@ -61,6 +83,7 @@ async function action(fn: () => Promise<void>) {
   finally { busy = false; controls(); }
 }
 function stopCurrent() {
+  roomAnnouncer?.stop(); roomAnnouncer = undefined; $('public-status').textContent = ''; closeRoomBrowser();
   networkGeneration++;
   clearTimeout(moveTimer); moveTimer = undefined; pendingMove = undefined;
   clearInterval(timer); session?.stop(); session = undefined;
@@ -128,12 +151,59 @@ $('play').onclick = () => { void audio.unlock(); void enterFullscreen().catch(()
 $('fullscreen').onclick = () => void fullscreen().catch(fail);
 $('reload').onclick = () => location.reload();
 $('settings').onclick = () => $<HTMLDialogElement>('display').showModal();
-function configure() { renderer.setOptions({ mode: $<HTMLSelectElement>('mode').value as DisplayMode, resolutionHeight: Number($<HTMLSelectElement>('resolution').value) }); }
-$('mode').onchange = configure; $('resolution').onchange = configure;
+function configure() {
+  displayPreferences = { mode: $<HTMLSelectElement>('mode').value as DisplayMode, resolutionHeight: Number($<HTMLSelectElement>('resolution').value), pack: $<HTMLSelectElement>('graphics-pack').value as 'original' | 'hd', lighting: $<HTMLInputElement>('lighting').checked, intensity: Number($<HTMLInputElement>('effect-strength').value) };
+  if (displayPreferences.pack === 'original') $('graphics-status').textContent = 'Original artwork.';
+  renderer.setOptions(displayPreferences);
+  try { localStorage.setItem(displayKey, JSON.stringify(displayPreferences)); } catch { /* This browser can still use the current choice. */ }
+}
+for (const id of ['mode','resolution','graphics-pack','lighting','effect-strength']) $(id).onchange = configure;
+
 $('online').onclick = $('connection-settings').onclick = () => { controls(); $<HTMLDialogElement>('network').showModal(); };
 $('close-online').onclick = () => $<HTMLDialogElement>('network').close();
+$('network').addEventListener('close', closeRoomBrowser);
 $('leave-online').onclick = leaveOnline;
 $('connection-mode').onchange = () => chooseMode($<HTMLSelectElement>('connection-mode').value as ConnectionMode);
+
+function closeRoomBrowser() { roomBrowser?.close(); roomBrowser = undefined; listedRooms = []; $('public-browser').hidden = true; }
+function renderPublicRooms() {
+  const list = $('public-games'), filter = $<HTMLInputElement>('room-search').value.trim().toLocaleLowerCase();
+  list.replaceChildren();
+  const visible = listedRooms.filter(room => room.name.toLocaleLowerCase().includes(filter));
+  for (const room of visible) {
+    const row = document.createElement('li'), info = document.createElement('div'), name = document.createElement('strong'), seats = document.createElement('span'), join = document.createElement('button');
+    info.className = 'room-info'; name.textContent = room.name; seats.textContent = `${room.players}/${room.capacity} players · ${room.capacity - room.players} free ${room.capacity - room.players === 1 ? 'seat' : 'seats'}`;
+    join.textContent = 'Join'; join.setAttribute('aria-label', `Join ${room.name}`); join.disabled = busy || !!network?.room;
+    join.onclick = () => void action(async () => {
+      void audio.unlock(); void enterFullscreen().catch(() => {}); chooseMode('peer');
+      await connect(undefined, room.hostPeerId).joinRoom(room.roomId, room.joinToken);
+    });
+    info.append(name, seats); row.append(info, join); list.append(row);
+  }
+  if (!visible.length) { const empty = document.createElement('li'); empty.textContent = filter ? 'No matching public rooms.' : 'No open rooms found. Create one or use an invitation.'; list.append(empty); }
+}
+function findPublicRooms() {
+  closeRoomBrowser(); $('public-browser').hidden = false;
+  roomBrowser = new PublicRoomBrowser({ brokerUrl: lobbyBroker, scope: discoveryScope(peerSignal,peerIce),
+    onStatus: value => { $('discovery-status').textContent = value.message; },
+    onRooms: rooms => { listedRooms = rooms; renderPublicRooms(); } });
+  roomBrowser.refresh();
+}
+function updateAnnouncement() {
+  const client = network, room = client?.room;
+  const eligible = $<HTMLInputElement>('public-room').checked && client instanceof BrowserPeerClient && client.peerRole === 'host' && room?.status === 'waiting' && room.seats.length < room.playerCount && !!client.credentials;
+  if (!eligible) { roomAnnouncer?.stop(); roomAnnouncer = undefined; $('public-status').textContent = $<HTMLInputElement>('public-room').checked && room ? 'Public listing removed: this room is full or has started.' : ''; return; }
+  const name = $<HTMLInputElement>('room-name').value.trim();
+  if (!name || /[\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069]/u.test(name)) { roomAnnouncer?.stop(); roomAnnouncer = undefined; $('public-status').textContent = 'Enter a room name to list your game.'; return; }
+  if (!roomAnnouncer) roomAnnouncer = new PublicRoomAnnouncer({ brokerUrl: lobbyBroker, scope: discoveryScope(peerSignal,peerIce), onStatus: value => { $('public-status').textContent = value.message; } });
+  roomAnnouncer.update({ roomId:room.roomId, hostPeerId:client.hostPeerId, joinToken:client.credentials!.joinToken, name, players:room.seats.length, capacity:room.playerCount, status:'waiting', scope:discoveryScope(peerSignal,peerIce) });
+}
+$('find-games').onclick = findPublicRooms;
+$('refresh-games').onclick = () => roomBrowser?.refresh();
+$('close-games').onclick = closeRoomBrowser;
+$('room-search').oninput = renderPublicRooms;
+$('public-room').onchange = () => { controls(); updateAnnouncement(); };
+$('room-name').onchange = updateAnnouncement;
 
 // An explicit custom signaling URL supports self-hosted/LAN PeerServer deployments.
 // It only changes connection discovery; the same WebRTC channels and game run in all modes.
@@ -179,7 +249,7 @@ function connect(credentials?: Credentials, hostPeerId?: string) {
       const connected = room.seats.filter(seat => seat.connected).length;
       status(`${connected} of ${room.playerCount} players connected. Choose ${room.playerCount} players in the original game menu.`);
       $('start-online').hidden = network?.credentials?.seat !== 0 || room.status !== 'waiting';
-      $<HTMLButtonElement>('start-online').disabled = connected !== room.playerCount; controls();
+      $<HTMLButtonElement>('start-online').disabled = connected !== room.playerCount; controls(); updateAnnouncement();
     },
   };
   network = mode === 'server' ? new BrowserNetworkClient({ ...callbacks, url: server }) : new BrowserPeerClient({ ...callbacks, hostPeerId, peerOptions: peerOptions(),
@@ -201,7 +271,7 @@ $('create').onclick = () => void action(async () => {
   invite.hash = new URLSearchParams({ room: credentials.roomId, invite: credentials.joinToken,
     ...(client instanceof BrowserPeerClient ? { peer: client.hostPeerId } : { server: $<HTMLInputElement>('server').value }) }).toString();
   $('invite-label').hidden = false; $<HTMLInputElement>('invite-link').value = invite.href;
-  status(`Share the invitation. Choose ${client.room!.playerCount} players in the original game menu.`);
+  status(`Share the invitation. Choose ${client.room!.playerCount} players in the original game menu.`); updateAnnouncement();
 });
 $('join').onclick = () => void action(async () => {
   void audio.unlock(); void enterFullscreen().catch(() => {});
@@ -219,15 +289,19 @@ $('resume-online').onclick = () => void action(async () => {
   if (saved.server) $<HTMLInputElement>('server').value = saved.server;
   void audio.unlock(); void enterFullscreen().catch(() => {}); await connect(saved.credentials, saved.hostPeerId).connect();
 });
-window.addEventListener('pagehide', () => { clearInterval(timer); session?.stop(); network?.disconnect(); renderer?.dispose(); void audio.dispose(); });
+window.addEventListener('pagehide', () => { roomAnnouncer?.stop(); closeRoomBrowser(); clearInterval(timer); session?.stop(); network?.disconnect(); renderer?.dispose(); void audio.dispose(); });
 void (async () => {
   const response = await fetch('./assets/manifest.json'); if (!response.ok) throw new Error('Game artwork could not be loaded.');
-  assets = await response.json(); renderer = new ThreeRenderer(canvas, assets, { mode: 'original' });
+  assets = await response.json();
+  $<HTMLSelectElement>('mode').value = displayPreferences.mode; $<HTMLSelectElement>('resolution').value = String(displayPreferences.resolutionHeight);
+  $<HTMLSelectElement>('graphics-pack').value = displayPreferences.pack; $<HTMLInputElement>('lighting').checked = displayPreferences.lighting; $<HTMLInputElement>('effect-strength').value = String(displayPreferences.intensity);
+  renderer = new ThreeRenderer(canvas, assets, { ...displayPreferences, onStatus: value => { if (value.message) $('graphics-status').textContent = value.message; } });
   // Diagnostics expose snapshots, never private network credentials or a second simulation.
   (window as any).jonesNative = { getState: () => session?.getState() ?? onlineState, getFrame: () => session?.getFrame() ?? onlineFrame,
     getRoom: () => network?.room, getSeat: () => network?.credentials?.seat,
     getTransport: () => network ? network instanceof BrowserPeerClient ? 'peer' : 'server' : 'local',
     getPeerRole: () => network instanceof BrowserPeerClient ? network.peerRole : undefined,
+    getDisplay: () => ({ preferences: { ...displayPreferences }, hd: renderer.hdStatus }),
     get runtime() { return session?.runtime; } };
   chooseMode('peer'); controls(); $('loading').textContent = ''; $<HTMLButtonElement>('play').disabled = false; $<HTMLButtonElement>('online').disabled = false;
   if (new URLSearchParams(location.hash.slice(1)).has('room')) { $<HTMLInputElement>('invitation').value = location.href; $<HTMLDialogElement>('network').showModal(); }
