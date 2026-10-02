@@ -2,8 +2,8 @@
 
 This directory is the native browser game. Converted original game methods run
 as TypeScript; native graphics/audio services implement their original API.
-Three.js presents the original 320×200 game with optional display effects. The
-same game core runs on the authoritative online server. No ScummVM runtime or
+Three.js presents the original 320×200 game with optional display effects. For free online play, one browser hosts the same game core over WebRTC.
+An optional authoritative Node server is also available. No ScummVM runtime or
 WebAssembly is loaded by this entry point.
 
 From the repository root:
@@ -26,5 +26,6 @@ Original source resources under `original/` are never modified by these tools.
 See [the native port guide](../docs/NATIVE_PORT.md) for architecture, source and
 asset provenance, commands, online hosting and verification boundaries. See
 [audio documentation](audio/README.md) for original sound rendering, licences
-and its known fidelity limits. GitHub Pages hosts the static client only;
-public online play also requires a running WebSocket server.
+and its known fidelity limits. GitHub Pages hosts free peer play using PeerJS signaling.
+See [peer multiplayer](../docs/PEER_MULTIPLAYER.md) for host lifetime, original
+saves, guest reconnection and restrictive-network limits.

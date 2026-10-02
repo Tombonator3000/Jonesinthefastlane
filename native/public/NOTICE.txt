@@ -14,6 +14,9 @@ Complete corresponding source, build instructions and original attribution:
 https://github.com/Tombonator3000/Jonesinthefastlane
 
 Three.js: MIT license (licenses/three.txt).
+PeerJS and bundled WebRTC dependencies: licenses/peerjs-dependencies.txt.
+Free peer-hosted multiplayer follows the architecture of Guild Life Adventures;
+Jones retains its own original game session and transport protocol.
 GNU GPL v3: licenses/GPL-3.0.txt.
 The build-time FM renderer uses Nuked-OPL3 under LGPL-2.1-or-later;
 its source, license and provenance are in native/audio/vendor/ in the repo.

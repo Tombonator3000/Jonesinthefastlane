@@ -4,7 +4,13 @@
 
 The native edition translates all 69 original game/source modules into editable TypeScript and draws the original indexed artwork with Three.js. It runs **without ScummVM, a SCI bytecode interpreter or WebAssembly**. The translated game code controls the original English menus, 1–4 players, characters, goals, shops, economy, jobs, education, events, weeks and Jones opponent. Optional display effects leave those rules in charge.
 
-The included Node server runs the same native game for online multiplayer. Each player controls their own original turn; every browser receives the same authoritative picture and game state. Private reconnect credentials restore the same seat. **GitHub Pages serves the game files only: online play requires the supplied server, and a public multiplayer host is not configured.**
+**Play online for free from GitHub Pages:** the creator's browser hosts the same native game and guests join through an invitation link. PeerJS Cloud provides free connection signaling; game input and the authoritative original frames travel over WebRTC. Each player controls their own original turn. The creator must keep the game open. Private reconnect credentials let guests reload and return to the same seat while the host remains available.
+
+Original Save/Restore stores peer games on the creator's device, separately from single-player saves and by room player count. Closing the host ends the live room; a new room can use the original Restore Game menu to load the last saved game. Automatic host migration is not implemented. Some restrictive networks need a separately configured TURN relay; the default free path uses STUN and does not promise connectivity on every network.
+
+[Free multiplayer setup, architecture and limits](docs/PEER_MULTIPLAYER.md)
+
+The optional Node/WebSocket server remains under **Advanced connection → Dedicated server**. It runs the same authoritative room logic; it is not required for ordinary peer play from Pages. To run it locally:
 
 ```sh
 pnpm install --frozen-lockfile

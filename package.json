@@ -16,18 +16,21 @@
     "assets:native": "python3 tools/export_native_assets.py",
     "test:browser:native": "node tests/native_browser_smoke.cjs",
     "audio:native": "python3 tools/export_native_audio.py",
-    "test:browser:online": "node tests/native_browser_online.cjs"
+    "test:browser:online": "node tests/native_browser_online.cjs",
+    "test:browser:peer": "node tests/native_browser_peer.cjs"
   },
   "devDependencies": {
-    "playwright": "1.62.1",
-    "typescript": "5.9.3",
-    "vite": "7.1.7",
-    "tsx": "4.20.6",
+    "@types/node": "24.7.0",
     "@types/three": "0.180.0",
     "@types/ws": "8.18.1",
-    "@types/node": "24.7.0"
+    "peer": "1.0.2",
+    "playwright": "1.62.1",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "7.1.7"
   },
   "dependencies": {
+    "peerjs": "1.5.5",
     "three": "0.180.0",
     "ws": "8.18.3"
   }

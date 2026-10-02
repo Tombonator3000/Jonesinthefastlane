@@ -48,6 +48,8 @@ jobs:
           curl --retry 20 --retry-connrefused --retry-delay 1 --fail http://127.0.0.1:8787/health
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:native
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:online
+      - name: Exercise free peer play from a static site over real WebRTC
+        run: pnpm test:browser:peer
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -55,6 +57,7 @@ jobs:
           path: |
             build/native-evidence/
             build/native-online-evidence/
+            build/native-peer-evidence/
             build/native-server.log
       - uses: actions/upload-artifact@v4
         with:
