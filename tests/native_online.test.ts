@@ -17,6 +17,7 @@ class OriginalPeer {
   messages: ServerMessage[] = [];
   latestState: StateMessage | null = null;
   latestFrame: FrameMessage | null = null;
+  private framesByCommit = new Map<string,FrameMessage>();
   seq = 0;
   private requestId = 0;
   private listeners = new Set<()=>void>();
@@ -27,6 +28,14 @@ class OriginalPeer {
       if(this.messages.length>400)this.messages.splice(0,this.messages.length-400);
       if(message.type==='state'||message.type==='snapshot')this.latestState=message;
       if(message.type==='frame'||message.type==='snapshot')this.latestFrame=message;
+      // The authority sends a changed frame before the state for that commit.
+      // A state-only tick retains the preceding frame. Capture that association
+      // on this socket, rather than comparing mutable "latest" pointers across
+      // independently scheduled connections when a peer resumes.
+      if((message.type==='state'||message.type==='snapshot')&&this.latestFrame){
+        this.framesByCommit.set(`${message.tick}:${message.revision}`,this.latestFrame);
+        if(this.framesByCommit.size>400)this.framesByCommit.delete(this.framesByCommit.keys().next().value!);
+      }
       for(const notify of [...this.listeners])notify();
     });
   }
@@ -54,6 +63,13 @@ class OriginalPeer {
     return this.wait(m=>'requestId'in m&&m.requestId===requestId,`reply ${requestId}`);
   }
   input(input:GameInput) {return this.request({type:'input',seq:++this.seq,input});}
+  async commit(tick:number,revision:number) {
+    const state=await this.wait(m=>(m.type==='state'||m.type==='snapshot')&&m.tick===tick&&m.revision===revision,
+      `authoritative commit ${tick}:${revision}`) as StateMessage;
+    const frame=this.framesByCommit.get(`${tick}:${revision}`);
+    assert(frame,`Observed commit ${tick}:${revision} must retain its complete frame`);
+    return {state,frame};
+  }
   async ticks(count:number) {
     const target=(this.latestState?.tick??0)+count;
     await this.wait(m=>(m.type==='state'||m.type==='snapshot')&&m.tick>=target,`${count} authoritative ticks`);
@@ -164,9 +180,10 @@ test('original two-player online setup, full human turn, seat handoff and reconn
   assert.equal(resumed.type,'joined');assert.equal(resumed.seat,1);assert.equal(resumed.sessionToken,joined.sessionToken);
   const snapshot=await returned.wait(m=>m.type==='snapshot','reconnected original snapshot') as Extract<ServerMessage,{type:'snapshot'}>;
   assert.equal(snapshot.inputOwner,1);assert.equal((snapshot.state as any).currentPlayer,'player2');
-  assert.deepEqual(snapshot.frame,host.latestFrame!.frame,'A reconnect receives the live original frame without replaying setup');
-  const sameTick=await host.wait(m=>m.type==='state'&&m.tick===snapshot.tick,'host state at reconnect tick') as StateMessage;
-  assert.deepEqual(snapshot.state,sameTick.state,'Reconnect and existing player receive the same authoritative state');
+  const committed=await host.commit(snapshot.tick,snapshot.revision);
+  assert.deepEqual(snapshot.frame,committed.frame.frame,'A reconnect receives the complete original frame from the same committed tick, without replaying setup');
+  assert.deepEqual(snapshot.state,committed.state.state,'Reconnect and existing player receive the same authoritative state');
+  assert.equal(snapshot.inputOwner,committed.state.inputOwner,'Reconnect restores the owner from that same commit');
   returned.seq=resumed.lastInputSeq;
   await click(returned,160,25);
   await until('reconnected player uses original controls',(s,owner)=>s.currentPlayer==='player2'&&s.dialog==='lowcost'&&owner===1,snapshot.tick);

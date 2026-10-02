@@ -3,6 +3,7 @@
 import * as THREE from 'three';
 import { decodeOwners } from './provenance.js';
 import { createHdUiCanvas } from './HdUi.js';
+import { glyphInkBounds } from './glyph-bounds.js';
 import type { GraphicsFrame, HdDrawOp, NativeAssetManifest, Rect } from './types.js';
 
 interface ArtAsset {
@@ -88,6 +89,7 @@ export class HdPresentation {
   private lastOwners?: Uint32Array;
   private paletteKey = '';
   private activeCount = 0;
+  private glyphBounds = new Map<string, Rect | null>();
 
   constructor(private readonly assets: NativeAssetManifest, private readonly changed: () => void,
     private readonly status: (message: string) => void) {
@@ -158,11 +160,14 @@ export class HdPresentation {
         const m = ctx.measureText(g.char), inkWidth = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
         const inkHeight = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
         const original = this.assets.fonts[op.font]?.chars[g.code];
-        // The original glyph metrics, line breaks and advances remain authoritative.
-        const targetWidth = Math.min(w, (original?.width || g.width) * scale);
-        const targetHeight = Math.min(h, (original?.height || g.height) * scale);
-        if (inkWidth > 0 && inkHeight > 0) {
-          ctx.translate(x, y); ctx.scale(targetWidth / inkWidth, targetHeight / inkHeight);
+        const glyphKey = `${op.font}:${g.code}`;
+        if (!this.glyphBounds.has(glyphKey)) this.glyphBounds.set(glyphKey, original ? glyphInkBounds(original) : null);
+        const bounds = this.glyphBounds.get(glyphKey);
+        // Dimensions contain blank padding: punctuation must retain its original
+        // ink size/baseline instead of being stretched to a full character cell.
+        if (bounds && inkWidth > 0 && inkHeight > 0) {
+          const targetWidth = (bounds.right - bounds.left) * scale, targetHeight = (bounds.bottom - bounds.top) * scale;
+          ctx.translate(x + bounds.left * scale, y + bounds.top * scale); ctx.scale(targetWidth / inkWidth, targetHeight / inkHeight);
           ctx.fillStyle = rgb(op.color); ctx.globalAlpha = op.greyed ? .5 : 1;
           ctx.fillText(g.char, m.actualBoundingBoxLeft, m.actualBoundingBoxAscent);
         }

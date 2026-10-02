@@ -36,6 +36,8 @@ pixels are drawn above it, using the same hotspot.
 
 HD text uses bundled SIL Open Font License Liberation fonts. Glyphs are drawn in
 the original font cells without changing character advances or text layout. A
+glyph's actual ink bounds and baseline are preserved separately from its padded
+bitmap dimensions, so punctuation remains small and correctly positioned. A
 cell is replaced only when its original background is uniform; text over complex
 artwork, inverted selections and unsupported special cases uses original pixels.
 

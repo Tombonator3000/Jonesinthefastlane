@@ -1,11 +1,11 @@
 {
-  "recordedAt": "2026-10-02T13:09:16.597797+00:00",
-  "delivery": "Local production build verified; awaiting pull request and Pages publication.",
+  "recordedAt": "2026-10-02T13:23:58.282113+00:00",
+  "delivery": "PR #4 open; final corrected local production build verified; Pages publication pending.",
   "sourceBase": "89fc524",
   "branch": "codex/hd-graphics-public-rooms",
   "runtime": {
-    "file": "assets/index-BBhOAm6o.js",
-    "sha256": "9c47ace0401a72ca12e5847a11b29a3edaa5cca2ee4c91e45b6f15579049e8ca"
+    "file": "assets/index-BIjoCGC4.js",
+    "sha256": "0237a0b9a2d5dd88ae16f35c191e2d01016b3c8faed69968496936eeac0e4332"
   },
   "artwork": {
     "manifestSha256": "d76acb96b1d01eb45960231ad58dda85df5ef46c4a0b6100710c136a8d3a430a",
@@ -545,13 +545,484 @@
         }
       ],
       "sourceReport": "build/native-hd-evidence/final/report.json"
+    },
+    "font_corrected_visual_review": {
+      "scope": "Read-only diagnostics and actual original UI inputs: character selection, burger portrait and university portrait",
+      "url": "http://127.0.0.1:8787/",
+      "started": "2026-10-02T13:15:33.745Z",
+      "screenshots": [
+        {
+          "file": "01-characters.png",
+          "dialog": "select2",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 6,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 500,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 68,
+                "top": 44,
+                "right": 251,
+                "bottom": 156
+              }
+            }
+          ]
+        },
+        {
+          "file": "02-burger-speaking.png",
+          "dialog": "fastFood",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 16,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 5,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            }
+          ]
+        },
+        {
+          "file": "03-burger-speaking.png",
+          "dialog": "fastFood",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 16,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 1,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            }
+          ]
+        },
+        {
+          "file": "04-burger-ready.png",
+          "dialog": "fastFood",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 18,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            },
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            }
+          ]
+        },
+        {
+          "file": "05-university-speaking.png",
+          "dialog": "university",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 7,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            },
+            {
+              "view": 357,
+              "loop": 0,
+              "cel": 3,
+              "dest": {
+                "left": 68,
+                "top": 45,
+                "right": 136,
+                "bottom": 100
+              }
+            }
+          ]
+        },
+        {
+          "file": "06-university-speaking.png",
+          "dialog": "university",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 7,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            },
+            {
+              "view": 357,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 68,
+                "top": 45,
+                "right": 136,
+                "bottom": 100
+              }
+            }
+          ]
+        },
+        {
+          "file": "07-university-ready.png",
+          "dialog": "university",
+          "error": null,
+          "display": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 6,
+              "fonts": true
+            }
+          },
+          "portraitOps": [
+            {
+              "view": 360,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 183,
+                "top": 44,
+                "right": 251,
+                "bottom": 99
+              }
+            },
+            {
+              "view": 357,
+              "loop": 0,
+              "cel": 0,
+              "dest": {
+                "left": 68,
+                "top": 45,
+                "right": 136,
+                "bottom": 100
+              }
+            }
+          ]
+        }
+      ],
+      "loadedJavaScript": [
+        {
+          "url": "http://127.0.0.1:8787/assets/index-BIjoCGC4.js",
+          "sha256": "0237a0b9a2d5dd88ae16f35c191e2d01016b3c8faed69968496936eeac0e4332"
+        }
+      ],
+      "errors": [],
+      "ok": true,
+      "selectionImageHash": "fcaafaa5b8edb57906c9a13917e41434400bb951118744b7834d1fde0e340cb6",
+      "finished": "2026-10-02T13:15:53.346Z",
+      "visualReview": {
+        "artworkPassed": true,
+        "selectionHairCorrectionPassed": true,
+        "portraitAtlasCropPassed": true,
+        "dynamicFontPunctuationPassed": true,
+        "observedBurgerFrames": [
+          5,
+          1,
+          0
+        ],
+        "observedUniversityFrames": [
+          3,
+          0
+        ],
+        "findings": [
+          "Original header no longer clips the four selection figures.",
+          "Burger bubble period and exclamation mark retain readable small punctuation.",
+          "University bubble Hi-Tech U. correctly renders a thin hyphen and bottom-aligned period; comma and exclamation mark also remain readable.",
+          "Both talkers use the expected original animation indices, fixed bounds and completed clear of their speech bubbles."
+        ],
+        "previousEvidence": "../native-hd-portrait-review-before-font-fix/report.json",
+        "knownPartialCoverage": "Original map overlays and uncovered controls remain pixel art as documented.",
+        "limitations": "Focused original-input visual review of character selection and two service portraits; not exhaustive visual parity certification."
+      }
+    },
+    "hd_font_corrected": {
+      "started": "2026-10-02T13:22:51.763Z",
+      "checks": [
+        {
+          "name": "Original remains the default; HD changes no original game pixels or rules",
+          "ok": true,
+          "milliseconds": 598,
+          "detail": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 4,
+              "fonts": true
+            }
+          }
+        },
+        {
+          "name": "HD artwork contains detail within original pixel cells and optional lighting changes output",
+          "ok": true,
+          "milliseconds": 797,
+          "detail": {
+            "detailedOriginalCells": 7531,
+            "width": 1728,
+            "height": 1080
+          }
+        },
+        {
+          "name": "Original character selection and goals remain operable with HD artwork",
+          "ok": true,
+          "milliseconds": 3126
+        },
+        {
+          "name": "Original bank actions and Save/Restore retain the complete HD scene",
+          "ok": true,
+          "milliseconds": 20737,
+          "detail": {
+            "operations": 25,
+            "ownershipBytes": 15992
+          }
+        },
+        {
+          "name": "2160p and portrait aspect preserve original input coordinates",
+          "ok": true,
+          "milliseconds": 6366
+        },
+        {
+          "name": "Display choice persists independently of the original save",
+          "ok": true,
+          "milliseconds": 2872
+        },
+        {
+          "name": "Original speech punctuation keeps its small ink size in HD",
+          "ok": true,
+          "milliseconds": 2886,
+          "detail": {
+            "rgb": [
+              152,
+              232,
+              208
+            ],
+            "background": [
+              152,
+              232,
+              208
+            ],
+            "ink": [
+              32,
+              72,
+              56
+            ],
+            "font": 1,
+            "character": "."
+          }
+        },
+        {
+          "name": "WebGL loss falls back to the original visible game",
+          "ok": true,
+          "milliseconds": 357
+        },
+        {
+          "name": "An unavailable optional HD pack leaves the original game playable",
+          "ok": true,
+          "milliseconds": 1898,
+          "detail": {
+            "deliberatelyUnavailable": "hd/manifest.json",
+            "originalPlayerCountReached": true
+          }
+        }
+      ],
+      "screenshots": [
+        "build/native-hd-evidence/font-confirmed/01-original-menu.png",
+        "build/native-hd-evidence/font-confirmed/02-hd-menu.png",
+        "build/native-hd-evidence/font-confirmed/03-hd-lights.png",
+        "build/native-hd-evidence/font-confirmed/04-hd-characters.png",
+        "build/native-hd-evidence/font-confirmed/05-hd-goals.png",
+        "build/native-hd-evidence/font-confirmed/06-hd-week-one.png",
+        "build/native-hd-evidence/font-confirmed/07-hd-bank.png",
+        "build/native-hd-evidence/font-confirmed/08-hd-restored-bank.png",
+        "build/native-hd-evidence/font-confirmed/09-hd-2160p.png",
+        "build/native-hd-evidence/font-confirmed/10-hd-portrait.png",
+        "build/native-hd-evidence/font-confirmed/11-hd-restored-after-reload.png",
+        "build/native-hd-evidence/font-confirmed/11b-hd-speech-punctuation.png",
+        "build/native-hd-evidence/font-confirmed/12-original-fallback.png",
+        "build/native-hd-evidence/font-confirmed/13-missing-pack-fallback.png"
+      ],
+      "loadedScripts": [
+        {
+          "path": "/assets/index-BIjoCGC4.js",
+          "sha256": "0237a0b9a2d5dd88ae16f35c191e2d01016b3c8faed69968496936eeac0e4332"
+        },
+        {
+          "path": "/assets/index-BIjoCGC4.js",
+          "sha256": "0237a0b9a2d5dd88ae16f35c191e2d01016b3c8faed69968496936eeac0e4332"
+        }
+      ],
+      "errors": [],
+      "ok": true,
+      "speechPunctuationSample": {
+        "rgb": [
+          152,
+          232,
+          208
+        ],
+        "background": [
+          152,
+          232,
+          208
+        ],
+        "ink": [
+          32,
+          72,
+          56
+        ],
+        "font": 1,
+        "character": "."
+      },
+      "finished": "2026-10-02T13:23:33.860Z",
+      "sourceReport": "build/native-hd-evidence/font-confirmed/report.json"
     }
   },
   "nativeUnitSuite": {
-    "passed": 82,
+    "passed": 84,
     "failed": 0,
-    "log": "build/native-hd-unit-tests.log",
-    "note": "Includes graphics provenance and discovery. Final focus/fullscreen fixes additionally passed targeted discovery tests; unchanged runtime verification is retained."
+    "log": "build/native-hd-final-unit-tests.log",
+    "durationSeconds": 27.728,
+    "note": "Full suite after glyph ink-bounds fix and asynchronous reconnect assertion correction."
   },
   "typecheck": "passed",
   "originalHashes": {
@@ -571,12 +1042,21 @@
     "Initial MQTT named connect import failed in browser bundle; corrected to default import and mqtt.connect. Original failure retained under build/native-hd-evidence/report.json.",
     "HD layer identity now includes operation contents because Restore can reuse operation IDs.",
     "Public Join requests fullscreen; unchanged directory announcements preserve keyboard focus.",
-    "Original control labels/header remain protected; new vector text uses original measured dimensions."
+    "Original control labels/header remain protected; new vector text uses original measured dimensions.",
+    "Font cells include blank padding; HD now fits original ink bounds and baseline, keeping periods and hyphens correctly sized.",
+    "CI exposed a test race across separate WebSockets. Reconnect now compares full frame, state and input owner from the same observed tick/revision instead of mutable latest-frame pointers."
   ],
   "screenshots": [
     "reports/hd-evidence/hd-bank.png",
     "reports/hd-evidence/hd-characters.png",
     "reports/hd-evidence/hd-menu.png",
-    "reports/hd-evidence/public-room-list.png"
-  ]
+    "reports/hd-evidence/public-room-list.png",
+    "reports/hd-evidence/hd-speech.png"
+  ],
+  "pullRequest": "https://github.com/Tombonator3000/Jonesinthefastlane/pull/4",
+  "previousRuntime": {
+    "file": "assets/index-BBhOAm6o.js",
+    "sha256": "9c47ace0401a72ca12e5847a11b29a3edaa5cca2ee4c91e45b6f15579049e8ca"
+  },
+  "checksRuntimeNote": "Existing candidate journeys below used previousRuntime. Font-corrected visual evidence explicitly records current runtime; final CI and live Pages verification will follow."
 }

@@ -3,11 +3,13 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const { createHash } = require('node:crypto');
 const { chromium } = require('playwright');
 const ROOT = path.resolve(__dirname, '..');
 const OUTPUT = path.resolve(ROOT, process.env.JONES_HD_OUTPUT || 'build/native-hd-evidence');
-const URL = process.env.JONES_NATIVE_URL || 'http://127.0.0.1:8767/';
-const report = { started: new Date().toISOString(), checks: [], screenshots: [], errors: [], ok: false };
+const BASE_URL = process.env.JONES_NATIVE_URL || 'http://127.0.0.1:8767/';
+const report = { started: new Date().toISOString(), checks: [], screenshots: [], loadedScripts: [], errors: [], ok: false };
+const scriptReads = [];
 let browser, page;
 async function check(name, fn) { const t = Date.now(); const detail = await fn(); report.checks.push({ name, ok: true, milliseconds: Date.now() - t, detail }); console.log('PASS', name); }
 const state = () => page.evaluate(() => window.jonesNative.getState());
@@ -24,7 +26,7 @@ async function settings(pack, lighting = false, resolution = '1080') {
   await page.locator('#display button').click();
 }
 async function start() {
-  await page.goto(URL); await page.locator('#play').click();
+  await page.goto(BASE_URL); await page.locator('#play').click();
   for (let i = 0; i < 8; i++) { if ((await state()).dialog === 'select1') break; await click(160, 100); await page.waitForTimeout(600); }
   await wait(s => s.dialog === 'select1');
 }
@@ -33,6 +35,9 @@ async function start() {
   browser = await chromium.launch({ headless: true, executablePath: process.env.JONES_BROWSER_EXECUTABLE || chromium.executablePath(), args: ['--no-sandbox'] });
   const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   page = await context.newPage();
+  page.on('response', response => {
+    if (response.ok() && response.request().resourceType() === 'script') scriptReads.push(response.body().then(bytes => report.loadedScripts.push({ path: new URL(response.url()).pathname, sha256: createHash('sha256').update(bytes).digest('hex') })));
+  });
   page.on('pageerror', e => report.errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') report.errors.push(m.text()); });
   await start();
@@ -104,6 +109,25 @@ async function start() {
     await wait(s => s.dialog === 'select1'); await click(165, 105); await wait(s => s.dialog === 'bank' && s.cash === 100);
     await capture('11-hd-restored-after-reload');
   });
+  await check('Original speech punctuation keeps its small ink size in HD', async () => {
+    await wait(s => s.dialog === 'bank' && s.trace.at(-1) === '204:bank.doit');
+    await click(229, 157); await wait(s => s.dialog === null); await click(229, 182);
+    await page.waitForFunction(() => window.jonesNative.getFrame()?.hd?.ops.some(op => op.kind === 'text' && op.font === 1 && op.glyphs.some(g => g.char === '.' && g.background !== null)));
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const sample = await page.evaluate(() => {
+      const f = window.jonesNative.getFrame();
+      const op = f.hd.ops.find(op => op.kind === 'text' && op.font === 1 && op.glyphs.some(g => g.char === '.' && g.background !== null));
+      const dot = op.glyphs.find(g => g.char === '.' && g.background !== null);
+      const canvas = document.querySelector('#game'), copy = document.createElement('canvas');
+      copy.width = canvas.width; copy.height = canvas.height; const ctx = copy.getContext('2d'); ctx.drawImage(canvas, 0, 0);
+      const width = Math.min(copy.width, copy.height * 1.6), scale = width / 320, left = (copy.width - width) / 2, top = (copy.height - width / 1.6) / 2;
+      const rgb = [...ctx.getImageData(Math.floor(left + (dot.x + 1.5) * scale), Math.floor(top + (dot.y + 2.5) * scale), 1, 1).data].slice(0, 3);
+      return { rgb, background: f.palette[dot.background], ink: f.palette[op.color], font: op.font, character: dot.char };
+    });
+    report.speechPunctuationSample = sample;
+    assert(sample.rgb.every((v, i) => Math.abs(v - sample.background[i]) <= 3), 'Upper period cell stays blank, not stretched to a full-height oval');
+    await capture('11b-hd-speech-punctuation'); return sample;
+  });
   await check('WebGL loss falls back to the original visible game', async () => {
     const supported = await page.locator('#game').evaluate(c => { const gl = c.getContext('webgl2'); const ext = gl?.getExtension('WEBGL_lose_context'); ext?.loseContext(); return !!ext; });
     assert(supported, 'Context-loss fixture must actually lose the WebGL context');
@@ -116,7 +140,7 @@ async function start() {
     const fallback = await fallbackContext.newPage(), errors = [];
     fallback.on('pageerror', e => errors.push(e.message));
     await fallback.route('**/hd/manifest.json', route => route.fulfill({ status: 503, body: 'Deliberate optional-art outage fixture' }));
-    await fallback.goto(URL); await fallback.locator('#play').click();
+    await fallback.goto(BASE_URL); await fallback.locator('#play').click();
     await fallback.locator('#settings').click(); await fallback.locator('#graphics-pack').selectOption('hd');
     await fallback.waitForFunction(() => window.jonesNative.getDisplay().hd.failed);
     assert.match(await fallback.locator('#graphics-status').textContent(), /original pixels remain active/i);
@@ -132,6 +156,6 @@ async function start() {
     const file = path.join(OUTPUT, '13-missing-pack-fallback.png'); await fallback.screenshot({ path: file }); report.screenshots.push(path.relative(ROOT, file));
     await fallbackContext.close(); return { deliberatelyUnavailable: 'hd/manifest.json', originalPlayerCountReached: true };
   });
-  assert.deepEqual(report.errors, []); report.ok = true;
+  await Promise.all(scriptReads); assert.deepEqual(report.errors, []); report.ok = true;
 })().catch(async error => { report.failure = error.stack; console.error(error); if (page) try { await capture('failure'); } catch {} process.exitCode = 1; })
   .finally(async () => { report.finished = new Date().toISOString(); await fs.mkdir(OUTPUT, { recursive: true }); await fs.writeFile(path.join(OUTPUT, 'report.json'), JSON.stringify(report, null, 2)); await browser?.close(); });

@@ -19,7 +19,7 @@ must explicitly choose **Public room** and a room name to advertise one.
 ## Public room directory
 
 `native/network/discovery.ts` uses MQTT over secure WebSocket to the shared free
-HiveMQ public broker, following Guild Life's directory approach. It advertises
+HiveMQ public broker, following [Guild Life's directory approach](https://github.com/Tombonator3000/guild-life-adventures/blob/1fa067156a62de8837bb5c0df091716cd172e569/src/network/gameListing.ts). It advertises
 only the room name, host peer ID, shared invitation token, capacity and occupied
 seats. Private reconnect credentials and game state are never published there.
 Room names are public, and anyone can join a public room's available seats.
