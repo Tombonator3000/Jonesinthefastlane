@@ -192,10 +192,19 @@ async function toggle(pack) {
     const before = (await state()).cash; await click(110, 80); await wait(s => s.cash < before);
     await page.waitForTimeout(500); if ((await state()).trace.at(-1) === '255:Dialog.doit') await click(160, 100); await ready('fastFood');
     const afterMeal = (await state()).cash; await screenshot('07-hd-meal');
+    // Original economic prices vary. Earn any shortfall through the same Work
+    // control instead of assuming one shift always leaves $100 after a meal.
+    const extraWork = [];
+    for (let shift = 0; shift < 3 && (await state()).cash < 100; shift++) {
+      await ready('fastFood'); const cashBefore = (await state()).cash;
+      await click(159, 157); await wait(s => s.cash > cashBefore); await ready('fastFood');
+      extraWork.push({ cashBefore, cashAfter: (await state()).cash });
+    }
+    assert((await state()).cash >= 100, 'Original work must fund the $100 bank deposit within three extra shifts');
     await click(229, 157); await wait(s => s.dialog === null); await click(37, 139); await ready('bank');
     const bank = (await state()).cash; assert(bank >= 100); await click(199, 82); await wait(s => s.cash === bank - 100); await ready('bank');
     const sample = await cashPixels('bank deposit'); await screenshot('08-hd-bank-deposit');
-    return { mealCost: before - afterMeal, bankDeposit: 100, sample };
+    return { mealCost: before - afterMeal, extraWork, bankCashBefore: bank, bankDeposit: 100, sample };
   });
   await check('Live original frames contain distinct moving, opening and work poses with complete HD assets', async () => {
     const observed = await page.evaluate(() => window.__hdProps.summary());
