@@ -49,6 +49,7 @@ jobs:
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:native
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:online
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd
+          pnpm test:browser:lobby
       - name: Exercise free peer play from a static site over real WebRTC
         run: pnpm test:browser:peer
       - name: Find and join public games through actual MQTT and WebRTC
@@ -63,6 +64,7 @@ jobs:
             build/native-peer-evidence/
             build/native-hd-evidence/
             build/native-discovery-evidence/
+            build/native-lobby-ui-evidence/
             build/native-server.log
       - uses: actions/upload-artifact@v4
         with:
