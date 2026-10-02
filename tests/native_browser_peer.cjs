@@ -180,6 +180,21 @@ async function run(){
     await click(guest,160,25);await ready(guest,'lowcost');assert.equal((await snapshot(guest)).state.currentPlayer,'player2');
     await capture(guest,'09-second-human-controls-home');return {readyTick:secondTurn.state.ticks,locationInputEnabled:secondTurn.state.locationInputEnabled,turnTransitionActive:secondTurn.state.turnTransitionActive,previousTurnStartCount,turnStartCount:secondTurn.state.turnStartCount,guestHomeClicks:1,...await sharedFrame('guest original human turn')};
   });
+  await check('Continuous guest pointer movement preserves the following original clicks',async()=>{
+    const box=await guest.locator('#game').boundingBox();assert(box);
+    const start=Date.now();let moves=0;
+    while(Date.now()-start<3000){
+      await guest.mouse.move(box.x+(75+(moves*11)%170)*box.width/320,box.y+20*box.height/200);
+      moves++;await delay(8);
+    }
+    assert(moves>=30,'Exercise sustained real pointer input, not a single move');
+    await click(guest,224,156);await wait(guest,s=>s.state?.dialog===null,'guest closes the original home after motion');
+    await click(guest,37,139);await ready(guest,'bank');
+    await wait(host,s=>s.state?.dialog==='bank'&&s.state?.currentPlayer==='player2','host sees guest original bank click');
+    assert.deepEqual(report.capacityFailures,[],'Pointer motion must not overrun either peer queue');
+    await capture(guest,'09b-guest-pointer-motion-bank');
+    return {moves,milliseconds:Date.now()-start,...await sharedFrame('guest bank after continuous original pointer input')};
+  });
   await check('Closing the real host page gives the guest actionable host-loss status',async()=>{
     await host.close();
     await guest.waitForFunction(()=>/host/i.test(document.querySelector('#network-status').textContent+' '+document.querySelector('#connection').textContent)&&/clos|disconnect|left|ended|unavailable/i.test(document.querySelector('#network-status').textContent+' '+document.querySelector('#connection').textContent),null,{timeout:15_000});

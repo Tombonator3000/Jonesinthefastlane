@@ -69,6 +69,12 @@ room changes and other control messages remain ordered and cannot be replaced.
 The host's original 60 Hz simulation is unchanged. Stale frames cannot replace a
 later reconnect snapshot. A wire-version mismatch asks both players to reload or
 update the page and does not enter an automatic reconnect loop.
+Network pointer motion is coalesced before allocating input requests: while an
+unacknowledged move is in flight, only the newest unsent position is retained.
+Before a click or key event, that preceding position is flushed in order. All
+clicks, key events and already-issued requests remain intact. This matches the
+original runtime, where MOVE updates a pointer position and creates no SCI event.
+Pending motion is discarded on disconnect, ownership change or a new session.
 Original artwork is still drawn by Three.js with local display options.
 Complete optional HD scene descriptions travel with each authoritative frame.
 Peers load the static HD art locally and choose their own Original/HD settings;

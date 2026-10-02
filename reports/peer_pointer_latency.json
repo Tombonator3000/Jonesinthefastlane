@@ -1,0 +1,200 @@
+{
+  "recordedAt": "2026-10-02T14:20:56.405428+00:00",
+  "delivery": "Local production candidate verified; final public verification will be recorded in the pull-request description.",
+  "cause": "At 60 Hz pointer motion and 200 ms round-trip latency, per-message delivery acknowledgment filled the 128-request queue. MOVE changes the original pointer position but produces no SCI event.",
+  "before": {
+    "offeredBeforeClosure": 140,
+    "received": 12,
+    "error": "Peer connection cannot keep up with the game. Reconnecting to resume.",
+    "sourceLog": "build/peer-input-latency-probe.log"
+  },
+  "after": {
+    "offered": 180,
+    "requestsIssuedAndAcknowledged": 15,
+    "peakOutstandingRequests": 1,
+    "peakQueuedBytes": 111,
+    "finalPoint": [
+      179,
+      40
+    ],
+    "roundTripMilliseconds": 200,
+    "sourceLog": "build/native-pointer-latency-tests.log"
+  },
+  "runtime": {
+    "file": "assets/index-qdR9NCMj.js",
+    "sha256": "d9f2db7bfe27bd34ab69cc03380fcc43b73fc2038ac65b37e60601aba4a81232"
+  },
+  "verification": {
+    "nativeTestsPassed": 95,
+    "failed": 0,
+    "typecheck": "passed",
+    "peer": {
+      "ok": true,
+      "checks": [
+        {
+          "name": "Default online UI creates and joins via a shareable peer invitation",
+          "ok": true,
+          "milliseconds": 1418,
+          "details": {
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "players": 2,
+            "signaling": "local official PeerServer (CI)"
+          }
+        },
+        {
+          "name": "Host starts the shared original game over an actual WebRTC data channel",
+          "ok": true,
+          "milliseconds": 2681,
+          "details": {
+            "label": "original main menu",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Wrong-seat mouse input cannot advance the original shared menu",
+          "ok": true,
+          "milliseconds": 780,
+          "details": {
+            "label": "wrong-seat input rejected",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Guest chooses local HD while host keeps Original on the identical authoritative scene",
+          "ok": true,
+          "milliseconds": 1678,
+          "details": {
+            "label": "different local packs, identical complete scene",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "A real guest reload and Resume reconnect the same seat without a local game",
+          "ok": true,
+          "milliseconds": 1898,
+          "details": {
+            "label": "reconnected original scene",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Room count is enforced by the original player-count controls",
+          "ok": true,
+          "milliseconds": 1115,
+          "details": {
+            "label": "two-player setup",
+            "sha256": "67475d22ea4100c03cc221fb8fed38afd6399da4a7424b32276a99370bedff20",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Both real peers complete their own original character and goal screens",
+          "ok": true,
+          "milliseconds": 4146,
+          "details": {
+            "connectionDialogSurvivedIncomingFrame": true,
+            "readyTick": 673,
+            "locationInputEnabled": true,
+            "turnTransitionActive": false,
+            "turnStartCount": 1,
+            "label": "first human turn",
+            "sha256": "5296d1bfd06dc4e34bcdded367f035f76e2330f5be31868069cb268305c765e7",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Original F5/F7 saves on the host and restores shared original bank state",
+          "ok": true,
+          "milliseconds": 14532,
+          "details": {
+            "format": "jones-native",
+            "bytes": 660646,
+            "label": "original restored bank",
+            "sha256": "8039444ccf9e92b40f38ad15607a51a6f72bf3fea673f26d6892404a6658552b",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Original Relax actions finish player one and transfer gameplay to the guest",
+          "ok": true,
+          "milliseconds": 15764,
+          "details": {
+            "readyTick": 1939,
+            "locationInputEnabled": true,
+            "turnTransitionActive": false,
+            "previousTurnStartCount": 1,
+            "turnStartCount": 2,
+            "guestHomeClicks": 1,
+            "label": "guest original human turn",
+            "sha256": "c13089f783620645eb0996eb89d1a3514cf7f9816f441391ee88a11ae101fa93",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Continuous guest pointer movement preserves the following original clicks",
+          "ok": true,
+          "milliseconds": 10360,
+          "details": {
+            "moves": 43,
+            "milliseconds": 10153,
+            "label": "guest bank after continuous original pointer input",
+            "sha256": "890ea9669fef63b3d3677046d95f5ba00f77f87753df9b37a240542b1163e4d2",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Closing the real host page gives the guest actionable host-loss status",
+          "ok": true,
+          "milliseconds": 267,
+          "details": {
+            "status": "The host closed this game. Ask the host to create a new room and share its invitation.",
+            "connection": "The host closed this game. Ask the host to create a new room and share its invitation."
+          }
+        },
+        {
+          "name": "A fresh host page and new invitation restore the device save through the original menu",
+          "ok": true,
+          "milliseconds": 5043,
+          "details": {
+            "newRoom": true,
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "cash": 200,
+            "label": "saved original game in recreated room",
+            "sha256": "d689e4b072dc4e443dba9f03e037e66a6997ad25c7996ff72fcbcc03f836cf83",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Observed production traffic uses peer signaling and WebRTC without a game-server connection",
+          "ok": true,
+          "milliseconds": 1,
+          "details": {
+            "observedBrowserRequests": 102,
+            "observedGameServerRequests": 0,
+            "signalingSockets": 5,
+            "localStaticFixtureRequests": 97
+          }
+        }
+      ],
+      "queueFailures": [],
+      "guestCpuSlowdown": 3,
+      "sourceReport": "build/native-peer-evidence/pointer-latency-slow-guest/report.json"
+    },
+    "directory": {
+      "ok": true,
+      "checks": 7,
+      "sourceReport": "build/native-discovery-evidence/pointer-latency-local/report.json"
+    }
+  },
+  "scope": "Only unsent pointer MOVE is coalesced before request/sequence allocation. Button/key events and issued requests retain order. Pending movement is revoked across turn/connection/session changes. Original runtime, authority and wire protocol are unchanged.",
+  "limits": [
+    "Browser journeys use isolated contexts on one physical machine; the 200 ms latency proof uses real client/wire instances with timed packet delivery.",
+    "Physical cross-network/TURN behavior remains unverified; host must keep the game open."
+  ]
+}
