@@ -1,0 +1,19 @@
+{
+  "url": "https://tombonator3000.github.io/Jonesinthefastlane/",
+  "started": "2026-10-02T07:13:55.006Z",
+  "ok": true,
+  "pageErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    "reports/browser-evidence/live-original-menu.png"
+  ],
+  "verifiedHostedFiles": 39,
+  "wasmSha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020",
+  "browser": "151.0.7922.34",
+  "fullscreen": "screen",
+  "canvas": [
+    1280,
+    800
+  ],
+  "finished": "2026-10-02T07:14:04.277Z"
+}

@@ -1,0 +1,344 @@
+{
+  "source_commit": "2279d2e9a14ca8d0872cf6077aa2dc3833fa7f45",
+  "workflow": "https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36977069016",
+  "workflow_conclusion": "success",
+  "data_workflow": "https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36977069008",
+  "data_workflow_conclusion": "success",
+  "browser": "151.0.7922.34",
+  "browser_checks_passed": 17,
+  "browser_started": "2026-10-02T07:09:44.613Z",
+  "browser_finished": "2026-10-02T07:13:13.889Z",
+  "browser_artifact": "browser-evidence",
+  "browser_artifact_report_sha256": "8ed242ab833c41ce9a06258847745022e0fee5128349b9576c7471708aa463ce",
+  "distribution_identical_to_local_verified_package": true,
+  "live_report": "reports/browser_live.json",
+  "live_url": "https://tombonator3000.github.io/Jonesinthefastlane/",
+  "live_hosted_files_verified": 39,
+  "live_fullscreen": "screen",
+  "visual_review": "The live screenshot shows the original PLAY GAME / RESTORE GAME / WATCH DEMO menu and original city board.",
+  "checks": [
+    {
+      "name": "Original engine starts in English, with no replacement panels",
+      "ok": true,
+      "elapsedMs": 2688,
+      "detail": {
+        "fullscreen": "screen",
+        "canvas": [
+          1280,
+          800
+        ],
+        "arguments": [
+          "./this.program",
+          "--config=/home/web_user/scummvm.ini",
+          "--initial-cfg=/runtime/scummvm.ini",
+          "--path=/games/jones",
+          "--savepath=/home/web_user",
+          "--extrapath=/runtime",
+          "--themepath=/runtime",
+          "--gui-theme=scummmodern",
+          "--no-fullscreen",
+          "--no-aspect-ratio",
+          "--scaler=normal",
+          "--scale-factor=1",
+          "--music-driver=adlib",
+          "--language=en",
+          "sci:jones"
+        ]
+      }
+    },
+    {
+      "name": "Mounted original resource files are byte-identical to the supplied game",
+      "ok": true,
+      "elapsedMs": 4,
+      "detail": [
+        {
+          "name": "resource.map",
+          "bytes": 1800,
+          "sha256": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e"
+        },
+        {
+          "name": "resource.001",
+          "bytes": 313476,
+          "sha256": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599"
+        },
+        {
+          "name": "resource.002",
+          "bytes": 719747,
+          "sha256": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a"
+        },
+        {
+          "name": "version",
+          "bytes": 13,
+          "sha256": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d"
+        }
+      ]
+    },
+    {
+      "name": "Host fullscreen toggles and original 8:5 canvas fits desktop and portrait viewports",
+      "ok": true,
+      "elapsedMs": 3555,
+      "detail": [
+        {
+          "fullscreen": "screen",
+          "backing": [
+            1280,
+            800
+          ],
+          "box": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 800
+          },
+          "viewport": [
+            1280,
+            800
+          ]
+        },
+        {
+          "fullscreen": null,
+          "backing": [
+            1280,
+            800
+          ],
+          "box": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 800
+          },
+          "viewport": [
+            1280,
+            800
+          ]
+        },
+        {
+          "fullscreen": "screen",
+          "backing": [
+            1152,
+            720
+          ],
+          "box": {
+            "x": 64,
+            "y": 0,
+            "width": 1152,
+            "height": 720
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "fullscreen": "screen",
+          "backing": [
+            390,
+            244
+          ],
+          "box": {
+            "x": 0,
+            "y": 300.125,
+            "width": 390,
+            "height": 243.75
+          },
+          "viewport": [
+            390,
+            844
+          ]
+        },
+        {
+          "fullscreen": "screen",
+          "backing": [
+            1280,
+            800
+          ],
+          "box": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 800
+          },
+          "viewport": [
+            1280,
+            800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Original main menu and one-player setup",
+      "ok": true,
+      "elapsedMs": 13248
+    },
+    {
+      "name": "Original bank deposit changes its own cash display",
+      "ok": true,
+      "elapsedMs": 14347,
+      "detail": {
+        "beforeCashPixels": "d363b9499bb37ac02ae35c9c56195433edcdf1508e76f536f268a3169580c915",
+        "afterCashPixels": "72d2d56b530542abfa2bc3603192a2befdeb834a9d46bc99055dca478d7cee4a",
+        "assertion": "Cash glyph pixels changed after Deposit; screenshot inspection confirms the amounts."
+      }
+    },
+    {
+      "name": "Original withdrawal, F5 save and a subsequent deposit alter real SCI state",
+      "ok": true,
+      "elapsedMs": 19401,
+      "detail": [
+        {
+          "path": "/home/web_user/jones.000",
+          "bytes": 26674,
+          "sha256": "20f0006b424e17b21e927ec5cf0169585df1c67510c6a9bd07b69623d3c51615"
+        }
+      ]
+    },
+    {
+      "name": "Original F7 restore returns the recorded bank cash display",
+      "ok": true,
+      "elapsedMs": 4168
+    },
+    {
+      "name": "Independent original new game preserves the bank save for later restoration",
+      "ok": true,
+      "elapsedMs": 14043
+    },
+    {
+      "name": "Original employment, Cook application and two real work shifts",
+      "ok": true,
+      "elapsedMs": 27075,
+      "detail": {
+        "beforeCashPixels": "d363b9499bb37ac02ae35c9c56195433edcdf1508e76f536f268a3169580c915",
+        "afterCashPixels": "09b95578282d10d46d34710f70e8b8a99f36bd427f915282992eed8f374d00b8",
+        "workButton": {
+          "error": 0,
+          "x": 143,
+          "y": 152,
+          "width": 32,
+          "height": 9,
+          "samples": 80,
+          "matches": true
+        }
+      }
+    },
+    {
+      "name": "Original Monolith food purchase uses the displayed price and cash",
+      "ok": true,
+      "elapsedMs": 10977,
+      "detail": {
+        "beforeCashPixels": "09b95578282d10d46d34710f70e8b8a99f36bd427f915282992eed8f374d00b8",
+        "afterCashPixels": "5340b0c46b517a7f0039210ab7d1836272db6b4cd4adc77d753172a208523b51"
+      }
+    },
+    {
+      "name": "Original Hi-Tech U enrollment and first Trade School lesson",
+      "ok": true,
+      "elapsedMs": 23711,
+      "detail": {
+        "beforeCoursePixels": "e42121ef8d684651befce17104010e28807161fb27e15c6248d99741de93c008",
+        "afterCoursePixels": "9a8beb16ac2e619bc939e982f59f2cea2f72f9cad79ebba427435b081a60c12d"
+      }
+    },
+    {
+      "name": "Original full-week progression through home relaxation",
+      "ok": true,
+      "elapsedMs": 30099,
+      "detail": {
+        "oldWeekPixels": "041c2a242049922bf253bb7fad7245ef12b64cca0a89fa6793cc9f81d733fbca",
+        "newWeekPixels": "2599268eddc84f5c9253a648599c92e6fed44d76c6121490c23e2721d80d9d35",
+        "assertion": "Original week-label pixels changed; inspect screenshot to confirm Week #2 and any original event."
+      }
+    },
+    {
+      "name": "Original resources remain unchanged after gameplay",
+      "ok": true,
+      "elapsedMs": 4,
+      "detail": [
+        {
+          "name": "resource.map",
+          "bytes": 1800,
+          "sha256": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e"
+        },
+        {
+          "name": "resource.001",
+          "bytes": 313476,
+          "sha256": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599"
+        },
+        {
+          "name": "resource.002",
+          "bytes": 719747,
+          "sha256": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a"
+        },
+        {
+          "name": "version",
+          "bytes": 13,
+          "sha256": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d"
+        }
+      ]
+    },
+    {
+      "name": "SCI save survives page closure and reload via engine IndexedDB persistence",
+      "ok": true,
+      "elapsedMs": 11264,
+      "detail": {
+        "saves": [
+          {
+            "path": "/home/web_user/jones.000",
+            "bytes": 26674,
+            "sha256": "20f0006b424e17b21e927ec5cf0169585df1c67510c6a9bd07b69623d3c51615"
+          }
+        ],
+        "databases": [
+          {
+            "name": "/home/web_user",
+            "version": 21
+          }
+        ]
+      }
+    },
+    {
+      "name": "Original four-player setup remains available",
+      "ok": true,
+      "elapsedMs": 16415
+    },
+    {
+      "name": "Original challenge Jones and all three difficulty choices remain available",
+      "ok": true,
+      "elapsedMs": 17813,
+      "detail": [
+        {
+          "error": 8.639455782312925,
+          "x": 135,
+          "y": 101,
+          "width": 111,
+          "height": 14,
+          "samples": 392,
+          "matches": true
+        },
+        {
+          "error": 9.142857142857142,
+          "x": 135,
+          "y": 118,
+          "width": 111,
+          "height": 14,
+          "samples": 392,
+          "matches": true
+        },
+        {
+          "error": 7.299319727891157,
+          "x": 135,
+          "y": 135,
+          "width": 111,
+          "height": 14,
+          "samples": 392,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "name": "Play in fullscreen remains fullscreen after the engine initializes",
+      "ok": true,
+      "elapsedMs": 0,
+      "detail": "screen"
+    }
+  ]
+}

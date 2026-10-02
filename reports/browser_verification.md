@@ -47,3 +47,13 @@ Additional evidence is retained in:
 These are targeted checks, not an exhaustive equivalence proof against the original DOS interpreter. Long games, every random event, all opponent difficulties, every multiplayer outcome, all hardware/browser combinations, and physical audio playback have not been exhaustively tested. Display resolution and shaders do not create replacement HD artwork. Saved games use ScummVM's format and browser-origin storage; DOS-save interchange is not claimed.
 
 Earlier independent native interpreter evidence is in [ORIGINAL_RUNTIME.md](../docs/ORIGINAL_RUNTIME.md). It predates browser integration fixes and has its own explicit limitations.
+
+## Published delivery
+
+Published from source commit `2279d2e9a14ca8d0872cf6077aa2dc3833fa7f45` to [the playable site](https://tombonator3000.github.io/Jonesinthefastlane/).
+
+- [Browser verification and Pages deployment](https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36977069016): **success**, including all 17 browser checks in Chromium **151.0.7922.34**. The artifact `browser-evidence` contains the complete CI report and screenshots.
+- [Workbench checks](https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36977069008): **success**, including the 28 data tests.
+- [Deployment record](browser_deployment.json) and [live-site verification](browser_live.json): all **39 hosted files** match the tested distribution manifest. The live HTTPS site starts in fullscreen with the original 1280×800 display in the test viewport, no uncaught browser errors and no failed requests. The actual live main menu was inspected visually.
+
+![Original menu on the published site](browser-evidence/live-original-menu.png)
