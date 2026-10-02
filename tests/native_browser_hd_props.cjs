@@ -23,7 +23,21 @@ async function click(x, y, delay = 100) {
   const bounds = await page.locator('#game').boundingBox(); assert(bounds);
   assert(Math.abs(bounds.width / bounds.height - 1.6) < .01, 'Original320x200 input mapping');
   await page.mouse.click(bounds.x + x * bounds.width / 320, bounds.y + y * bounds.height / 200, { delay });
-  await page.waitForTimeout(140); await page.mouse.move(0, 0); await healthy();
+  // SCI Item.track keeps checking the live pointer until it consumes release.
+  // Leave the pointer on the control until the caller observes its result.
+  await page.waitForTimeout(140); await healthy();
+}
+async function travel(x, y, dialog) {
+  assert.equal((await state()).dialog, null);
+  const before = await page.evaluate(() => JSON.stringify(window.jonesNative.getFrame().hd.ops
+    .filter(op => op.kind === 'cel' && op.view === 0 && op.loop === 2).map(op => op.dest)));
+  await click(x, y);
+  // Move off the tiny door only after the original Place has accepted travel,
+  // evidenced by actual marble movement (or arrival), never a fixed delay.
+  await page.waitForFunction(({ before, dialog }) => window.jonesNative.getState().dialog === dialog ||
+    JSON.stringify(window.jonesNative.getFrame().hd.ops.filter(op => op.kind === 'cel' && op.view === 0 && op.loop === 2).map(op => op.dest)) !== before,
+    { before, dialog }, { timeout: 25000 });
+  await page.mouse.move(0, 0); await ready(dialog);
 }
 async function clickCel(view, loop) {
   const dest = await page.evaluate(({ view, loop }) => window.jonesNative.getFrame().hd.ops.filter(op => op.kind === 'cel' && op.view === view && op.loop === loop).at(-1)?.dest, { view, loop });
@@ -152,6 +166,9 @@ async function toggle(pack) {
   await page.locator('#mode').selectOption('original'); await page.locator('#lighting').setChecked(false); await page.locator('#resolution').selectOption('1080');
   await page.locator('#display button').click();
   await page.waitForFunction(() => window.jonesNative.getDisplay().hd.ready && window.jonesNative.getDisplay().hd.layers > 0);
+  await page.waitForFunction(() => !document.querySelector('dialog[open]') && document.activeElement?.id === 'game' &&
+    document.fullscreenElement?.id === 'screen' && window.jonesNative.getState().trace.at(-1) === '233:select1.doit');
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   await observe();
   await check('Original one-player setup and first animated player remain unchanged with HD', async () => {
     await click(165, 75); await wait(s => s.dialog === 'select1b'); await click(104, 115); await wait(s => s.dialog === 'select2');
@@ -168,11 +185,11 @@ async function toggle(pack) {
     return { player: s.currentPlayer, cash: s.cash, week: s.week };
   });
   await check('Original travel, door animation and job application use original hit coordinates', async () => {
-    await click(98, 182); await ready('employment'); await screenshot('02-hd-employment');
+    await travel(98, 182, 'employment'); await screenshot('02-hd-employment');
     await click(125, 92); await page.waitForTimeout(500); await click(150, 97);
     await wait(s => s.dialog === 'employment' && s.trace.at(-1) === '255:Dialog.doit');
     await screenshot('03-hd-job-result'); await click(160, 100); await ready('employment'); await click(229, 157); await wait(s => s.dialog === null);
-    await click(281, 64); await ready('fastFood'); await screenshot('04-hd-monolith');
+    await travel(281, 64, 'fastFood'); await screenshot('04-hd-monolith');
     return { dialog: (await state()).dialog };
   });
   await check('Original work animates the time clock, advances time and updates exact original cash digits', async () => {
@@ -201,7 +218,7 @@ async function toggle(pack) {
       extraWork.push({ cashBefore, cashAfter: (await state()).cash });
     }
     assert((await state()).cash >= 100, 'Original work must fund the $100 bank deposit within three extra shifts');
-    await click(229, 157); await wait(s => s.dialog === null); await click(37, 139); await ready('bank');
+    await click(229, 157); await wait(s => s.dialog === null); await travel(37, 139, 'bank');
     const bank = (await state()).cash; assert(bank >= 100); await click(199, 82); await wait(s => s.cash === bank - 100); await ready('bank');
     const sample = await cashPixels('bank deposit'); await screenshot('08-hd-bank-deposit');
     return { mealCost: before - afterMeal, extraWork, bankCashBefore: bank, bankDeposit: 100, sample };
