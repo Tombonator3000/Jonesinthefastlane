@@ -1,8 +1,28 @@
-# Jones in the Fast Lane — original game in the browser
+# Jones in the Fast Lane — native TypeScript and Three.js port
 
-[**Play in your browser**](https://tombonator3000.github.io/Jonesinthefastlane/)
+[**Play the native browser edition**](https://tombonator3000.github.io/Jonesinthefastlane/native/) · [Original-engine reference edition](https://tombonator3000.github.io/Jonesinthefastlane/)
 
-The browser version runs the **unchanged original Jones SCI scripts** in a pinned, source-built ScummVM WebAssembly engine. The original English menus, 1–4 player setup, character selection, goals, Jones opponent, shops, jobs, time and economy remain in charge. There is no replacement gameplay model or side-panel interface.
+The native edition translates all 69 original game/source modules into editable TypeScript and draws the original indexed artwork with Three.js. It runs **without ScummVM, a SCI bytecode interpreter or WebAssembly**. The translated game code controls the original English menus, 1–4 players, characters, goals, shops, economy, jobs, education, events, weeks and Jones opponent. Optional display effects leave those rules in charge.
+
+The included Node server runs the same native game for online multiplayer. Each player controls their own original turn; every browser receives the same authoritative picture and game state. Private reconnect credentials restore the same seat. **GitHub Pages serves the game files only: online play requires the supplied server, and a public multiplayer host is not configured.**
+
+```sh
+pnpm install --frozen-lockfile
+pnpm build:native
+pnpm serve:native
+```
+
+Open **http://127.0.0.1:8787**. Node 22 or newer is required. For development, use `pnpm dev:native`. To accept other machines, run the server with `HOST=0.0.0.0`; public HTTPS hosting needs a WebSocket-capable reverse proxy. The online creator chooses the room size, shares the invitation, starts when everyone is connected, then chooses the same player count in the original game menu.
+
+Full browser fullscreen starts from the Play gesture. Original pixels are the default; smoothing, modern color/light and CRT shaders support resolution settings through 2160p. Original 320×200 proportions are retained. Save/Restore works through the original menus and persists locally in the browser; native saves are separate from original-engine saves.
+
+[Native architecture, setup and limits](docs/NATIVE_PORT.md) · [Native verification](reports/native_verification.md) · [Source translation](native/compiler/README.md) · [Original audio](native/audio/README.md)
+
+`native/generated/` contains ordinary game functions, not a runtime syntax tree. Normal builds preserve edits to these TypeScript files. `pnpm translate:native` explicitly regenerates them from pinned reference sources and replaces those edits. Native tests verify compiler behavior, original rule scenarios, real input journeys, audio, graphics and real online turns; they do not certify every possible path as binary-equivalent.
+
+## Original-engine reference edition
+
+The preserved reference edition runs the **unchanged original Jones SCI scripts** in a pinned, source-built ScummVM WebAssembly engine. It remains available for comparison with the native port.
 
 The game fills the browser viewport. **Play in fullscreen** also requests real browser fullscreen after a user gesture. The original image proportions are preserved, so wide screens can have black borders. Use the original in-game controls, including Save and Restore. The small display controls in the upper-right corner appear only on hover or keyboard focus.
 
@@ -43,6 +63,11 @@ The original workbench remains available alongside the browser runtime:
 | `web/` | Fullscreen browser shell and presentation-only compositor. |
 | `web/vendor/` | Pinned ScummVM WebAssembly engine, provenance and license. |
 | `web/assets/` | Reproducible original picture/view exports for editing and comparison. |
+| `native/generated/` | All 69 translated TypeScript game modules and source provenance. |
+| `native/runtime/` | Native object, event, save, movement and resource support. |
+| `native/graphics/` | Indexed original drawing and Three.js display/shaders. |
+| `native/audio/` | Original sound timing, Web Audio playback and FM export source. |
+| `native/network/` | Authoritative Node/WebSocket rooms, private seats and reconnect. |
 | `tools/` | Extraction, assembler, patching, asset export and browser packaging tools. |
 | `mods/` | Separate resource patches; never overwrite original files. |
 
@@ -67,6 +92,6 @@ pnpm test:browser
 
 ## Delivery and remaining verification
 
-The Browser game workflow runs the data tests, builds the static package and exercises real browser input before publishing `main` to GitHub Pages. See the verification report for observed results and exact limitations; an unchanged script is not a claim that every possible game path has been play-tested.
+The Browser game workflow verifies both editions and publishes the native build at `/native/` alongside the original-engine reference on `main`. It runs the native original-input browser journey against the production build before packaging that same directory. See the verification reports for observed results and exact limitations.
 
 Newly authored tools and browser presentation code are GPL-3.0-or-later. ScummVM retains its upstream license and attribution. Original Sierra game data/artwork and third-party decompiled sources are not relicensed. See [LICENSE.md](LICENSE.md).

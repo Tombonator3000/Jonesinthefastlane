@@ -9,3 +9,6 @@ extracted/patches/** -text
 *.drv binary
 *.exe binary
 *.com binary
+
+# Preserve exact bytes of the pinned third-party SCI include reference.
+reference/sci.sh -whitespace
