@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-02T18:40:08.670546+00:00",
+  "scope": "Optional photorealistic artwork with local Original/HD switching and original game UI. No gameplay, source-resource or network-protocol changes.",
+  "baseCommit": "4332b4372d42fc061e62d266d38d1a117bfa7038",
+  "graphics": {
+    "images": 10,
+    "pictures": 1,
+    "selectionFigures": 4,
+    "animatedPortraits": 8,
+    "portraitFrames": 48,
+    "mappedCels": 49,
+    "originalCels": 752,
+    "uncoveredArt": "original",
+    "assetBytes": 19901269,
+    "validation": "native/public/hd/photoreal-validation.json"
+  },
+  "typecheck": "PASS",
+  "nativeTests": {
+    "passed": 97,
+    "log": "build/photoreal-native-tests.log"
+  },
+  "originalResources": {
+    "hashes": 22,
+    "uniqueResources": 266,
+    "records": 299,
+    "log": "build/photoreal-original-verification.log"
+  },
+  "browser": {
+    "solo": {
+      "passed": 10,
+      "report": "build/native-evidence/report.json"
+    },
+    "dedicated": {
+      "passed": 6,
+      "report": "build/native-online-evidence/report.json"
+    },
+    "peer": {
+      "passed": 13,
+      "report": "build/native-peer-evidence/photoreal-v1/report.json"
+    },
+    "hd": {
+      "passed": 9,
+      "report": "build/native-hd-evidence/photoreal-final/report.json"
+    },
+    "lobby": {
+      "passed": 8,
+      "report": "build/native-lobby-ui-evidence/photoreal-final/report.json"
+    },
+    "directory": {
+      "passed": 7,
+      "report": "build/native-discovery-evidence/photoreal-final/report.json"
+    }
+  },
+  "browserTotal": 53,
+  "originalUi": {
+    "mainMenuOutputPixels": 569029,
+    "bankOutputPixels": 421907,
+    "changedPixels": 0,
+    "togglePreserves": "Complete original frame, game state and keyboard focus in actual click task."
+  },
+  "mobile": {
+    "report": "build/photoreal-art/toolbar-mobile/report.json",
+    "viewport": [
+      390,
+      844
+    ],
+    "horizontalOverflow": false,
+    "allFourToolbarButtonsReachable": true
+  },
+  "build": {
+    "script": "assets/index-T4o3uK16.js",
+    "scriptSha256": "96ee589295dad8faa3c261e5788a9afe7fd6bb661d9b3a2439a9c20268fbc8fd",
+    "style": "assets/index-D8wzUgv1.css",
+    "styleSha256": "08e861446159a49d7da4d08354de7188729a47a17aaa0a84e26dc635996999db",
+    "manifestSha256": "eafbfb75621def0b44f19d9eb63c47d10ca473d87dd942e58c1c0f9d2fd2e28c"
+  },
+  "verificationScope": "Isolated Chromium contexts on one physical machine. Local official PeerServer and local MQTT fixtures; public final verification recorded in the PR after deployment. Solo, dedicated and peer functional checks ran before a one-pixel selection-art margin adjustment; unchanged JS/CSS and final-mask HD/lobby/directory checks are verified separately. CI tests the complete final artifact again.",
+  "failuresResolved": [
+    "UI test initially included original foliage at the left town border; bounds/source-pixel filtering corrected without changing production.",
+    "Cash HUD test included one column outside the original 61-pixel cel; exclusive right bound corrected from314 to313.",
+    "Generated selection-column edges added a second line; one-pixel art margin restored original dividers, verified in final HD run."
+  ],
+  "screenshots": [
+    "reports/photoreal-evidence/original-menu.png",
+    "reports/photoreal-evidence/hd-menu.png",
+    "reports/photoreal-evidence/characters.png",
+    "reports/photoreal-evidence/bank.png"
+  ]
+}

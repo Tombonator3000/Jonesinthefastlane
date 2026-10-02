@@ -1,15 +1,16 @@
-# Optional HD artwork
+# Optional photorealistic HD artwork
 
-Open **Display**, choose **Graphics pack → HD**, and select the output resolution.
+Use **Graphics: Original / HD** in the display controls to switch immediately.
+Alternatively open **Display**, choose **Graphics pack → HD**, and select the output resolution.
 Each browser remembers its own graphics choices. Other players can use Original
 or HD in the same game. **Town lighting (HD)** adds restrained sign glow and edge
 shading to the town illustration. It does not illuminate dialogue or controls.
 The existing Original, Smooth, Modern and CRT presentation styles remain available.
 
-The painted pack contains newly generated detailed artwork, rather than merely
+The photorealistic pack contains newly generated detailed artwork, rather than merely
 enlarged 320×200 pixels. Its exact coverage is recorded in
 `native/public/hd/manifest.json`: a town board, the four-character selection
-illustration and selected animated shop portraits. It is an initial pack, not a
+figures and eight animated shop portraits. It is an initial pack, not a
 complete repaint of every original image. Missing artwork, unsafe text backgrounds
 and unsupported screens retain original graphics. Original is still the default.
 
@@ -34,12 +35,20 @@ original headers, control labels and tokens where a repaint must not replace the
 Original palette fade intensity also applies to the HD artwork. Original cursor
 pixels are drawn above it, using the same hotspot.
 
-HD text uses bundled SIL Open Font License Liberation fonts. Glyphs are drawn in
-the original font cells without changing character advances or text layout. A
-glyph's actual ink bounds and baseline are preserved separately from its padded
-bitmap dimensions, so punctuation remains small and correctly positioned. A
-cell is replaced only when its original background is uniform; text over complex
-artwork, inverted selections and unsupported special cases uses original pixels.
+HD does not replace game text or control artwork. Original glyphs, punctuation,
+button labels, borders, highlights and pressed states come from the same original
+raster in both modes. The town's original cream menu background and black frame
+are protected separately from the surrounding buildings. Character-selection
+headers, column dividers and player tokens likewise stay original. Photorealistic
+images contain no game menus or interactive labels. The shared launch, online and
+display panels keep the same English, original-inspired presentation in either mode.
+Select **Style → Original pixels** for the unfiltered original palette; the existing
+optional whole-frame display filters remain a separate presentation choice.
+
+The previous painted images and their production records remain alongside the
+new sibling files for provenance. Only the photorealistic files listed by the
+current manifest are loaded by HD. `photoreal-prompts.md`,
+`photoreal-provenance.json` and `photoreal-validation.json` record this revision.
 
 ## Save, restore and multiplayer
 

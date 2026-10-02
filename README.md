@@ -24,7 +24,7 @@ Open **http://127.0.0.1:8787**. Node 22 or newer is required. For development, u
 
 Full browser fullscreen starts from the Play gesture. Original pixels are the default; smoothing, modern color/light and CRT shaders support resolution settings through 2160p. Original 320×200 proportions are retained. Save/Restore works through the original menus and persists locally in the browser; native saves are separate from original-engine saves.
 
-**Display → Graphics pack → HD** selects a separate, more detailed painted pack for the town, character selection and supported portraits, plus sharper supported text. **Town lighting (HD)** adds optional sign glow and edge shading. Every player chooses locally. Artwork that has not been repainted retains its original appearance; this is not a complete remaster of all 752 animation cels. [HD graphics, coverage and extension guide](docs/HD_GRAPHICS.md).
+**Graphics: Original / HD** switches artwork immediately, including during a game. The same choice is available under **Display → Graphics pack** and is remembered independently by each player. HD now uses a separate photorealistic pack for the town, four selection figures and eight animated shop portraits. Original text, menu backgrounds, buttons, borders, pressed states and cursor remain in charge in both modes. **Town lighting (HD)** adds optional sign glow and edge shading. Uncovered artwork keeps its original appearance; this is not a complete remaster of all 752 animation cels. [HD graphics, coverage and extension guide](docs/HD_GRAPHICS.md).
 
 [Native architecture, setup and limits](docs/NATIVE_PORT.md) · [Native verification](reports/native_verification.md) · [Source translation](native/compiler/README.md) · [Original audio](native/audio/README.md)
 

@@ -22,8 +22,75 @@ async function click(x, y) { const b = await page.locator('#game').boundingBox()
 async function capture(name) { await page.mouse.move(0, 0); const file = path.join(OUTPUT, name + '.png'); await page.screenshot({ path: file }); report.screenshots.push(path.relative(ROOT, file)); }
 async function settings(pack, lighting = false, resolution = '1080') {
   await page.locator('#settings').click(); await page.locator('#graphics-pack').selectOption(pack);
-  await page.locator('#lighting').setChecked(lighting); await page.locator('#resolution').selectOption(resolution);
+  await page.locator('#mode').selectOption('original'); await page.locator('#lighting').setChecked(lighting); await page.locator('#resolution').selectOption(resolution);
   await page.locator('#display button').click();
+}
+// Observe the real button event before/after its handler in the same browser task.
+// Ticks continue normally; the test never pauses or mutates the game session.
+async function toggle(pack) {
+  await page.locator('#graphics-toggle').evaluate(button => {
+    window.__graphicsToggleObservation = null;
+    button.addEventListener('click', () => {
+      const before = { frame: JSON.stringify(window.jonesNative.getFrame()), state: JSON.stringify(window.jonesNative.getState()) };
+      document.addEventListener('click', () => {
+        window.__graphicsToggleObservation = {
+          frameUnchanged: before.frame === JSON.stringify(window.jonesNative.getFrame()),
+          stateUnchanged: before.state === JSON.stringify(window.jonesNative.getState()),
+        };
+      }, { once: true });
+    }, { capture: true, once: true });
+  });
+  await page.getByRole('button', { name: 'HD artwork', exact: true }).click();
+  assert.deepEqual(await page.evaluate(() => window.__graphicsToggleObservation), { frameUnchanged: true, stateUnchanged: true });
+  assert.equal(await page.evaluate(() => document.activeElement?.id), 'game', 'Original keyboard controls retain canvas focus after a graphics toggle');
+  assert.equal(await page.locator('#graphics-toggle').getAttribute('aria-pressed'), String(pack === 'hd'));
+  assert.equal(await page.locator('#graphics-toggle').textContent(), `Graphics: ${pack === 'hd' ? 'HD' : 'Original'}`);
+  assert.equal(await page.locator('#graphics-pack').inputValue(), pack);
+  assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('jones-display-v1')).pack), pack);
+  if (pack === 'hd') await page.waitForFunction(() => window.jonesNative.getDisplay().hd.ready && window.jonesNative.getDisplay().hd.layers > 0);
+}
+async function originalUi(label, regions) {
+  await page.mouse.move(0, 0);
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  const sample = await page.evaluate(async regions => {
+    const frame = window.jonesNative.getFrame(), pixels = Uint8Array.from(atob(frame.pixels), c => c.charCodeAt(0));
+    const canvas = document.querySelector('#game'), copy = document.createElement('canvas');
+    copy.width = canvas.width; copy.height = canvas.height;
+    const ctx = copy.getContext('2d'); ctx.drawImage(canvas, 0, 0);
+    const rgba = ctx.getImageData(0, 0, copy.width, copy.height).data;
+    const width = Math.min(copy.width, copy.height * 1.6), scale = width / 320;
+    const left = (copy.width - width) / 2, top = (copy.height - width / 1.6) / 2;
+    const output = [], examples = []; let compared = 0, different = 0;
+    for (const [x0, y0, x1, y1] of regions) {
+      for (let y = Math.ceil(top + y0 * scale); y < Math.floor(top + y1 * scale); y++) {
+        for (let x = Math.ceil(left + x0 * scale); x < Math.floor(left + x1 * scale); x++) {
+          const gx = Math.floor((x + .5 - left) / scale), gy = Math.floor((y + .5 - top) / scale);
+          const expected = frame.palette[pixels[gy * 320 + gx]], i = (y * copy.width + x) * 4;
+          const actual = [...rgba.slice(i, i + 3)]; output.push(...actual); compared++;
+          if (actual.some((v, c) => v !== expected[c])) {
+            different++; if (examples.length < 4) examples.push({ x: gx, y: gy, expected, actual });
+          }
+        }
+      }
+    }
+    const digest = await crypto.subtle.digest('SHA-256', new Uint8Array(output));
+    return { compared, different, examples, sha256: [...new Uint8Array(digest)].map(v => v.toString(16).padStart(2, '0')).join('') };
+  }, regions);
+  (report.uiSamples ??= []).push({ label, ...sample });
+  assert(sample.compared > 1000, `${label}: compare the actual rendered UI, not a single glyph point`);
+  assert.equal(sample.different, 0, `${label}: original UI pixels differ: ${JSON.stringify(sample.examples)}`);
+  return sample;
+}
+async function uiRoundtrip(label, regions) {
+  const original = await originalUi(`${label}: Original`, regions);
+  await toggle('hd');
+  const hd = await originalUi(`${label}: HD`, regions);
+  assert.equal(hd.sha256, original.sha256, `${label}: all sampled UI pixels must match between packs`);
+  await toggle('original');
+  const restored = await originalUi(`${label}: Original again`, regions);
+  assert.equal(restored.sha256, original.sha256, `${label}: toggling back must restore the identical original UI`);
+  await toggle('hd');
+  return { pixels: original.compared, sha256: original.sha256, frameAndStateUnchanged: true };
 }
 async function start() {
   await page.goto(BASE_URL); await page.locator('#play').click();
@@ -43,12 +110,14 @@ async function start() {
   await start();
   await check('Original remains the default; HD changes no original game pixels or rules', async () => {
     assert.equal(await page.locator('#graphics-pack').inputValue(), 'original');
-    const before = await page.evaluate(() => ({ pixels: window.jonesNative.getFrame().pixels, state: window.jonesNative.getState() }));
-    await capture('01-original-menu'); await settings('hd');
-    await page.waitForFunction(() => window.jonesNative.getDisplay().hd.ready && window.jonesNative.getDisplay().hd.layers > 0);
-    const after = await page.evaluate(() => ({ pixels: window.jonesNative.getFrame().pixels, state: window.jonesNative.getState(), display: window.jonesNative.getDisplay() }));
-    assert.equal(after.pixels, before.pixels); assert.equal(after.state.dialog, before.state.dialog);
-    assert.equal(after.state.cash, before.state.cash); await capture('02-hd-menu'); return after.display;
+    assert.equal(await page.locator('#graphics-toggle').getAttribute('aria-pressed'), 'false');
+    await settings('original'); await capture('01-original-menu');
+    // Original tree/roof pixels cross the left edge at x68..69,y63..68. They
+    // are artwork, not the cream panel or black UI frame being compared here.
+    const ui = await uiRoundtrip('Main menu including text, button edges and panel', [[68, 44, 251, 63], [70, 63, 251, 69], [68, 69, 251, 137], [95, 121, 228, 141]]);
+    const display = await page.evaluate(() => window.jonesNative.getDisplay());
+    assert.equal(display.hd.ui, 'original'); assert.equal(display.hd.fonts, false);
+    await capture('02-hd-menu'); return { ...display, ui };
   });
   await check('HD artwork contains detail within original pixel cells and optional lighting changes output', async () => {
     // Read actual rendered canvas, excluding browser scaling and the original game raster.
@@ -80,6 +149,9 @@ async function start() {
   });
   await check('Original bank actions and Save/Restore retain the complete HD scene', async () => {
     await click(37, 139); await wait(s => s.dialog === 'bank' && s.trace.at(-1) === '204:bank.doit');
+    await settings('original', false);
+    // Original calc is view0/loop4/cel0:61x34 at(252,160); x313 is town art.
+    const ui = await uiRoundtrip('Bank title, action text, DONE and cash display', [[136, 45, 250, 152], [212, 152, 245, 162], [252, 161, 313, 194]]);
     await capture('07-hd-bank');
     await click(199, 82); await wait(s => s.cash === 100 && s.trace.at(-1) === '204:bank.doit');
     await page.keyboard.press('F5'); await page.waitForTimeout(400); await click(199, 119);
@@ -90,7 +162,7 @@ async function start() {
     await wait(s => s.cash === 100 && s.dialog === 'bank' && s.trace.at(-1) === '204:bank.doit');
     const hd = await page.evaluate(() => window.jonesNative.getFrame().hd);
     assert(hd.owners.length > 0 && hd.ops.some(op => op.kind === 'pic' && op.pic === 11));
-    await capture('08-hd-restored-bank'); return { operations: hd.ops.length, ownershipBytes: hd.owners.length };
+    await capture('08-hd-restored-bank'); return { operations: hd.ops.length, ownershipBytes: hd.owners.length, ui };
   });
   await check('2160p and portrait aspect preserve original input coordinates', async () => {
     await settings('hd', true, '2160'); await capture('09-hd-2160p');
@@ -104,6 +176,7 @@ async function start() {
     await page.reload(); await page.locator('#play').click();
     await page.waitForFunction(() => window.jonesNative.getDisplay().hd.ready);
     assert.equal(await page.locator('#graphics-pack').inputValue(), 'hd');
+    assert.equal(await page.locator('#graphics-toggle').getAttribute('aria-pressed'), 'true');
     assert.equal((await page.evaluate(() => JSON.parse(localStorage.getItem('jones-display-v1')))).resolutionHeight, 720);
     for (let i = 0; i < 8; i++) { if ((await state()).dialog === 'select1') break; await click(160, 100); await page.waitForTimeout(600); }
     await wait(s => s.dialog === 'select1'); await click(165, 105); await wait(s => s.dialog === 'bank' && s.cash === 100);
