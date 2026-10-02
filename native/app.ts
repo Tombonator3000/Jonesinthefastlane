@@ -5,6 +5,7 @@ import type { GraphicsFrame, NativeAssetManifest } from './graphics/index.js';
 import { createNativeSession, type NativeSession } from './session.js';
 import { BrowserNetworkClient } from './network/client.js';
 import { BrowserPeerClient } from './network/peer.js';
+import { NetworkInputProducer } from './network/input-producer.js';
 import type { PeerOptions } from 'peerjs';
 import { PublicRoomBrowser, PublicRoomAnnouncer, discoveryScope, type PublicRoom } from './network/discovery.js';
 import type { GameInput, PlayerCount, Serializable, Credentials, RoomInfo } from './network/types.js';
@@ -17,7 +18,7 @@ type Resume = { mode: ConnectionMode; server?: string; hostPeerId?: string; sign
 const query = new URLSearchParams(location.search);
 $<HTMLInputElement>('server').value = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.port === '8767' ? location.hostname + ':8787' : location.host}/multiplayer`;
 let assets: NativeAssetManifest, renderer: ThreeRenderer, session: NativeSession | undefined, network: NetworkClient | undefined;
-let moveTimer: ReturnType<typeof setTimeout> | undefined, pendingMove: GameInput | undefined;
+let networkInput: NetworkInputProducer | undefined;
 let timer: ReturnType<typeof setInterval> | undefined, onlineState: Serializable = null, onlineFrame: Serializable = null;
 let connectionMode: ConnectionMode = 'peer', busy = false, connectionNotice = '', networkGeneration = 0;
 let peerSignal = query.get('signal') ?? '', peerIce = query.get('ice') ?? '';
@@ -85,7 +86,7 @@ async function action(fn: () => Promise<void>) {
 function stopCurrent() {
   roomAnnouncer?.stop(); roomAnnouncer = undefined; $('public-status').textContent = ''; closeRoomBrowser();
   networkGeneration++;
-  clearTimeout(moveTimer); moveTimer = undefined; pendingMove = undefined;
+  networkInput?.dispose(); networkInput = undefined;
   clearInterval(timer); session?.stop(); session = undefined;
   const previous = network; network = undefined; previous?.disconnect();
   audio.sync({ tick: 0, masterVolume: 0, enabled: false, sounds: [] });
@@ -106,7 +107,7 @@ function updateState(state: Serializable, owner?: number | null) {
     showNetworkNotice(''); $('launch').hidden = false; controls(); return;
   }
   if (network) {
-    if (owner !== network.credentials?.seat) renderer?.setPointer();
+    if (owner !== network.credentials?.seat) { networkInput?.reset(); renderer?.setPointer(); }
     $('network-status').hidden = false;
     $('network-status').textContent = connectionNotice || (state as any)?.connectionNotice || ((state as any)?.dialog === 'select1b'
       ? `Choose ${network.room?.playerCount} players in the original menu.`
@@ -124,20 +125,9 @@ function localPlay() {
     onSave: value => { try { localStorage.setItem(saveKey, value); } catch { throw new Error('The browser could not save your game.'); } } });
   session.start(); timer = setInterval(() => session?.tick(), 1000 / 60);
 }
-function dispatchInput(input: GameInput) {
-  if (network) { if (network.canInput) void network.sendInput(input).catch(error => { if (error.code !== 'not_your_turn') status(error.message); }); }
-  else session?.handleInput(input);
-}
-function flushMove() {
-  clearTimeout(moveTimer); moveTimer = undefined;
-  const input = pendingMove; pendingMove = undefined;
-  if (input) dispatchInput(input);
-}
 function send(input: GameInput) {
-  if (network && input.type === 'pointer' && input.action === 'move') {
-    pendingMove = input;
-    if (moveTimer === undefined) moveTimer = setTimeout(flushMove, 1000 / 60);
-  } else { flushMove(); dispatchInput(input); }
+  if (network) networkInput?.send(input);
+  else session?.handleInput(input);
 }
 for (const [event, action] of [['pointermove', 'move'], ['pointerdown', 'down'], ['pointerup', 'up']] as const) canvas.addEventListener(event, e => {
   e.preventDefault(); const point = renderer?.clientToGame(e.clientX, e.clientY); if (!point) return;
@@ -224,6 +214,7 @@ function connect(credentials?: Credentials, hostPeerId?: string) {
     onState: (state: Serializable, owner: number | null) => { if (generation === networkGeneration) updateState(state, owner); },
     onStatus: (value: 'connecting' | 'connected' | 'reconnecting' | 'disconnected') => {
       if (generation !== networkGeneration) return;
+      if (value !== 'connected') networkInput?.reset();
       const message = value === 'connected' ? 'Connected' : value === 'reconnecting' ? 'Reconnecting…' : value === 'connecting' ? 'Connecting…' : 'Disconnected. Open Connection to retry or leave.';
       status(message);
       if (value === 'connected') { connectionNotice = ''; if (onlineState) updateState(onlineState, network?.inputOwner); }
@@ -246,6 +237,7 @@ function connect(credentials?: Credentials, hostPeerId?: string) {
     },
     onRoom: (room: RoomInfo) => {
       if (generation !== networkGeneration) return;
+      if (room.inputOwner !== network?.credentials?.seat || room.status !== 'running') networkInput?.reset();
       const connected = room.seats.filter(seat => seat.connected).length;
       status(`${connected} of ${room.playerCount} players connected. Choose ${room.playerCount} players in the original game menu.`);
       $('start-online').hidden = network?.credentials?.seat !== 0 || room.status !== 'waiting';
@@ -259,6 +251,12 @@ function connect(credentials?: Credentials, hostPeerId?: string) {
       return createNativeSession({ ...options, assetManifest: assets as unknown as Serializable, enforceRoomPlayerCount: true, save: save ?? undefined,
         onSave: value => { try { localStorage.setItem(key, value); } catch { throw new Error('The creator’s browser could not save this game.'); } } });
     } });
+  const client = network;
+  networkInput = new NetworkInputProducer({
+    canInput: () => generation === networkGeneration && client === network && client.canInput,
+    sendInput: input => client.sendInput(input),
+    onError: error => { if ((error as any)?.code !== 'not_your_turn') status(error instanceof Error ? error.message : String(error)); },
+  });
   controls(); return network;
 }
 $('create').onclick = () => void action(async () => {
@@ -289,7 +287,7 @@ $('resume-online').onclick = () => void action(async () => {
   if (saved.server) $<HTMLInputElement>('server').value = saved.server;
   void audio.unlock(); void enterFullscreen().catch(() => {}); await connect(saved.credentials, saved.hostPeerId).connect();
 });
-window.addEventListener('pagehide', () => { roomAnnouncer?.stop(); closeRoomBrowser(); clearInterval(timer); session?.stop(); network?.disconnect(); renderer?.dispose(); void audio.dispose(); });
+window.addEventListener('pagehide', () => { roomAnnouncer?.stop(); closeRoomBrowser(); networkInput?.dispose(); clearInterval(timer); session?.stop(); network?.disconnect(); renderer?.dispose(); void audio.dispose(); });
 void (async () => {
   const response = await fetch('./assets/manifest.json'); if (!response.ok) throw new Error('Game artwork could not be loaded.');
   assets = await response.json();
