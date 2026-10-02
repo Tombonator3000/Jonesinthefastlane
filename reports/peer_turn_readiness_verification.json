@@ -1,39 +1,26 @@
 {
-  "subject": "Free PeerJS/WebRTC multiplayer for the native TypeScript/Three.js edition",
-  "baseCommit": "86b8a8680e6db865619b0f23eb3aee40f7400d35",
-  "productionBuild": [
-    {
-      "path": "index.html",
-      "sha256": "2ac2846f2e1db70abca741491f9b015a4a1120614d4cbd6d7b725b51cab02c0a"
-    },
-    {
-      "path": "assets/index-D9Quyh4l.js",
-      "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-    },
-    {
-      "path": "assets/index-DmHAhnWj.css",
-      "sha256": "4ca95917ad5f174e0910f2e7db68edacbbfc93aa8891d16e542c4a955e87ceb5"
-    },
-    {
-      "path": "assets/manifest.json",
-      "sha256": "f98cd20f49aae142434e45601349868196dedcd1dbb67ab2a5dc52f57a4d0491"
-    },
-    {
-      "path": "licenses/peerjs-dependencies.txt",
-      "sha256": "a169ea0d547e3965c19da2efa7512f51585e83a40491cec8a947026c9761e86a"
-    }
-  ],
-  "nativeUnitTests": {
+  "subject": "Observe the original completed turn start before the peer browser journey clicks a location",
+  "baseCommit": "c45122ec5d49c9ab3da846314a02a3986ddaa2e5",
+  "previousFailure": {
+    "run": "https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36991400825",
+    "report": "reports/peer-evidence/ci-turn-handoff-failure.json",
+    "screenshot": "reports/peer-evidence/ci-turn-handoff-failure.png",
+    "connectionLost": false
+  },
+  "change": "Read-only snapshot fields expose original globals474,460,481. The test waits for enabled location input, inactive turn transition and a changed original start-turn count after the F7 baseline; then one guest Home click must open the real lowcost dialog. No game input, timing, rules, original scripts or save data are changed.",
+  "productionBuild": {
+    "script": "index-DRNMc4UY.js",
+    "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+  },
+  "nativeTests": {
     "passed": 68,
     "failed": 0,
-    "log": "build/native-peer-final-tests.log"
+    "typecheck": true,
+    "build": true
   },
-  "typecheck": {
-    "ok": true
-  },
-  "localWebRtcJourney": {
-    "started": "2026-10-02T09:30:10.443Z",
-    "finished": "2026-10-02T09:30:50.802Z",
+  "localWebRtc": {
+    "started": "2026-10-02T09:58:31.395Z",
+    "finished": "2026-10-02T09:59:11.514Z",
     "subject": "Static production native game; two isolated browsers; real PeerJS WebRTC",
     "signaling": "local official PeerServer (CI)",
     "publicCloudVerified": false,
@@ -42,7 +29,7 @@
       {
         "name": "Default online UI creates and joins via a shareable peer invitation",
         "ok": true,
-        "milliseconds": 853,
+        "milliseconds": 746,
         "details": {
           "hostSeat": 0,
           "guestSeat": 1,
@@ -53,7 +40,7 @@
       {
         "name": "Host starts the shared original game over an actual WebRTC data channel",
         "ok": true,
-        "milliseconds": 2317,
+        "milliseconds": 2349,
         "details": {
           "label": "original main menu",
           "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
@@ -63,7 +50,7 @@
       {
         "name": "Wrong-seat mouse input cannot advance the original shared menu",
         "ok": true,
-        "milliseconds": 655,
+        "milliseconds": 652,
         "details": {
           "label": "wrong-seat input rejected",
           "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
@@ -73,7 +60,7 @@
       {
         "name": "A real guest reload and Resume reconnect the same seat without a local game",
         "ok": true,
-        "milliseconds": 518,
+        "milliseconds": 466,
         "details": {
           "label": "reconnected original scene",
           "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
@@ -83,7 +70,7 @@
       {
         "name": "Room count is enforced by the original player-count controls",
         "ok": true,
-        "milliseconds": 1025,
+        "milliseconds": 1041,
         "details": {
           "label": "two-player setup",
           "sha256": "7ca2a0b49bc2ead0ed73664d4f40a70d017eb80165936e6ec4989ed8a53716bd",
@@ -93,9 +80,13 @@
       {
         "name": "Both real peers complete their own original character and goal screens",
         "ok": true,
-        "milliseconds": 2622,
+        "milliseconds": 2626,
         "details": {
           "connectionDialogSurvivedIncomingFrame": true,
+          "readyTick": 374,
+          "locationInputEnabled": true,
+          "turnTransitionActive": false,
+          "turnStartCount": 1,
           "label": "first human turn",
           "sha256": "c536efd228d0394dae3c06ff1a00602f9acc15f1a5fdc66f2e787e769653df8a",
           "pixels": 64000
@@ -104,7 +95,7 @@
       {
         "name": "Original F5/F7 saves on the host and restores shared original bank state",
         "ok": true,
-        "milliseconds": 13847,
+        "milliseconds": 13812,
         "details": {
           "format": "jones-native",
           "bytes": 598739,
@@ -116,8 +107,14 @@
       {
         "name": "Original Relax actions finish player one and transfer gameplay to the guest",
         "ok": true,
-        "milliseconds": 14330,
+        "milliseconds": 14257,
         "details": {
+          "readyTick": 1531,
+          "locationInputEnabled": true,
+          "turnTransitionActive": false,
+          "previousTurnStartCount": 1,
+          "turnStartCount": 2,
+          "guestHomeClicks": 1,
           "label": "guest original human turn",
           "sha256": "041794d886bab172676b28b372ddb6b1838050e227304106aba3204927a63a63",
           "pixels": 64000
@@ -126,7 +123,7 @@
       {
         "name": "Closing the real host page gives the guest actionable host-loss status",
         "ok": true,
-        "milliseconds": 71,
+        "milliseconds": 80,
         "details": {
           "status": "The host closed this game. Ask the host to create a new room and share its invitation.",
           "connection": "The host closed this game. Ask the host to create a new room and share its invitation."
@@ -135,7 +132,7 @@
       {
         "name": "A fresh host page and new invitation restore the device save through the original menu",
         "ok": true,
-        "milliseconds": 3772,
+        "milliseconds": 3781,
         "details": {
           "newRoom": true,
           "hostSeat": 0,
@@ -149,7 +146,7 @@
       {
         "name": "Observed production traffic uses peer signaling and WebRTC without a game-server connection",
         "ok": true,
-        "milliseconds": 1,
+        "milliseconds": 2,
         "details": {
           "observedBrowserRequests": 60,
           "observedGameServerRequests": 0,
@@ -158,39 +155,39 @@
         }
       }
     ],
+    "loadedScripts": [
+      {
+        "page": "host",
+        "url": "http://127.0.0.1:36675/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "guest",
+        "url": "http://127.0.0.1:36675/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "guest",
+        "url": "http://127.0.0.1:36675/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "recreated host",
+        "url": "http://127.0.0.1:36675/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "guest",
+        "url": "http://127.0.0.1:36675/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      }
+    ],
     "browser": {
       "name": "Chromium",
       "version": "151.0.7922.34",
       "executable": "/home/tombonator3000t/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
       "contexts": "Two isolated contexts in the same browser process and machine"
     },
-    "loadedScripts": [
-      {
-        "page": "host",
-        "url": "http://127.0.0.1:36937/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "guest",
-        "url": "http://127.0.0.1:36937/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "guest",
-        "url": "http://127.0.0.1:36937/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "recreated host",
-        "url": "http://127.0.0.1:36937/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "guest",
-        "url": "http://127.0.0.1:36937/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      }
-    ],
     "rtc": [
       {
         "page": "host before reconnect",
@@ -207,22 +204,17 @@
             "channels": [
               {
                 "state": "open",
-                "messagesSent": 176,
+                "messagesSent": 173,
                 "messagesReceived": 1,
-                "bytesSent": 391108,
+                "bytesSent": 359990,
                 "bytesReceived": 130
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 416446,
-                "bytesReceived": 13666
-              },
-              {
-                "nominated": false,
-                "bytesSent": 0,
-                "bytesReceived": 0
+                "bytesSent": 383480,
+                "bytesReceived": 12684
               }
             ]
           }
@@ -244,16 +236,16 @@
               {
                 "state": "open",
                 "messagesSent": 1,
-                "messagesReceived": 176,
+                "messagesReceived": 174,
                 "bytesSent": 130,
-                "bytesReceived": 391108
+                "bytesReceived": 360423
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 13666,
-                "bytesReceived": 416446
+                "bytesSent": 12684,
+                "bytesReceived": 383966
               }
             ]
           }
@@ -277,14 +269,14 @@
                 "messagesSent": 1,
                 "messagesReceived": 9,
                 "bytesSent": 146,
-                "bytesReceived": 34288
+                "bytesReceived": 34479
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 3335,
-                "bytesReceived": 38566
+                "bytesSent": 3332,
+                "bytesReceived": 38754
               }
             ]
           }
@@ -305,22 +297,17 @@
             "channels": [
               {
                 "state": "open",
-                "messagesSent": 249,
+                "messagesSent": 244,
                 "messagesReceived": 1,
-                "bytesSent": 603537,
+                "bytesSent": 580449,
                 "bytesReceived": 130
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 625400,
-                "bytesReceived": 16600
-              },
-              {
-                "nominated": true,
-                "bytesSent": 15062,
-                "bytesReceived": 2716
+                "bytesSent": 615998,
+                "bytesReceived": 18618
               }
             ]
           }
@@ -342,40 +329,35 @@
               {
                 "state": "open",
                 "messagesSent": 1,
-                "messagesReceived": 249,
+                "messagesReceived": 244,
                 "bytesSent": 130,
-                "bytesReceived": 603537
+                "bytesReceived": 580449
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 2716,
-                "bytesReceived": 15062
-              },
-              {
-                "nominated": true,
-                "bytesSent": 16600,
-                "bytesReceived": 625400
+                "bytesSent": 18618,
+                "bytesReceived": 615998
               }
             ]
           }
         ]
       }
     ],
+    "errors": [],
+    "resourceErrors": [],
     "source": {
       "kind": "local static-only fixture",
-      "url": "http://127.0.0.1:36937/",
+      "url": "http://127.0.0.1:36675/",
       "build": "build/native",
       "rejectsWebSocketUpgrades": true
     },
-    "gameServerStartedByTest": false,
-    "errors": [],
-    "resourceErrors": []
+    "gameServerStartedByTest": false
   },
-  "publicSignalingWebRtcJourney": {
-    "started": "2026-10-02T09:30:58.497Z",
-    "finished": "2026-10-02T09:31:39.726Z",
+  "publicSignalingWebRtc": {
+    "started": "2026-10-02T09:59:18.684Z",
+    "finished": "2026-10-02T10:00:01.244Z",
     "subject": "Static production native game; two isolated browsers; real PeerJS WebRTC",
     "signaling": "public PeerJS cloud",
     "publicCloudVerified": true,
@@ -384,7 +366,7 @@
       {
         "name": "Default online UI creates and joins via a shareable peer invitation",
         "ok": true,
-        "milliseconds": 1322,
+        "milliseconds": 1444,
         "details": {
           "hostSeat": 0,
           "guestSeat": 1,
@@ -395,7 +377,7 @@
       {
         "name": "Host starts the shared original game over an actual WebRTC data channel",
         "ok": true,
-        "milliseconds": 2276,
+        "milliseconds": 2366,
         "details": {
           "label": "original main menu",
           "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
@@ -405,7 +387,7 @@
       {
         "name": "Wrong-seat mouse input cannot advance the original shared menu",
         "ok": true,
-        "milliseconds": 660,
+        "milliseconds": 649,
         "details": {
           "label": "wrong-seat input rejected",
           "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
@@ -415,7 +397,7 @@
       {
         "name": "A real guest reload and Resume reconnect the same seat without a local game",
         "ok": true,
-        "milliseconds": 816,
+        "milliseconds": 818,
         "details": {
           "label": "reconnected original scene",
           "sha256": "67982977eddeec45cd00235978d2af5631ec1af91ab1601d54835f9bb8172761",
@@ -425,7 +407,7 @@
       {
         "name": "Room count is enforced by the original player-count controls",
         "ok": true,
-        "milliseconds": 1044,
+        "milliseconds": 1056,
         "details": {
           "label": "two-player setup",
           "sha256": "7ca2a0b49bc2ead0ed73664d4f40a70d017eb80165936e6ec4989ed8a53716bd",
@@ -435,9 +417,13 @@
       {
         "name": "Both real peers complete their own original character and goal screens",
         "ok": true,
-        "milliseconds": 2654,
+        "milliseconds": 2617,
         "details": {
           "connectionDialogSurvivedIncomingFrame": true,
+          "readyTick": 393,
+          "locationInputEnabled": true,
+          "turnTransitionActive": false,
+          "turnStartCount": 1,
           "label": "first human turn",
           "sha256": "c536efd228d0394dae3c06ff1a00602f9acc15f1a5fdc66f2e787e769653df8a",
           "pixels": 64000
@@ -446,10 +432,10 @@
       {
         "name": "Original F5/F7 saves on the host and restores shared original bank state",
         "ok": true,
-        "milliseconds": 13449,
+        "milliseconds": 14384,
         "details": {
           "format": "jones-native",
-          "bytes": 598747,
+          "bytes": 598721,
           "label": "original restored bank",
           "sha256": "c2b596448a3ada76e0baa130d3a0b1e56a6cdea6c0628464a7cf5a74104ab634",
           "pixels": 64000
@@ -458,8 +444,14 @@
       {
         "name": "Original Relax actions finish player one and transfer gameplay to the guest",
         "ok": true,
-        "milliseconds": 14413,
+        "milliseconds": 14726,
         "details": {
+          "readyTick": 1574,
+          "locationInputEnabled": true,
+          "turnTransitionActive": false,
+          "previousTurnStartCount": 1,
+          "turnStartCount": 2,
+          "guestHomeClicks": 1,
           "label": "guest original human turn",
           "sha256": "041794d886bab172676b28b372ddb6b1838050e227304106aba3204927a63a63",
           "pixels": 64000
@@ -468,7 +460,7 @@
       {
         "name": "Closing the real host page gives the guest actionable host-loss status",
         "ok": true,
-        "milliseconds": 78,
+        "milliseconds": 70,
         "details": {
           "status": "The host closed this game. Ask the host to create a new room and share its invitation.",
           "connection": "The host closed this game. Ask the host to create a new room and share its invitation."
@@ -477,7 +469,7 @@
       {
         "name": "A fresh host page and new invitation restore the device save through the original menu",
         "ok": true,
-        "milliseconds": 4273,
+        "milliseconds": 4190,
         "details": {
           "newRoom": true,
           "hostSeat": 0,
@@ -500,39 +492,39 @@
         }
       }
     ],
+    "loadedScripts": [
+      {
+        "page": "host",
+        "url": "http://127.0.0.1:42851/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "guest",
+        "url": "http://127.0.0.1:42851/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "guest",
+        "url": "http://127.0.0.1:42851/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "recreated host",
+        "url": "http://127.0.0.1:42851/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      },
+      {
+        "page": "guest",
+        "url": "http://127.0.0.1:42851/assets/index-DRNMc4UY.js",
+        "sha256": "8340d1985d32408476f95d59e6f60188273885b42fcaa3a590f8a06b41c77292"
+      }
+    ],
     "browser": {
       "name": "Chromium",
       "version": "151.0.7922.34",
       "executable": "/home/tombonator3000t/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
       "contexts": "Two isolated contexts in the same browser process and machine"
     },
-    "loadedScripts": [
-      {
-        "page": "host",
-        "url": "http://127.0.0.1:44199/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "guest",
-        "url": "http://127.0.0.1:44199/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "guest",
-        "url": "http://127.0.0.1:44199/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "recreated host",
-        "url": "http://127.0.0.1:44199/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      },
-      {
-        "page": "guest",
-        "url": "http://127.0.0.1:44199/assets/index-D9Quyh4l.js",
-        "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
-      }
-    ],
     "rtc": [
       {
         "page": "host before reconnect",
@@ -549,22 +541,22 @@
             "channels": [
               {
                 "state": "open",
-                "messagesSent": 182,
+                "messagesSent": 188,
                 "messagesReceived": 1,
-                "bytesSent": 421558,
+                "bytesSent": 449321,
                 "bytesReceived": 130
               }
             ],
             "pairs": [
               {
-                "nominated": false,
-                "bytesSent": 0,
-                "bytesReceived": 0
+                "nominated": true,
+                "bytesSent": 466078,
+                "bytesReceived": 12250
               },
               {
                 "nominated": true,
-                "bytesSent": 449894,
-                "bytesReceived": 14399
+                "bytesSent": 12731,
+                "bytesReceived": 2714
               }
             ]
           }
@@ -586,16 +578,21 @@
               {
                 "state": "open",
                 "messagesSent": 1,
-                "messagesReceived": 182,
+                "messagesReceived": 188,
                 "bytesSent": 130,
-                "bytesReceived": 421558
+                "bytesReceived": 449321
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 14399,
-                "bytesReceived": 449894
+                "bytesSent": 12250,
+                "bytesReceived": 466078
+              },
+              {
+                "nominated": true,
+                "bytesSent": 2714,
+                "bytesReceived": 12731
               }
             ]
           }
@@ -617,16 +614,16 @@
               {
                 "state": "open",
                 "messagesSent": 1,
-                "messagesReceived": 8,
+                "messagesReceived": 11,
                 "bytesSent": 146,
-                "bytesReceived": 33900
+                "bytesReceived": 35349
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 3283,
-                "bytesReceived": 38091
+                "bytesSent": 3415,
+                "bytesReceived": 41136
               }
             ]
           }
@@ -647,22 +644,22 @@
             "channels": [
               {
                 "state": "open",
-                "messagesSent": 253,
+                "messagesSent": 248,
                 "messagesReceived": 1,
-                "bytesSent": 625992,
+                "bytesSent": 616842,
                 "bytesReceived": 130
               }
             ],
             "pairs": [
               {
-                "nominated": false,
-                "bytesSent": 0,
-                "bytesReceived": 0
+                "nominated": true,
+                "bytesSent": 16116,
+                "bytesReceived": 2815
               },
               {
                 "nominated": true,
-                "bytesSent": 663927,
-                "bytesReceived": 19817
+                "bytesSent": 637858,
+                "bytesReceived": 16550
               }
             ]
           }
@@ -684,247 +681,49 @@
               {
                 "state": "open",
                 "messagesSent": 1,
-                "messagesReceived": 253,
+                "messagesReceived": 248,
                 "bytesSent": 130,
-                "bytesReceived": 625992
+                "bytesReceived": 616842
               }
             ],
             "pairs": [
               {
                 "nominated": true,
-                "bytesSent": 19817,
-                "bytesReceived": 663927
+                "bytesSent": 2815,
+                "bytesReceived": 16116
+              },
+              {
+                "nominated": true,
+                "bytesSent": 16550,
+                "bytesReceived": 637858
               }
             ]
           }
         ]
       }
     ],
+    "errors": [],
+    "resourceErrors": [],
     "source": {
       "kind": "local static-only fixture",
-      "url": "http://127.0.0.1:44199/",
+      "url": "http://127.0.0.1:42851/",
       "build": "build/native",
       "rejectsWebSocketUpgrades": true
     },
-    "gameServerStartedByTest": false,
-    "errors": [],
-    "resourceErrors": []
+    "gameServerStartedByTest": false
   },
-  "singlePlayerRegression": {
-    "started": "2026-10-02T09:22:05.208Z",
-    "finished": "2026-10-02T09:23:56.743Z",
-    "subject": "Translated TypeScript Jones + Three.js; no ScummVM runtime",
-    "ok": true,
-    "checks": [
-      {
-        "name": "Native startup and original one-player menus",
-        "ok": true,
-        "milliseconds": 4575
-      },
-      {
-        "name": "Original bank deposit and withdrawal",
-        "ok": true,
-        "milliseconds": 11973
-      },
-      {
-        "name": "Original F5 saves and F7 restores native game state",
-        "ok": true,
-        "milliseconds": 4993
-      },
-      {
-        "name": "Save survives closing the page and original Restore Game menu",
-        "ok": true,
-        "milliseconds": 2502
-      },
-      {
-        "name": "Original F4 statistics renders its original text rows",
-        "ok": true,
-        "milliseconds": 1214
-      },
-      {
-        "name": "Original job application, work and food purchase",
-        "ok": true,
-        "milliseconds": 34250,
-        "detail": {
-          "firstShift": 32,
-          "secondShift": 32,
-          "mealPrice": 79
-        }
-      },
-      {
-        "name": "Original school enrollment and Trade School lesson",
-        "ok": true,
-        "milliseconds": 21656,
-        "detail": [
-          {
-            "index": 10,
-            "quantity": 1
-          }
-        ]
-      },
-      {
-        "name": "Original full week via home relaxation",
-        "ok": true,
-        "milliseconds": 22279
-      },
-      {
-        "name": "Fullscreen, display effects and aspect-ratio input mapping",
-        "ok": true,
-        "milliseconds": 1310
-      },
-      {
-        "name": "Original Quit confirmation completes the game and returns to Play",
-        "ok": true,
-        "milliseconds": 643
-      }
-    ],
-    "errors": [],
-    "resourceErrors": []
-  },
-  "dedicatedServerRegression": {
-    "started": "2026-10-02T09:19:41.204Z",
-    "finished": "2026-10-02T09:19:49.118Z",
-    "subject": "Production native online UI, two isolated Chromium contexts, real WebSocket server",
-    "ok": true,
-    "checks": [
-      {
-        "name": "Create and join through production online controls",
-        "ok": true,
-        "milliseconds": 993,
-        "details": {
-          "hostSeat": 0,
-          "guestSeat": 1,
-          "connectedPlayers": 2
-        }
-      },
-      {
-        "name": "Host starts original shared game with no local simulation",
-        "ok": true,
-        "milliseconds": 4218,
-        "details": {
-          "label": "Original main menu",
-          "revision": 131,
-          "sha256": "a6fd6924054374023e2f433d794afaf1f82a5dbfda7972d1e8a6b348881b3a6f",
-          "originalPixels": 64000
-        }
-      },
-      {
-        "name": "Inactive browser input cannot choose original controls",
-        "ok": true,
-        "milliseconds": 691,
-        "details": {
-          "label": "After inactive guest click",
-          "revision": 131,
-          "sha256": "a6fd6924054374023e2f433d794afaf1f82a5dbfda7972d1e8a6b348881b3a6f",
-          "originalPixels": 64000
-        }
-      },
-      {
-        "name": "Reload and Resume online game restore the same private seat",
-        "ok": true,
-        "milliseconds": 439,
-        "details": {
-          "label": "Guest resume",
-          "revision": 131,
-          "sha256": "a6fd6924054374023e2f433d794afaf1f82a5dbfda7972d1e8a6b348881b3a6f",
-          "originalPixels": 64000,
-          "seat": 1
-        }
-      },
-      {
-        "name": "Original host control still reaches the same player-count screen",
-        "ok": true,
-        "milliseconds": 486,
-        "details": {
-          "label": "Original player count after reconnect",
-          "revision": 175,
-          "sha256": "94bcf11075834e98d662dfdd72fa12fcd4d7889f0042e60e037a274f18dc6cf9",
-          "originalPixels": 64000
-        }
-      },
-      {
-        "name": "Room size validation keeps the original count screen usable",
-        "ok": true,
-        "milliseconds": 696,
-        "details": {
-          "label": "Correct original selection after rejected mismatch",
-          "revision": 205,
-          "sha256": "4abb85c0d3cb3ada986f968d2acb97120b46af1e3d2773bfd4f807e9dec9220d",
-          "originalPixels": 64000
-        }
-      }
-    ],
-    "errors": []
-  },
-  "regressionBuildScope": "The final PR workflow passed all native single-player10/10, dedicated-server6/6 and peer11/11 journeys on the exact62ad2a99 source. Downloaded CI JavaScript SHA matches the locally tested build.",
   "sourceHashes": [
     {
-      "path": "native/app.ts",
-      "sha256": "992b6b5e11b1dbf7a8d291fd24178f6675f73125c9a130739db0890d38458bee"
-    },
-    {
-      "path": "native/network/authority.ts",
-      "sha256": "3371ddbef3c15b59c639ce58265234b7199ef59219a57ec2778c62a09fdb7bea"
-    },
-    {
-      "path": "native/network/server.ts",
-      "sha256": "54cc6f352528aef4424cf1ab88eeae80116b77753a294c0d2509b3a2ba181a0c"
-    },
-    {
-      "path": "native/network/client.ts",
-      "sha256": "d888a476fab5d3b16c57862d50e8f17d8a9b06a6a0f1dfefd14691b7d84d7840"
-    },
-    {
-      "path": "native/network/peer.ts",
-      "sha256": "5be1d06976433a944f962a732295b7d989e794226a58108436c735c058fe7ceb"
-    },
-    {
-      "path": "native/network/peer-wire.ts",
-      "sha256": "b745d89326440dfc0f83d69a881ef4251034917d1c36b88927af2770db7a781d"
+      "path": "native/runtime/runtime.ts",
+      "sha256": "636e9c26839262870099f53634e9229ab596d05a395b10e18ef4ec3a37be1227"
     },
     {
       "path": "tests/native_browser_peer.cjs",
-      "sha256": "251445000b1090ff4ef56953b21a48f8c05f58c46218f3896fd61157045084e7"
+      "sha256": "b746fb98588588038ba215b91c85a9a66bddaf86762e92ad238b0fa119d556de"
     }
   ],
-  "observedEarlierFailure": {
-    "summary": "One pre-final local run froze the guest at tick462 during the bank journey. The exact cause was not captured; subsequent complete local/public-signaling journeys did not reproduce it. Terminal causes are now surfaced, and queue pressure/timeouts now reconnect rather than using a terminal protocol close. This is not proof of the initial cause.",
-    "preservedLocalEvidence": "build/native-peer-evidence/heartbeat-failure-20261002T091935/"
-  },
   "limitations": [
-    "Two isolated Chromium contexts on one physical machine; different home/mobile networks and restrictive NAT/TURN not verified.",
-    "Public PeerJS signaling is an external free dependency; no availability guarantee or TURN account is provisioned.",
-    "The host must keep the page open and device awake. Automatic host migration is not implemented. Original F5 saves persist on the host device and can be restored in a new same-size room.",
-    "Browser journey uses two human players; exhaustive original-game parity and every 3/4-player permutation are not claimed."
-  ],
-  "screenshots": [
-    "reports/peer-evidence/guest-goals.png",
-    "reports/peer-evidence/guest-turn.png",
-    "reports/peer-evidence/restored-new-room.png"
-  ],
-  "pagesDeploymentVerified": false,
-  "ciPr": {
-    "head": "62ad2a995b8df5f67a0b21e445527bd1dc40ec6d",
-    "url": "https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36990375489",
-    "conclusion": "success",
-    "jobs": {
-      "native": "success",
-      "verify": "success",
-      "deploy": "skipped"
-    },
-    "productionScriptSha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121",
-    "downloadedNativeArtifactMatchesLocalBuild": true
-  },
-  "automaticRtcReconnect": {
-    "report": "reports/peer-evidence/automatic-reconnect.json",
-    "ok": true,
-    "milliseconds": 592,
-    "sameSeat": true,
-    "reloadOrManualResume": false,
-    "scope": "Actual guest RTC connection closed; local signaling and two contexts on one machine. Distinct from unit coverage of close1013."
-  },
-  "review": {
-    "independentCodeReview": "Completed; transient error classification and incoming-frame Connection-dialog dismissal fixed and verified.",
-    "githubAutomatedReview": "Unavailable: account code-review limit. No paid credits or review service purchased."
-  }
+    "Two isolated Chromium contexts on one machine; different physical networks/TURN remain unverified.",
+    "The original start-turn counter can reset on restore/restart and is not a monotonic network revision."
+  ]
 }
