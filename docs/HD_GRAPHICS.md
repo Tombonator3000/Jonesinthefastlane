@@ -49,6 +49,9 @@ The previous painted images and their production records remain alongside the
 new sibling files for provenance. Only the photorealistic files listed by the
 current manifest are loaded by HD. `photoreal-prompts.md`,
 `photoreal-provenance.json` and `photoreal-validation.json` record this revision.
+The manifest is revalidated when HD first loads on a page, so a previously cached
+painted-pack manifest does not hide a newly deployed pack. An already open game
+keeps its loaded pack until the page is reloaded.
 
 ## Save, restore and multiplayer
 

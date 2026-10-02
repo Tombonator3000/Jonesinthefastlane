@@ -110,7 +110,8 @@ export class HdPresentation {
   }
   private async load() {
     const base = new URL('hd/', document.baseURI);
-    const response = await fetch(new URL('manifest.json', base));
+    // Pages caches this stable URL: revalidate when a new pack is deployed.
+    const response = await fetch(new URL('manifest.json', base), { cache: 'no-cache' });
     if (!response.ok) throw new Error('HD manifest unavailable');
     const manifest = await response.json() as ArtManifest;
     if (manifest.schema !== 1 || !manifest.pics || !manifest.cels) throw new Error('Unsupported HD pack');

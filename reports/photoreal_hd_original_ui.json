@@ -85,5 +85,13 @@
     "reports/photoreal-evidence/hd-menu.png",
     "reports/photoreal-evidence/characters.png",
     "reports/photoreal-evidence/bank.png"
-  ]
+  ],
+  "releaseBuild": {
+    "script": "assets/index-D9A2tr3-.js",
+    "scriptSha256": "433aa298c2c03141bdf01e7a9f5ba17a7d3a772ec790e12204fac002846dad4b",
+    "style": "assets/index-D8wzUgv1.css",
+    "styleSha256": "08e861446159a49d7da4d08354de7188729a47a17aaa0a84e26dc635996999db",
+    "manifestSha256": "eafbfb75621def0b44f19d9eb63c47d10ca473d87dd942e58c1c0f9d2fd2e28c",
+    "differenceFromLocalFullSuite": "Only HTTP revalidation for the stable HD manifest URL: cache=no-cache. CSS, assets and manifest are byte-identical. Final CI and public verification recorded on PR10."
+  }
 }
