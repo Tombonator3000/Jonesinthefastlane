@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-02T08:20:50.030539+00:00",
+  "date": "2026-10-02T08:26:57.762990+00:00",
   "ok": true,
   "originalVersion": "Jones DOS/English 1.000.060",
   "engine": "Native translated TypeScript; Three.js; no ScummVM runtime",
@@ -10,35 +10,36 @@
   },
   "nativeTests": {
     "passed": 52,
-    "failed": 0
+    "failed": 0,
+    "targetedListRegressionRechecked": 6
   },
   "typecheck": {
     "passed": true
   },
   "productionBrowser": {
-    "started": "2026-10-02T08:18:02.468Z",
-    "finished": "2026-10-02T08:19:56.271Z",
+    "started": "2026-10-02T08:23:25.475Z",
+    "finished": "2026-10-02T08:25:15.839Z",
     "ok": true,
     "checks": [
       {
         "name": "Native startup and original one-player menus",
         "ok": true,
-        "milliseconds": 5497
+        "milliseconds": 4554
       },
       {
         "name": "Original bank deposit and withdrawal",
         "ok": true,
-        "milliseconds": 13091
+        "milliseconds": 11990
       },
       {
         "name": "Original F5 saves and F7 restores native game state",
         "ok": true,
-        "milliseconds": 4912
+        "milliseconds": 4881
       },
       {
         "name": "Save survives closing the page and original Restore Game menu",
         "ok": true,
-        "milliseconds": 2498
+        "milliseconds": 2501
       },
       {
         "name": "Original F4 statistics renders its original text rows",
@@ -48,17 +49,17 @@
       {
         "name": "Original job application, work and food purchase",
         "ok": true,
-        "milliseconds": 34048,
+        "milliseconds": 34046,
         "detail": {
-          "firstShift": 24,
-          "secondShift": 24,
-          "mealPrice": 76
+          "firstShift": 32,
+          "secondShift": 32,
+          "mealPrice": 85
         }
       },
       {
         "name": "Original school enrollment and Trade School lesson",
         "ok": true,
-        "milliseconds": 21718,
+        "milliseconds": 21669,
         "detail": [
           {
             "index": 10,
@@ -69,31 +70,31 @@
       {
         "name": "Original full week via home relaxation",
         "ok": true,
-        "milliseconds": 22394
+        "milliseconds": 22246
       },
       {
         "name": "Fullscreen, display effects and aspect-ratio input mapping",
         "ok": true,
-        "milliseconds": 991
+        "milliseconds": 1136
       },
       {
         "name": "Original Quit confirmation completes the game and returns to Play",
         "ok": true,
-        "milliseconds": 636
+        "milliseconds": 654
       }
     ],
     "errors": [],
     "resourceErrors": []
   },
   "productionOnlineBrowser": {
-    "started": "2026-10-02T08:18:02.493Z",
-    "finished": "2026-10-02T08:18:13.564Z",
+    "started": "2026-10-02T08:26:07.190Z",
+    "finished": "2026-10-02T08:26:12.598Z",
     "ok": true,
     "checks": [
       {
         "name": "Create and join through production online controls",
         "ok": true,
-        "milliseconds": 1835,
+        "milliseconds": 602,
         "details": {
           "hostSeat": 0,
           "guestSeat": 1,
@@ -103,33 +104,33 @@
       {
         "name": "Host starts original shared game with no local simulation",
         "ok": true,
-        "milliseconds": 5560,
+        "milliseconds": 2487,
         "details": {
           "label": "Original main menu",
-          "revision": 126,
-          "sha256": "181e854489d88707146c05a9aab6a46f250c56c9116312f506bc5eb83d780d45",
+          "revision": 119,
+          "sha256": "4be5314ceb90962ed1ec12dfbc7ba06468bd60d55ca00720b809a33950ae32a8",
           "originalPixels": 64000
         }
       },
       {
         "name": "Inactive browser input cannot choose original controls",
         "ok": true,
-        "milliseconds": 781,
+        "milliseconds": 608,
         "details": {
           "label": "After inactive guest click",
-          "revision": 126,
-          "sha256": "181e854489d88707146c05a9aab6a46f250c56c9116312f506bc5eb83d780d45",
+          "revision": 119,
+          "sha256": "4be5314ceb90962ed1ec12dfbc7ba06468bd60d55ca00720b809a33950ae32a8",
           "originalPixels": 64000
         }
       },
       {
         "name": "Reload and Resume online game restore the same private seat",
         "ok": true,
-        "milliseconds": 750,
+        "milliseconds": 393,
         "details": {
           "label": "Guest resume",
-          "revision": 126,
-          "sha256": "181e854489d88707146c05a9aab6a46f250c56c9116312f506bc5eb83d780d45",
+          "revision": 119,
+          "sha256": "4be5314ceb90962ed1ec12dfbc7ba06468bd60d55ca00720b809a33950ae32a8",
           "originalPixels": 64000,
           "seat": 1
         }
@@ -137,22 +138,22 @@
       {
         "name": "Original host control still reaches the same player-count screen",
         "ok": true,
-        "milliseconds": 606,
+        "milliseconds": 436,
         "details": {
           "label": "Original player count after reconnect",
-          "revision": 170,
-          "sha256": "c96f3fb60623eae89bff7ce32f3fcfc23bb9ea7137a725fae864511d873469d5",
+          "revision": 163,
+          "sha256": "f19f24999e3c0f5e75bccda1b30736bcfb4e973e3b4064d08f15256c15cab983",
           "originalPixels": 64000
         }
       },
       {
         "name": "Room size validation keeps the original count screen usable",
         "ok": true,
-        "milliseconds": 808,
+        "milliseconds": 647,
         "details": {
           "label": "Correct original selection after rejected mismatch",
-          "revision": 200,
-          "sha256": "ce89f26efcfa0b94357561386616bf7297e56d08d115632db86c0f80f0ea35cf",
+          "revision": 193,
+          "sha256": "a12466632eac52dcc47c2789581693bee880850039443dfdd366f1910b6f96ac",
           "originalPixels": 64000
         }
       }
@@ -206,114 +207,6 @@
       "Dynamic Sound.send MIDI changes are explicitly unsupported; original Jones does not invoke it."
     ],
     "flacBytes": 34812978
-  },
-  "statistics": {
-    "started": "2026-10-02T08:19:05.211Z",
-    "ok": true,
-    "pageErrors": [],
-    "requestFailures": [],
-    "rows": [
-      "        Player 1         ",
-      "Unemployed               ",
-      "Cash: $200               ",
-      "Savings: $0              ",
-      "Rent Owed: $0            ",
-      "Loan Balance: $0         ",
-      "Total Goods: $0          ",
-      "Investment Total: $0     ",
-      "Net Worth: $200          ",
-      "     -----GOODS-----     ",
-      "    Casual Clothes       ",
-      "     ---EDUCATION---     ",
-      "     --INVESTMENTS--     "
-    ],
-    "state": {
-      "ticks": 375,
-      "seed": 1366921601,
-      "week": 1,
-      "currentPlayer": "player1",
-      "cash": 200,
-      "dialog": "inventories",
-      "trace": [
-        "0:jones.play",
-        "0:jones.doit",
-        "996:User.doit",
-        "997:MenuBar.handleEvent",
-        "231:inventories.init",
-        "231:inventories.doit"
-      ],
-      "warnings": [],
-      "audio": {
-        "tick": 375,
-        "masterVolume": 12,
-        "enabled": true,
-        "sounds": [
-          {
-            "instance": 4100,
-            "id": 23,
-            "generation": 6,
-            "positionTicks": 5,
-            "durationTicks": 5,
-            "loopStartTick": 0,
-            "loop": 0,
-            "volume": 127,
-            "priority": 1,
-            "playing": false,
-            "paused": false,
-            "ended": true,
-            "bed": false
-          },
-          {
-            "instance": 4099,
-            "id": 5,
-            "generation": 2,
-            "positionTicks": 152,
-            "durationTicks": 1129,
-            "loopStartTick": 0,
-            "loop": -1,
-            "volume": 127,
-            "priority": 0,
-            "playing": true,
-            "paused": false,
-            "ended": false,
-            "bed": false
-          }
-        ]
-      },
-      "connectionNotice": null,
-      "finished": false,
-      "error": null,
-      "errorTrace": null
-    },
-    "screenshot": "reports/browser-local/native-strings/f4-original-inventory.png",
-    "visibleInkPixels": 717,
-    "originalArrowScroll": {
-      "from": 0,
-      "to": 25
-    },
-    "originalMouseArrowScroll": {
-      "from": 25,
-      "to": 0
-    },
-    "originalPageKeys": {
-      "pageDown": 0,
-      "pageUp": 0,
-      "note": "No scrolling observed, consistent with original Dialog MapKeyToDir followed by DSelector handling only directions 1 and 5. Original binary page-key behavior was not separately re-tested."
-    },
-    "originalDoneReturnsToGame": true,
-    "finished": "2026-10-02T08:19:14.510Z",
-    "hashes": {
-      "native/runtime/kernels.ts": "73239705ccff8118c5cf157562583bc2356d7db83f0d5df8e2095363e0fef761",
-      "tests/native_strings.test.ts": "35b87df36d0a914b2dbf0b06eb6034bd37b7e445df028edcfadb9f668ddc43db",
-      "native/runtime/runtime.ts": "3bb141f441fbd3b4313ed690fdc1a9403752660e42481ce538a99403e1c117bd"
-    },
-    "visualReview": "Original F4 and scrolled screenshots inspected: Player 1, Unemployed, Cash $200 and other original rows visibly populate STATISTICS. ArrowDown scrolls one original row, the original mouse up-arrow reverses it, Done returns to town.",
-    "unitTests": {
-      "passed": 6,
-      "failed": 0,
-      "file": "tests/native_strings.test.ts"
-    },
-    "typecheck": "passed"
   },
   "sourceFilesSha256": {
     "native/app.ts": "628e892978046b4584d8a2cf91e533a039dcf2cd34f06d3a2cf3898187ad7242",
@@ -405,7 +298,7 @@
     "native/network/client.ts": "e509aea2d5937f993f39556259331d0c025bf85131782c9ca0c484772c5efa50",
     "native/network/server.ts": "72f023556e0e23e1d4ebb03a79706c5bf646c14976f69332e91a2c9822f2fd06",
     "native/network/types.ts": "58e269f9c7b8f6dbbcc7e0a26833c35db8032a7dfbc32b13db3cca29f391033e",
-    "native/runtime/kernels.ts": "73239705ccff8118c5cf157562583bc2356d7db83f0d5df8e2095363e0fef761",
+    "native/runtime/kernels.ts": "2257adfef7cb3dd7b17a73eb5da09f107adc162057f9c96a9b7eca739f8de61e",
     "native/runtime/movement.ts": "926ae5606eab72bd30ab76b95d83a5f67ffa90a2ba5682e87f69a1e3755567c1",
     "native/runtime/runtime.ts": "3bb141f441fbd3b4313ed690fdc1a9403752660e42481ce538a99403e1c117bd",
     "native/runtime/selectors.json": "1142f29eb5aa9612002fa9ba6d7873185eb73a3b9587f2a1ca675e29386ca457",
@@ -499,7 +392,7 @@
     "assets/fonts/0010.png": "b5205008f5fadd13234bbc4606a94a825d386d31ebbcec3ac726af5fe6662bae",
     "assets/fonts/0014.png": "4dcf7d403961b012b4b1413b5a0e55d8a81e82fb92b4afc0df38f0c292d09de2",
     "assets/fonts/0999.png": "ba6e2234bf0fe2acd0e0d6427a39c9643f5c18055f38803252976800f118b28e",
-    "assets/index-BOR5-ZwM.js": "93cf2b57e719d9aa4f31aff9dfaf66dc3536488a8473174e6a166de22ad77651",
+    "assets/index-Bk-HmQ0o.js": "4217a13e31098e1828bdb56cc09e4ca3636e100ed876b8a4345e101e39c0ef24",
     "assets/index-D-E8fHFO.css": "0f420245107e8e4c56df28fb8c4249e5c0195dcca5f2e5ee0b0cab354099e425",
     "assets/manifest.json": "f98cd20f49aae142434e45601349868196dedcd1dbb67ab2a5dc52f57a4d0491",
     "assets/pics/0000.png": "08978b9b4c18da17e1cd64e7f5cc441a2b8bfa0977eb6c89d6b2b4b615ec20b1",
@@ -1261,7 +1154,7 @@
     "assets/views/0809/00_00.png": "0a9e71ed1d7778a34bc1ce09faf5d3839c47045b4deb770df4802dccff233bf5",
     "assets/views/0810/00_00.png": "1776b2239d2d107bf81f89b1650073e8e0cd507e7190a0a723f7d5119a6d9d5c",
     "assets/views/0811/00_00.png": "e441316f3fdb20c223d40d3dc7bcaf18d6de368cfda3ee75e97c2a657ba65732",
-    "index.html": "ca24d835d3fb203c0e9453c1b185430513b141725a6446038eb28d964e8705e0",
+    "index.html": "a7f52ae8f09b061292da2f8b72e92f3f7da4b95446fdb06badce94fd406e512c",
     "licenses/GPL-3.0.txt": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
     "licenses/three.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
   },

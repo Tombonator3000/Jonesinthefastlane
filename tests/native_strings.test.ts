@@ -87,4 +87,8 @@ test('original inventory selector draws its pointer-addressed rows and scrolls t
   rt.set(control,'type',6);rt.set(control,'cursor',{...text,byte:50});
   await kernel(rt,'DrawControl',[control]);
   assert(graphics.drainFrame().commands.some(c=>c.op==='invert'),'Selectable list highlights its cursor reference by byte address');
+  rt.writeText(text,' '.repeat(25));rt.set(control,'type',7);rt.set(control,'brTop',text);rt.set(control,'cursor',text);
+  await kernel(rt,'DrawControl',[control]);
+  const frame=graphics.snapshot(),pixels=Buffer.from(frame.pixels,'base64'),top=rt.get(control,'nsTop')+10,left=rt.get(control,'nsLeft'),right=rt.get(control,'nsRight');
+  for(let y=top;y<top+manifest.fonts[4].lineHeight;y++)for(let x=left;x<right;x++)assert.equal(pixels[y*320+x],graphics.port.backColor,'An empty first row must erase the tall arrow glyph beneath it');
 });

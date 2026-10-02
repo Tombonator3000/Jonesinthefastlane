@@ -97,6 +97,9 @@ function drawControl(rt:Runtime,o:any,highlight=false) {
       const height=g.assets.fonts[font].lineHeight;
       if(stride>0&&start?.kind==='ref')for(let row=0,top=y+10;top+height<=bottom-10;row++,top+=height){
         const entry={...start,byte:start.byte+row*stride},label=rt.text(entry);if(!label)break;
+        // Original list rows erase their background after drawing the arrows;
+        // Jones' tall arrow glyph otherwise overlaps the first statistics row.
+        g.fillRect({left:x,top,right,bottom:top+height},g.port.backColor);
         g.drawText(label.slice(0,stride),x,top,{font,maxWidth:width});
         const selected=cursor?.kind==='ref'&&cursor.owner===entry.owner&&cursor.index*2+cursor.byte===entry.index*2+entry.byte;
         if(get('type')===6&&selected)g.invertRect({left:x,top,right,bottom:top+height});
