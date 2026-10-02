@@ -22,10 +22,31 @@ export interface TextOptions { font?: number; color?: number; backColor?: number
 export interface TextMetrics { width: number; height: number; lineHeight: number; lines: { text: string; width: number }[] }
 export interface GraphicsCommand { op: string; args: unknown[] }
 export interface CursorState { id: number; visible: boolean; x: number; y: number }
+/** Exact source coordinates; cel PNGs already include their exported mirroring. */
+export interface HdDrawContext { port: Port; clip: Rect; dest: Rect; source: Rect }
+export interface HdGlyph {
+  char: string; code: number; x: number; y: number; width: number; height: number; advance: number;
+  /** Uniform original background of the full glyph cell, or null for raster fallback. */
+  background: number | null;
+}
+export type HdDrawOp = HdDrawContext & { id: number } & (
+  { kind: 'pic'; pic: number; mirror: boolean; addTo: boolean } |
+  { kind: 'cel'; view: number; loop: number; cel: number; mirrored: boolean; priority: number } |
+  { kind: 'text'; text: string; font: number; color: number; greyed: boolean; glyphs: HdGlyph[] }
+);
+/** Complete scene, not a command replay. owners is base64 RLE [count,id] uint32 LE.
+ * Exactly width*height owners; zero retains the original raster at that pixel.
+ * Every nonzero owner has an op in this frame, including after reconnect. */
+export interface HdFrame { version: 1; owners: string; ops: HdDrawOp[]; intensity?: number[] }
+export interface HdGraphicsSave {
+  version: 1; visual: string; presented: string; ops: HdDrawOp[];
+  savedBits: { id: number; owners: string }[];
+}
 /** Complete visual snapshot, also valid after an online client joins mid-frame. */
 export interface GraphicsFrame {
   width: number; height: number; revision: number; pixels: string; palette: RGB[];
   cursor: CursorState; commands: GraphicsCommand[];
+  hd?: HdFrame;
 }
 export interface GraphicsSave {
   visual: string; presented?: string; priority: string; control: string; palette: RGB[]; intensity: number[]; paletteFlags?: number[]; priorityBands?: number[];
@@ -33,4 +54,6 @@ export interface GraphicsSave {
   ports: Port[]; currentPort: number; cursor: CursorState; nextHandle: number;
   savedBits: { id: number; rect: Rect; mask: number; visual: string; priority: string; control: string }[];
   windows: { id: number; saved: number; previousPort: number }[];
+  /** Optional so saves created before HD provenance retain their original raster. */
+  hd?: HdGraphicsSave;
 }

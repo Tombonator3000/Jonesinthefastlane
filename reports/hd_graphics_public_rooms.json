@@ -1,0 +1,582 @@
+{
+  "recordedAt": "2026-10-02T13:09:16.597797+00:00",
+  "delivery": "Local production build verified; awaiting pull request and Pages publication.",
+  "sourceBase": "89fc524",
+  "branch": "codex/hd-graphics-public-rooms",
+  "runtime": {
+    "file": "assets/index-BBhOAm6o.js",
+    "sha256": "9c47ace0401a72ca12e5847a11b29a3edaa5cca2ee4c91e45b6f15579049e8ca"
+  },
+  "artwork": {
+    "manifestSha256": "d76acb96b1d01eb45960231ad58dda85df5ef46c4a0b6100710c136a8d3a430a",
+    "coverage": {
+      "pics": 1,
+      "cels": 49,
+      "originalPics": 7,
+      "originalCels": 752,
+      "fonts": "No generated lettering; original control text stays with the runtime. Optional HD font renderer is separate.",
+      "portraits": [
+        "Bank clerk (354), all six talking frames",
+        "Market (353), all six talking frames",
+        "University (357), all six talking frames",
+        "Burger (360), all six talking frames",
+        "Rent (351), all six talking frames",
+        "Appliance (358), all six talking frames",
+        "Clothing (359), all six talking frames",
+        "Discount (361), all six talking frames"
+      ],
+      "uniqueImages": 10
+    },
+    "selectionRepair": "Corrected hair placement, then verified in the real production browser journey (8/8)."
+  },
+  "checks": {
+    "hd_candidate": {
+      "ok": true,
+      "started": "2026-10-02T13:00:53.872Z",
+      "finished": "2026-10-02T13:01:38.537Z",
+      "checks": [
+        {
+          "name": "Original remains the default; HD changes no original game pixels or rules",
+          "ok": true,
+          "milliseconds": 805,
+          "detail": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 4,
+              "fonts": true
+            }
+          }
+        },
+        {
+          "name": "HD artwork contains detail within original pixel cells and optional lighting changes output",
+          "ok": true,
+          "milliseconds": 1220,
+          "detail": {
+            "detailedOriginalCells": 7531,
+            "width": 1728,
+            "height": 1080
+          }
+        },
+        {
+          "name": "Original character selection and goals remain operable with HD artwork",
+          "ok": true,
+          "milliseconds": 4001
+        },
+        {
+          "name": "Original bank actions and Save/Restore retain the complete HD scene",
+          "ok": true,
+          "milliseconds": 24318,
+          "detail": {
+            "operations": 25,
+            "ownershipBytes": 15992
+          }
+        },
+        {
+          "name": "2160p and portrait aspect preserve original input coordinates",
+          "ok": true,
+          "milliseconds": 7810
+        },
+        {
+          "name": "Display choice persists independently of the original save",
+          "ok": true,
+          "milliseconds": 3657
+        },
+        {
+          "name": "WebGL loss falls back to the original visible game",
+          "ok": true,
+          "milliseconds": 384
+        }
+      ],
+      "sourceReport": "build/native-hd-evidence/candidate/report.json"
+    },
+    "peer_hd": {
+      "ok": true,
+      "started": "2026-10-02T13:00:55.174Z",
+      "finished": "2026-10-02T13:01:55.463Z",
+      "checks": [
+        {
+          "name": "Default online UI creates and joins via a shareable peer invitation",
+          "ok": true,
+          "milliseconds": 910,
+          "details": {
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "players": 2,
+            "signaling": "local official PeerServer (CI)"
+          }
+        },
+        {
+          "name": "Host starts the shared original game over an actual WebRTC data channel",
+          "ok": true,
+          "milliseconds": 2703,
+          "details": {
+            "label": "original main menu",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Wrong-seat mouse input cannot advance the original shared menu",
+          "ok": true,
+          "milliseconds": 859,
+          "details": {
+            "label": "wrong-seat input rejected",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Guest chooses local HD while host keeps Original on the identical authoritative scene",
+          "ok": true,
+          "milliseconds": 1868,
+          "details": {
+            "label": "different local packs, identical complete scene",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "A real guest reload and Resume reconnect the same seat without a local game",
+          "ok": true,
+          "milliseconds": 1992,
+          "details": {
+            "label": "reconnected original scene",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Room count is enforced by the original player-count controls",
+          "ok": true,
+          "milliseconds": 3098,
+          "details": {
+            "label": "two-player setup",
+            "sha256": "67475d22ea4100c03cc221fb8fed38afd6399da4a7424b32276a99370bedff20",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Both real peers complete their own original character and goal screens",
+          "ok": true,
+          "milliseconds": 6773,
+          "details": {
+            "connectionDialogSurvivedIncomingFrame": true,
+            "readyTick": 843,
+            "locationInputEnabled": true,
+            "turnTransitionActive": false,
+            "turnStartCount": 1,
+            "label": "first human turn",
+            "sha256": "7804fc7d0dd8c7c524134b8e74a65abc0c8097c95217c3cca44e2ba7166adbf4",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Original F5/F7 saves on the host and restores shared original bank state",
+          "ok": true,
+          "milliseconds": 17645,
+          "details": {
+            "format": "jones-native",
+            "bytes": 660633,
+            "label": "original restored bank",
+            "sha256": "b264c56e6ba34f283a5f2959b57b843991a10e894f29c5a2bb6a7941b300f960",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Original Relax actions finish player one and transfer gameplay to the guest",
+          "ok": true,
+          "milliseconds": 17875,
+          "details": {
+            "readyTick": 2261,
+            "locationInputEnabled": true,
+            "turnTransitionActive": false,
+            "previousTurnStartCount": 1,
+            "turnStartCount": 2,
+            "guestHomeClicks": 1,
+            "label": "guest original human turn",
+            "sha256": "dcd0acccc9c16db20de36fd122ae0b626b872cc35f490ca19aa04fc29ea6a986",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Closing the real host page gives the guest actionable host-loss status",
+          "ok": true,
+          "milliseconds": 204,
+          "details": {
+            "status": "The host closed this game. Ask the host to create a new room and share its invitation.",
+            "connection": "The host closed this game. Ask the host to create a new room and share its invitation."
+          }
+        },
+        {
+          "name": "A fresh host page and new invitation restore the device save through the original menu",
+          "ok": true,
+          "milliseconds": 5902,
+          "details": {
+            "newRoom": true,
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "cash": 200,
+            "label": "saved original game in recreated room",
+            "sha256": "989f0e276084bc7318cbccda3c6e34b5cd63ceccf0aa07c1e38c4d39383b069c",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Observed production traffic uses peer signaling and WebRTC without a game-server connection",
+          "ok": true,
+          "milliseconds": 2,
+          "details": {
+            "observedBrowserRequests": 101,
+            "observedGameServerRequests": 0,
+            "signalingSockets": 5,
+            "localStaticFixtureRequests": 96
+          }
+        }
+      ],
+      "sourceReport": "build/native-peer-evidence/hd-candidate/report.json"
+    },
+    "solo": {
+      "ok": true,
+      "started": "2026-10-02T13:02:18.754Z",
+      "finished": "2026-10-02T13:04:10.112Z",
+      "checks": [
+        {
+          "name": "Native startup and original one-player menus",
+          "ok": true,
+          "milliseconds": 5069
+        },
+        {
+          "name": "Original bank deposit and withdrawal",
+          "ok": true,
+          "milliseconds": 12251
+        },
+        {
+          "name": "Original F5 saves and F7 restores native game state",
+          "ok": true,
+          "milliseconds": 4984
+        },
+        {
+          "name": "Save survives closing the page and original Restore Game menu",
+          "ok": true,
+          "milliseconds": 2562
+        },
+        {
+          "name": "Original F4 statistics renders its original text rows",
+          "ok": true,
+          "milliseconds": 1148
+        },
+        {
+          "name": "Original job application, work and food purchase",
+          "ok": true,
+          "milliseconds": 33953,
+          "detail": {
+            "firstShift": 24,
+            "secondShift": 24,
+            "mealPrice": 76
+          }
+        },
+        {
+          "name": "Original school enrollment and Trade School lesson",
+          "ok": true,
+          "milliseconds": 21686,
+          "detail": [
+            {
+              "index": 10,
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "name": "Original full week via home relaxation",
+          "ok": true,
+          "milliseconds": 22253
+        },
+        {
+          "name": "Fullscreen, display effects and aspect-ratio input mapping",
+          "ok": true,
+          "milliseconds": 1429
+        },
+        {
+          "name": "Original Quit confirmation completes the game and returns to Play",
+          "ok": true,
+          "milliseconds": 645
+        }
+      ],
+      "sourceReport": "build/native-evidence/report.json"
+    },
+    "dedicated_server": {
+      "ok": true,
+      "started": "2026-10-02T13:02:20.080Z",
+      "finished": "2026-10-02T13:02:26.531Z",
+      "checks": [
+        {
+          "name": "Create and join through production online controls",
+          "ok": true,
+          "milliseconds": 777,
+          "details": {
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "connectedPlayers": 2
+          }
+        },
+        {
+          "name": "Host starts original shared game with no local simulation",
+          "ok": true,
+          "milliseconds": 2801,
+          "details": {
+            "label": "Original main menu",
+            "revision": 124,
+            "sha256": "d132752b7bbfa02f999b335e5e8caea0d102bb1b73ed0b726eab52e8f9c10a0b",
+            "originalPixels": 64000
+          }
+        },
+        {
+          "name": "Inactive browser input cannot choose original controls",
+          "ok": true,
+          "milliseconds": 679,
+          "details": {
+            "label": "After inactive guest click",
+            "revision": 124,
+            "sha256": "d132752b7bbfa02f999b335e5e8caea0d102bb1b73ed0b726eab52e8f9c10a0b",
+            "originalPixels": 64000
+          }
+        },
+        {
+          "name": "Reload and Resume online game restore the same private seat",
+          "ok": true,
+          "milliseconds": 710,
+          "details": {
+            "label": "Guest resume",
+            "revision": 124,
+            "sha256": "d132752b7bbfa02f999b335e5e8caea0d102bb1b73ed0b726eab52e8f9c10a0b",
+            "originalPixels": 64000,
+            "seat": 1
+          }
+        },
+        {
+          "name": "Original host control still reaches the same player-count screen",
+          "ok": true,
+          "milliseconds": 472,
+          "details": {
+            "label": "Original player count after reconnect",
+            "revision": 168,
+            "sha256": "e729e3a1db4bcf9b39570d626451ef8ed6d247c11c2c30080f3c9e6b164462d4",
+            "originalPixels": 64000
+          }
+        },
+        {
+          "name": "Room size validation keeps the original count screen usable",
+          "ok": true,
+          "milliseconds": 679,
+          "details": {
+            "label": "Correct original selection after rejected mismatch",
+            "revision": 198,
+            "sha256": "b30025864a1a0561f4364d8e089e08f34f31178aca95c63854954c224342ea6e",
+            "originalPixels": 64000
+          }
+        }
+      ],
+      "sourceReport": "build/native-online-evidence/report.json"
+    },
+    "directory_local": {
+      "ok": true,
+      "started": "2026-10-02T13:01:09.572Z",
+      "finished": "2026-10-02T13:01:46.782Z",
+      "checks": [
+        {
+          "name": "Personal display choices persist locally and do not change another player",
+          "ok": true,
+          "ms": 1346
+        },
+        {
+          "name": "Private is the default and does not publish a room",
+          "ok": true,
+          "ms": 250
+        },
+        {
+          "name": "Explicit public room appears by name and free-seat count in another browser",
+          "ok": true,
+          "ms": 309
+        },
+        {
+          "name": "Name search and Refresh operate on the actual broker list",
+          "ok": true,
+          "ms": 2746
+        },
+        {
+          "name": "An idle waiting room renews its real retained announcement after thirty seconds",
+          "ok": true,
+          "ms": 27067,
+          "renewalObserved": true
+        },
+        {
+          "name": "Join from the list uses actual WebRTC; full room disappears for other browsers",
+          "ok": true,
+          "ms": 2331
+        },
+        {
+          "name": "Private invitation remains available when public broker is unavailable",
+          "ok": true,
+          "ms": 757
+        }
+      ],
+      "sourceReport": "build/native-discovery-evidence/final-local/report.json"
+    },
+    "directory_public_services": {
+      "ok": true,
+      "started": "2026-10-02T13:01:55.410Z",
+      "finished": "2026-10-02T13:02:04.498Z",
+      "checks": [
+        {
+          "name": "Personal display choices persist locally and do not change another player",
+          "ok": true,
+          "ms": 703
+        },
+        {
+          "name": "Private is the default and does not publish a room",
+          "ok": true,
+          "ms": 861
+        },
+        {
+          "name": "Explicit public room appears by name and free-seat count in another browser",
+          "ok": true,
+          "ms": 325
+        },
+        {
+          "name": "Name search and Refresh operate on the actual broker list",
+          "ok": true,
+          "ms": 2849
+        },
+        {
+          "name": "Join from the list uses actual WebRTC; full room disappears for other browsers",
+          "ok": true,
+          "ms": 2407
+        },
+        {
+          "name": "Private invitation remains available when public broker is unavailable",
+          "ok": true,
+          "ms": 705
+        }
+      ],
+      "sourceReport": "build/native-discovery-evidence/final-public/report.json"
+    },
+    "hd_final": {
+      "ok": true,
+      "started": "2026-10-02T13:08:20.807Z",
+      "finished": "2026-10-02T13:08:59.882Z",
+      "checks": [
+        {
+          "name": "Original remains the default; HD changes no original game pixels or rules",
+          "ok": true,
+          "milliseconds": 611,
+          "detail": {
+            "preferences": {
+              "mode": "original",
+              "resolutionHeight": 1080,
+              "pack": "hd",
+              "lighting": false,
+              "intensity": 0.4
+            },
+            "hd": {
+              "requested": true,
+              "ready": true,
+              "failed": false,
+              "layers": 4,
+              "fonts": true
+            }
+          }
+        },
+        {
+          "name": "HD artwork contains detail within original pixel cells and optional lighting changes output",
+          "ok": true,
+          "milliseconds": 829,
+          "detail": {
+            "detailedOriginalCells": 7531,
+            "width": 1728,
+            "height": 1080
+          }
+        },
+        {
+          "name": "Original character selection and goals remain operable with HD artwork",
+          "ok": true,
+          "milliseconds": 3035
+        },
+        {
+          "name": "Original bank actions and Save/Restore retain the complete HD scene",
+          "ok": true,
+          "milliseconds": 20665,
+          "detail": {
+            "operations": 25,
+            "ownershipBytes": 15992
+          }
+        },
+        {
+          "name": "2160p and portrait aspect preserve original input coordinates",
+          "ok": true,
+          "milliseconds": 6381
+        },
+        {
+          "name": "Display choice persists independently of the original save",
+          "ok": true,
+          "milliseconds": 2868
+        },
+        {
+          "name": "WebGL loss falls back to the original visible game",
+          "ok": true,
+          "milliseconds": 366
+        },
+        {
+          "name": "An unavailable optional HD pack leaves the original game playable",
+          "ok": true,
+          "milliseconds": 1944,
+          "detail": {
+            "deliberatelyUnavailable": "hd/manifest.json",
+            "originalPlayerCountReached": true
+          }
+        }
+      ],
+      "sourceReport": "build/native-hd-evidence/final/report.json"
+    }
+  },
+  "nativeUnitSuite": {
+    "passed": 82,
+    "failed": 0,
+    "log": "build/native-hd-unit-tests.log",
+    "note": "Includes graphics provenance and discovery. Final focus/fullscreen fixes additionally passed targeted discovery tests; unchanged runtime verification is retained."
+  },
+  "typecheck": "passed",
+  "originalHashes": {
+    "verified": 22,
+    "resources": 266,
+    "records": 299
+  },
+  "limitations": [
+    "Initial partial HD pack: 1 of 7 backgrounds and 49 of 752 original cels, plus 7 code-rendered UI buttons and supported font cells. Other art remains original.",
+    "Generated art preserves resource addressing and interaction geometry, but is a visual interpretation rather than exact original silhouettes or mouth artwork.",
+    "Public HiveMQ directory is best effort; private invites remain independent.",
+    "Cloud services were tested from isolated browser contexts on one physical machine; distinct physical networks and TURN remain unverified.",
+    "Host must keep the game open; host migration is not implemented.",
+    "Original gameplay journeys are tested, not exhaustive parity certification."
+  ],
+  "resolvedIssues": [
+    "Initial MQTT named connect import failed in browser bundle; corrected to default import and mqtt.connect. Original failure retained under build/native-hd-evidence/report.json.",
+    "HD layer identity now includes operation contents because Restore can reuse operation IDs.",
+    "Public Join requests fullscreen; unchanged directory announcements preserve keyboard focus.",
+    "Original control labels/header remain protected; new vector text uses original measured dimensions."
+  ],
+  "screenshots": [
+    "reports/hd-evidence/hd-bank.png",
+    "reports/hd-evidence/hd-characters.png",
+    "reports/hd-evidence/hd-menu.png",
+    "reports/hd-evidence/public-room-list.png"
+  ]
+}

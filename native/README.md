@@ -3,6 +3,9 @@
 This directory is the native browser game. Converted original game methods run
 as TypeScript; native graphics/audio services implement their original API.
 Three.js presents the original 320×200 game with optional display effects. For free online play, one browser hosts the same game core over WebRTC.
+Display also offers a separate HD artwork pack and optional town lighting,
+with local choices per player. [HD graphics](../docs/HD_GRAPHICS.md) describes
+actual coverage, original-input preservation, fallback and extending the pack.
 An optional authoritative Node server is also available. No ScummVM runtime or
 WebAssembly is loaded by this entry point.
 
@@ -29,3 +32,6 @@ asset provenance, commands, online hosting and verification boundaries. See
 and its known fidelity limits. GitHub Pages hosts free peer play using PeerJS signaling.
 See [peer multiplayer](../docs/PEER_MULTIPLAYER.md) for host lifetime, original
 saves, guest reconnection and restrictive-network limits.
+**Find games** searches waiting public rooms; hosts explicitly opt in with
+**Public room**. Private invitations remain available when the best-effort
+directory is unavailable.

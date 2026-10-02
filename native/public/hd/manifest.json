@@ -1,0 +1,1001 @@
+{
+  "schema": 1,
+  "id": "jones-painted-hd-v1",
+  "title": "Painted HD: town, four characters and eight talking portraits",
+  "description": "Optional generated detailed repaint. Original rules, text controls, logical dimensions and uncovered artwork remain unchanged.",
+  "generator": "Built-in ChatGPT image generator; exact model version not exposed",
+  "pics": {
+    "11": {
+      "src": "pics/town-11-corrected.png",
+      "width": 320,
+      "height": 200,
+      "sourceWidth": 1586,
+      "sourceHeight": 992,
+      "originalSource": "assets/pics/0011.png",
+      "originalSha256": "a4859e7d85c5401d289be44bbf5f0902cb11205a48a07ccabdc995aafe88275f",
+      "sha256": "d6c7ad2f6ff652da4d3f5566e7fb846f26a1de0e8ab3a40a8f7087c17c3fd2df"
+    }
+  },
+  "cels": {
+    "500:0:0": {
+      "src": "cels/character-selection-500.png",
+      "width": 183,
+      "height": 112,
+      "sourceWidth": 1606,
+      "sourceHeight": 979,
+      "regions": [
+        {
+          "left": 1,
+          "top": 14,
+          "right": 182,
+          "bottom": 99
+        },
+        {
+          "left": 1,
+          "top": 99,
+          "right": 31,
+          "bottom": 108
+        },
+        {
+          "left": 46,
+          "top": 99,
+          "right": 76,
+          "bottom": 108
+        },
+        {
+          "left": 93,
+          "top": 99,
+          "right": 122,
+          "bottom": 108
+        },
+        {
+          "left": 139,
+          "top": 99,
+          "right": 167,
+          "bottom": 108
+        }
+      ],
+      "originalSource": "assets/views/0500/00_00.png",
+      "originalSha256": "3a8eeed10bcf179387f3114c2a13e63e65ce648086bae3fb63c86333f35ca625",
+      "sha256": "fcaafaa5b8edb57906c9a13917e41434400bb951118744b7834d1fde0e340cb6"
+    },
+    "354:0:0": {
+      "src": "cels/bank-354-atlas.png",
+      "width": 68,
+      "height": 58,
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 554,
+        "height": 473
+      },
+      "originalSource": "assets/views/0354/00_00.png",
+      "originalSha256": "756e295c79a670a843f59db0905a54db98d9fa81e5b991698c9ccc37028c006c",
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "354:0:1": {
+      "src": "cels/bank-354-atlas.png",
+      "width": 68,
+      "height": 58,
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "crop": {
+        "left": 554,
+        "top": 0,
+        "width": 554,
+        "height": 473
+      },
+      "originalSource": "assets/views/0354/00_01.png",
+      "originalSha256": "f7d145440cda9ff1d6be9e449d74f9adb2adeee7c9e66147c1b8d41b7079e3b2",
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "354:0:2": {
+      "src": "cels/bank-354-atlas.png",
+      "width": 68,
+      "height": 58,
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "crop": {
+        "left": 1108,
+        "top": 0,
+        "width": 554,
+        "height": 473
+      },
+      "originalSource": "assets/views/0354/00_02.png",
+      "originalSha256": "b467d78b148a38624922e4dda341aab156a282bfabfc793813744022ae526708",
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "354:0:3": {
+      "src": "cels/bank-354-atlas.png",
+      "width": 68,
+      "height": 58,
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "crop": {
+        "left": 0,
+        "top": 473,
+        "width": 554,
+        "height": 473
+      },
+      "originalSource": "assets/views/0354/00_03.png",
+      "originalSha256": "5375c695c36d233598a97074a549e2a7139a29e485b9601e90dffb3778dc505a",
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "354:0:4": {
+      "src": "cels/bank-354-atlas.png",
+      "width": 68,
+      "height": 58,
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "crop": {
+        "left": 554,
+        "top": 473,
+        "width": 554,
+        "height": 473
+      },
+      "originalSource": "assets/views/0354/00_04.png",
+      "originalSha256": "4c494601a139e576f5a257e3384ac618e43f70dffdb15e137f071540924bc524",
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "354:0:5": {
+      "src": "cels/bank-354-atlas.png",
+      "width": 68,
+      "height": 58,
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "crop": {
+        "left": 1108,
+        "top": 473,
+        "width": 554,
+        "height": 473
+      },
+      "originalSource": "assets/views/0354/00_05.png",
+      "originalSha256": "786efa578afdc6141f5a0c23cae03dd63b5e035f054d8ef67d560c6040acded5",
+      "sha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "353:0:0": {
+      "src": "cels/market-353-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0353/00_00.png",
+      "originalSha256": "19bac2c5580eddbc568af72b7f5fec78fbccd5a847b6e099d8629256bd4f7c8e",
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "353:0:1": {
+      "src": "cels/market-353-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.3333333333334,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0353/00_01.png",
+      "originalSha256": "ba3d542b08d5ac6fe81d2ee3fd5f2a08ae4ad6ceec44910a855d025bc02a97ee",
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "353:0:2": {
+      "src": "cels/market-353-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.6666666666667,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0353/00_02.png",
+      "originalSha256": "9609a806f0d59d1cac5924712ba644e88be1c73ed9a584a860bf0dd64db6453e",
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "353:0:3": {
+      "src": "cels/market-353-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 460.5,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0353/00_03.png",
+      "originalSha256": "73fe05c255bca78692f4fd4c27b642cbc0ae67e2709282358c77401dec635b46",
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "353:0:4": {
+      "src": "cels/market-353-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.3333333333334,
+        "top": 460.5,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0353/00_04.png",
+      "originalSha256": "6b1822c333bbfbb2f7db18ec58c5ffc7102962f42d58368446a7189c315550b9",
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "353:0:5": {
+      "src": "cels/market-353-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.6666666666667,
+        "top": 460.5,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0353/00_05.png",
+      "originalSha256": "e5fb3721d1113ec7c7a79b1cb58e5b5a8bafbc9eb9b865e3c7e7f1e5bc6b46d2",
+      "sha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "357:0:0": {
+      "src": "cels/university-357-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0357/00_00.png",
+      "originalSha256": "e402aad31041d0d357cdb0a1d952fee8dd4fe9d56c5c392d3a3dd96a09afb69b",
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "357:0:1": {
+      "src": "cels/university-357-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.0,
+        "top": 0.0,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0357/00_01.png",
+      "originalSha256": "1e82c84c1943277578dba589ea20e18d11a2ec5d72e7b1509c5bf0700e6a5d6b",
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "357:0:2": {
+      "src": "cels/university-357-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.0,
+        "top": 0.0,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0357/00_02.png",
+      "originalSha256": "69abfe673b67e6fab66fe12220066213fff56c2cb6e5b0e525203e68605f89f1",
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "357:0:3": {
+      "src": "cels/university-357-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 460.5,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0357/00_03.png",
+      "originalSha256": "9b66f2598015152450504c4a6b6db1ff6355af0e899739aa4189fffb6806cf56",
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "357:0:4": {
+      "src": "cels/university-357-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.0,
+        "top": 460.5,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0357/00_04.png",
+      "originalSha256": "4225120fcc1b4b6fa505e365ca24ecc24877f2c1a45979757ef3af8da9372062",
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "357:0:5": {
+      "src": "cels/university-357-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.0,
+        "top": 460.5,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0357/00_05.png",
+      "originalSha256": "1dff49069410e0f88ab54a27c799cf9e302dac80c065abf8dba834a348566396",
+      "sha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "360:0:0": {
+      "src": "cels/burger-360-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 920,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.0
+      },
+      "originalSource": "assets/views/0360/00_00.png",
+      "originalSha256": "638ae71c035b73042149a0150e822f2b65c78cd7f637e030807c2ca1b0e712fd",
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "360:0:1": {
+      "src": "cels/burger-360-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 920,
+      "crop": {
+        "left": 569.3333333333334,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.0
+      },
+      "originalSource": "assets/views/0360/00_01.png",
+      "originalSha256": "51beb093a544468726a1772b5a170cc186f3a17089ea6e43b2bcbb2a9308bd70",
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "360:0:2": {
+      "src": "cels/burger-360-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 920,
+      "crop": {
+        "left": 1138.6666666666667,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.0
+      },
+      "originalSource": "assets/views/0360/00_02.png",
+      "originalSha256": "6dcd19610a23e8dcee5e09da4429919b7658293a1d42d427e0f731ccac665145",
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "360:0:3": {
+      "src": "cels/burger-360-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 920,
+      "crop": {
+        "left": 0.0,
+        "top": 460.0,
+        "width": 569.3333333333334,
+        "height": 460.0
+      },
+      "originalSource": "assets/views/0360/00_03.png",
+      "originalSha256": "8e1c75b6d9c280c6c75d0a3fb046b149cbb63a12da045338c50a8c4f9ceab2a2",
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "360:0:4": {
+      "src": "cels/burger-360-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 920,
+      "crop": {
+        "left": 569.3333333333334,
+        "top": 460.0,
+        "width": 569.3333333333334,
+        "height": 460.0
+      },
+      "originalSource": "assets/views/0360/00_04.png",
+      "originalSha256": "5c2234b51360f5e4f8b61fb3018436217dc29f7ccf94e60e8d1857e6ac6a22af",
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "360:0:5": {
+      "src": "cels/burger-360-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 920,
+      "crop": {
+        "left": 1138.6666666666667,
+        "top": 460.0,
+        "width": 569.3333333333334,
+        "height": 460.0
+      },
+      "originalSource": "assets/views/0360/00_05.png",
+      "originalSha256": "bfcae40bdbf46996fd906d1509251cb61b4a5edc7c87101ab303b758fecf60f3",
+      "sha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "351:0:0": {
+      "src": "cels/rent-351-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0351/00_00.png",
+      "originalSha256": "44a1c6580b67434ce430ae5182eef1f5b0ebdb2dfddbd74cabc8185657c71466",
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "351:0:1": {
+      "src": "cels/rent-351-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.0,
+        "top": 0.0,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0351/00_01.png",
+      "originalSha256": "e6b6558667717e61749672a5b31f4f910982f562d2614f38a3d4fbb5bf852654",
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "351:0:2": {
+      "src": "cels/rent-351-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.0,
+        "top": 0.0,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0351/00_02.png",
+      "originalSha256": "b0c8f94d97db22d87ae9073dcdef6a333d8b339e1b4cb23fd5c8f1d42ccba1e2",
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "351:0:3": {
+      "src": "cels/rent-351-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 460.5,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0351/00_03.png",
+      "originalSha256": "a58dc6c172ad062955940ab11ce206d63acda0d25943774979f5170dcb0b3ab0",
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "351:0:4": {
+      "src": "cels/rent-351-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.0,
+        "top": 460.5,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0351/00_04.png",
+      "originalSha256": "535b00fa38682756bfb94b76cbef7ff28b7413c51d7d395d9c2716a815af1f8a",
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "351:0:5": {
+      "src": "cels/rent-351-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.0,
+        "top": 460.5,
+        "width": 569.0,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0351/00_05.png",
+      "originalSha256": "8cb2009dd329f84ba8288b256c64daea35a125aa8cb1960808c0e88d67302d13",
+      "sha256": "be4da96968811a6e22d423b9f4cb26a95410f2a7ba64fa50736a17ebea92d599",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "358:0:0": {
+      "src": "cels/appliance-358-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1583,
+      "sourceHeight": 993,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 527.6666666666666,
+        "height": 496.5
+      },
+      "originalSource": "assets/views/0358/00_00.png",
+      "originalSha256": "286c32824030e0ff69aeeff4d2d0831e213f497b8042ca914ef49fca2f74827c",
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "358:0:1": {
+      "src": "cels/appliance-358-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1583,
+      "sourceHeight": 993,
+      "crop": {
+        "left": 527.6666666666666,
+        "top": 0.0,
+        "width": 527.6666666666666,
+        "height": 496.5
+      },
+      "originalSource": "assets/views/0358/00_01.png",
+      "originalSha256": "0a48088917af787f82294c79e0aa4387fdc6dfd316b50884a9c46523a30b704f",
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "358:0:2": {
+      "src": "cels/appliance-358-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1583,
+      "sourceHeight": 993,
+      "crop": {
+        "left": 1055.3333333333333,
+        "top": 0.0,
+        "width": 527.6666666666666,
+        "height": 496.5
+      },
+      "originalSource": "assets/views/0358/00_02.png",
+      "originalSha256": "afbaa44ae0fcc677ef7b33fe80edb80cbdbc27b7742ebe2a0af0172d80c1ec11",
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "358:0:3": {
+      "src": "cels/appliance-358-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1583,
+      "sourceHeight": 993,
+      "crop": {
+        "left": 0.0,
+        "top": 496.5,
+        "width": 527.6666666666666,
+        "height": 496.5
+      },
+      "originalSource": "assets/views/0358/00_03.png",
+      "originalSha256": "18d270c5faf7e245f58aa011a996712e60ec9a07c372ab084399957457739d2e",
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "358:0:4": {
+      "src": "cels/appliance-358-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1583,
+      "sourceHeight": 993,
+      "crop": {
+        "left": 527.6666666666666,
+        "top": 496.5,
+        "width": 527.6666666666666,
+        "height": 496.5
+      },
+      "originalSource": "assets/views/0358/00_04.png",
+      "originalSha256": "7624aac5e08c247a2ae496faf95409197d36054e96cc2d85e2de4f0908c189cf",
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "358:0:5": {
+      "src": "cels/appliance-358-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1583,
+      "sourceHeight": 993,
+      "crop": {
+        "left": 1055.3333333333333,
+        "top": 496.5,
+        "width": 527.6666666666666,
+        "height": 496.5
+      },
+      "originalSource": "assets/views/0358/00_05.png",
+      "originalSha256": "82a6524eb3e7287f2c42a42c7ddc2997d21c523a88640ca0561157679026ba61",
+      "sha256": "bead96af651a55dc33f16709af713f521e6c64b8f3b3806e4853544fbe3852f3",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "359:0:0": {
+      "src": "cels/clothing-359-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1635,
+      "sourceHeight": 962,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 545.0,
+        "height": 481.0
+      },
+      "originalSource": "assets/views/0359/00_00.png",
+      "originalSha256": "5bd97e24bd914ac99e3f54f92c89ddc1fc732e26412fb85a5467b9d76dfaa4b2",
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "359:0:1": {
+      "src": "cels/clothing-359-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1635,
+      "sourceHeight": 962,
+      "crop": {
+        "left": 545.0,
+        "top": 0.0,
+        "width": 545.0,
+        "height": 481.0
+      },
+      "originalSource": "assets/views/0359/00_01.png",
+      "originalSha256": "1ee8e59f53085542ade2b2924c71f19e541b37fb3d92d066fd4643001d3530ef",
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "359:0:2": {
+      "src": "cels/clothing-359-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1635,
+      "sourceHeight": 962,
+      "crop": {
+        "left": 1090.0,
+        "top": 0.0,
+        "width": 545.0,
+        "height": 481.0
+      },
+      "originalSource": "assets/views/0359/00_02.png",
+      "originalSha256": "25752c2a4f5d1399447a983a87f15adc1bccf100a26c0135af8b32b1e00867df",
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "359:0:3": {
+      "src": "cels/clothing-359-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1635,
+      "sourceHeight": 962,
+      "crop": {
+        "left": 0.0,
+        "top": 481.0,
+        "width": 545.0,
+        "height": 481.0
+      },
+      "originalSource": "assets/views/0359/00_03.png",
+      "originalSha256": "03220d105459c8b47f2c40d2d7c6c25fb2113f7e5509766c57331edff66b36e8",
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "359:0:4": {
+      "src": "cels/clothing-359-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1635,
+      "sourceHeight": 962,
+      "crop": {
+        "left": 545.0,
+        "top": 481.0,
+        "width": 545.0,
+        "height": 481.0
+      },
+      "originalSource": "assets/views/0359/00_04.png",
+      "originalSha256": "7dce3023031075993f6f46ae03e71fc2515cd3f8160313e34b852ae0a60bb298",
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "359:0:5": {
+      "src": "cels/clothing-359-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1635,
+      "sourceHeight": 962,
+      "crop": {
+        "left": 1090.0,
+        "top": 481.0,
+        "width": 545.0,
+        "height": 481.0
+      },
+      "originalSource": "assets/views/0359/00_05.png",
+      "originalSha256": "772e41ec052c83b06bd5c8721ede75a6dabfff47203a8e3f38398ddff577f144",
+      "sha256": "758e41bae5faab7d4a2596732a232b5d2f7c466773359cf861aff6a2d7b91be2",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "361:0:0": {
+      "src": "cels/discount-361-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0361/00_00.png",
+      "originalSha256": "c290d8032a5baf821cf30e5a85ff001c08b96d2c8cec3e6187d59012892355de",
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "361:0:1": {
+      "src": "cels/discount-361-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.3333333333334,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0361/00_01.png",
+      "originalSha256": "dadf12eaff740608eccd8f53d00813826ca78152d3961ceb9f5372f28124657e",
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "361:0:2": {
+      "src": "cels/discount-361-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.6666666666667,
+        "top": 0.0,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0361/00_02.png",
+      "originalSha256": "0c2c22a2a3508fdd4130d72392d908422d109d7d67cfcd0c1840902a9c85e169",
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "361:0:3": {
+      "src": "cels/discount-361-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 0.0,
+        "top": 460.5,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0361/00_03.png",
+      "originalSha256": "765ef9685bfdfbe464cdb6985953b64fc9d1ec09938037d3fa8d741cfd6bc9da",
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "361:0:4": {
+      "src": "cels/discount-361-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 569.3333333333334,
+        "top": 460.5,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0361/00_04.png",
+      "originalSha256": "eb1817cc08beccc427814272b4cdad36f32c77c8dfd16f10e168d2f6cdeb03c0",
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    },
+    "361:0:5": {
+      "src": "cels/discount-361-atlas.png",
+      "width": 68,
+      "height": 55,
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "crop": {
+        "left": 1138.6666666666667,
+        "top": 460.5,
+        "width": 569.3333333333334,
+        "height": 460.5
+      },
+      "originalSource": "assets/views/0361/00_05.png",
+      "originalSha256": "d0303a02f77589160d9b6d618d16640fe6ce92a583ff576f9dc55a69a88823d9",
+      "sha256": "71608b927676f17d8113a6f148d4691fed5e3f9276a72195ab70b0db844732cf",
+      "dx": 0,
+      "dy": 0,
+      "opaque": true
+    }
+  },
+  "fallback": "Every missing asset uses original graphics. Original pixels remain independently selectable.",
+  "coverage": {
+    "pics": 1,
+    "cels": 49,
+    "originalPics": 7,
+    "originalCels": 752,
+    "fonts": "No generated lettering; original control text stays with the runtime. Optional HD font renderer is separate.",
+    "portraits": [
+      "Bank clerk (354), all six talking frames",
+      "Market (353), all six talking frames",
+      "University (357), all six talking frames",
+      "Burger (360), all six talking frames",
+      "Rent (351), all six talking frames",
+      "Appliance (358), all six talking frames",
+      "Clothing (359), all six talking frames",
+      "Discount (361), all six talking frames"
+    ],
+    "uniqueImages": 10
+  },
+  "rights": "Generated derivative artwork based on original Sierra game art. Not a grant of rights to underlying Sierra characters or designs. Original assets are preserved separately.",
+  "review": {
+    "artwork": "Every selected full image visually inspected against source references. Original layout, outfit and facial identity guide the repaints; generated art is not pixel-identical.",
+    "animation": "Six drawn expression frames per covered portrait; transitions are not a mathematical reconstruction of original mouth pixels.",
+    "runtime": "Renderer integration and browser journey are verified separately by the application tests.",
+    "selectionCorrection": "Hair clipping found in actual browser image; source layout edited so all heads begin below the original 14-pixel header mask."
+  }
+}

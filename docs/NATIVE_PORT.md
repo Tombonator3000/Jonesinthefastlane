@@ -77,6 +77,12 @@ logical hit targets remain 320×200. The 8:5 play area is letterboxed, with poin
 coordinates mapped back to that same area. A 2D canvas fallback preserves the
 game image when the optional WebGL renderer is unavailable.
 
+The optional [HD artwork pack](HD_GRAPHICS.md) adds actual higher-resolution
+painted assets and font rendering. Complete ownership masks and drawing metadata
+accompany the indexed frame, preserving original layering, save/restore and peer
+reconnect. Each client renders its selected pack locally; all input still uses
+the same original coordinate system. Original artwork is the default and fallback.
+
 ## Original assets and provenance
 
 `tools/export_native_assets.py` reads the original SCI resources without editing

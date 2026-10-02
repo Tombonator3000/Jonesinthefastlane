@@ -1,14 +1,16 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Native indexed-pixel graphics; no SCI bytecode, interpreter, canvas or DOM.
 import { decodeBytes, encodeBytes } from './bytes.js';
-import type { CelAsset, CursorState, FontAsset, GraphicsCommand, GraphicsFrame, GraphicsSave, NativeAssetManifest, Point, Port, Rect, RGB, TextMetrics, TextOptions } from './types.js';
+import { decodeOwners, encodeOwners } from './provenance.js';
+import type { CelAsset, CursorState, FontAsset, GraphicsCommand, GraphicsFrame, GraphicsSave, HdDrawContext, HdDrawOp, HdGlyph, NativeAssetManifest, Point, Port, Rect, RGB, TextMetrics, TextOptions } from './types.js';
 
 const screenRect = (): Rect => ({ left: 0, top: 0, right: 320, bottom: 200 });
 const cloneRect = (r: Rect): Rect => ({ ...r });
 const intersection = (a: Rect, b: Rect): Rect => ({ left: Math.max(a.left, b.left), top: Math.max(a.top, b.top), right: Math.min(a.right, b.right), bottom: Math.min(a.bottom, b.bottom) });
 const normal = (r: Rect): Rect => ({ left: Math.min(r.left, r.right) | 0, top: Math.min(r.top, r.bottom) | 0, right: Math.max(r.left, r.right) | 0, bottom: Math.max(r.top, r.bottom) | 0 });
 const empty = (r: Rect): boolean => r.right <= r.left || r.bottom <= r.top;
-interface SavedBits { rect: Rect; mask: number; visual: Uint8Array; priority: Uint8Array; control: Uint8Array }
+interface SavedBits { rect: Rect; mask: number; visual: Uint8Array; priority: Uint8Array; control: Uint8Array; owners: Uint32Array }
+type NewHdOp = HdDrawOp extends infer T ? T extends HdDrawOp ? Omit<T, 'id'> : never : never;
 
 export class GraphicsState {
   readonly width = 320;
@@ -17,6 +19,12 @@ export class GraphicsState {
   readonly presented = new Uint8Array(64000);
   readonly priority = new Uint8Array(64000);
   readonly control = new Uint8Array(64000);
+  private hdVisual = new Uint32Array(64000);
+  private hdPresented = new Uint32Array(64000);
+  private hdOps = new Map<number, HdDrawOp>();
+  private hdKeys = new Map<string, number>();
+  private nextHdId = 1;
+  private hdRegistrations = 0;
   readonly ports = new Map<number, Port>();
   palette: RGB[];
   intensity = Array<number>(256).fill(100);
@@ -32,7 +40,7 @@ export class GraphicsState {
   private windows = new Map<number, { saved: number; previousPort: number }>();
   private nextHandle = 1;
   private nextPort = 3;
-  private animationBase?: { visual: Uint8Array; priority: Uint8Array; control: Uint8Array };
+  private animationBase?: { visual: Uint8Array; priority: Uint8Array; control: Uint8Array; owners: Uint32Array };
   private priorityTop = 42;
   private priorityBottom = 190;
   private customPriorityBands?: number[];
@@ -64,6 +72,52 @@ export class GraphicsState {
     if (!result) { result = decodeBytes(value); this.cache.set(value, result); }
     return result;
   }
+  private hdContext(dest: Rect, source: Rect): HdDrawContext {
+    const p = this.port, point = this.localToGlobal(dest.left, dest.top);
+    return { port: { ...p, rect: cloneRect(p.rect) }, clip: this.clipRect(p.rect),
+      dest: { left: point.x, top: point.y, right: point.x + dest.right - dest.left, bottom: point.y + dest.bottom - dest.top }, source: cloneRect(source) };
+  }
+  private addHd(op: NewHdOp): number {
+    // Draws without a following snapshot still cannot accumulate an unbounded
+    // history. Only ownership in live planes/saved regions keeps an op alive.
+    if (++this.hdRegistrations >= 128) { this.pruneHd(); this.hdRegistrations = 0; }
+    const key = JSON.stringify(op), previous = this.hdKeys.get(key);
+    if (previous !== undefined) return previous;
+    while (this.hdOps.has(this.nextHdId)) this.nextHdId = this.nextHdId === 0xffffffff ? 1 : this.nextHdId + 1;
+    const id = this.nextHdId; this.nextHdId = id === 0xffffffff ? 1 : id + 1;
+    this.hdOps.set(id, { ...op, id } as HdDrawOp); this.hdKeys.set(key, id);
+    return id;
+  }
+  private pruneHd(): void {
+    const live = new Set<number>();
+    const visit = (owners: Uint32Array) => { for (const id of owners) if (id) live.add(id); };
+    visit(this.hdVisual); visit(this.hdPresented);
+    if (this.animationBase) visit(this.animationBase.owners);
+    for (const bits of this.savedBits.values()) visit(bits.owners);
+    for (const id of this.hdOps.keys()) if (!live.has(id)) this.hdOps.delete(id);
+    for (const [key, id] of this.hdKeys) if (!live.has(id)) this.hdKeys.delete(key);
+  }
+  private visibleHdOps(owners: Uint32Array): HdDrawOp[] {
+    const ids = new Set(owners); ids.delete(0);
+    return [...ids].sort((a, b) => a - b).map(id => this.hdOps.get(id)!).filter(Boolean).map(op => structuredClone(op));
+  }
+  private ownHdRect(rect: Rect, id: number): void {
+    const r = this.clipRect(rect);
+    for (let y = r.top; y < r.bottom; y++) {
+      this.hdVisual.fill(id, y * 320 + r.left, y * 320 + r.right);
+      this.hdPresented.fill(id, y * 320 + r.left, y * 320 + r.right);
+    }
+  }
+  private uniformHdBackground(rect: Rect): number | null {
+    const r = this.clipRect(rect);
+    if (empty(r)) return null;
+    const color = this.visual[r.top * 320 + r.left];
+    for (let y = r.top; y < r.bottom; y++) for (let x = r.left; x < r.right; x++) {
+      const i = y * 320 + x;
+      if (this.visual[i] !== color || this.presented[i] !== color) return null;
+    }
+    return color;
+  }
   get port(): Port { return this.ports.get(this.currentPort)!; }
   setTick(tick: number): void { this.paletteClock = Math.max(1, tick + 1); }
   getPort(): number { return this.currentPort; }
@@ -92,13 +146,16 @@ export class GraphicsState {
     r = intersection(normal(r), this.port.rect);
     return intersection({ left: r.left + this.port.left, top: r.top + this.port.top, right: r.right + this.port.left, bottom: r.bottom + this.port.top }, screenRect());
   }
-  private putPixel(x: number, y: number, color: number, priority = -1, control = -1): void {
+  private putPixel(x: number, y: number, color: number, priority = -1, control = -1, owner = 0): void {
     const p = this.port;
     if (x < p.rect.left || x >= p.rect.right || y < p.rect.top || y >= p.rect.bottom) return;
     x = (x + p.left) | 0; y = (y + p.top) | 0;
     if (x < 0 || y < 0 || x >= 320 || y >= 200) return;
     const index = y * 320 + x;
-    if (color >= 0) this.presented[index] = this.visual[index] = color & 255;
+    if (color >= 0) {
+      this.presented[index] = this.visual[index] = color & 255;
+      this.hdPresented[index] = this.hdVisual[index] = owner;
+    }
     if (priority >= 0) this.priority[index] = priority & 15;
     if (control >= 0) this.control[index] = control & 15;
   }
@@ -174,12 +231,14 @@ export class GraphicsState {
     const pic = this.assets.pics[id];
     if (!pic) throw new Error(`Missing picture ${id}`);
     const pixels = this.bytes(pic.pixels), priorities = this.bytes(pic.priority), controls = this.bytes(pic.control);
-    if (!addTo) { this.visual.fill(255); this.presented.fill(255); this.priority.fill(0); this.control.fill(0); }
+    if (!addTo) { this.visual.fill(255); this.presented.fill(255); this.priority.fill(0); this.control.fill(0); this.hdVisual.fill(0); this.hdPresented.fill(0); }
     // Picture drawing addresses the picture port regardless of a current dialog port.
     const old = this.setPort(2);
+    const rect = { left: 0, top: 0, right: pic.width, bottom: pic.height };
+    const owner = this.addHd({ kind: 'pic', pic: id, mirror, addTo, ...this.hdContext(rect, rect) });
     for (let y = 0; y < pic.height; y++) for (let x = 0; x < pic.width; x++) {
       const i = y * pic.width + (mirror ? pic.width - 1 - x : x);
-      if (!addTo || pixels[i] !== 255) this.putPixel(x, y, pixels[i], priorities[i], controls[i]);
+      if (!addTo || pixels[i] !== 255) this.putPixel(x, y, pixels[i], priorities[i], controls[i], owner);
     }
     this.currentPort = old;
     // A picture replaces only its declared palette colors. In particular Jones
@@ -211,6 +270,10 @@ export class GraphicsState {
   }
   drawCel(view: number, loop: number, cel: number, left: number, top: number, priority = -1): Rect {
     const asset = this.assets.views[view], c = this.getCel(view, loop, cel), pixels = this.bytes(c.pixels);
+    const actualLoop = Math.max(0, Math.min(asset.loops.length - 1, loop | 0));
+    const actualCel = Math.max(0, Math.min(asset.loops[actualLoop].cels.length - 1, cel | 0));
+    const owner = this.addHd({ kind: 'cel', view, loop: actualLoop, cel: actualCel, mirrored: c.mirrored, priority,
+      ...this.hdContext({ left, top, right: left + c.width, bottom: top + c.height }, { left: 0, top: 0, right: c.width, bottom: c.height }) });
     let paletteMap = this.paletteMaps.get(view);
     if (!paletteMap || paletteMap.epoch !== this.paletteEpoch) {
       const map = this.mergePalette(asset.paletteUpdates);
@@ -221,7 +284,7 @@ export class GraphicsState {
       if (color === c.clear) continue;
       const p = this.localToGlobal(left + x, top + y);
       if (priority >= 0 && p.x >= 0 && p.y >= 0 && p.x < 320 && p.y < 200 && this.priority[p.y * 320 + p.x] > priority) continue;
-      this.putPixel(left + x, top + y, paletteMap.map[color], priority);
+      this.putPixel(left + x, top + y, paletteMap.map[color], priority, -1, owner);
     }
     this.record('cel', view, loop, cel, left, top, priority);
     return { left, top, right: left + c.width, bottom: top + c.height };
@@ -237,6 +300,7 @@ export class GraphicsState {
       const start = y * 320 + r.left, end = y * 320 + r.right;
       if (color >= 0) this.visual.fill(color & 255, start, end);
       if (color >= 0) this.presented.fill(color & 255, start, end);
+      if (color >= 0) { this.hdVisual.fill(0, start, end); this.hdPresented.fill(0, start, end); }
       if (priority >= 0) this.priority.fill(priority & 15, start, end);
       if (control >= 0) this.control.fill(control & 15, start, end);
     }
@@ -255,6 +319,7 @@ export class GraphicsState {
       const i = y * 320 + x, v = this.visual[i];
       if (v === fore) this.visual[i] = back; else if (v === back) this.visual[i] = fore;
       this.presented[i] = this.visual[i];
+      this.hdVisual[i] = this.hdPresented[i] = 0;
     }
     this.record('invert', rect, fore, back);
   }
@@ -299,18 +364,21 @@ export class GraphicsState {
   /** SCI presents moving actors, then restores its offscreen background immediately. */
   beginAnimation(): void {
     if (this.animationBase) throw new Error('Nested animation rendering');
-    this.animationBase = { visual: this.visual.slice(), priority: this.priority.slice(), control: this.control.slice() };
+    this.animationBase = { visual: this.visual.slice(), priority: this.priority.slice(), control: this.control.slice(), owners: this.hdVisual.slice() };
     this.presented.set(this.visual);
+    this.hdPresented.set(this.hdVisual);
   }
   endAnimation(): void {
     if (!this.animationBase) throw new Error('Animation rendering not started');
     this.visual.set(this.animationBase.visual); this.priority.set(this.animationBase.priority); this.control.set(this.animationBase.control);
+    this.hdVisual.set(this.animationBase.owners);
     this.animationBase = undefined; this.picNotValid = 0;
     this.record('animate');
   }
   showRect(rect: Rect): void {
     const r = this.clipRect(rect);
     for (let y = r.top; y < r.bottom; y++) this.presented.set(this.visual.subarray(y * 320 + r.left, y * 320 + r.right), y * 320 + r.left);
+    for (let y = r.top; y < r.bottom; y++) this.hdPresented.set(this.hdVisual.subarray(y * 320 + r.left, y * 320 + r.right), y * 320 + r.left);
     this.record('show', rect);
   }
   private charCode(char: string): number { return this.charCodes.get(char) ?? (char.charCodeAt(0) < 256 ? char.charCodeAt(0) : 63); }
@@ -349,6 +417,27 @@ export class GraphicsState {
     let lastX = x, lastY = y;
     const boxWidth = options.maxWidth && options.maxWidth > 0 ? options.maxWidth : metrics.width;
     if (options.backColor !== undefined && options.backColor >= 0) this.fillRect({ left: x, top: y, right: x + boxWidth, bottom: y + metrics.height }, options.backColor);
+    const glyphs: HdGlyph[] = [];
+    for (let lineIndex = 0; lineIndex < metrics.lines.length; lineIndex++) {
+      const line = metrics.lines[lineIndex], align = options.align ?? 'left';
+      let left = x + (align === 'center' || align === 1 ? Math.floor((boxWidth - line.width) / 2) : align === 'right' || align === -1 || align === 2 ? boxWidth - line.width : 0);
+      const top = y + lineIndex * font.lineHeight;
+      for (const char of line.text) {
+        const code = this.charCode(char), glyph = font.chars[code];
+        if (!glyph) continue;
+        const point = this.localToGlobal(left, top), cell = { left, top, right: left + glyph.advance, bottom: top + font.lineHeight };
+        // Replacing a full cell permits a true HD glyph shape. It is safe only
+        // on a uniform background in BOTH planes (an actor may be presented
+        // above an otherwise flat offscreen background). Complex cells keep
+        // original ink pixels and their original untouched surroundings.
+        const background = color >= 0 && glyph.width <= glyph.advance && glyph.height <= font.lineHeight ? this.uniformHdBackground(cell) : null;
+        glyphs.push({ char, code, x: point.x, y: point.y, width: glyph.advance, height: font.lineHeight, advance: glyph.advance, background });
+        left += glyph.advance;
+      }
+    }
+    const owner = this.addHd({ kind: 'text', text, font: font.id, color, greyed, glyphs,
+      ...this.hdContext({ left: x, top: y, right: x + boxWidth, bottom: y + metrics.height }, { left: 0, top: 0, right: boxWidth, bottom: metrics.height }) });
+    let glyphIndex = 0;
     for (let lineIndex = 0; lineIndex < metrics.lines.length; lineIndex++) {
       const line = metrics.lines[lineIndex];
       const align = options.align ?? 'left';
@@ -357,9 +446,11 @@ export class GraphicsState {
       for (const char of line.text) {
         const glyph = font.chars[this.charCode(char)];
         if (!glyph) continue;
+        const hdGlyph = glyphs[glyphIndex++], glyphOwner = hdGlyph.background === null ? 0 : owner;
+        if (glyphOwner) this.ownHdRect({ left, top, right: left + glyph.advance, bottom: top + font.lineHeight }, glyphOwner);
         const bits = this.bytes(glyph.bits);
         for (let gy = 0; gy < glyph.height; gy++) for (let gx = 0; gx < glyph.width; gx++) {
-          if (bits[gy * glyph.width + gx] && (!greyed || ((gx + top + gy) & 1) === 1)) this.putPixel(left + gx, top + gy, color);
+          if (bits[gy * glyph.width + gx] && (!greyed || ((gx + top + gy) & 1) === 1)) this.putPixel(left + gx, top + gy, color, -1, -1, glyphOwner);
         }
         left += glyph.advance;
       }
@@ -376,8 +467,10 @@ export class GraphicsState {
       for (let y = 0; y < height; y++) result.set(source.subarray((r.top + y) * 320 + r.left, (r.top + y) * 320 + r.right), y * width);
       return result;
     };
+    const owners = new Uint32Array(mask & 1 ? width * height : 0);
+    if (mask & 1) for (let y = 0; y < height; y++) owners.set(this.hdVisual.subarray((r.top + y) * 320 + r.left, (r.top + y) * 320 + r.right), y * width);
     const id = this.nextHandle++;
-    this.savedBits.set(id, { rect: r, mask, visual: mask & 1 ? copy(this.visual) : new Uint8Array(), priority: mask & 2 ? copy(this.priority) : new Uint8Array(), control: mask & 4 ? copy(this.control) : new Uint8Array() });
+    this.savedBits.set(id, { rect: r, mask, visual: mask & 1 ? copy(this.visual) : new Uint8Array(), priority: mask & 2 ? copy(this.priority) : new Uint8Array(), control: mask & 4 ? copy(this.control) : new Uint8Array(), owners });
     return id;
   }
   freeBits(id: number): void { this.savedBits.delete(id); }
@@ -391,6 +484,10 @@ export class GraphicsState {
     };
     if (saved.mask & 1) restore(this.visual, saved.visual);
     if (saved.mask & 1) restore(this.presented, saved.visual);
+    if (saved.mask & 1) for (let y = r.top; y < r.bottom; y++) {
+      const row = saved.owners.subarray((y - r.top) * width, (y - r.top + 1) * width);
+      this.hdVisual.set(row, y * 320 + r.left); this.hdPresented.set(row, y * 320 + r.left);
+    }
     if (saved.mask & 2) restore(this.priority, saved.priority);
     if (saved.mask & 4) restore(this.control, saved.control);
     if (dispose) this.savedBits.delete(id);
@@ -440,7 +537,9 @@ export class GraphicsState {
     this.record('cursor', { ...this.cursor });
   }
   snapshot(): GraphicsFrame {
-    return { width: 320, height: 200, revision: this.revision, pixels: encodeBytes(this.presented), palette: this.effectivePalette(), cursor: { ...this.cursor }, commands: this.commands.slice() };
+    this.pruneHd();
+    return { width: 320, height: 200, revision: this.revision, pixels: encodeBytes(this.presented), palette: this.effectivePalette(), cursor: { ...this.cursor }, commands: this.commands.slice(),
+      hd: { version: 1, owners: encodeOwners(this.hdPresented), ops: this.visibleHdOps(this.hdPresented), intensity: this.intensity.slice() } };
   }
   drainFrame(): GraphicsFrame { const result = this.snapshot(); this.commands = []; return result; }
   toRGBA(includeCursor = false): Uint8ClampedArray {
@@ -461,7 +560,10 @@ export class GraphicsState {
     return result;
   }
   saveState(): GraphicsSave {
-    return { visual: encodeBytes(this.visual), presented: encodeBytes(this.presented), priority: encodeBytes(this.priority), control: encodeBytes(this.control), palette: this.palette.map(c => [...c] as RGB), intensity: this.intensity.slice(), paletteFlags: Array.from(this.paletteFlags), paletteTimestamp: this.paletteEpoch, paletteMappings: [...this.paletteMaps].map(([view, entry]) => ({ view, epoch: entry.epoch, map: entry.map.slice() })), priorityBands: this.customPriorityBands?.slice() || [this.priorityTop, this.priorityBottom], ports: [...this.ports.values()].map(p => ({ ...p, rect: cloneRect(p.rect) })), currentPort: this.currentPort, cursor: { ...this.cursor }, nextHandle: this.nextHandle, savedBits: [...this.savedBits].map(([id, b]) => ({ id, rect: cloneRect(b.rect), mask: b.mask, visual: encodeBytes(b.visual), priority: encodeBytes(b.priority), control: encodeBytes(b.control) })), windows: [...this.windows].map(([id, w]) => ({ id, ...w })) };
+    this.pruneHd();
+    return { visual: encodeBytes(this.visual), presented: encodeBytes(this.presented), priority: encodeBytes(this.priority), control: encodeBytes(this.control), palette: this.palette.map(c => [...c] as RGB), intensity: this.intensity.slice(), paletteFlags: Array.from(this.paletteFlags), paletteTimestamp: this.paletteEpoch, paletteMappings: [...this.paletteMaps].map(([view, entry]) => ({ view, epoch: entry.epoch, map: entry.map.slice() })), priorityBands: this.customPriorityBands?.slice() || [this.priorityTop, this.priorityBottom], ports: [...this.ports.values()].map(p => ({ ...p, rect: cloneRect(p.rect) })), currentPort: this.currentPort, cursor: { ...this.cursor }, nextHandle: this.nextHandle, savedBits: [...this.savedBits].map(([id, b]) => ({ id, rect: cloneRect(b.rect), mask: b.mask, visual: encodeBytes(b.visual), priority: encodeBytes(b.priority), control: encodeBytes(b.control) })), windows: [...this.windows].map(([id, w]) => ({ id, ...w })),
+      hd: { version: 1, visual: encodeOwners(this.hdVisual), presented: encodeOwners(this.hdPresented), ops: [...this.hdOps.values()].map(op => structuredClone(op)),
+        savedBits: [...this.savedBits].map(([id, b]) => ({ id, owners: encodeOwners(b.owners) })) } };
   }
   loadState(state: GraphicsSave): void {
     for (const [key, target] of [['visual', this.visual], ['priority', this.priority], ['control', this.control]] as const) {
@@ -478,8 +580,50 @@ export class GraphicsState {
     this.ports.clear(); for (const p of state.ports) this.ports.set(p.id, { ...p, rect: cloneRect(p.rect) });
     this.currentPort = state.currentPort; this.cursor = { ...state.cursor }; this.nextHandle = state.nextHandle;
     this.nextPort = Math.max(3, ...state.ports.filter(p => p.id < 65535).map(p => p.id + 1));
-    this.savedBits.clear(); for (const b of state.savedBits) this.savedBits.set(b.id, { rect: cloneRect(b.rect), mask: b.mask, visual: decodeBytes(b.visual), priority: decodeBytes(b.priority), control: decodeBytes(b.control) });
+    this.savedBits.clear(); for (const b of state.savedBits) this.savedBits.set(b.id, { rect: cloneRect(b.rect), mask: b.mask, visual: decodeBytes(b.visual), priority: decodeBytes(b.priority), control: decodeBytes(b.control), owners: new Uint32Array(b.mask & 1 ? Math.max(0, b.rect.right - b.rect.left) * Math.max(0, b.rect.bottom - b.rect.top) : 0) });
     this.windows.clear(); for (const w of state.windows) this.windows.set(w.id, { saved: w.saved, previousPort: w.previousPort });
+    this.loadHd(state);
     this.record('loadState');
+  }
+  private loadHd(state: GraphicsSave): void {
+    this.hdVisual.fill(0); this.hdPresented.fill(0); this.hdOps.clear(); this.hdKeys.clear(); this.nextHdId = 1; this.hdRegistrations = 0;
+    // Old saves intentionally restore with raster fallback until fresh draw
+    // calls establish provenance. Never invent an HD scene from diagnostics.
+    if (!state.hd) return;
+    try {
+      const hd = state.hd;
+      if (hd.version !== 1 || !Array.isArray(hd.ops) || !Array.isArray(hd.savedBits)) throw new Error('Unknown HD save');
+      const ops = new Map<number, HdDrawOp>();
+      const rect = (r: Rect) => r && [r.left, r.top, r.right, r.bottom].every(Number.isFinite);
+      for (const op of hd.ops) {
+        if (!op || !Number.isInteger(op.id) || op.id < 1 || op.id > 0xffffffff || ops.has(op.id) || !rect(op.dest) || !rect(op.source) || !rect(op.clip) || !op.port || !rect(op.port.rect)) throw new Error('Invalid HD source');
+        if (op.kind === 'pic') { if (!this.assets.pics[op.pic] || typeof op.mirror !== 'boolean') throw new Error('Invalid HD picture'); }
+        else if (op.kind === 'cel') { if (!this.assets.views[op.view]?.loops[op.loop]?.cels[op.cel]) throw new Error('Invalid HD cel'); }
+        else if (op.kind === 'text') {
+          if (!this.assets.fonts[op.font] || !Number.isFinite(op.color) || !Array.isArray(op.glyphs) || op.glyphs.some(g => !g || typeof g.char !== 'string' || ![g.code, g.x, g.y, g.width, g.height, g.advance].every(Number.isFinite) || (g.background !== null && (!Number.isInteger(g.background) || g.background < 0 || g.background > 255)))) throw new Error('Invalid HD text');
+        } else throw new Error('Invalid HD operation');
+        ops.set(op.id, structuredClone(op));
+      }
+      const decode = (encoded: string, length = 64000) => {
+        const owners = decodeOwners(encoded, length);
+        for (const id of owners) if (id && !ops.has(id)) throw new Error('Unknown HD owner');
+        return owners;
+      };
+      const visual = decode(hd.visual), presented = decode(hd.presented), bits = new Map<number, Uint32Array>();
+      for (const saved of hd.savedBits) {
+        const target = this.savedBits.get(saved.id);
+        if (!target || bits.has(saved.id)) throw new Error('Invalid HD saved region');
+        bits.set(saved.id, decode(saved.owners, target.owners.length));
+      }
+      if (bits.size !== this.savedBits.size) throw new Error('Incomplete HD saved regions');
+      this.hdVisual.set(visual); this.hdPresented.set(presented); this.hdOps = ops;
+      for (const [id, owners] of bits) this.savedBits.get(id)!.owners.set(owners);
+      this.pruneHd();
+    } catch {
+      // Optional HD metadata must not prevent an otherwise valid original save
+      // from loading. All planes stay unclaimed, including future RestoreBits.
+      this.hdVisual.fill(0); this.hdPresented.fill(0); this.hdOps.clear();
+      for (const bits of this.savedBits.values()) bits.owners.fill(0);
+    }
   }
 }

@@ -4,7 +4,7 @@
 
 The native edition translates all 69 original game/source modules into editable TypeScript and draws the original indexed artwork with Three.js. It runs **without ScummVM, a SCI bytecode interpreter or WebAssembly**. The translated game code controls the original English menus, 1–4 players, characters, goals, shops, economy, jobs, education, events, weeks and Jones opponent. Optional display effects leave those rules in charge.
 
-**Play online for free from GitHub Pages:** the creator's browser hosts the same native game and guests join through an invitation link. PeerJS Cloud provides free connection signaling; game input and the authoritative original frames travel over WebRTC. Each player controls their own original turn. The creator must keep the game open. Private reconnect credentials let guests reload and return to the same seat while the host remains available.
+**Play online for free from GitHub Pages:** the creator's browser hosts the same native game and guests join through an invitation link or **Find games**. Rooms are private by default; choose **Public room** to advertise available seats in the best-effort free room directory. PeerJS Cloud provides free connection signaling; game input and the authoritative original frames travel over WebRTC. Each player controls their own original turn. The creator must keep the game open. Private reconnect credentials let guests reload and return to the same seat while the host remains available.
 
 Original Save/Restore stores peer games on the creator's device, separately from single-player saves and by room player count. Closing the host ends the live room; a new room can use the original Restore Game menu to load the last saved game. Automatic host migration is not implemented. Some restrictive networks need a separately configured TURN relay; the default free path uses STUN and does not promise connectivity on every network.
 
@@ -21,6 +21,8 @@ pnpm serve:native
 Open **http://127.0.0.1:8787**. Node 22 or newer is required. For development, use `pnpm dev:native`. To accept other machines, run the server with `HOST=0.0.0.0`; public HTTPS hosting needs a WebSocket-capable reverse proxy. The online creator chooses the room size, shares the invitation, starts when everyone is connected, then chooses the same player count in the original game menu.
 
 Full browser fullscreen starts from the Play gesture. Original pixels are the default; smoothing, modern color/light and CRT shaders support resolution settings through 2160p. Original 320×200 proportions are retained. Save/Restore works through the original menus and persists locally in the browser; native saves are separate from original-engine saves.
+
+**Display → Graphics pack → HD** selects a separate, more detailed painted pack for the town, character selection and supported portraits, plus sharper supported text. **Town lighting (HD)** adds optional sign glow and edge shading. Every player chooses locally. Artwork that has not been repainted retains its original appearance; this is not a complete remaster of all 752 animation cels. [HD graphics, coverage and extension guide](docs/HD_GRAPHICS.md).
 
 [Native architecture, setup and limits](docs/NATIVE_PORT.md) · [Native verification](reports/native_verification.md) · [Source translation](native/compiler/README.md) · [Original audio](native/audio/README.md)
 
