@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-02T08:45:03.644681+02:00",
+  "testWindowUtc": {
+    "from": "2026-10-02T06:42:26Z",
+    "through": "2026-10-02T06:43:21Z"
+  },
+  "environment": {
+    "browser": "Chromium 1228 headless",
+    "viewportCssPixels": [
+      1280,
+      800
+    ],
+    "graphics": "ANGLE/SwiftShader software WebGL",
+    "server": "Independent ephemeral loopback HTTP server, web source with build/browser data fallback",
+    "runtime": "Official ScummVM 2026.3.0 SCI-only WebAssembly build",
+    "input": "Playwright mouse clicks and select controls; actual original game scripts/resources"
+  },
+  "checks": [
+    {
+      "name": "Original title through modern compositor",
+      "result": "pass",
+      "method": "Observed original Sierra/Jones title screen in actual browser screenshot",
+      "evidence": "real-runtime-modern-title.png"
+    },
+    {
+      "name": "Original main menu through CRT compositor",
+      "result": "pass",
+      "method": "Observed PLAY GAME / RESTORE GAME / WATCH DEMO in actual browser screenshot",
+      "evidence": "real-runtime-crt-menu.png"
+    },
+    {
+      "name": "Original mouse input reaches game through overlay",
+      "result": "pass",
+      "method": "Clicked PLAY GAME at normalized original-screen coordinate (160,70); original How Many Players? screen appeared",
+      "evidence": "real-runtime-crt-player-count.png"
+    },
+    {
+      "name": "Overlay context loss fallback",
+      "result": "pass",
+      "method": "Called WEBGL_lose_context on optional overlay only; original canvas opacity restored and same original player-count screen visible",
+      "evidence": "real-runtime-context-fallback.png"
+    },
+    {
+      "name": "Overlay context restoration",
+      "result": "pass",
+      "method": "Restored overlay context; CRT resumed on original player-count screen",
+      "evidence": "real-runtime-context-restored.png"
+    },
+    {
+      "name": "2160p overlay resolution",
+      "result": "pass",
+      "method": "Selected 2160 in actual shell control",
+      "observedBackingBuffer": [
+        3456,
+        2160
+      ]
+    },
+    {
+      "name": "Return to classic",
+      "result": "pass",
+      "method": "Selected classic; overlay hidden and original canvas opacity restored",
+      "evidence": "real-runtime-return-classic.png"
+    },
+    {
+      "name": "Retained original WebGL frame",
+      "result": "pass",
+      "observedPreserveDrawingBuffer": true
+    },
+    {
+      "name": "Uncaught browser errors during checked journeys",
+      "result": "pass",
+      "observedCount": 0
+    }
+  ],
+  "limitations": [
+    "This records targeted compositor/runtime integration checks, not a full game walkthrough.",
+    "No save/restore, audio, mobile original-game, physical GPU, or final hostManagedFullscreen runtime verification is claimed by this report.",
+    "Context-loss check affects the optional compositor only, not the original SDL game context.",
+    "1280x800 screenshots show scaled original artwork; 2160p is output resolution, not replacement HD assets.",
+    "App/runtime development was concurrent. Hashes below were captured after the checks; final delivery must compare them and repeat affected checks after runtime changes."
+  ],
+  "sourceAndRuntimeFiles": [
+    {
+      "path": "web/app.js",
+      "bytes": 8818,
+      "sha256": "a152c02a6d64b60e9ba34255f72aee140bb82fc0985709d68f2a97d5b1ee9e13",
+      "modifiedUtc": "2026-10-02T06:42:34.665912+00:00"
+    },
+    {
+      "path": "web/display.js",
+      "bytes": 14875,
+      "sha256": "f5e879c2ecf13d2178fb9877277181af2c2602647b035a7f7a8c35ddc1fed440",
+      "modifiedUtc": "2026-10-02T06:42:09.181817+00:00"
+    },
+    {
+      "path": "web/vendor/scummvm.js",
+      "bytes": 232262,
+      "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c",
+      "modifiedUtc": "2026-10-02T06:44:43.194506+00:00"
+    },
+    {
+      "path": "web/vendor/scummvm.wasm",
+      "bytes": 9430528,
+      "sha256": "71ff88b0246403bb4464964fb8edb61e810a5f28e1b016a75c409a4fa03454f2",
+      "modifiedUtc": "2026-10-02T06:44:43.197395+00:00"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "reports/browser-evidence/real-runtime-modern-title.png",
+      "bytes": 82056,
+      "sha256": "a0351817c3de1f3f95fc4b8f79fe3cef915ca1b5105ba8e5a3e09c4e977eb981",
+      "modifiedUtc": "2026-10-02T06:42:31.307900+00:00"
+    },
+    {
+      "path": "reports/browser-evidence/real-runtime-crt-menu.png",
+      "bytes": 514675,
+      "sha256": "d434e6a958930b25f98128e24c55e6b4d40cba0b804749b702ce217893e124f7",
+      "modifiedUtc": "2026-10-02T06:42:33.118906+00:00"
+    },
+    {
+      "path": "reports/browser-evidence/real-runtime-crt-player-count.png",
+      "bytes": 489587,
+      "sha256": "32dda2a7f7e9523c66804b6cb23b37d90af4bb78daec4dc0ee11f530f8caf729",
+      "modifiedUtc": "2026-10-02T06:43:20.334084+00:00"
+    },
+    {
+      "path": "reports/browser-evidence/real-runtime-context-fallback.png",
+      "bytes": 268843,
+      "sha256": "ebea8183e2725e84429dbfec4c0187e04d50360cfff0b5a8187cadb856efa388",
+      "modifiedUtc": "2026-10-02T06:43:20.422084+00:00"
+    },
+    {
+      "path": "reports/browser-evidence/real-runtime-context-restored.png",
+      "bytes": 489587,
+      "sha256": "32dda2a7f7e9523c66804b6cb23b37d90af4bb78daec4dc0ee11f530f8caf729",
+      "modifiedUtc": "2026-10-02T06:43:20.604085+00:00"
+    },
+    {
+      "path": "reports/browser-evidence/real-runtime-return-classic.png",
+      "bytes": 75606,
+      "sha256": "9833581d018d04ad7dbefe0fdc9ff77498014773f54b462b710c9804d0117bcc",
+      "modifiedUtc": "2026-10-02T06:42:36.937921+00:00"
+    }
+  ],
+  "readOnlyReview": {
+    "recordedAtUtc": "2026-10-02T06:45:57.996516+00:00",
+    "scope": [
+      "web/app.js",
+      "web/display.js"
+    ],
+    "codeChanged": false,
+    "reproducedFindings": [
+      {
+        "priority": "P2",
+        "file": "web/app.js",
+        "line": 110,
+        "trigger": "Chromium launched with --disable-webgl --disable-webgl2; click Play",
+        "observed": "Uncaught ExitStatus; launch hidden, no notice, original canvas 0x0. onAbort/onExit do not surface this failure.",
+        "suggestedRemedy": "Preflight required original-runtime WebGL on a separate canvas or surface runtime startup/ExitStatus failure explicitly.",
+        "resolution": "Fixed by root and passed targeted retest; see targetedFailureRetest."
+      },
+      {
+        "priority": "P2",
+        "file": "web/app.js",
+        "line": 131,
+        "trigger": "Fresh browser context; indexedDB.open throws SecurityError; click Play",
+        "observed": "Backend console.error and native alert Error initializing files, then pageerror. Launch remains hidden and shell storage notice is absent.",
+        "suggestedRemedy": "Preflight IndexedDB and show an explicit startup error, or have the backend communicate initialization failure through a shell callback. Do not claim gameplay continues without persistence unless implemented.",
+        "resolution": "Fixed by root and passed targeted retest; see targetedFailureRetest."
+      },
+      {
+        "priority": "P2",
+        "file": "web/display.js",
+        "line": 109,
+        "trigger": "After original game boots, lose the original #canvas WebGL context using WEBGL_lose_context",
+        "observed": "No user-facing notice or status change. Existing context-loss handling covers the optional overlay only.",
+        "suggestedRemedy": "Handle original-context loss separately and offer a clear reload instruction; do not claim original engine recovery without verifying it.",
+        "resolution": "Fixed by root and passed targeted retest; see targetedFailureRetest."
+      }
+    ]
+  },
+  "targetedFailureRetest": {
+    "startedUtc": "2026-10-02T06:47:38.826Z",
+    "finishedUtc": "2026-10-02T06:47:48.291Z",
+    "servedRoot": "build/browser",
+    "scope": "Only the three reproduced failure cases were rerun after root fixes; no additional full-game or compositor-journey claim.",
+    "results": [
+      {
+        "name": "no-webgl",
+        "result": "pass",
+        "visibleMessage": "WebGL is unavailable. Enable hardware acceleration or use a browser with WebGL support. Reload the page to try again.",
+        "uncaughtErrors": [],
+        "nativeDialogs": [],
+        "runtimeRequests": [],
+        "engineStarted": false,
+        "screenshot": "reports/browser-evidence/fixed-no-webgl.png",
+        "startupPrevented": true
+      },
+      {
+        "name": "blocked-indexeddb",
+        "result": "pass",
+        "visibleMessage": "Browser storage is unavailable. Allow site storage to start the game and keep its original saves. Reload the page to try again.",
+        "uncaughtErrors": [],
+        "nativeDialogs": [],
+        "runtimeRequests": [],
+        "engineStarted": false,
+        "screenshot": "reports/browser-evidence/fixed-blocked-indexeddb.png",
+        "startupPrevented": true
+      },
+      {
+        "name": "source-context-loss",
+        "result": "pass",
+        "visibleMessage": "The game graphics context was lost. Reload this page to continue, then use Restore Game to open your last saved game.",
+        "uncaughtErrors": [],
+        "nativeDialogs": [],
+        "runtimeRequests": [
+          "/vendor/scummvm.js",
+          "/vendor/scummvm.wasm"
+        ],
+        "engineStarted": true,
+        "screenshot": "reports/browser-evidence/fixed-source-context-loss.png",
+        "noticeStillVisibleAfterMs": 6200
+      }
+    ],
+    "files": [
+      {
+        "path": "web/app.js",
+        "bytes": 10174,
+        "sha256": "8a7067623a2d7cb2ad426c84b0f221781b4680b1335dc698bad3f3fbe2db33a0",
+        "modifiedUtc": "2026-10-02T06:46:52.231Z"
+      },
+      {
+        "path": "web/display.js",
+        "bytes": 14875,
+        "sha256": "f5e879c2ecf13d2178fb9877277181af2c2602647b035a7f7a8c35ddc1fed440",
+        "modifiedUtc": "2026-10-02T06:42:09.182Z"
+      },
+      {
+        "path": "web/vendor/scummvm.js",
+        "bytes": 232262,
+        "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c",
+        "modifiedUtc": "2026-10-02T06:44:43.195Z"
+      },
+      {
+        "path": "web/vendor/scummvm.wasm",
+        "bytes": 9430528,
+        "sha256": "71ff88b0246403bb4464964fb8edb61e810a5f28e1b016a75c409a4fa03454f2",
+        "modifiedUtc": "2026-10-02T06:44:43.197Z"
+      },
+      {
+        "path": "build/browser/app.js",
+        "bytes": 10174,
+        "sha256": "8a7067623a2d7cb2ad426c84b0f221781b4680b1335dc698bad3f3fbe2db33a0",
+        "modifiedUtc": "2026-10-02T06:46:52.231Z"
+      },
+      {
+        "path": "build/browser/display.js",
+        "bytes": 14875,
+        "sha256": "f5e879c2ecf13d2178fb9877277181af2c2602647b035a7f7a8c35ddc1fed440",
+        "modifiedUtc": "2026-10-02T06:42:09.182Z"
+      },
+      {
+        "path": "build/browser/vendor/scummvm.js",
+        "bytes": 232262,
+        "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c",
+        "modifiedUtc": "2026-10-02T06:44:43.195Z"
+      },
+      {
+        "path": "build/browser/vendor/scummvm.wasm",
+        "bytes": 9430528,
+        "sha256": "71ff88b0246403bb4464964fb8edb61e810a5f28e1b016a75c409a4fa03454f2",
+        "modifiedUtc": "2026-10-02T06:44:43.197Z"
+      },
+      {
+        "path": "build/jones-browser-0.2.0.zip",
+        "bytes": 4459591,
+        "sha256": "54a68d4db56973e427c0b12145f34442ed27bb6f6f60d955e3730a811e5cc57d",
+        "modifiedUtc": "2026-10-02T06:47:01.883Z"
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "reports/browser-evidence/fixed-no-webgl.png",
+        "bytes": 23618,
+        "sha256": "a3f78880cda7def70bf671bb99c74371a77271638ff1cb15cbed4a6bd8868e6e",
+        "modifiedUtc": "2026-10-02T06:47:39.204Z"
+      },
+      {
+        "path": "reports/browser-evidence/fixed-blocked-indexeddb.png",
+        "bytes": 24384,
+        "sha256": "e8ca0444ccf8e4fa10646528e375b27105f1c64c2648845d16537b6030162366",
+        "modifiedUtc": "2026-10-02T06:47:39.832Z"
+      },
+      {
+        "path": "reports/browser-evidence/fixed-source-context-loss.png",
+        "bytes": 13101,
+        "sha256": "1ed308738bcc010ed9a8b8f63324314a4cdf5cf8d4bf584180015f722820047d",
+        "modifiedUtc": "2026-10-02T06:47:48.225Z"
+      }
+    ]
+  }
+}

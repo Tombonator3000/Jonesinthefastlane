@@ -1,0 +1,446 @@
+{
+  "started": "2026-10-02T06:58:53.932Z",
+  "ok": true,
+  "subject": "Unmodified Jones DOS 1.000.060 in source-built ScummVM WebAssembly with documented browser and Jones save compatibility patches",
+  "checks": [
+    {
+      "name": "Original save persisted after closing page and original Restore Game restores saved cash",
+      "ok": true,
+      "elapsedMs": 10446,
+      "detail": {
+        "savedFiles": [
+          {
+            "path": "/home/web_user/jones.000",
+            "bytes": 27411,
+            "sha256": "7dad01bb7de29058fa0db3542ccf7a79030302c11617e2d26629090e0b143167"
+          }
+        ],
+        "loadedFiles": [
+          {
+            "path": "/home/web_user/jones.000",
+            "bytes": 27411,
+            "sha256": "7dad01bb7de29058fa0db3542ccf7a79030302c11617e2d26629090e0b143167"
+          }
+        ],
+        "savedCashPixelHash": "72d2d56b530542abfa2bc3603192a2befdeb834a9d46bc99055dca478d7cee4a",
+        "restoredCashPixelHash": "72d2d56b530542abfa2bc3603192a2befdeb834a9d46bc99055dca478d7cee4a",
+        "databases": [
+          {
+            "name": "/home/web_user",
+            "version": 21
+          }
+        ]
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "02-player-count",
+      "page": "reports/browser-evidence/save-restore/02-player-count.png",
+      "canvas": "reports/browser-evidence/save-restore/02-player-count-canvas.png",
+      "logicalPixelSha256": "026dbd15faace9d252f507dc1a25b3ce88ef407e85311be11000ee2db476e82e",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "03-character-selection",
+      "page": "reports/browser-evidence/save-restore/03-character-selection.png",
+      "canvas": "reports/browser-evidence/save-restore/03-character-selection-canvas.png",
+      "logicalPixelSha256": "eb760474ee981026173b9654abad757afe8c1dba3587e06269e61bb1e4365c0f",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "04-original-goals",
+      "page": "reports/browser-evidence/save-restore/04-original-goals.png",
+      "canvas": "reports/browser-evidence/save-restore/04-original-goals-canvas.png",
+      "logicalPixelSha256": "e8773a8fa7bc382e6f342908f6be6640ec4e1446070b35b6b7a0876d16b83f88",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "05-challenge-jones",
+      "page": "reports/browser-evidence/save-restore/05-challenge-jones.png",
+      "canvas": "reports/browser-evidence/save-restore/05-challenge-jones-canvas.png",
+      "logicalPixelSha256": "b43bfea9dcd61b10710779e318df79ab6870f4a4c03bc5307f894a6b1c9c8988",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "06-week-one",
+      "page": "reports/browser-evidence/save-restore/06-week-one.png",
+      "canvas": "reports/browser-evidence/save-restore/06-week-one-canvas.png",
+      "logicalPixelSha256": "49fd6b20a3c0f5afc8bffbb94b682143344f385161513301b452894f94089bc0",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "01-before-save",
+      "page": "reports/browser-evidence/save-restore/01-before-save.png",
+      "canvas": "reports/browser-evidence/save-restore/01-before-save-canvas.png",
+      "logicalPixelSha256": "f730cdeb6f1130fd5d0dfb83078f629a77caeaada7c0f40b7683678805daaddb",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "02-original-save-confirm",
+      "page": "reports/browser-evidence/save-restore/02-original-save-confirm.png",
+      "canvas": "reports/browser-evidence/save-restore/02-original-save-confirm-canvas.png",
+      "logicalPixelSha256": "c1610c27506ec33edcf14858a38ae048df4874667dee0d2bd987a59d1853e591",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "03-original-saved",
+      "page": "reports/browser-evidence/save-restore/03-original-saved.png",
+      "canvas": "reports/browser-evidence/save-restore/03-original-saved-canvas.png",
+      "logicalPixelSha256": "f730cdeb6f1130fd5d0dfb83078f629a77caeaada7c0f40b7683678805daaddb",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "04-unsaved-withdrawal",
+      "page": "reports/browser-evidence/save-restore/04-unsaved-withdrawal.png",
+      "canvas": "reports/browser-evidence/save-restore/04-unsaved-withdrawal-canvas.png",
+      "logicalPixelSha256": "822151fbc0f92356a271e6cec6c7397fff9ae332b53a609699b04f014a14b362",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "05-reopened-original-menu",
+      "page": "reports/browser-evidence/save-restore/05-reopened-original-menu.png",
+      "canvas": "reports/browser-evidence/save-restore/05-reopened-original-menu-canvas.png",
+      "logicalPixelSha256": "72f44fb830f45d9e58b031a2ce4d3353300a76afa76d6a1d2e4250e216eb9da3",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "06-restored-from-menu",
+      "page": "reports/browser-evidence/save-restore/06-restored-from-menu.png",
+      "canvas": "reports/browser-evidence/save-restore/06-restored-from-menu-canvas.png",
+      "logicalPixelSha256": "736748e5c818310e955e1c2186294cd386d48f58e9aa0d32396bb79a54b7cd22",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    }
+  ],
+  "console": [
+    {
+      "page": "before-reload",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "before-reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "before-reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "before-reload",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "before-reload",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "before-reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "before-reload",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "before-reload",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "before-reload",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "before-reload",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "before-reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "before-reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    },
+    {
+      "page": "reopened",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "reopened",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "reopened",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "reopened",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "reopened",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "reopened",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    },
+    {
+      "page": "reopened",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: Attempt to free Hunk from address 0013:01b4: Invalid segment type 9!"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "limitations": [
+    "Automated pixels and resource hashes supplement human screenshot inspection; they do not prove every original rule or audio playback."
+  ],
+  "url": "http://127.0.0.1:41591/",
+  "startup": {
+    "fullscreen": "screen",
+    "canvas": [
+      1280,
+      800
+    ],
+    "arguments": [
+      "./this.program",
+      "--config=/home/web_user/scummvm.ini",
+      "--initial-cfg=/runtime/scummvm.ini",
+      "--path=/games/jones",
+      "--savepath=/home/web_user",
+      "--extrapath=/runtime",
+      "--themepath=/runtime",
+      "--gui-theme=scummmodern",
+      "--no-fullscreen",
+      "--no-aspect-ratio",
+      "--scaler=normal",
+      "--scale-factor=1",
+      "--music-driver=adlib",
+      "--language=en",
+      "sci:jones"
+    ]
+  },
+  "originalResources": [
+    {
+      "name": "resource.map",
+      "bytes": 1800,
+      "sha256": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e"
+    },
+    {
+      "name": "resource.001",
+      "bytes": 313476,
+      "sha256": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599"
+    },
+    {
+      "name": "resource.002",
+      "bytes": 719747,
+      "sha256": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a"
+    },
+    {
+      "name": "version",
+      "bytes": 13,
+      "sha256": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d"
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "file": "vendor/scummvm.wasm",
+      "sha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020"
+    },
+    {
+      "file": "vendor/scummvm.js",
+      "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c"
+    },
+    {
+      "file": "vendor/sci-save-compatibility.patch",
+      "sha256": "8a41082ad25db461c2af80a4bcbff22def6461d79d50a42c9fd31db72ae2780d"
+    },
+    {
+      "file": "app.js",
+      "sha256": "8a7067623a2d7cb2ad426c84b0f221781b4680b1335dc698bad3f3fbe2db33a0"
+    }
+  ],
+  "finished": "2026-10-02T06:59:45.545Z"
+}

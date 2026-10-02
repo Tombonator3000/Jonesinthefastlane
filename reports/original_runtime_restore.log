@@ -1,0 +1,13 @@
+Using configuration file: /tmp/jones-xvfb/scummvm.ini
+WARNING: Unrecognized graphics mode 'surface'. Switching to default mode!
+GameID                         Description                                                Full Path
+------------------------------ ---------------------------------------------------------- ---------------------------------------------------------
+sci:jones                      Jones in the Fast Lane (DOS/English)                       /home/tombonator3000t/Documents/Codex/Jonesinthefastlane/original
+User picked target 'jones' (engine ID 'sci', game ID 'jones')...
+Running Jones in the Fast Lane (DOS/English)
+resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes.
+resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes.
+resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes.
+WARNING: Game has no native support for General MIDI, applying auto-mapping!
+WARNING: The automatic mapping for General MIDI hasn't been worked on for SCI1 games. Music might sound wrong or broken. Please choose another music driver for this game (e.g. AdLib or MT-32) if you are experiencing issues with music!
+WARNING: Attempt to free Hunk from address 0013:045b: Invalid segment type 9!

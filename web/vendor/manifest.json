@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "scummvm_version": "2026.3.0",
+  "source_commit": "fed42f2068dcafc6aafa1c28c77e4c88def74b66",
+  "source_url": "https://downloads.scummvm.org/frs/scummvm/2026.3.0/scummvm-2026.3.0.tar.xz",
+  "source_sha256": "b863a81e1598df8bc4aa0c33e3d9b1c8bbede1879d94d91568a4f200057677e7",
+  "source_repository": "https://github.com/scummvm/scummvm/tree/fed42f2068dcafc6aafa1c28c77e4c88def74b66",
+  "emsdk_version": "4.0.10",
+  "emsdk_url": "https://github.com/emscripten-core/emsdk/archive/refs/tags/4.0.10.tar.gz",
+  "emsdk_sha256": "2497b55ddbba9bf9be2d18cfca3e973d40a0cfaa8d18f6caacb882a65b2faf1c",
+  "sdl_version": "3.2.4",
+  "sdl_source_url": "https://github.com/libsdl-org/SDL/archive/release-3.2.4.zip",
+  "sdl_source_sha512": "c26a8afeec481e3ae3b435eec405d9f99d78752ebf5118963cd56728ceff23772769f5291df581329488da7489034e835301b08d61a42c811764e24b3542a4c2",
+  "configure": [
+    "--host=wasm32-unknown-emscripten",
+    "--build=wasm32-unknown-emscripten",
+    "--disable-all-engines",
+    "--enable-engine=sci",
+    "--disable-detection-full",
+    "--enable-release",
+    "--opengl-mode=gles2",
+    "--disable-cloud",
+    "--enable-png",
+    "--enable-zlib"
+  ],
+  "build_parallelism": 2,
+  "engines": [
+    "SCI (statically linked)"
+  ],
+  "game_scripts_modified": false,
+  "source_changes": "browser-integration.patch and sdl-browser-integration.patch: retain host arguments, omit external MIDI access, export filesystem/loading APIs, honor host-owned fullscreen and canvas CSS size. sci-save-compatibility.patch: expose Jones ordinary slot 0 save to its original GetSaveFiles/Restore menu; retain new-game filtering and other games unchanged.",
+  "sci_compatibility_fix": {
+    "file": "engines/sci/engine/file.cpp",
+    "function": "listSavegames",
+    "affected_game": "GID_JONES",
+    "ordinary_save_slot": 0,
+    "reason": "Upstream save/check/restore kernels map Jones virtual slot 1 to 0, but the generic save-list filter hides slot 0 as an autosave."
+  },
+  "runtime_api": {
+    "global": "Module",
+    "factory": false,
+    "preRun": true,
+    "exports": [
+      "FS",
+      "ENV",
+      "callMain",
+      "addRunDependency",
+      "removeRunDependency"
+    ],
+    "persistent_storage": "Upstream backend mounts ENV.HOME using IDBFS with autoPersist",
+    "host_fullscreen": "Set Module.hostManagedFullscreen=true; host controls requestFullscreen/exitFullscreen directly; native canvas uses CSS bounds without desktop decorations",
+    "data_bundle_required": false
+  },
+  "licence": "GPL-3.0-or-later; third-party notices retained in COPYRIGHT and LICENSES/",
+  "runtime_test_status": "Compiled; browser integration validation is recorded separately by browser tests.",
+  "files": [
+    {
+      "path": "COPYING",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "COPYRIGHT",
+      "bytes": 15302,
+      "sha256": "95c3a8ed18246d6a7135d7ba0aacd4df9a0957f7e1de8f58ec8e011d84557a6b"
+    },
+    {
+      "path": "LICENSES/COPYING.Apache",
+      "bytes": 11488,
+      "sha256": "314ca6233f2849131fc87c24cdf112aa204605051d8f17fbf5982945e34dbb67"
+    },
+    {
+      "path": "LICENSES/COPYING.BSD",
+      "bytes": 8058,
+      "sha256": "80bec7489af9bdd2e0f5467f6267f8985aaaca50e5061c9d02467e103c126628"
+    },
+    {
+      "path": "LICENSES/COPYING.BSL",
+      "bytes": 1429,
+      "sha256": "58afb430442855628fa2509cddd905ad61c12fe564731466f56554edd5344ae5"
+    },
+    {
+      "path": "LICENSES/COPYING.GLAD",
+      "bytes": 3122,
+      "sha256": "d74397819a7776231c638e73b9197a45faad8347278bdfec30a041d1cb808313"
+    },
+    {
+      "path": "LICENSES/COPYING.ISC",
+      "bytes": 967,
+      "sha256": "4bdb0a32d3ba3070ed77dc48efb5348ce647bac3a1716992fa4cc080b99a3af7"
+    },
+    {
+      "path": "LICENSES/COPYING.LGPL",
+      "bytes": 26721,
+      "sha256": "f2c0f033c76185c3c981ad458ea433ca2787ab9b6f4623cab500fc8024db0e05"
+    },
+    {
+      "path": "LICENSES/COPYING.LUA",
+      "bytes": 2035,
+      "sha256": "8e0272ae02203977f9d0312bd82fe2498f37741b51c52731b9af0d66dbde7b6a"
+    },
+    {
+      "path": "LICENSES/COPYING.MIT",
+      "bytes": 2695,
+      "sha256": "acc32538625eb6a7b2bdd43749a787efe9544400e10e5c01fb6dd91a1a60b94b"
+    },
+    {
+      "path": "LICENSES/COPYING.MKV",
+      "bytes": 1600,
+      "sha256": "cfac47baf5d584bc5458c90b33116087dd1bda638adf751f123e7d176e4ac67f"
+    },
+    {
+      "path": "LICENSES/COPYING.MPL",
+      "bytes": 16842,
+      "sha256": "c92198047ac07252eada8d895a9cbe9473504d54b28e7646b5fb053f876b9fc2"
+    },
+    {
+      "path": "LICENSES/COPYING.OFL",
+      "bytes": 5067,
+      "sha256": "a79c445b3f3061588468e44bc9fff8b8ebac169374fabb482ea7274a478b45b5"
+    },
+    {
+      "path": "LICENSES/COPYING.TINYGL",
+      "bytes": 1324,
+      "sha256": "f62a84ca5a9a1a6f36d63336c461b6d21902fdfa84a50969b0d9ec6c6f0b90d3"
+    },
+    {
+      "path": "LICENSES/CatharonLicense.txt",
+      "bytes": 5359,
+      "sha256": "372251a3ce2ecdb74e076dede2c7d0d1e16a5003c548177e9908627192dd064c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3857,
+      "sha256": "6cf1d1afff1c52e7a8e979b44b26a049714ec227d0899013c082d27ec8f3f05b"
+    },
+    {
+      "path": "browser-integration.patch",
+      "bytes": 3769,
+      "sha256": "b00fe22f94df7b84705965d5eafbe8afbab6a3dfe742aeeee8735f2393bfc39b"
+    },
+    {
+      "path": "data/index.json",
+      "bytes": 85,
+      "sha256": "4f5e285c1d3e6870724cfa5e9223c1ab54fb6bf6f463587be83c6b6001f86354"
+    },
+    {
+      "path": "data/scummclassic.zip",
+      "bytes": 16342,
+      "sha256": "ab888c8d34b09f9dc9101496fbad3e137a0f8beb89ea9638367f9f3d80117345"
+    },
+    {
+      "path": "data/scummmodern.zip",
+      "bytes": 68063,
+      "sha256": "13df1daf58eacc88fdb4a33c23ae0f5792927e6d9233b37decb6233ac660b155"
+    },
+    {
+      "path": "data/shaders.dat",
+      "bytes": 657234,
+      "sha256": "1e7839515c92b0e55198a6c96666dcd369ac3d4efab0190a265d244fda65f9e9"
+    },
+    {
+      "path": "sci-save-compatibility.patch",
+      "bytes": 468,
+      "sha256": "8a41082ad25db461c2af80a4bcbff22def6461d79d50a42c9fd31db72ae2780d"
+    },
+    {
+      "path": "scummvm.js",
+      "bytes": 232262,
+      "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c"
+    },
+    {
+      "path": "scummvm.wasm",
+      "bytes": 9430546,
+      "sha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020"
+    },
+    {
+      "path": "sdl-browser-integration.patch",
+      "bytes": 1108,
+      "sha256": "dc0f1871fbb3190bb32cd7b89340290b014200da6f3a59e9924500c329fbc8b6"
+    }
+  ]
+}

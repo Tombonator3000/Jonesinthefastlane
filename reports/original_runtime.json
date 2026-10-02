@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-02",
+  "engine": "ScummVM 2026.1.0 (Feb 25 2026)",
+  "isolated_display": ":93",
+  "audio_verified": false,
+  "startup_command": [
+    "/usr/games/scummvm",
+    "--config=/tmp/jones-xvfb/scummvm.ini",
+    "--logfile=/tmp/jones-xvfb/scummvm.log",
+    "--screenshotpath=/tmp/jones-xvfb",
+    "--savepath=/tmp/jones-xvfb/saves",
+    "--path=/home/tombonator3000t/Documents/Codex/Jonesinthefastlane/original",
+    "--no-fullscreen",
+    "--gfx-mode=surface",
+    "--scaler=normal",
+    "--scale-factor=3",
+    "--music-driver=null",
+    "--auto-detect"
+  ],
+  "restore_command": [
+    "/usr/games/scummvm",
+    "--config=/tmp/jones-xvfb/scummvm.ini",
+    "--logfile=/tmp/jones-xvfb/scummvm.log",
+    "--screenshotpath=/tmp/jones-xvfb",
+    "--savepath=/tmp/jones-xvfb/saves",
+    "--path=/home/tombonator3000t/Documents/Codex/Jonesinthefastlane/original",
+    "--no-fullscreen",
+    "--gfx-mode=surface",
+    "--scaler=normal",
+    "--scale-factor=3",
+    "--music-driver=null",
+    "--save-slot=0",
+    "--auto-detect"
+  ],
+  "verified": [
+    "original game detection",
+    "copyright screen",
+    "title screen",
+    "main menu",
+    "one player selection",
+    "character selection",
+    "goal selection",
+    "declined Jones opponent",
+    "week 1 started",
+    "bank entered using mouse",
+    "deposit 100: cash 200 to 100",
+    "second deposit: cash 100 to 0",
+    "F5 save confirmed",
+    "withdraw 100: cash 0 to 100",
+    "new engine process restored saved week 1 bank with cash 0"
+  ],
+  "unverified": [
+    "full week",
+    "job",
+    "shop",
+    "education",
+    "longer stability after restore",
+    "F7 restore menu",
+    "audio",
+    "graphics or text patch in original engine"
+  ],
+  "save": {
+    "bytes": 29315,
+    "sha256": "56469079e2fc29052073132fd8f2d1a68bfc535c3dcd83345838e3b2a4029244",
+    "location": "temporary isolated path /tmp/jones-xvfb/saves/jones.000"
+  },
+  "warnings": [
+    "Requested gfx-mode surface was unrecognized; engine used default mode.",
+    "Audio General MIDI mapping warning; dummy audio driver used, sound not verified.",
+    "On restore: Attempt to free Hunk from address 0013:045b: Invalid segment type 9!"
+  ],
+  "original_files_verified": [
+    {
+      "file": "adl.drv",
+      "matches": true
+    },
+    {
+      "file": "exists.com",
+      "matches": true
+    },
+    {
+      "file": "godir.com",
+      "matches": true
+    },
+    {
+      "file": "ibmkbd.drv",
+      "matches": true
+    },
+    {
+      "file": "install.exe",
+      "matches": true
+    },
+    {
+      "file": "install.hlp",
+      "matches": true
+    },
+    {
+      "file": "joystick.drv",
+      "matches": true
+    },
+    {
+      "file": "mt32.drv",
+      "matches": true
+    },
+    {
+      "file": "resource.001",
+      "matches": true
+    },
+    {
+      "file": "resource.002",
+      "matches": true
+    },
+    {
+      "file": "resource.bak",
+      "matches": true
+    },
+    {
+      "file": "resource.cfg",
+      "matches": true
+    },
+    {
+      "file": "resource.map",
+      "matches": true
+    },
+    {
+      "file": "sciv256.exe",
+      "matches": true
+    },
+    {
+      "file": "sierra.bat",
+      "matches": true
+    },
+    {
+      "file": "sndblast.drv",
+      "matches": true
+    },
+    {
+      "file": "space.com",
+      "matches": true
+    },
+    {
+      "file": "std.drv",
+      "matches": true
+    },
+    {
+      "file": "tandy3v.drv",
+      "matches": true
+    },
+    {
+      "file": "tandykbd.drv",
+      "matches": true
+    },
+    {
+      "file": "version",
+      "matches": true
+    },
+    {
+      "file": "vga320.drv",
+      "matches": true
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "original_runtime_bank.png",
+      "sha256": "d3c506dd8037af1cbd965f9d02c53eb2099d77c4236f38b9cdda1043217a862b"
+    },
+    {
+      "file": "original_runtime_bank_deposit.png",
+      "sha256": "7f981ce47fd499277405aac577f2df1bb6179d59cec79a0649df957ea7d32b82"
+    },
+    {
+      "file": "original_runtime_bank_withdraw.png",
+      "sha256": "b58c0cf107f94264c250fa942c94657e2c0eb4af9d8fd84a55eb948f54fc2b06"
+    },
+    {
+      "file": "original_runtime_challenge.png",
+      "sha256": "932f23852eec5870a13d78a06b1e657e95ea2b6362fbfaeee39f220be94dd43c"
+    },
+    {
+      "file": "original_runtime_character.png",
+      "sha256": "1c36c865f084e861cd4acc5bd7c7380b5bec810fe74efe88c50f2d9f7db072ab"
+    },
+    {
+      "file": "original_runtime_game_started.png",
+      "sha256": "0d72b7509a8905c2274309c3cfd217407524cbe8e22e1d365ce9062ca02134b5"
+    },
+    {
+      "file": "original_runtime_menu.png",
+      "sha256": "68cf45f94a66577de2943aa4e87d12874ffbebc18c9b829786d9f073fdb10afc"
+    },
+    {
+      "file": "original_runtime_player_count.png",
+      "sha256": "ce04414b47cd9df820d1cece8fd8c2b9605d11532138930bf528b88bd8e91e98"
+    },
+    {
+      "file": "original_runtime_restored.png",
+      "sha256": "fbc326c7b27168c249d061d544a6150cb48f8f4da42568ae9da4d3563e7f3ee2"
+    },
+    {
+      "file": "original_runtime_save_complete.png",
+      "sha256": "27346e5cadc336ad87adfb59a1cad6e889d82f2a9193234dfe938c163eadcf7f"
+    },
+    {
+      "file": "original_runtime_save_dialog.png",
+      "sha256": "f32a344a672e2e8b9b95b1ffb62a8741321e145cafa3da839d018b4939926af2"
+    },
+    {
+      "file": "original_runtime_setup.png",
+      "sha256": "30124cc856d6c8455e566c24e5ec3845d5fadf4fa0ab92752789c53e848d6b10"
+    },
+    {
+      "file": "original_runtime_startup.png",
+      "sha256": "0049f3015483b01e4b98b2c1f437f06c6d399512e1010a65f6ef0e36f71d06b7"
+    },
+    {
+      "file": "original_runtime_title.png",
+      "sha256": "d3f08dd1551df1565b9a43282c87c7e02b8f743b7c7b8b1d70211ed436cce058"
+    }
+  ]
+}

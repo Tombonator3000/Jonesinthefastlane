@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "files": 40,
+  "zip": "jones-browser-0.2.0.zip",
+  "sha256": "103469da0b9ac45c628d31757210be9178db0db45c9a7a49b54170ff8d79c58b",
+  "method": "Every ZIP member is byte-identical to the browser-tested build; CRC and all build-manifest hashes verified.",
+  "wasm_sha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020"
+}

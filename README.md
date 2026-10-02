@@ -1,80 +1,72 @@
-# Jones in the Fast Lane — decompile workbench
+# Jones in the Fast Lane — original game in the browser
 
-Arbeidsrepo for Toms Jones-prosjekt. Målet er redigerbar kode, utskiftbar grafikk og etter hvert en testet moderne PC-port.
+[**Play in your browser**](https://tombonator3000.github.io/Jonesinthefastlane/)
 
-## Arbeidspakken er importert
+The browser version runs the **unchanged original Jones SCI scripts** in a pinned, source-built ScummVM WebAssembly engine. The original English menus, 1–4 player setup, character selection, goals, Jones opponent, shops, jobs, time and economy remain in charge. There is no replacement gameplay model or side-panel interface.
 
-**Hele arbeidspakken ligger nå utpakket på `main`. Ingen ny ZIP-opplasting er nødvendig.**
+The game fills the browser viewport. **Play in fullscreen** also requests real browser fullscreen after a user gesture. The original image proportions are preserved, so wide screens can have black borders. Use the original in-game controls, including Save and Restore. The small display controls in the upper-right corner appear only on hover or keyboard focus.
 
-Kontrollert 2. oktober 2026: arbeidsflyten [Import workbench](https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36969861967) fullførte med `success`. Den la til **1 504 filer**; **13 identiske filer** lå allerede i repoet. Ingen konflikter med endrede filer ble rapportert. Importen ble lagret i commit `76282663e768d5fa432f69bd5501e0b45532608c`.
+**Original pixels** is the default. Optional smoothing, light/color and CRT effects affect presentation only. Modern/CRT rendering supports output up to 2160p; these filters do not add new detail to the original artwork. A direct-canvas fallback keeps the original game visible if the optional effects cannot run.
 
-**Alle 22 data- og importtester besto på GitHub etter utpakking.** Dette inkluderer originalenes kontrollsummer, byte-identisk sammenstilling av alle 69 uendrede skript, tekstressurser og pikselkontroll av 752 PNG-ruter.
+## Play locally
 
-- [Importresultat](reports/github_import.json)
-- [Full testlogg fra importkjøringen](reports/github_import_tests.txt)
-- [Detaljert status](docs/REPO_STATUS.md)
-
-**Dette er fortsatt et arbeidsprosjekt for uttrekk og redigering, ikke en ferdig moderne spillmotor.** Testene bekrefter data og verktøy, ikke oppstart, gjennomspilling, lyd eller lagring.
-
-## Kom i gang
-
-Python 3.10 eller nyere. Pillow brukes til PNG-import/-eksport. Kjør fra repoets rotmappe:
+Python 3 is sufficient; there are no JavaScript packages to install for normal play.
 
 ```sh
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python tools/jones.py verify
-python -m unittest discover -s tests -v
+bash start_browser.sh
 ```
 
-Originalen kan forsøkes startet med en separat installasjon av ScummVM:
+On Windows, run `start_browser.cmd`. Open **http://localhost:8765**, then select **Play in fullscreen**.
+
+Manual build/start:
 
 ```sh
-bash start_linux.sh
+python3 tools/build_browser.py
+python3 -m http.server 8765 --bind 127.0.0.1 --directory build/browser
 ```
 
-På Windows brukes `start_windows.cmd`. ScummVM er ikke inkludert. Startfilene er klargjort, men oppstart er ikke bekreftet av datatestene. Åpne `graphics/index.html` lokalt for grafikkviseren; nettleserfunksjonen er ikke bekreftet av PNG-testene.
+The build produces `build/browser/` and `build/jones-browser-0.2.0.zip`. The ZIP is a self-contained static website; extract it and serve its `jones-browser/` directory over HTTP. Do not open `index.html` using `file://`.
 
-## Hvor arbeidet ligger
+[Browser architecture and limits](docs/BROWSER_PORT.md) · [Browser verification](reports/browser_verification.md) · [Native reference run](docs/ORIGINAL_RUNTIME.md)
 
-| Mappe | Innhold |
+## Preservation and editing workbench
+
+The original workbench remains available alongside the browser runtime:
+
+| Location | Contents |
 | --- | --- |
-| `tools/` | Uttrekk, dekomprimering, assembler, PNG-/tekstimport, patch-bygg og sikker ZIP-import. |
-| `tests/` | Automatiske data- og importtester. |
-| `original/` | 22 uendrede opplastede originalfiler. |
-| `source_asm/` | 69 redigerbare SCI-lavnivåskript; ikke høynivåkildekode. |
-| `script_metadata/` | Objekter, metoder, strenger og andre skriptstrukturer. |
-| `graphics/` | 752 PNG-ruter fra 90 view-ressurser og lokal grafikkviser. PNG-antallet inkluderer delte og speilvendte ruter. |
-| `extracted/` | 266 forskjellige råressurser, tilhørende SCI-patcher og 39 redigerbare tekst-JSON-filer. |
-| `mods/` | Ferdige erstatningsressurser; ikke skriv over originalene. |
-| `reference/` | Separat referanseindeks og verktøy for valgfri, fastlåst tredjepartsdekompilering. |
-| `reports/` | Kontrollsummer, testlogger og importstatus. |
+| `original/` | 22 original files, protected by SHA-256 checksums. |
+| `source_asm/` | 69 editable low-level SCI scripts; unchanged scripts assemble byte-identically. |
+| `script_metadata/` | Objects, methods, strings and script structure. |
+| `graphics/` | 752 exported PNG cels and a separate asset viewer. |
+| `extracted/` | 266 unique resources, SCI patches and 39 text JSON files. |
+| `web/` | Fullscreen browser shell and presentation-only compositor. |
+| `web/vendor/` | Pinned ScummVM WebAssembly engine, provenance and license. |
+| `web/assets/` | Reproducible original picture/view exports for editing and comparison. |
+| `tools/` | Extraction, assembler, patching, asset export and browser packaging tools. |
+| `mods/` | Separate resource patches; never overwrite original files. |
 
-[README_NO.md](README_NO.md) inneholder den utførlige norske veiledningen. [docs/SOURCES.md](docs/SOURCES.md) dokumenterer formatreferanser og opprinnelse. [AGENTS.md](AGENTS.md) beskriver arbeidsregler for Claude/Codex og andre kodeverktøy.
-
-## Neste verifiserbare milepæl
-
-Kjør originalen i ScummVM og dokumenter oppstart, menyvalg, en spilleruke, arbeid, bank, butikk, utdanning og lagring/lasting. Test deretter én tekstendring og én grafikkendring i en separat spillmappe. Etter dette kan høynivårekonstruksjon og moderne spillmoduler sammenlignes med en fungerende referanse.
-
-## Begrensninger som fortsatt gjelder
-
-Assembleren bevarer eksisterende adresser og instruksjonslengder. Den er ikke en høynivåkompilator. Grafikkpatcher bruker originalstørrelse og originalpalett; de gir ikke HD-grafikk automatisk. PIC-bakgrunnene er bevart som SCI-data, ikke ferdig gjengitte PNG-bakgrunner. Lyd, lagring, full spilling og en ny motor må fortsatt testes eller utvikles.
-
-## Arkiv og eventuell gjenoppretting
-
-`Jones_decomp_arbeidsprosjekt.zip` er beholdt som opplastet. SHA-256:
-
-```text
-c2fa12f8f58caa6857ecea1cfc2c8d0e6ea8da035fbf19b594beef07ebcf2780
-```
-
-Bare ved behov for å gjenopprette manglende filer:
+The complete original workbench was imported in commit `76282663e768d5fa432f69bd5501e0b45532608c`: 1,504 added files, 13 already-identical files, and 22 passing data/import tests. [Historical import report](reports/github_import.json) · [Import test log](reports/github_import_tests.txt).
 
 ```sh
-python3 tools/import_workbench.py Jones_decomp_arbeidsprosjekt.zip
+python3 -m pip install -r requirements.txt
+python3 tools/jones.py verify
+python3 -m unittest discover -s tests -v
 ```
 
-Importøren beholder eksisterende endrede arbeidsfiler og stopper ved konflikter i `original/`. Den opprinnelige importloggen dokumenterer den første vellykkede GitHub-importen; nye kjøringer kan oppdatere rapporten.
+For browser input tests, install the pinned development dependency and Chromium:
 
-De nye verktøyene er merket GPL-3.0-or-later. Dette relisensierer ikke Sierra-spillet, eksportert originalkode, grafikk eller tredjepartsreferanser. Full verktøylisens ligger i `LICENSE.tools.txt`; se også `LICENSE.md`.
+```sh
+pnpm install --frozen-lockfile
+pnpm exec playwright install chromium
+python3 tools/build_browser.py
+pnpm test:browser
+```
+
+[README_NO.md](README_NO.md) preserves the original Norwegian workbench guide. [docs/SOURCES.md](docs/SOURCES.md) records format references and original provenance. The low-level assembler is not a complete high-level compiler. Downloadable third-party decompiled reference sources are kept separate and are not claimed to be bytecode-equivalent.
+
+## Delivery and remaining verification
+
+The Browser game workflow runs the data tests, builds the static package and exercises real browser input before publishing `main` to GitHub Pages. See the verification report for observed results and exact limitations; an unchanged script is not a claim that every possible game path has been play-tested.
+
+Newly authored tools and browser presentation code are GPL-3.0-or-later. ScummVM retains its upstream license and attribution. Original Sierra game data/artwork and third-party decompiled sources are not relicensed. See [LICENSE.md](LICENSE.md).

@@ -1,0 +1,14 @@
+{
+  "name": "jones-browser-port",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "python3 -m unittest discover -s tests -v",
+    "build": "python3 tools/build_browser.py",
+    "test:browser": "node tests/browser_smoke.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

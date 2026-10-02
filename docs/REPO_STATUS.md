@@ -1,3 +1,7 @@
+# Current direction — 2 October 2026
+
+The browser target must preserve the original English game and interactions in fullscreen. Current browser architecture is described in [BROWSER_PORT.md](BROWSER_PORT.md); measured delivery results are in [browser_verification.md](../reports/browser_verification.md). The import status below is historical and does not describe later runtime work.
+
 # Repooverføring — 2. oktober 2026
 
 ## Fullført: hele arbeidspakken ligger på main

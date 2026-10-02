@@ -1,0 +1,78 @@
+{
+  "started": "2026-10-02T06:50:16.885Z",
+  "ok": true,
+  "subject": "Actual original Jones SCI opening-credits music synthesized by the packaged ScummVM WASM AdLib driver",
+  "method": "Read-only audioprocess event listener installed after the SDL3 output callback; measures its outputBuffer after the original WASM callback fills it. No samples injected, no audio graph modifications, no autoplay-policy override.",
+  "limitations": [
+    "Headless Chromium WebAudio verification, not physical loudspeaker or listening validation.",
+    "This test covers the original opening-credits music, not all game sound effects."
+  ],
+  "errors": [],
+  "browser": "149.0.7827.55",
+  "initial": {
+    "contextState": "running",
+    "sampleRate": 48000,
+    "bufferSize": 2048,
+    "node": "ScriptProcessorNode",
+    "arguments": [
+      "./this.program",
+      "--config=/home/web_user/scummvm.ini",
+      "--initial-cfg=/runtime/scummvm.ini",
+      "--path=/games/jones",
+      "--savepath=/home/web_user",
+      "--extrapath=/runtime",
+      "--themepath=/runtime",
+      "--gui-theme=scummmodern",
+      "--no-fullscreen",
+      "--no-aspect-ratio",
+      "--scaler=normal",
+      "--scale-factor=1",
+      "--music-driver=adlib",
+      "--language=en",
+      "sci:jones"
+    ]
+  },
+  "measurement": {
+    "callbacks": 323,
+    "nonSilentCallbacks": 285,
+    "frames": 661504,
+    "samples": 1323008,
+    "nonzero": 1166828,
+    "peak": 0.3197004199028015,
+    "min": -0.26286575198173523,
+    "max": 0.3197004199028015,
+    "firstNonzeroMs": 1624.699999988079,
+    "channels": 2,
+    "firstNonzeroSamples": [
+      9.254440556105692e-07,
+      -1.950437763298396e-06,
+      7.229264156194404e-06,
+      -3.132464553345926e-05,
+      4.185721991234459e-05,
+      0.0008563287556171417,
+      0.004182802047580481,
+      0.015676330775022507
+    ],
+    "elapsedMs": 13757.899999976158,
+    "rms": 0.03900128246705804,
+    "contextState": "running",
+    "contextTimeSeconds": 13.834666666666667,
+    "baseLatencySeconds": 0.010666666666666666,
+    "nonzeroFraction": 0.8819508272058824,
+    "outputDurationSeconds": 13.781333333333333,
+    "callbackRmsRange": [
+      0,
+      0.09218988340367681
+    ],
+    "rmsDbFS": -28.178422239362774,
+    "peakDbFS": -9.905135866286612
+  },
+  "artifacts": {
+    "before": "reports/browser-evidence/audio-before.png",
+    "after": "reports/browser-evidence/audio-after.png"
+  },
+  "runtimeSha256": "71ff88b0246403bb4464964fb8edb61e810a5f28e1b016a75c409a4fa03454f2",
+  "finished": "2026-10-02T06:50:31.664Z",
+  "interaction": "Clicked Start original game, then one real mouse click in the original copyright screen; allowed the original opening credits to run for twelve seconds.",
+  "visualInspection": "Final screenshot displays original opening credits: lead programmer Warren Schwader, character with lawn mower."
+}

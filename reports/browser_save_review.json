@@ -1,0 +1,201 @@
+{
+  "started": "2026-10-02T06:52:46.128159+00:00",
+  "subject": "Original Jones F5 Save / F7 Restore regression",
+  "status": "Passed: original F5/F7 chain, page-close persistence, original main-menu Restore Game, independent visual review.",
+  "sourceTag": "ScummVM v2026.3.0",
+  "sourceCommit": "fed42f2068dcafc6aafa1c28c77e4c88def74b66",
+  "rootCause": {
+    "originalScript": "Save.sc proc990_1 calls GetSaveFiles first; zero results emits the observed no-saved-game message before CheckSaveGame or RestoreGame.",
+    "existingMapping": "kSaveGame, kCheckSaveGame and kRestoreGame intentionally map Jones original virtual slot 1 to physical slot 0.",
+    "incorrectFilter": "engines/sci/engine/file.cpp listSavegames hides physical slot 0 as kAutoSaveId. The save exists as /home/web_user/jones.000 but is absent from the original restore catalog.",
+    "minimalFix": "Retain existing QFG3/4 behavior, and exclude kNewGameId or (kAutoSaveId when game is not GID_JONES). This exposes Jones only save slot to its existing original scripts.",
+    "scope": "One engine predicate and explanatory comment. No original data edits, new UI, startup --save-slot override, or save-file relocation."
+  },
+  "files": [
+    {
+      "path": "reference/upstream/src/Save.sc",
+      "sha256": "ffadf1e01c999f3b744f69dfc2d0d21f04c4769b9e1761624414487dc3b53b05"
+    },
+    {
+      "path": "reference/upstream/src/Game.sc",
+      "sha256": "86c0861ff11e0dbf1c619c7b6f6cdb38b12df79e1da1d1e39c9f07a9c3bc7807"
+    },
+    {
+      "path": "tools/fetch_scummvm_web.py",
+      "sha256": "bc98223dc482cdb948e24d91205373c853ea56faa7087e247f30b84df90bb8aa"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "engines/sci/engine/file.cpp",
+      "sha256": "c94100d92a016af5b07be68437c3ecf4f46c23cf997eee9156e61013d3cc48b5"
+    },
+    {
+      "path": "engines/sci/engine/kfile.cpp",
+      "sha256": "6d6900b6e9fb5808606a4398153f44d4598d9639dc23e3b07e0178c761872e30"
+    }
+  ],
+  "visualReview": {
+    "oldRuntime": {
+      "saveDialog": "09-original-save-dialog.png: original English overwrite confirmation with cash 100",
+      "restoreDialog": "12-original-restore-dialog.png: original Restore a saved game? confirmation after withdrawal with cash 200",
+      "restoreFailure": "13-original-restore-failed.png: original no previously saved game was found error"
+    },
+    "fixedRuntime": {
+      "date": "2026-10-02T06:55:38.309383+00:00",
+      "execution": "Actual Chromium integration run by game_model, screenshots independently inspected by recover_context",
+      "save": "08-bank-deposit.png shows original bank and cash 100 before original F5 Save",
+      "changedState": "11-bank-withdraw.png shows original bank and cash 200 after withdrawal",
+      "restore": "13-restored-bank.png shows original bank and cash 100 after original F7 then YES; no failure dialog",
+      "screenshots": [
+        {
+          "sha256": "131f261959a912ce687e414dac683bd2992edb7a04eb83a9fc42ee8be44bf6cf",
+          "originalTemporaryPath": "reports/browser-local/08-bank-deposit.png"
+        },
+        {
+          "sha256": "c582f508088eede9154181321f58ba9bb9c083c1b6194560ce8c0dfddd130c0f",
+          "originalTemporaryPath": "reports/browser-local/11-bank-withdraw.png"
+        },
+        {
+          "sha256": "996af23e873dbabb4ae31bea5bbf0655871f628797b9dbee4e750e852153300c",
+          "originalTemporaryPath": "reports/browser-local/13-restored-bank.png"
+        }
+      ],
+      "availability": "Historical observation from the first corrected run. Temporary screenshot names were reused by the final integration run; earlier screenshot bytes are not bundled under those names. Use finalIntegrationEvidence below."
+    }
+  },
+  "updated": "2026-10-02T06:59:55.549984+00:00",
+  "runtimeFiles": [
+    {
+      "path": "web/vendor/scummvm.js",
+      "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c"
+    },
+    {
+      "path": "web/vendor/scummvm.wasm",
+      "sha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020"
+    },
+    {
+      "path": "build/browser/vendor/scummvm.wasm",
+      "sha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020"
+    },
+    {
+      "path": "web/vendor/sci-save-compatibility.patch",
+      "sha256": "8a41082ad25db461c2af80a4bcbff22def6461d79d50a42c9fd31db72ae2780d"
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "8a7067623a2d7cb2ad426c84b0f221781b4680b1335dc698bad3f3fbe2db33a0"
+    },
+    {
+      "path": "tests/browser_smoke.cjs",
+      "sha256": "74924e488d784405983f72500bebfd3fb14999070c2920d323d2890ee16dc80c"
+    }
+  ],
+  "reloadVerification": {
+    "report": "reports/browser-evidence/save-restore/report.json",
+    "ok": true,
+    "checks": [
+      {
+        "name": "Original save persisted after closing page and original Restore Game restores saved cash",
+        "ok": true,
+        "elapsedMs": 10446,
+        "detail": {
+          "savedFiles": [
+            {
+              "path": "/home/web_user/jones.000",
+              "bytes": 27411,
+              "sha256": "7dad01bb7de29058fa0db3542ccf7a79030302c11617e2d26629090e0b143167"
+            }
+          ],
+          "loadedFiles": [
+            {
+              "path": "/home/web_user/jones.000",
+              "bytes": 27411,
+              "sha256": "7dad01bb7de29058fa0db3542ccf7a79030302c11617e2d26629090e0b143167"
+            }
+          ],
+          "savedCashPixelHash": "72d2d56b530542abfa2bc3603192a2befdeb834a9d46bc99055dca478d7cee4a",
+          "restoredCashPixelHash": "72d2d56b530542abfa2bc3603192a2befdeb834a9d46bc99055dca478d7cee4a",
+          "databases": [
+            {
+              "name": "/home/web_user",
+              "version": 21
+            }
+          ]
+        }
+      }
+    ],
+    "pageErrors": [],
+    "runtimeFiles": [
+      {
+        "file": "vendor/scummvm.wasm",
+        "sha256": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020"
+      },
+      {
+        "file": "vendor/scummvm.js",
+        "sha256": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c"
+      },
+      {
+        "file": "vendor/sci-save-compatibility.patch",
+        "sha256": "8a41082ad25db461c2af80a4bcbff22def6461d79d50a42c9fd31db72ae2780d"
+      },
+      {
+        "file": "app.js",
+        "sha256": "8a7067623a2d7cb2ad426c84b0f221781b4680b1335dc698bad3f3fbe2db33a0"
+      }
+    ],
+    "originalResources": [
+      {
+        "name": "resource.map",
+        "bytes": 1800,
+        "sha256": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e"
+      },
+      {
+        "name": "resource.001",
+        "bytes": 313476,
+        "sha256": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599"
+      },
+      {
+        "name": "resource.002",
+        "bytes": 719747,
+        "sha256": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a"
+      },
+      {
+        "name": "version",
+        "bytes": 13,
+        "sha256": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d"
+      }
+    ],
+    "testSourceSha256": "7a7fa551e4cc948b3f706fb43fcc66d19aba665ae1317ca7041a03e677e2eff5",
+    "method": "Real original F5+YES saves cash100; original Withdraw changes cash200; page closes; a new page in the same isolated browser context starts normally with no save-slot override; identical persisted save hash is found; original main-menu RESTORE GAME is clicked; original bank and cash100 are restored.",
+    "visualReview": "Independently inspected 06-restored-from-menu.png: original bank dialog, cash100 and Week #1.",
+    "screenshot": {
+      "path": "reports/browser-evidence/save-restore/06-restored-from-menu.png",
+      "sha256": "ac0e60fb8d9b47cc1e69fe719106fcd22986a42f8426704e16068f2e40097b04"
+    },
+    "limits": "Desktop Chromium with software WebGL, controlled isolated browser context. Does not exercise browser-process restart or every gameplay rule."
+  },
+  "finalIntegrationEvidence": {
+    "report": "reports/browser_runtime.json",
+    "allChecksPassed": true,
+    "originalF7AndMenuRestore": "Final run saved bank cash200, deposited again to100, restored200 with F7, then restored the same original save after page closure/reopening.",
+    "screenshots": [
+      {
+        "path": "reports/browser-evidence/10-original-saved.png",
+        "sha256": "c672b5e9760c4b70da47fd581a628f9b2ca21b6e9abf20396af18cb1c998c4a3"
+      },
+      {
+        "path": "reports/browser-evidence/11-bank-after-save-deposit.png",
+        "sha256": "b5bc89ef55b28b914fb00f5eac3a49713cfe7616bf1912017317b2034f71e9e7"
+      },
+      {
+        "path": "reports/browser-evidence/13-restored-bank.png",
+        "sha256": "a7aa54aea4e86049c0e7979590fb74831da2c10a74b6463a34c27ff4c0ffbad8"
+      },
+      {
+        "path": "reports/browser-evidence/20-persisted-original-save.png",
+        "sha256": "68aa6e2b6d3b2ea20bd4c15252d41dfa66ea3744f30d86199d3f44f244df6ce2"
+      }
+    ]
+  }
+}

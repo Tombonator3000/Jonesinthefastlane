@@ -1,0 +1,12 @@
+--- a/engines/sci/engine/file.cpp
++++ b/engines/sci/engine/file.cpp
+@@ -363,7 +363,8 @@
+ 		if (g_sci->getGameId() != GID_QFG3 &&
+ 			g_sci->getGameId() != GID_QFG4) {
+ 			const int id = strtol(filename.end() - 3, nullptr, 10);
+-			if (id == kNewGameId || id == kAutoSaveId) {
++			// Jones maps its sole ordinary save to slot 0 in the save/restore kernels.
++			if (id == kNewGameId || (id == kAutoSaveId && g_sci->getGameId() != GID_JONES)) {
+ 				continue;
+ 			}
+ 		}

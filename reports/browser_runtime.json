@@ -1,0 +1,1558 @@
+{
+  "started": "2026-10-02T07:02:23.588Z",
+  "ok": true,
+  "subject": "Unmodified Jones DOS 1.000.060 in source-built ScummVM WebAssembly with documented browser and Jones save compatibility patches",
+  "checks": [
+    {
+      "name": "Original engine starts in English, with no replacement panels",
+      "ok": true,
+      "elapsedMs": 2945,
+      "detail": {
+        "fullscreen": "screen",
+        "canvas": [
+          1280,
+          800
+        ],
+        "arguments": [
+          "./this.program",
+          "--config=/home/web_user/scummvm.ini",
+          "--initial-cfg=/runtime/scummvm.ini",
+          "--path=/games/jones",
+          "--savepath=/home/web_user",
+          "--extrapath=/runtime",
+          "--themepath=/runtime",
+          "--gui-theme=scummmodern",
+          "--no-fullscreen",
+          "--no-aspect-ratio",
+          "--scaler=normal",
+          "--scale-factor=1",
+          "--music-driver=adlib",
+          "--language=en",
+          "sci:jones"
+        ]
+      }
+    },
+    {
+      "name": "Mounted original resource files are byte-identical to the supplied game",
+      "ok": true,
+      "elapsedMs": 5,
+      "detail": [
+        {
+          "name": "resource.map",
+          "bytes": 1800,
+          "sha256": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e"
+        },
+        {
+          "name": "resource.001",
+          "bytes": 313476,
+          "sha256": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599"
+        },
+        {
+          "name": "resource.002",
+          "bytes": 719747,
+          "sha256": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a"
+        },
+        {
+          "name": "version",
+          "bytes": 13,
+          "sha256": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d"
+        }
+      ]
+    },
+    {
+      "name": "Host fullscreen toggles and original 8:5 canvas fits desktop and portrait viewports",
+      "ok": true,
+      "elapsedMs": 3558,
+      "detail": [
+        {
+          "fullscreen": "screen",
+          "backing": [
+            1280,
+            800
+          ],
+          "box": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 800
+          },
+          "viewport": [
+            1280,
+            800
+          ]
+        },
+        {
+          "fullscreen": null,
+          "backing": [
+            1280,
+            800
+          ],
+          "box": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 800
+          },
+          "viewport": [
+            1280,
+            800
+          ]
+        },
+        {
+          "fullscreen": "screen",
+          "backing": [
+            1152,
+            720
+          ],
+          "box": {
+            "x": 64,
+            "y": 0,
+            "width": 1152,
+            "height": 720
+          },
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "fullscreen": "screen",
+          "backing": [
+            390,
+            244
+          ],
+          "box": {
+            "x": 0,
+            "y": 300.125,
+            "width": 390,
+            "height": 243.75
+          },
+          "viewport": [
+            390,
+            844
+          ]
+        },
+        {
+          "fullscreen": "screen",
+          "backing": [
+            1280,
+            800
+          ],
+          "box": {
+            "x": 0,
+            "y": 0,
+            "width": 1280,
+            "height": 800
+          },
+          "viewport": [
+            1280,
+            800
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Original main menu and one-player setup",
+      "ok": true,
+      "elapsedMs": 14424
+    },
+    {
+      "name": "Original bank deposit changes its own cash display",
+      "ok": true,
+      "elapsedMs": 14452,
+      "detail": {
+        "beforeCashPixels": "d363b9499bb37ac02ae35c9c56195433edcdf1508e76f536f268a3169580c915",
+        "afterCashPixels": "72d2d56b530542abfa2bc3603192a2befdeb834a9d46bc99055dca478d7cee4a",
+        "assertion": "Cash glyph pixels changed after Deposit; screenshot inspection confirms the amounts."
+      }
+    },
+    {
+      "name": "Original withdrawal, F5 save and a subsequent deposit alter real SCI state",
+      "ok": true,
+      "elapsedMs": 20103,
+      "detail": [
+        {
+          "path": "/home/web_user/jones.000",
+          "bytes": 26898,
+          "sha256": "ccc8d18316d4d0c9e8848a32c402bce589fc3d1d9cb5d6e96aeeefbfa91792f8"
+        }
+      ]
+    },
+    {
+      "name": "Original F7 restore returns the recorded bank cash display",
+      "ok": true,
+      "elapsedMs": 4536
+    },
+    {
+      "name": "Independent original new game preserves the bank save for later restoration",
+      "ok": true,
+      "elapsedMs": 15027
+    },
+    {
+      "name": "Original employment, Cook application and two real work shifts",
+      "ok": true,
+      "elapsedMs": 27917,
+      "detail": {
+        "beforeCashPixels": "d363b9499bb37ac02ae35c9c56195433edcdf1508e76f536f268a3169580c915",
+        "afterCashPixels": "49b54dbc02393fe9fcfd76c886b90c9bdbc890aaae0d8e8c304e572e5b35684b",
+        "workButton": {
+          "error": 0,
+          "x": 143,
+          "y": 152,
+          "width": 32,
+          "height": 9,
+          "samples": 80,
+          "matches": true
+        }
+      }
+    },
+    {
+      "name": "Original Monolith food purchase uses the displayed price and cash",
+      "ok": true,
+      "elapsedMs": 11279,
+      "detail": {
+        "beforeCashPixels": "49b54dbc02393fe9fcfd76c886b90c9bdbc890aaae0d8e8c304e572e5b35684b",
+        "afterCashPixels": "036a9deaeda4c7d2d11fa4d5628d8baec9f5d3264b5b21a751c8c641fd005e43"
+      }
+    },
+    {
+      "name": "Original Hi-Tech U enrollment and first Trade School lesson",
+      "ok": true,
+      "elapsedMs": 24449,
+      "detail": {
+        "beforeCoursePixels": "e42121ef8d684651befce17104010e28807161fb27e15c6248d99741de93c008",
+        "afterCoursePixels": "9a8beb16ac2e619bc939e982f59f2cea2f72f9cad79ebba427435b081a60c12d"
+      }
+    },
+    {
+      "name": "Original full-week progression through home relaxation",
+      "ok": true,
+      "elapsedMs": 30531,
+      "detail": {
+        "oldWeekPixels": "041c2a242049922bf253bb7fad7245ef12b64cca0a89fa6793cc9f81d733fbca",
+        "newWeekPixels": "2599268eddc84f5c9253a648599c92e6fed44d76c6121490c23e2721d80d9d35",
+        "assertion": "Original week-label pixels changed; inspect screenshot to confirm Week #2 and any original event."
+      }
+    },
+    {
+      "name": "Original resources remain unchanged after gameplay",
+      "ok": true,
+      "elapsedMs": 10,
+      "detail": [
+        {
+          "name": "resource.map",
+          "bytes": 1800,
+          "sha256": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e"
+        },
+        {
+          "name": "resource.001",
+          "bytes": 313476,
+          "sha256": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599"
+        },
+        {
+          "name": "resource.002",
+          "bytes": 719747,
+          "sha256": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a"
+        },
+        {
+          "name": "version",
+          "bytes": 13,
+          "sha256": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d"
+        }
+      ]
+    },
+    {
+      "name": "SCI save survives page closure and reload via engine IndexedDB persistence",
+      "ok": true,
+      "elapsedMs": 11494,
+      "detail": {
+        "saves": [
+          {
+            "path": "/home/web_user/jones.000",
+            "bytes": 26898,
+            "sha256": "ccc8d18316d4d0c9e8848a32c402bce589fc3d1d9cb5d6e96aeeefbfa91792f8"
+          }
+        ],
+        "databases": [
+          {
+            "name": "/home/web_user",
+            "version": 21
+          }
+        ]
+      }
+    },
+    {
+      "name": "Original four-player setup remains available",
+      "ok": true,
+      "elapsedMs": 17576
+    },
+    {
+      "name": "Original challenge Jones and all three difficulty choices remain available",
+      "ok": true,
+      "elapsedMs": 19184,
+      "detail": [
+        {
+          "error": 8.639455782312925,
+          "x": 135,
+          "y": 101,
+          "width": 111,
+          "height": 14,
+          "samples": 392,
+          "matches": true
+        },
+        {
+          "error": 9.142857142857142,
+          "x": 135,
+          "y": 118,
+          "width": 111,
+          "height": 14,
+          "samples": 392,
+          "matches": true
+        },
+        {
+          "error": 7.299319727891157,
+          "x": 135,
+          "y": 135,
+          "width": 111,
+          "height": 14,
+          "samples": 392,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "name": "Play in fullscreen remains fullscreen after the engine initializes",
+      "ok": true,
+      "elapsedMs": 0,
+      "detail": "screen"
+    }
+  ],
+  "screenshots": [
+    {
+      "name": "00-original-startup",
+      "page": "reports/browser-evidence/00-original-startup.png",
+      "canvas": "reports/browser-evidence/00-original-startup-canvas.png",
+      "logicalPixelSha256": "2bbbeeef72a22d6725da75c1973121bc33d41b389bc1781823a3f14a9ada937c",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "01-main-menu",
+      "page": "reports/browser-evidence/01-main-menu.png",
+      "canvas": "reports/browser-evidence/01-main-menu-canvas.png",
+      "logicalPixelSha256": "72f44fb830f45d9e58b031a2ce4d3353300a76afa76d6a1d2e4250e216eb9da3",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "02-player-count",
+      "page": "reports/browser-evidence/02-player-count.png",
+      "canvas": "reports/browser-evidence/02-player-count-canvas.png",
+      "logicalPixelSha256": "026dbd15faace9d252f507dc1a25b3ce88ef407e85311be11000ee2db476e82e",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "03-character-selection",
+      "page": "reports/browser-evidence/03-character-selection.png",
+      "canvas": "reports/browser-evidence/03-character-selection-canvas.png",
+      "logicalPixelSha256": "eb760474ee981026173b9654abad757afe8c1dba3587e06269e61bb1e4365c0f",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "04-original-goals",
+      "page": "reports/browser-evidence/04-original-goals.png",
+      "canvas": "reports/browser-evidence/04-original-goals-canvas.png",
+      "logicalPixelSha256": "e8773a8fa7bc382e6f342908f6be6640ec4e1446070b35b6b7a0876d16b83f88",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "05-challenge-jones",
+      "page": "reports/browser-evidence/05-challenge-jones.png",
+      "canvas": "reports/browser-evidence/05-challenge-jones-canvas.png",
+      "logicalPixelSha256": "b43bfea9dcd61b10710779e318df79ab6870f4a4c03bc5307f894a6b1c9c8988",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "06-week-one",
+      "page": "reports/browser-evidence/06-week-one.png",
+      "canvas": "reports/browser-evidence/06-week-one-canvas.png",
+      "logicalPixelSha256": "49fd6b20a3c0f5afc8bffbb94b682143344f385161513301b452894f94089bc0",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "07-bank-before",
+      "page": "reports/browser-evidence/07-bank-before.png",
+      "canvas": "reports/browser-evidence/07-bank-before-canvas.png",
+      "logicalPixelSha256": "1c04b0dfc93d7d87b0567fb3b5d201eba2dd78524675b3f6ec7d8166fe8be6f3",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "08-bank-deposit",
+      "page": "reports/browser-evidence/08-bank-deposit.png",
+      "canvas": "reports/browser-evidence/08-bank-deposit-canvas.png",
+      "logicalPixelSha256": "f730cdeb6f1130fd5d0dfb83078f629a77caeaada7c0f40b7683678805daaddb",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "08a-bank-withdraw-before-save",
+      "page": "reports/browser-evidence/08a-bank-withdraw-before-save.png",
+      "canvas": "reports/browser-evidence/08a-bank-withdraw-before-save-canvas.png",
+      "logicalPixelSha256": "3f7e5311bfe6436372fe3b3fa32818ad38de1b0fe955188a2b746cc3c9ebf175",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "09-original-save-dialog",
+      "page": "reports/browser-evidence/09-original-save-dialog.png",
+      "canvas": "reports/browser-evidence/09-original-save-dialog-canvas.png",
+      "logicalPixelSha256": "5c3c2b1e5babc388f2e1e7e9901a707d2692c9ca46a8ffebbf2313d71ce928ea",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "10-original-saved",
+      "page": "reports/browser-evidence/10-original-saved.png",
+      "canvas": "reports/browser-evidence/10-original-saved-canvas.png",
+      "logicalPixelSha256": "3f7e5311bfe6436372fe3b3fa32818ad38de1b0fe955188a2b746cc3c9ebf175",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "11-bank-after-save-deposit",
+      "page": "reports/browser-evidence/11-bank-after-save-deposit.png",
+      "canvas": "reports/browser-evidence/11-bank-after-save-deposit-canvas.png",
+      "logicalPixelSha256": "f730cdeb6f1130fd5d0dfb83078f629a77caeaada7c0f40b7683678805daaddb",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "12-original-restore-dialog",
+      "page": "reports/browser-evidence/12-original-restore-dialog.png",
+      "canvas": "reports/browser-evidence/12-original-restore-dialog-canvas.png",
+      "logicalPixelSha256": "db683a5e9860b7c7c7c8d251b1ad10ac645ca56d088264b325384aebf9c76698",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "13-restored-bank",
+      "page": "reports/browser-evidence/13-restored-bank.png",
+      "canvas": "reports/browser-evidence/13-restored-bank-canvas.png",
+      "logicalPixelSha256": "f6838a4e65fa77bd835dcfd22b675fbd35257ee18a8ac64089fe1557a14afa6d",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "fresh-02-player-count",
+      "page": "reports/browser-evidence/fresh-02-player-count.png",
+      "canvas": "reports/browser-evidence/fresh-02-player-count-canvas.png",
+      "logicalPixelSha256": "026dbd15faace9d252f507dc1a25b3ce88ef407e85311be11000ee2db476e82e",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "fresh-03-character-selection",
+      "page": "reports/browser-evidence/fresh-03-character-selection.png",
+      "canvas": "reports/browser-evidence/fresh-03-character-selection-canvas.png",
+      "logicalPixelSha256": "eb760474ee981026173b9654abad757afe8c1dba3587e06269e61bb1e4365c0f",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "fresh-04-original-goals",
+      "page": "reports/browser-evidence/fresh-04-original-goals.png",
+      "canvas": "reports/browser-evidence/fresh-04-original-goals-canvas.png",
+      "logicalPixelSha256": "e8773a8fa7bc382e6f342908f6be6640ec4e1446070b35b6b7a0876d16b83f88",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "fresh-05-challenge-jones",
+      "page": "reports/browser-evidence/fresh-05-challenge-jones.png",
+      "canvas": "reports/browser-evidence/fresh-05-challenge-jones-canvas.png",
+      "logicalPixelSha256": "b43bfea9dcd61b10710779e318df79ab6870f4a4c03bc5307f894a6b1c9c8988",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "fresh-06-week-one",
+      "page": "reports/browser-evidence/fresh-06-week-one.png",
+      "canvas": "reports/browser-evidence/fresh-06-week-one-canvas.png",
+      "logicalPixelSha256": "49fd6b20a3c0f5afc8bffbb94b682143344f385161513301b452894f94089bc0",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "14-employment",
+      "page": "reports/browser-evidence/14-employment.png",
+      "canvas": "reports/browser-evidence/14-employment-canvas.png",
+      "logicalPixelSha256": "6edd68e7755751e6cead35829b5c2a34f501ce4ccee929ec91fb7a33889c86a8",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "15-monolith-jobs",
+      "page": "reports/browser-evidence/15-monolith-jobs.png",
+      "canvas": "reports/browser-evidence/15-monolith-jobs-canvas.png",
+      "logicalPixelSha256": "4e3ae4f997427fa582dcb32fcbb46d948d20a7aa658e61db7d28a62b79a28b35",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "16-job-application-result",
+      "page": "reports/browser-evidence/16-job-application-result.png",
+      "canvas": "reports/browser-evidence/16-job-application-result-canvas.png",
+      "logicalPixelSha256": "50770b73e59cbc03f6f6505067331d1c39220c478c461a53a636a8c09301410d",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17-work-completed",
+      "page": "reports/browser-evidence/17-work-completed.png",
+      "canvas": "reports/browser-evidence/17-work-completed-canvas.png",
+      "logicalPixelSha256": "f5960d58d387c087ac90afe0828a5efe30866e025ce8ee6cfc069fe81203f5dc",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17a-food-before",
+      "page": "reports/browser-evidence/17a-food-before.png",
+      "canvas": "reports/browser-evidence/17a-food-before-canvas.png",
+      "logicalPixelSha256": "821b43991cac4e62277e4ca72310ca6cd090aa9e4d517ca76713e675f9b04f3b",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17b-food-purchased",
+      "page": "reports/browser-evidence/17b-food-purchased.png",
+      "canvas": "reports/browser-evidence/17b-food-purchased-canvas.png",
+      "logicalPixelSha256": "8f149b902966d0f17e18c4698edb350d8e9cca8d90f7eca99afa222be4f4491b",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17c-university",
+      "page": "reports/browser-evidence/17c-university.png",
+      "canvas": "reports/browser-evidence/17c-university-canvas.png",
+      "logicalPixelSha256": "454d7397f58fc72de61f222c73fc5843338bea466d797c89176c1454e7cd9c62",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17d-enrollment-confirmation",
+      "page": "reports/browser-evidence/17d-enrollment-confirmation.png",
+      "canvas": "reports/browser-evidence/17d-enrollment-confirmation-canvas.png",
+      "logicalPixelSha256": "be0df67c68c6955558e3d33cd0ef6f5cf4e1ca22838c581ae7c6db762ae1304f",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17e-enrolled",
+      "page": "reports/browser-evidence/17e-enrolled.png",
+      "canvas": "reports/browser-evidence/17e-enrolled-canvas.png",
+      "logicalPixelSha256": "8f36e07323c8020b49f972ea48f5ee4c8dbe3684efb65a300c600214a796b84b",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "17f-first-lesson",
+      "page": "reports/browser-evidence/17f-first-lesson.png",
+      "canvas": "reports/browser-evidence/17f-first-lesson-canvas.png",
+      "logicalPixelSha256": "15125f7308bf9b22d0a77cf89d7494d8acdbbd2b35ec0182c8b3fab15d37d573",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "18-home",
+      "page": "reports/browser-evidence/18-home.png",
+      "canvas": "reports/browser-evidence/18-home-canvas.png",
+      "logicalPixelSha256": "e8ed7b47a01e3c5ce3ca8c990cc04fb93b8f1f6b8da92957d574b6c2f5638a96",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "19-next-week",
+      "page": "reports/browser-evidence/19-next-week.png",
+      "canvas": "reports/browser-evidence/19-next-week-canvas.png",
+      "logicalPixelSha256": "9454d1d140614a081be155aade4b6d29ab928b703e29c8226a4bf2c39ca252a9",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "20-persisted-original-save",
+      "page": "reports/browser-evidence/20-persisted-original-save.png",
+      "canvas": "reports/browser-evidence/20-persisted-original-save-canvas.png",
+      "logicalPixelSha256": "57e93cf4df9ae3bed74a08f2a96277d2fb0371889f194ebcb5597199f8a6b308",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "21-player-1-goals",
+      "page": "reports/browser-evidence/21-player-1-goals.png",
+      "canvas": "reports/browser-evidence/21-player-1-goals-canvas.png",
+      "logicalPixelSha256": "b113b79d393c96ae5eed5023fcd0ce93914141cc39fb7393914a1740bb5d4024",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "21-player-2-goals",
+      "page": "reports/browser-evidence/21-player-2-goals.png",
+      "canvas": "reports/browser-evidence/21-player-2-goals-canvas.png",
+      "logicalPixelSha256": "7494f333c517c25d3b270e152ac6481b1df7189c6ace49e5731c8de8bd1ca1b3",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "21-player-3-goals",
+      "page": "reports/browser-evidence/21-player-3-goals.png",
+      "canvas": "reports/browser-evidence/21-player-3-goals-canvas.png",
+      "logicalPixelSha256": "8ce88ce1a3bfe5139e8243f1e8c876e72fa51e3e6f3f8111f347793495c0569d",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "21-player-4-goals",
+      "page": "reports/browser-evidence/21-player-4-goals.png",
+      "canvas": "reports/browser-evidence/21-player-4-goals-canvas.png",
+      "logicalPixelSha256": "ba54198eb9f9f2e15fb8610df114e9d1e33e46f9b2a91fd40af53cbed681998b",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "21-four-player-game",
+      "page": "reports/browser-evidence/21-four-player-game.png",
+      "canvas": "reports/browser-evidence/21-four-player-game-canvas.png",
+      "logicalPixelSha256": "49fd6b20a3c0f5afc8bffbb94b682143344f385161513301b452894f94089bc0",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "22-jones-02-player-count",
+      "page": "reports/browser-evidence/22-jones-02-player-count.png",
+      "canvas": "reports/browser-evidence/22-jones-02-player-count-canvas.png",
+      "logicalPixelSha256": "026dbd15faace9d252f507dc1a25b3ce88ef407e85311be11000ee2db476e82e",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "22-jones-03-character-selection",
+      "page": "reports/browser-evidence/22-jones-03-character-selection.png",
+      "canvas": "reports/browser-evidence/22-jones-03-character-selection-canvas.png",
+      "logicalPixelSha256": "eb760474ee981026173b9654abad757afe8c1dba3587e06269e61bb1e4365c0f",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "22-jones-04-original-goals",
+      "page": "reports/browser-evidence/22-jones-04-original-goals.png",
+      "canvas": "reports/browser-evidence/22-jones-04-original-goals-canvas.png",
+      "logicalPixelSha256": "e8773a8fa7bc382e6f342908f6be6640ec4e1446070b35b6b7a0876d16b83f88",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "22-jones-05-challenge-jones",
+      "page": "reports/browser-evidence/22-jones-05-challenge-jones.png",
+      "canvas": "reports/browser-evidence/22-jones-05-challenge-jones-canvas.png",
+      "logicalPixelSha256": "b43bfea9dcd61b10710779e318df79ab6870f4a4c03bc5307f894a6b1c9c8988",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "22-jones-06-jones-difficulty",
+      "page": "reports/browser-evidence/22-jones-06-jones-difficulty.png",
+      "canvas": "reports/browser-evidence/22-jones-06-jones-difficulty-canvas.png",
+      "logicalPixelSha256": "0c5ceecbe887e7db14df87b6587b9358187b5eb6bd7f685dfa46314280b1d704",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "23-original-jones-difficulty",
+      "page": "reports/browser-evidence/23-original-jones-difficulty.png",
+      "canvas": "reports/browser-evidence/23-original-jones-difficulty-canvas.png",
+      "logicalPixelSha256": "0c5ceecbe887e7db14df87b6587b9358187b5eb6bd7f685dfa46314280b1d704",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "24-original-jones-goals-or-start",
+      "page": "reports/browser-evidence/24-original-jones-goals-or-start.png",
+      "canvas": "reports/browser-evidence/24-original-jones-goals-or-start-canvas.png",
+      "logicalPixelSha256": "fd01e0d23410ef1284324324209872afe455ca4e2db460c6686709f476452db1",
+      "display": {
+        "fullscreen": "screen",
+        "buffer": [
+          1280,
+          800
+        ],
+        "bounds": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      }
+    }
+  ],
+  "console": [
+    {
+      "page": "desktop",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "desktop",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "desktop",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "desktop",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "desktop",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "desktop",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "FULLSCREEN_EXIT_TRACE Error\n    at document.exitFullscreen (<anonymous>:4:84)\n    at HTMLButtonElement.fullscreen (http://127.0.0.1:45065/app.js:37:27)"
+    },
+    {
+      "page": "desktop",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: Attempt to free Hunk from address 0013:01be: Invalid segment type 9!"
+    },
+    {
+      "page": "new-game",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "new-game",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "new-game",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "new-game",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "new-game",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "new-game",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "new-game",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "new-game",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "new-game",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "new-game",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "new-game",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "new-game",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    },
+    {
+      "page": "reload",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "reload",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "reload",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "reload",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "reload",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "reload",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    },
+    {
+      "page": "reload",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: Attempt to free Hunk from address 0013:01be: Invalid segment type 9!"
+    },
+    {
+      "page": "four-players",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "four-players",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "four-players",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "four-players",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "four-players",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "four-players",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "four-players",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "four-players",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "four-players",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "four-players",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "four-players",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "four-players",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "info",
+      "text": "[ScummVM] Using configuration file: /home/web_user/scummvm.ini"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: You are missing a valid 'translations.dat' file. GUI translation will not be available!"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "warning",
+      "text": "The ScriptProcessorNode is deprecated. Use AudioWorkletNode instead. (https://bit.ly/audio-worklet)"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "info",
+      "text": "[ScummVM] User picked target 'jones' (engine ID 'sci', game ID 'jones')..."
+    },
+    {
+      "page": "jones-opponent",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "info",
+      "text": "[ScummVM] Running Jones in the Fast Lane (DOS/English)"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "info",
+      "text": "[ScummVM] resource.001: bac3ec6cb3e3920984ab0f32becf5163, 313476 bytes."
+    },
+    {
+      "page": "jones-opponent",
+      "type": "info",
+      "text": "[ScummVM] resource.002: b86daa3ba2784d1502da881eedb80d9b, 719747 bytes."
+    },
+    {
+      "page": "jones-opponent",
+      "type": "info",
+      "text": "[ScummVM] resource.map: 65cbe19b36fffc71c8e7b2686bd49ad7, 1800 bytes."
+    },
+    {
+      "page": "jones-opponent",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: No voice is available for language: en!"
+    },
+    {
+      "page": "jones-opponent",
+      "type": "warning",
+      "text": "[ScummVM] WARNING: SearchSet::addDirectory: gui-icons/ does not exist.!"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "limitations": [
+    "Automated pixels and resource hashes supplement human screenshot inspection; they do not prove every original rule or audio playback."
+  ],
+  "url": "http://127.0.0.1:45065/",
+  "webRoot": "build/browser",
+  "browserVersion": "149.0.7827.55",
+  "distribution": {
+    "version": "0.2.0",
+    "sha256": {
+      ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "LICENSE.md": "24c611c8121c8d0521704659d41043d6642fb43e1a4cc4847d17cce3c416d8ab",
+      "LICENSE.tools.txt": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "app.js": "8a7067623a2d7cb2ad426c84b0f221781b4680b1335dc698bad3f3fbe2db33a0",
+      "display.js": "f5e879c2ecf13d2178fb9877277181af2c2602647b035a7f7a8c35ddc1fed440",
+      "game/resource.001": "9f5191a4aac878eb87ed5a303bdad732f087ab8633a64d1bf8faf2cbbb28a599",
+      "game/resource.002": "cf2c54ba3cbe45304ea075479f74024ada5a2f970e44ad1b0117b03078bb0d7a",
+      "game/resource.map": "f070a57f0e2c86bbf79339b1d41777a15e835d228cb52ff9cd3728a098fa053e",
+      "game/version": "90a82e3b80f046e9b1e1be047001640e8342f04c85855e4cc6e804c05397f01d",
+      "game-files.json": "2e20a4e94667c25c4f5decf28087e75f5717baefc1442db6fb28057ad21d7411",
+      "index.html": "4184fcd3b9f9899a08f6810d5b7cddf07296b4f9b11625716dd64f1d9a551184",
+      "scummvm.ini": "807f1456453545224ba9952f162560e702b81ebc75c942d72699fb65c8e0679a",
+      "style.css": "720d9d753162f2a154e3e20965397fd21103d481b951572e2ea23ca55b6ed807",
+      "vendor/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "vendor/COPYRIGHT": "95c3a8ed18246d6a7135d7ba0aacd4df9a0957f7e1de8f58ec8e011d84557a6b",
+      "vendor/LICENSES/COPYING.Apache": "314ca6233f2849131fc87c24cdf112aa204605051d8f17fbf5982945e34dbb67",
+      "vendor/LICENSES/COPYING.BSD": "80bec7489af9bdd2e0f5467f6267f8985aaaca50e5061c9d02467e103c126628",
+      "vendor/LICENSES/COPYING.BSL": "58afb430442855628fa2509cddd905ad61c12fe564731466f56554edd5344ae5",
+      "vendor/LICENSES/COPYING.GLAD": "d74397819a7776231c638e73b9197a45faad8347278bdfec30a041d1cb808313",
+      "vendor/LICENSES/COPYING.ISC": "4bdb0a32d3ba3070ed77dc48efb5348ce647bac3a1716992fa4cc080b99a3af7",
+      "vendor/LICENSES/COPYING.LGPL": "f2c0f033c76185c3c981ad458ea433ca2787ab9b6f4623cab500fc8024db0e05",
+      "vendor/LICENSES/COPYING.LUA": "8e0272ae02203977f9d0312bd82fe2498f37741b51c52731b9af0d66dbde7b6a",
+      "vendor/LICENSES/COPYING.MIT": "acc32538625eb6a7b2bdd43749a787efe9544400e10e5c01fb6dd91a1a60b94b",
+      "vendor/LICENSES/COPYING.MKV": "cfac47baf5d584bc5458c90b33116087dd1bda638adf751f123e7d176e4ac67f",
+      "vendor/LICENSES/COPYING.MPL": "c92198047ac07252eada8d895a9cbe9473504d54b28e7646b5fb053f876b9fc2",
+      "vendor/LICENSES/COPYING.OFL": "a79c445b3f3061588468e44bc9fff8b8ebac169374fabb482ea7274a478b45b5",
+      "vendor/LICENSES/COPYING.TINYGL": "f62a84ca5a9a1a6f36d63336c461b6d21902fdfa84a50969b0d9ec6c6f0b90d3",
+      "vendor/LICENSES/CatharonLicense.txt": "372251a3ce2ecdb74e076dede2c7d0d1e16a5003c548177e9908627192dd064c",
+      "vendor/README.md": "6cf1d1afff1c52e7a8e979b44b26a049714ec227d0899013c082d27ec8f3f05b",
+      "vendor/browser-integration.patch": "b00fe22f94df7b84705965d5eafbe8afbab6a3dfe742aeeee8735f2393bfc39b",
+      "vendor/data/index.json": "4f5e285c1d3e6870724cfa5e9223c1ab54fb6bf6f463587be83c6b6001f86354",
+      "vendor/data/scummclassic.zip": "ab888c8d34b09f9dc9101496fbad3e137a0f8beb89ea9638367f9f3d80117345",
+      "vendor/data/scummmodern.zip": "13df1daf58eacc88fdb4a33c23ae0f5792927e6d9233b37decb6233ac660b155",
+      "vendor/data/shaders.dat": "1e7839515c92b0e55198a6c96666dcd369ac3d4efab0190a265d244fda65f9e9",
+      "vendor/manifest.json": "27f61a89ad98fca53a4be1e89e5dff67486537b724e81a96fc78dac3bb6f00db",
+      "vendor/sci-save-compatibility.patch": "8a41082ad25db461c2af80a4bcbff22def6461d79d50a42c9fd31db72ae2780d",
+      "vendor/scummvm.js": "9fba0a9dd66da8ce7f1b359ec2ccf244714d056f5dfba3a15a4cf6f8075d201c",
+      "vendor/scummvm.wasm": "cdc921d43386805dd24050a4ba3abdb171918b91ad8f3eaa4c08546167288020",
+      "vendor/sdl-browser-integration.patch": "dc0f1871fbb3190bb32cd7b89340290b014200da6f3a59e9924500c329fbc8b6"
+    }
+  },
+  "finished": "2026-10-02T07:06:01.263Z"
+}

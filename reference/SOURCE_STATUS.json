@@ -6,5 +6,8 @@
   "high_level_sc_files_included": false,
   "download_tool_included": true,
   "source_binary_equivalence_checked": false,
-  "recompilation_checked": false
+  "recompilation_checked": false,
+  "reference_download_verified_on": "2026-10-02",
+  "downloaded_reference_files": 139,
+  "reference_download_note": "Pinned sources verified locally by Git blob SHA; upstream directory is ignored, reproducible with tools/fetch_reference_sources.py. Not bundled or bytecode-equivalence verified."
 }

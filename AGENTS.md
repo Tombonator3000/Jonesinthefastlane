@@ -1,34 +1,33 @@
-# Jones-prosjektet — arbeidsregler
+# Jones project — working rules
 
-## Mål og faktisk status
+## Required experience
 
-Målet er en spillbar, redigerbar moderne port, ikke bare emulering. Nåværende leveranse er et SCI1-arbeidsverktøy med uttrekk, lossless lavnivåkode og patch-import. Ikke omtale dette som en ferdig høynivådekompilering, testet gjennomspilling eller ferdig PC-port.
+The user requires the original Jones in the Fast Lane design and behavior, **1:1, fullscreen and entirely in English**. Keep the original menus, 1–4 player selection, characters, goal setting, Jones opponent, shops, job applications, time, economy, Save/Restore and interaction methods. Do not substitute dashboards, action sidebars, a new name-entry form, simplified rules or translated game text.
 
-Repoet ble startet fra den lokale arbeidspakken 2. oktober 2026. Tekstverktøy kan være på plass før den store ZIP-importen. Kontroller `original/resource.map`, `graphics/views/` og `reports/github_import.json` før du hevder at hele pakken er importert.
+The browser executes original SCI scripts in ScummVM WebAssembly. This is an interpreter-based browser runtime, not a complete high-level native source port. New graphics/shaders/resolution options may alter presentation only. Original pixels are the default. Do not claim exhaustive parity from a short play test.
 
-## Bevar brukerens arbeid
+## Preserve existing material
 
-- Ikke endre eller slette originalfiler. Kontroller `reports/original_files.sha256`.
-- Ikke overskriv andres grener, arbeidsfiler, skjermbilder eller endrede ressurser. Ikke force-push.
-- Arbeids-PNG, tekst-JSON og redigerte skript legges i egne arbeidsmapper. Ferdige SCI-patcher legges i `mods/`; bygg til en separat ny mappe.
-- Originalmateriale og tredjepartsdekompilering er ikke ny GPL-lisensiert egenkode. Bevar kildehenvisninger og lisensskiller.
+- Do not edit or delete files in `original/`. Verify `reports/original_files.sha256`.
+- Do not overwrite other branches, working files, screenshots, modified resources or saves. Never force-push.
+- Edited assets, text and scripts belong in separate work directories. SCI resource patches go in `mods/`; builds go in a separate generated directory.
+- Keep original Sierra material, third-party decompiled sources, ScummVM and new tools clearly attributed and separately licensed.
+- The rejected custom JavaScript gameplay prototype is not part of the release. Do not restore its replacement rules/UI.
 
-## Tester og kommandoer
+## Verification
 
 ```sh
-python -m pip install -r requirements.txt
-python -m unittest discover -s tests -p test_import_workbench.py -v
-# De neste kommandoene krever komplett import av spilldata:
-python tools/jones.py verify
-python -m unittest discover -s tests -v
+python3 -m pip install -r requirements.txt
+python3 tools/jones.py verify
+python3 -m unittest discover -s tests -v
+python3 tools/build_browser.py
+pnpm install --frozen-lockfile
+pnpm exec playwright install chromium
+pnpm test:browser
 ```
 
-69 uendrede skript skal kunne sammenstilles til byte-identiske originalskript. Skill datatester fra testing i en faktisk SCI-motor. Dokumenter feil, ikke gjør en mislykket test om til en bestått test ved å svekke forventningen.
+All 69 unchanged scripts must assemble to byte-identical original scripts. Separate static data tests from real engine/browser tests. Preserve failures and their evidence rather than weakening expectations.
 
-## Videre utvikling
+For browser changes exercise original startup, menu, player setup, a week, job, bank, shop, education and original save/restore as relevant. Verify fullscreen and coordinate mapping at different aspect ratios. Rendering must fall back to the original canvas if an optional effect fails. Do not promote a package without checking that the packaged build is the one tested.
 
-Første kjøretest: originaloppstart, menyvalg, en spilleruke, jobb, bank, butikk, utdanning, lagring/lasting og én grafikk-/tekstpatch. Noter konkret hva som er testet. Skill deretter ut tid, økonomi, arbeid, utdanning og mål i moderne moduler med eksplisitte regresjonstester. Ikke endre spillregler uten å dokumentere forskjellen fra originalen.
-
-`tools/fetch_reference_sources.py` henter en fastlåst ekstern referanseutgave til `reference/upstream/`. Den skal ikke blandes sammen med koden hentet ut fra brukerens binærfiler eller hevdes å være bytekodevalidert uten målinger.
-
-Gjenbrukbare metoder og skills for brukerens spillprosjekter finnes i https://github.com/Tombonator3000/prosjektbibliotek . Les relevant metode før bruk; ikke importer hele biblioteket ukritisk.
+`tools/fetch_reference_sources.py` downloads a pinned, separately attributed third-party reference into ignored `reference/upstream/`. It is navigation/research material, not automatically validated equivalent source.

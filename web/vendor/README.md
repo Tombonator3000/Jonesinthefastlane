@@ -1,0 +1,19 @@
+# ScummVM browser runtime
+
+This directory contains a local SCI-only WebAssembly build of official **ScummVM 2026.3.0**, source commit `fed42f2068dcafc6aafa1c28c77e4c88def74b66`, compiled with Emscripten **4.0.10**. It is not a third-party emulator wrapper.
+
+- `scummvm.js` and `scummvm.wasm`: statically linked SCI runtime; no engine-plugin or `.data` download is needed.
+- `data/`: original upstream GUI themes and shader archive, with a byte-length index for loading into the Emscripten filesystem.
+- `manifest.json`: source and toolchain pins, configure flags, API contract, and SHA-256 for every delivered file.
+- `browser-integration.patch`: the ScummVM platform integration changes. They preserve the surrounding page's `Module.arguments`, remove automatic external MIDI/sysex access, expose filesystem/loading functions, and use the host canvas's CSS dimensions without desktop window decorations.
+- `sdl-browser-integration.patch`: the SDL 3.2.4 browser adapter honors `Module.hostManagedFullscreen`. Internal SDL window updates cannot exit fullscreen on the page's outer container.
+- `sci-save-compatibility.patch`: one SCI save-kernel compatibility fix. Jones's save/check/restore kernels map its sole ordinary save to slot 0, but the upstream save-list filter hides that slot as an autosave. This patch includes slot 0 for Jones so the original Restore menu finds it, while preserving new-game filtering and other games' behavior. Original Sierra scripts and resources are unchanged.
+- `COPYING`, `COPYRIGHT`, `LICENSES/`: upstream copyright and licence texts, including third-party notices.
+
+ScummVM is GPL-3.0-or-later. Corresponding source is the [official release archive](https://downloads.scummvm.org/frs/scummvm/2026.3.0/scummvm-2026.3.0.tar.xz), [SDL 3.2.4](https://github.com/libsdl-org/SDL/archive/release-3.2.4.zip), the included integration patches and the build script at `tools/fetch_scummvm_web.py`. The official ScummVM source SHA-256 is `b863a81e1598df8bc4aa0c33e3d9b1c8bbede1879d94d91568a4f200057677e7`. The source is also available at the [pinned upstream commit](https://github.com/scummvm/scummvm/tree/fed42f2068dcafc6aafa1c28c77e4c88def74b66). SDL source has the SHA-512 pinned by Emscripten's official SDL3 port, recorded in the manifest.
+
+From the repository root, `python3 tools/fetch_scummvm_web.py --verify` checks the delivered vendor files. Running it without `--verify` downloads the pinned source/SDK into a user cache and rebuilds with two compiler jobs. Python 3.12+, make and pkg-config are needed; the script does not install system packages. Build outputs may contain build-time metadata, so the manifest pins the delivered binary bytes separately from the source/toolchain pins.
+
+The runtime consumes a global `Module` object, with `canvas`, `arguments`, `locateFile` and `preRun`. Public methods include `FS`, `ENV`, `callMain`, `addRunDependency` and `removeRunDependency`. Set `Module.hostManagedFullscreen=true` and pass `--no-fullscreen` for this host: the page controls fullscreen on its outer container, including display controls, while the runtime uses the canvas's CSS rectangle. Browser-native fullscreen exit and reentry remain available. The upstream backend automatically mounts `ENV.HOME` using IndexedDB (`IDBFS`, `autoPersist: true`). The page must not mount that path a second time. Game resources are loaded into a separate memory filesystem location. Native game UI, scripts, game rules, cursor handling and audio remain inside the SCI runtime.
+
+The backend reserves `/data` for its HTTP filesystem. This game's page preloads the small runtime assets into `/runtime`, sets `--extrapath=/runtime --themepath=/runtime`, and provides an empty `/data/index.json` cache entry. This keeps hosting independent of an absolute `/data` URL at the domain root, including GitHub Pages subdirectories.

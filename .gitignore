@@ -6,3 +6,6 @@ saves/
 logs/
 scummvm-local.ini
 *.download-part
+node_modules/
+reference/upstream/
+reports/browser-local/

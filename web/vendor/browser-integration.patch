@@ -1,0 +1,112 @@
+--- a/configure
++++ b/configure
+@@ -3363,7 +3363,7 @@
+ 		append_var LDFLAGS "-s ASYNCIFY=1 -s ASYNCIFY_STACK_SIZE=1048576"
+ 
+ 		append_var LDFLAGS "-s EXPORTED_FUNCTIONS=[_main,_malloc,_free,_raise]"
+-		append_var LDFLAGS "-s EXPORTED_RUNTIME_METHODS=[ccall,lengthBytesUTF8,setValue,writeArrayToMemory]"
++		append_var LDFLAGS "-s EXPORTED_RUNTIME_METHODS=[ccall,lengthBytesUTF8,setValue,writeArrayToMemory,FS,ENV,callMain,addRunDependency,removeRunDependency]"
+ 
+ 		append_var LDFLAGS "-O2"
+ 		_optimization_level=-O2
+--- a/dists/emscripten/custom_shell-pre.js
++++ b/dists/emscripten/custom_shell-pre.js
+@@ -1,25 +1,2 @@
+-/*global Module*/
+-Module["arguments"] = [];
+-
+-// Add all parameters passed via the fragment identifier
+-if (window.location.hash.length > 0) {
+-    params = decodeURI(window.location.hash.substring(1)).split(" ")
+-    params.forEach((param) => {
+-        Module["arguments"].push(param);
+-    })
+-}
+-
+-// MIDI support
++/* Jones browser shell preserves Module arguments; no external MIDI devices requested. */
+ var midiOutputMap;
+-if (!("requestMIDIAccess" in navigator)) {
+-	console.error("No MIDI support in your browser.");
+-} else {
+-	navigator
+-		.requestMIDIAccess({ sysex: true, software: true })
+-		.then((midiAccess) => {
+-			midiOutputMap = midiAccess.outputs;
+-			midiAccess.onstatechange = (e) => {
+-				midiOutputMap = e.target.outputs;
+-			};
+-		});
+-}
+--- a/backends/platform/sdl/emscripten/emscripten.cpp
++++ b/backends/platform/sdl/emscripten/emscripten.cpp
+@@ -38,10 +38,11 @@
+ 
+ // Inline JavaScript, see https://emscripten.org/docs/api_reference/emscripten.h.html#inline-assembly-javascript for details
+ EM_JS(bool, isFullscreen, (), {
+-	return !!document.fullscreenElement;
++	return !Module['hostManagedFullscreen'] && !!document.fullscreenElement;
+ });
+ 
+ EM_JS(void, toggleFullscreen, (bool enable), {
++	if (Module['hostManagedFullscreen']) return;
+ 	let canvas = document.getElementById('canvas');
+ 	if (enable && !document.fullscreenElement) {
+ 		canvas.requestFullscreen();
+--- a/backends/platform/sdl/sdl-window.cpp
++++ b/backends/platform/sdl/sdl-window.cpp
+@@ -30,6 +30,10 @@
+ 
+ #include "icons/scummvm.xpm"
+ 
++#ifdef __EMSCRIPTEN__
++#include <emscripten/html5.h>
++#endif
++
+ #if SDL_VERSION_ATLEAST(3, 0, 0)
+ static const uint32 fullscreenMask = SDL_WINDOW_FULLSCREEN;
+ #elif SDL_VERSION_ATLEAST(2, 0, 0)
+@@ -424,6 +428,20 @@
+ }
+ 
+ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
++	bool hostManagedFullscreen = false;
++#ifdef __EMSCRIPTEN__
++	hostManagedFullscreen = EM_ASM_INT({ return !!Module['hostManagedFullscreen']; });
++	if (hostManagedFullscreen) {
++		// The browser host owns the outer fullscreen element and canvas CSS size.
++		// A canvas has no desktop window decorations or independent fullscreen mode.
++		flags &= ~fullscreenMask;
++		double cssWidth, cssHeight;
++		if (emscripten_get_element_css_size("#canvas", &cssWidth, &cssHeight) == EMSCRIPTEN_RESULT_SUCCESS) {
++			width = MAX(1, (int)(cssWidth + 0.5));
++			height = MAX(1, (int)(cssHeight + 0.5));
++		}
++	}
++#endif
+ #if SDL_VERSION_ATLEAST(3, 0, 0)
+ 	if (_inputGrabState) {
+ 		flags |= SDL_WINDOW_MOUSE_GRABBED;
+@@ -468,7 +486,7 @@
+ 	// maximum for now.
+ 	Common::Rect desktopRes = getDesktopResolution();
+ 	if (
+-		!fullscreenFlags
++		!fullscreenFlags && !hostManagedFullscreen
+ #if defined(MACOSX)
+ 		// On macOS a maximized window is borderless
+ 		&& !(flags & SDL_WINDOW_MAXIMIZED)
+@@ -489,11 +507,11 @@
+ 		desktopRes.bottom -= (top + bottom);
+ 	}
+ 
+-	if (width > desktopRes.right) {
++	if (!hostManagedFullscreen && width > desktopRes.right) {
+ 		width = desktopRes.right;
+ 	}
+ 
+-	if (height > desktopRes.bottom) {
++	if (!hostManagedFullscreen && height > desktopRes.bottom) {
+ 		height = desktopRes.bottom;
+ 	}
+ 

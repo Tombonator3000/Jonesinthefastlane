@@ -1,0 +1,635 @@
+{
+  "schema": 1,
+  "source": "User-provided Jones in the Fast Lane DOS 1.000.060 SCI resources",
+  "rights": "Original Sierra game artwork; not licensed under the tool GPL licence.",
+  "generator": "tools/export_browser_assets.py",
+  "source_digest_scope": "SHA-256 of decompressed SCI resource payload, excluding patch header",
+  "coordinate_system": {
+    "width": 320,
+    "height": 200,
+    "origin": "top-left",
+    "pixel_aspect": "original 320x200; display at 4:3 if desired"
+  },
+  "format_references": [
+    "https://github.com/scummvm/scummvm/blob/master/engines/sci/graphics/picture.cpp",
+    "https://github.com/scummvm/scummvm/blob/master/engines/sci/graphics/screen.cpp"
+  ],
+  "scenes": [
+    {
+      "id": 0,
+      "name": "opening",
+      "file": "scenes/pic_0000.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.000",
+      "source_sha256": "f27f2db16d3fba181c9b7d4b435837a027c757ed1a2a83557f38ec43debac34d",
+      "png_sha256": "08978b9b4c18da17e1cd64e7f5cc441a2b8bfa0977eb6c89d6b2b4b615ec20b1",
+      "embedded_cels": [
+        {
+          "x": 63,
+          "y": 10,
+          "width": 193,
+          "height": 165
+        }
+      ],
+      "drawing_commands": 168
+    },
+    {
+      "id": 1,
+      "name": "blue_grid",
+      "file": "scenes/pic_0001.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.001",
+      "source_sha256": "1594b2b6607f4a288a2d2b98adc52bd7cf6a5c530bc6b3435ef2ffc08578bab7",
+      "png_sha256": "22c41c02eed8c7e1b05336eb9197d23d57cf8fbd525354d0ac4ed15af2580d5d",
+      "embedded_cels": [],
+      "drawing_commands": 164
+    },
+    {
+      "id": 2,
+      "name": "green_grid",
+      "file": "scenes/pic_0002.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.002",
+      "source_sha256": "c50199acc3483aee27a2333172aaf7c77c31b105f8ceab192a410270b2a42ba3",
+      "png_sha256": "38c37bf10c363fa6ad3f658694a339c441258f3829407e08e3cb9cc5b670439d",
+      "embedded_cels": [],
+      "drawing_commands": 164
+    },
+    {
+      "id": 3,
+      "name": "violet_grid",
+      "file": "scenes/pic_0003.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.003",
+      "source_sha256": "a231f9696af30bef6d013a5e99a7709457e934affbe73145558fb5ca3e8d899a",
+      "png_sha256": "61953399870c919438f5f071ac36913b03b65602bec2cc3922d489788e0e1580",
+      "embedded_cels": [],
+      "drawing_commands": 164
+    },
+    {
+      "id": 4,
+      "name": "red_grid",
+      "file": "scenes/pic_0004.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.004",
+      "source_sha256": "7201612675c170b216ccc6f27f77283f5ad42113405594173e3bcbb0ba76ddd5",
+      "png_sha256": "3fbd2e21f2dfda02af6b4d9210559de9d058faebe0d1ca172bf6bd3cff0de62d",
+      "embedded_cels": [],
+      "drawing_commands": 164
+    },
+    {
+      "id": 5,
+      "name": "neutral_grid",
+      "file": "scenes/pic_0005.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.005",
+      "source_sha256": "8de723e2123d8aa561f9bf3813f5804d3f19d5352e2faa24fd0f5f396314371f",
+      "png_sha256": "6335573164eefc54ccf5ab4d8b6a477f8eb57739b5f67632ae6d0e8fd90da912",
+      "embedded_cels": [],
+      "drawing_commands": 164
+    },
+    {
+      "id": 11,
+      "name": "town",
+      "file": "scenes/pic_0011.png",
+      "width": 320,
+      "height": 200,
+      "source_resource": "pic.011",
+      "source_sha256": "142fff18987fffea16bb47369b7423505893a4c8cd9dd73c293130600d72efb1",
+      "png_sha256": "a4859e7d85c5401d289be44bbf5f0902cb11205a48a07ccabdc995aafe88275f",
+      "embedded_cels": [
+        {
+          "x": 1,
+          "y": 0,
+          "width": 319,
+          "height": 199
+        },
+        {
+          "x": 7,
+          "y": 1,
+          "width": 43,
+          "height": 43
+        },
+        {
+          "x": 85,
+          "y": 3,
+          "width": 41,
+          "height": 22
+        },
+        {
+          "x": 134,
+          "y": 2,
+          "width": 52,
+          "height": 34
+        },
+        {
+          "x": 201,
+          "y": 5,
+          "width": 39,
+          "height": 28
+        },
+        {
+          "x": 258,
+          "y": 2,
+          "width": 49,
+          "height": 30
+        },
+        {
+          "x": 264,
+          "y": 32,
+          "width": 42,
+          "height": 43
+        },
+        {
+          "x": 257,
+          "y": 80,
+          "width": 40,
+          "height": 36
+        },
+        {
+          "x": 255,
+          "y": 132,
+          "width": 44,
+          "height": 52
+        },
+        {
+          "x": 191,
+          "y": 141,
+          "width": 59,
+          "height": 41
+        },
+        {
+          "x": 75,
+          "y": 151,
+          "width": 47,
+          "height": 34
+        },
+        {
+          "x": 9,
+          "y": 176,
+          "width": 32,
+          "height": 13
+        },
+        {
+          "x": 11,
+          "y": 92,
+          "width": 43,
+          "height": 54
+        },
+        {
+          "x": 25,
+          "y": 69,
+          "width": 43,
+          "height": 37
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "width": 60,
+          "height": 39
+        }
+      ],
+      "drawing_commands": 159
+    }
+  ],
+  "views": [
+    {
+      "id": 280,
+      "name": "player_business_man",
+      "file": "views/view_0280.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 43,
+      "height": 95,
+      "source_resource": "view.280",
+      "source_sha256": "0a96e85a41bcc00341f373907bff8338b4a2a7ecaa2de2ae4ee22c929d0c010d",
+      "png_sha256": "87745679f4d2e47ff40a855b64412a1866b3d6424ec3e2b332bb6d2104e78266"
+    },
+    {
+      "id": 282,
+      "name": "player_casual_man",
+      "file": "views/view_0282.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 39,
+      "height": 95,
+      "source_resource": "view.282",
+      "source_sha256": "ab2f17f547349e29a2c9c9e17ce0cc6156a25fcd9026132d096b10cde300e302",
+      "png_sha256": "d4f50a0a0033595d168ba4dd1f543612ffaac5abf417238410268efdd7ac1663"
+    },
+    {
+      "id": 284,
+      "name": "player_business_woman",
+      "file": "views/view_0284.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 39,
+      "height": 95,
+      "source_resource": "view.284",
+      "source_sha256": "879f567d92eae34a5691f30bdfc1836fbb1f84554b870b0b22ddb3823810815e",
+      "png_sha256": "d9806e30055855e9beb7f61ee9e62e5a33c7edfe69f28e737022b7e56570e67a"
+    },
+    {
+      "id": 286,
+      "name": "player_casual_woman",
+      "file": "views/view_0286.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 38,
+      "height": 95,
+      "source_resource": "view.286",
+      "source_sha256": "7ef489c0c2949dc665c563716968bfa733321c4335132683dd84ff2504a8446a",
+      "png_sha256": "95462cc613cc208a11004eda452b56e6a81aad4785e351922432eba282cab0d0"
+    },
+    {
+      "id": 290,
+      "name": "player2_business_man",
+      "file": "views/view_0290.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 41,
+      "height": 95,
+      "source_resource": "view.290",
+      "source_sha256": "b06fc22ad039f1e766d18307e9039bf41859d088263efaa125a690365e097637",
+      "png_sha256": "0349e0936cc8cce09fbdd94a405f634a476c61a463b1bbce30abd9affbb393b3"
+    },
+    {
+      "id": 292,
+      "name": "player2_casual_man",
+      "file": "views/view_0292.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 43,
+      "height": 95,
+      "source_resource": "view.292",
+      "source_sha256": "1e10f0d8aee61aab05a3f6996b3e0e50391004127ba817ec7be974d328d0adf0",
+      "png_sha256": "2a2debbd72d9f71b1dad9e66daa83b25e910660b341db3ec1d73b95d9494c47c"
+    },
+    {
+      "id": 294,
+      "name": "player2_business_woman",
+      "file": "views/view_0294.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 38,
+      "height": 95,
+      "source_resource": "view.294",
+      "source_sha256": "ddc995ef729b4d584c3fde214786ec0627ff5f31d19b4c0b4227d889de93914a",
+      "png_sha256": "c087075e4e9e497f091f4f6987d0d51429b326809c1dc5ec0d558aff79a96873"
+    },
+    {
+      "id": 296,
+      "name": "player2_casual_woman",
+      "file": "views/view_0296.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 39,
+      "height": 95,
+      "source_resource": "view.296",
+      "source_sha256": "eb8d4b25971318ed0cd9bc7d9a399ee6fb911e2a71792284cb1cdb5274f4bc80",
+      "png_sha256": "b91e710894e00aa9075548abf535493099ab50a3b114e5800efcc0abeb7ae399"
+    },
+    {
+      "id": 351,
+      "name": "portrait_351",
+      "file": "views/view_0351.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.351",
+      "source_sha256": "e666f1c9437be6e03abd6a9edf69f163493bb7e3c5b43bc07eb03ae0cd8fbfce",
+      "png_sha256": "44a1c6580b67434ce430ae5182eef1f5b0ebdb2dfddbd74cabc8185657c71466"
+    },
+    {
+      "id": 353,
+      "name": "portrait_353",
+      "file": "views/view_0353.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.353",
+      "source_sha256": "dc57d6d6c2b6034fcb22d166a21e4df059d612a84e2d25753f09134d352ab693",
+      "png_sha256": "19bac2c5580eddbc568af72b7f5fec78fbccd5a847b6e099d8629256bd4f7c8e"
+    },
+    {
+      "id": 354,
+      "name": "portrait_bank",
+      "file": "views/view_0354.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 58,
+      "source_resource": "view.354",
+      "source_sha256": "a8e3ea4e12014d6cb1885055233db97a75bd4297030dfcb45da5064e1fb8b4e5",
+      "png_sha256": "756e295c79a670a843f59db0905a54db98d9fa81e5b991698c9ccc37028c006c"
+    },
+    {
+      "id": 355,
+      "name": "portrait_355",
+      "file": "views/view_0355.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.355",
+      "source_sha256": "888ca37608865319d612fabb2a721df8e03a4b3e77cd431f6342bc5759ae85ab",
+      "png_sha256": "9c966eba182bdc464a73c942afafa9e8a350d229d5296942a0742fd18a57004f"
+    },
+    {
+      "id": 356,
+      "name": "portrait_356",
+      "file": "views/view_0356.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.356",
+      "source_sha256": "b48325a766b46a9e70f0dd98e2321ab4d09028e8c3942e93cc7585ab286e344c",
+      "png_sha256": "e1110ab7f50203f9293463ff2b2a276181d135bb2a95ba5a6fb8391b86e08980"
+    },
+    {
+      "id": 357,
+      "name": "portrait_university",
+      "file": "views/view_0357.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.357",
+      "source_sha256": "aa864bcf3a95b3f99cde81d61aeede06f31ad8233e1afb51375a3bf85f62769c",
+      "png_sha256": "e402aad31041d0d357cdb0a1d952fee8dd4fe9d56c5c392d3a3dd96a09afb69b"
+    },
+    {
+      "id": 358,
+      "name": "portrait_358",
+      "file": "views/view_0358.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.358",
+      "source_sha256": "3846c973bb64a0ba61f0b28634228f3500bba84b0ff002bf8fd06d8adda7bce8",
+      "png_sha256": "286c32824030e0ff69aeeff4d2d0831e213f497b8042ca914ef49fca2f74827c"
+    },
+    {
+      "id": 359,
+      "name": "portrait_359",
+      "file": "views/view_0359.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.359",
+      "source_sha256": "65a64ac4aa399e971c44ff74d7d32ace778f03e84a9e40c4a062a66e2d58d428",
+      "png_sha256": "5bd97e24bd914ac99e3f54f92c89ddc1fc732e26412fb85a5467b9d76dfaa4b2"
+    },
+    {
+      "id": 360,
+      "name": "portrait_360",
+      "file": "views/view_0360.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.360",
+      "source_sha256": "4f93eae9ab9639c9b0247b42da749137786c6c2257d97264c5a69e6bc6c9e637",
+      "png_sha256": "638ae71c035b73042149a0150e822f2b65c78cd7f637e030807c2ca1b0e712fd"
+    },
+    {
+      "id": 361,
+      "name": "portrait_361",
+      "file": "views/view_0361.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.361",
+      "source_sha256": "ec56e4d614ae7b1ebfac859e18dbc8933cce0c4f7044ab9b57e29fd997da5f01",
+      "png_sha256": "c290d8032a5baf821cf30e5a85ff001c08b96d2c8cec3e6187d59012892355de"
+    },
+    {
+      "id": 362,
+      "name": "portrait_362",
+      "file": "views/view_0362.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 68,
+      "height": 55,
+      "source_resource": "view.362",
+      "source_sha256": "fde8e1ed41e44d251c19c550227365c55e6e9df686652ce280e60cc6e0e4590d",
+      "png_sha256": "4c497fc95d5b6f1cd17348a0b7acfd12e665c15e55278858c59d75845a5336b5"
+    },
+    {
+      "id": 697,
+      "name": "rental_exterior",
+      "file": "views/view_0697.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.697",
+      "source_sha256": "1902a43d1693e472535f3712b5bb48849feab8cb1910cbd822359136f0638608",
+      "png_sha256": "18adf6ba02457ec26cf63b3f89a68ef982e7a037f637bd5ce269b504c447a2d2"
+    },
+    {
+      "id": 698,
+      "name": "security_exterior",
+      "file": "views/view_0698.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.698",
+      "source_sha256": "d27e3a94f431aa3bb6adef847620c690e05e37150f86a7792e4f81ff4b22bfe9",
+      "png_sha256": "21d34c1ea169d0d593589dd15994cffb246360de0e7b0a2a4c4f16c63ae98bb1"
+    },
+    {
+      "id": 699,
+      "name": "rental_house",
+      "file": "views/view_0699.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.699",
+      "source_sha256": "7cb1829494c1cb2a50de291b77bed69e2375aa74b82105eb3ec49ea587c72d8e",
+      "png_sha256": "5b54ec12e01c2354b6cb9ec0a8630eacf493e524064551700cbe5bde945cb7b0"
+    },
+    {
+      "id": 700,
+      "name": "lowcost_apartment",
+      "file": "views/view_0700.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.700",
+      "source_sha256": "ae22add43e73c5622fbfdba9e816c747d1905c1128a15610483345617581ee89",
+      "png_sha256": "e5f8e64f4eb97810bdf6c768f45c16267ede22559c12860531405c521f83f6fc"
+    },
+    {
+      "id": 701,
+      "name": "rent_office",
+      "file": "views/view_0701.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 49,
+      "height": 30,
+      "source_resource": "view.701",
+      "source_sha256": "681d5f7fcc6206808c7070a534df38555d2198b29d71be777ac1817fec8a3abe",
+      "png_sha256": "e6aaa7719d9ed3085491f2bb03802d3a85fd0baada40ef0a1fb688d4e3970451"
+    },
+    {
+      "id": 702,
+      "name": "security_apartment",
+      "file": "views/view_0702.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.702",
+      "source_sha256": "977152c2ac0adb13582a8d4dc21f33af54798ed874e75ea992da1257366aaafd",
+      "png_sha256": "d12e3f863f7f83bb1b0c0f829ff33233cf3af79f64e178c4b3c6925e5ffeab6d"
+    },
+    {
+      "id": 705,
+      "name": "factory",
+      "file": "views/view_0705.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.705",
+      "source_sha256": "f1293a591b894100f4bd37bd2ff303aad0e457cc21e803483449c4b236e7965c",
+      "png_sha256": "432123798c00f5c162ff0425725f43cfa2167dcf6d4ee826fd8188d9d62f06fc"
+    },
+    {
+      "id": 706,
+      "name": "employment",
+      "file": "views/view_0706.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.706",
+      "source_sha256": "4252001dae2b0174ada3c325b445417ac54d16901235ff84f4b72a8a2296ad72",
+      "png_sha256": "393c5ee2733f49b706904648daa8f0071c47d10732aa09ec900af8937f097955"
+    },
+    {
+      "id": 710,
+      "name": "appliance",
+      "file": "views/view_0710.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.710",
+      "source_sha256": "765be14bde4bfcbc984c503c986cf5782038836c7e316aafc4914f59b15333b8",
+      "png_sha256": "0b5d8e721b16e919408ecc8676082df96e79a48f17fc7fd7f50c9e4a93e637fc"
+    },
+    {
+      "id": 712,
+      "name": "pawnshop",
+      "file": "views/view_0712.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.712",
+      "source_sha256": "843143fda37468ffafdfb0d1603e55d3a5e41cbd5750c167080e91ffc85996a7",
+      "png_sha256": "6815f286641865048d19b91b3dbcf614fdddabbc67b61809b22daac602e3d479"
+    },
+    {
+      "id": 803,
+      "name": "market",
+      "file": "views/view_0803.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.803",
+      "source_sha256": "8af93c8c26191ba5cd449b90101f64058862f93eb10cef119b82e7c28235f2d7",
+      "png_sha256": "986e1535ae8749ebe471a99c6d10ac21f8fd588fe019090f3550588a0d3b44f8"
+    },
+    {
+      "id": 804,
+      "name": "bank",
+      "file": "views/view_0804.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.804",
+      "source_sha256": "4e17f8cfe5572133a176f8cadb20578ce8daec19c671f9c01dac9bc115444c07",
+      "png_sha256": "64c6ac0df1f969bc9952cd674d723ec377b8ead9cf7e5398474f47e242d8a7d9"
+    },
+    {
+      "id": 807,
+      "name": "university",
+      "file": "views/view_0807.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.807",
+      "source_sha256": "8d53a8c31c077913ddb6aa0b11f806110dba0d7575bc966d2138655227f23b31",
+      "png_sha256": "46bc569289a54899be23a889a7b3c9700ae0747d63a61efdbca968817cdf6f0f"
+    },
+    {
+      "id": 808,
+      "name": "clothing",
+      "file": "views/view_0808.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.808",
+      "source_sha256": "08d2bcdacada991f5f28e53452d61a309e87d884d5dacd26d6f12ec3d7a6913b",
+      "png_sha256": "37f6f0df16bed917cd9dd87f83dd8987d675d7c63e7ed7f4299f73c82c5f1078"
+    },
+    {
+      "id": 809,
+      "name": "discount",
+      "file": "views/view_0809.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.809",
+      "source_sha256": "7b2883eee005a4f941cd6c7b425bfe121b1721c44d8d0386d5098fa9264fd703",
+      "png_sha256": "0a9e71ed1d7778a34bc1ce09faf5d3839c47045b4deb770df4802dccff233bf5"
+    },
+    {
+      "id": 810,
+      "name": "appliance_alt",
+      "file": "views/view_0810.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.810",
+      "source_sha256": "0180b02e9188be6898ea5a6e6a2a7ce550b8210570e4a15da4559124b7cc1efb",
+      "png_sha256": "1776b2239d2d107bf81f89b1650073e8e0cd507e7190a0a723f7d5119a6d9d5c"
+    },
+    {
+      "id": 811,
+      "name": "fastfood",
+      "file": "views/view_0811.png",
+      "loop": 0,
+      "cel": 0,
+      "width": 183,
+      "height": 112,
+      "source_resource": "view.811",
+      "source_sha256": "992a1b6b00431dd42eeeb8e594f173fc783dcd549b81cd9c333427562e8dc5ee",
+      "png_sha256": "e441316f3fdb20c223d40d3dc7bcaf18d6de368cfda3ee75e97c2a657ba65732"
+    }
+  ]
+}

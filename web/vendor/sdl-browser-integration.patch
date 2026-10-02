@@ -1,0 +1,26 @@
+--- a/src/video/emscripten/SDL_emscriptenvideo.c
++++ b/src/video/emscripten/SDL_emscriptenvideo.c
+@@ -406,6 +406,10 @@
+ 
+ static SDL_FullscreenResult Emscripten_SetWindowFullscreen(SDL_VideoDevice *_this, SDL_Window *window, SDL_VideoDisplay *display, SDL_FullscreenOp fullscreen)
+ {
++    // Browser host owns fullscreen; changing the inner SDL window must not exit it.
++    if (MAIN_THREAD_EM_ASM_INT({ return !!Module['hostManagedFullscreen']; })) {
++        return SDL_FULLSCREEN_SUCCEEDED;
++    }
+     SDL_WindowData *data;
+     int res = -1;
+ 
+--- a/src/video/emscripten/SDL_emscriptenevents.c
++++ b/src/video/emscripten/SDL_emscriptenevents.c
+@@ -596,6 +596,10 @@
+ 
+ static EM_BOOL Emscripten_HandleFullscreenChange(int eventType, const EmscriptenFullscreenChangeEvent *fullscreenChangeEvent, void *userData)
+ {
++    // Fullscreen on an outer host element does not change the inner SDL window mode.
++    if (MAIN_THREAD_EM_ASM_INT({ return !!Module['hostManagedFullscreen']; })) {
++        return 0;
++    }
+     SDL_WindowData *window_data = userData;
+ 
+     if (fullscreenChangeEvent->isFullscreen) {
