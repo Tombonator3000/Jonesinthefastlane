@@ -1,0 +1,168 @@
+{
+  "started": "2026-10-02T09:46:24.542Z",
+  "kind": "Real RTC channel loss, application close path 1006, automatic reconnect",
+  "signaling": "Local official PeerServer",
+  "limitations": [
+    "Two isolated contexts on one machine; not WAN/NAT coverage",
+    "Does not establish the cause of the earlier transient disconnect",
+    "Does not test the separately unit-tested 1013 queue/timeout classifier"
+  ],
+  "loadedScripts": [
+    {
+      "page": "host",
+      "path": "/assets/index-D9Quyh4l.js",
+      "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
+    },
+    {
+      "page": "guest",
+      "path": "/assets/index-D9Quyh4l.js",
+      "sha256": "638f97683b7dd27b501b2e306a83f22724cc8e8a114ca6c1e74c24bf78d1a121"
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "Original shared game launched through production UI",
+    "Real connected guest RTCPeerConnection closed",
+    "Automatic new WebRTC connection with bidirectional traffic",
+    "Same guest seat and room without reload or Resume",
+    "Host ticks continued monotonically with unchanged seed",
+    "Recovered current original player-count screen and matching 64000-pixel frame"
+  ],
+  "ok": true,
+  "browser": "151.0.7922.34",
+  "recovery": {
+    "milliseconds": 592,
+    "sameSeat": true,
+    "seat": 1,
+    "sameRoom": true,
+    "guestReloaded": false,
+    "resumePressed": false,
+    "hostSeedUnchanged": true,
+    "hostTickBefore": 123,
+    "hostTickAfter": 161,
+    "hostSamples": [
+      {
+        "tick": 131,
+        "seed": 2375577838,
+        "dialog": "select1"
+      },
+      {
+        "tick": 134,
+        "seed": 2375577838,
+        "dialog": "select1"
+      },
+      {
+        "tick": 137,
+        "seed": 2375577838,
+        "dialog": "select1"
+      },
+      {
+        "tick": 140,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      },
+      {
+        "tick": 143,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      },
+      {
+        "tick": 146,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      },
+      {
+        "tick": 149,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      },
+      {
+        "tick": 152,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      },
+      {
+        "tick": 155,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      },
+      {
+        "tick": 158,
+        "seed": 2375577838,
+        "dialog": "select1b"
+      }
+    ],
+    "currentOriginalDialog": "select1b",
+    "sharedFrameSha256": "213b69716c5e656db29f86e56e928e8880853ef24fb8dfc98ed01580c3a9b7a7",
+    "closedIndex": 1,
+    "beforeCount": 2,
+    "rtc": [
+      {
+        "index": 0,
+        "state": "closed",
+        "channels": []
+      },
+      {
+        "index": 1,
+        "state": "closed",
+        "channels": []
+      },
+      {
+        "index": 2,
+        "state": "connected",
+        "channels": [
+          {
+            "state": "open",
+            "bytesSent": 146,
+            "bytesReceived": 33206
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "index": 1,
+        "state": "connecting",
+        "time": 290.0999999642372
+      },
+      {
+        "index": 1,
+        "state": "connected",
+        "time": 292.39999997615814
+      },
+      {
+        "index": 2,
+        "state": "connecting",
+        "time": 3001.599999964237
+      },
+      {
+        "index": 2,
+        "state": "connected",
+        "time": 3002.2999999523163
+      }
+    ],
+    "notices": [
+      {
+        "text": "Player 1's turn",
+        "time": 389.19999998807907
+      },
+      {
+        "text": "Disconnected. Open Connection to retry or leave.",
+        "time": 2495.199999988079
+      },
+      {
+        "text": "Reconnecting…",
+        "time": 2995.5
+      },
+      {
+        "text": "Player 1's turn",
+        "time": 3005.699999988079
+      },
+      {
+        "text": "Choose 2 players in the original menu.",
+        "time": 3010.5
+      }
+    ]
+  },
+  "finished": "2026-10-02T09:46:28.507Z"
+}

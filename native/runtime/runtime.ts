@@ -278,6 +278,8 @@ export class Runtime {
     const player=this.global(302);
     return {ticks:this.ticks,seed:this.seed,week:this.global(372),currentPlayer:player?.name??null,
       cash:player?.kind==='object'?this.get(player,'cash')+32767*this.get(player,'cashHi'):null,
+      // Read-only original flags: the next player is selected before turn setup finishes.
+      locationInputEnabled:!!this.global(474),turnTransitionActive:!!this.global(460),turnStartCount:this.global(481),
       dialog:this.global(502)?.name??null,trace:this.trace.slice(-8),warnings:[...this.warnings]};
   }
   serialize():string {

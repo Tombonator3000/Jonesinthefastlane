@@ -113,10 +113,10 @@ async function run(){
     await click(host,135,156);assert.equal((await snapshot(host)).state.dialog,'select2','Host must no longer control guest setup');
     await click(guest,135,156);await wait(guest,s=>s.state?.dialog==='select3'&&s.room?.inputOwner===1,'guest goals');await capture(guest,'05-guest-original-goals');
     await host.locator('#connection-settings').click();assert.equal(await host.locator('#network').isVisible(),true);
-    await click(guest,224,156);await wait(host,s=>s.state?.currentPlayer==='player1'&&!s.state?.dialog&&s.room?.inputOwner===0,'first original human turn');
+    await click(guest,224,156);const firstTurn=await wait(host,s=>s.state?.currentPlayer==='player1'&&!s.state?.dialog&&s.room?.inputOwner===0&&s.state.locationInputEnabled===true&&s.state.turnTransitionActive===false,'first original human turn accepts locations');
     assert.equal(await host.locator('#network').isVisible(),true,'Incoming original game frames must keep the host Connection/Leave controls accessible');
     await host.locator('#close-online').click();assert.equal(await host.locator('#network').isVisible(),false);
-    await delay(500);await capture(host,'06-first-original-turn');return {connectionDialogSurvivedIncomingFrame:true,...await sharedFrame('first human turn')};
+    await delay(500);await capture(host,'06-first-original-turn');return {connectionDialogSurvivedIncomingFrame:true,readyTick:firstTurn.state.ticks,locationInputEnabled:firstTurn.state.locationInputEnabled,turnTransitionActive:firstTurn.state.turnTransitionActive,turnStartCount:firstTurn.state.turnStartCount,...await sharedFrame('first human turn')};
   });
   await check('Original F5/F7 saves on the host and restores shared original bank state',async()=>{
     await click(host,37,139);await ready(host,'bank');assert.equal((await snapshot(host)).state.cash,200);
@@ -130,16 +130,25 @@ async function run(){
     await capture(host,'07-host-original-restored-bank');await capture(guest,'08-guest-original-restored-bank');return {...saved,...await sharedFrame('original restored bank')};
   });
   await check('Original Relax actions finish player one and transfer gameplay to the guest',async()=>{
+    // Sample after F7: the original save/menu code can reset this counter.
+    // It is a comparison across this one turn, not a global monotonic epoch.
+    const previousTurnStartCount=(await snapshot(host)).state.turnStartCount;
+    assert(Number.isInteger(previousTurnStartCount),'Original start-turn counter is available after restore');
     await click(host,229,157);await wait(host,s=>!s.state?.dialog,'bank closed');await click(host,160,25);await ready(host,'lowcost');
     // Ten original six-hour Relax actions consume the available first turn.
     // The game, not this test, clamps time and decides when the turn ends.
     for(let n=0;n<10;n++)await click(host,94,156,800);
     await host.keyboard.press('Enter');await delay(400);
     for(let n=0;n<3;n++){const s=await snapshot(host);if(s.room?.inputOwner!==0||s.state?.dialog!=='lowcost')break;await click(host,224,156,900);}
-    await wait(guest,s=>s.state?.currentPlayer==='player2'&&!s.state?.dialog&&s.room?.inputOwner===1,'original second human turn',30_000);
+    // Original room1 switches players before the marble finishes its return.
+    // Place.handleEvent requires global474; global460 covers the earlier turn
+    // transition while global474 can still contain the previous player's value.
+    // startTrn increments global481 only after clearing global474. Require
+    // that actual new start as well as the game's own location-input gate.
+    const secondTurn=await wait(guest,s=>s.state?.currentPlayer==='player2'&&!s.state?.dialog&&s.room?.inputOwner===1&&s.state.locationInputEnabled===true&&s.state.turnTransitionActive===false&&s.state.turnStartCount!==previousTurnStartCount,'original second human turn accepts locations',30_000);
     await click(host,160,25);await delay(250);assert.equal((await snapshot(guest)).state.dialog,null,'Former owner cannot open the guest home');
     await click(guest,160,25);await ready(guest,'lowcost');assert.equal((await snapshot(guest)).state.currentPlayer,'player2');
-    await capture(guest,'09-second-human-controls-home');return sharedFrame('guest original human turn');
+    await capture(guest,'09-second-human-controls-home');return {readyTick:secondTurn.state.ticks,locationInputEnabled:secondTurn.state.locationInputEnabled,turnTransitionActive:secondTurn.state.turnTransitionActive,previousTurnStartCount,turnStartCount:secondTurn.state.turnStartCount,guestHomeClicks:1,...await sharedFrame('guest original human turn')};
   });
   await check('Closing the real host page gives the guest actionable host-loss status',async()=>{
     await host.close();
