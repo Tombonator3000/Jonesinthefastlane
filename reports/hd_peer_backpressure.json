@@ -1,0 +1,218 @@
+{
+  "recordedAt": "2026-10-02T13:57:55.393302+00:00",
+  "delivery": "Validated local production candidate; follow-up PR and Pages publication pending. Final public verification will be recorded in the pull-request description.",
+  "cause": {
+    "workflow": "https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/37014261485",
+    "failure": "Guest raw receive queue overflow after restoring the saved bank in a recreated room; compressed RTC buffer did not measure decompression/render backlog.",
+    "evidence": "build/ci-37014261485-evidence/native-peer-evidence/report.json"
+  },
+  "runtime": {
+    "file": "assets/index-DeWDWdeR.js",
+    "sha256": "bcac4ed5baaaacf31fedef20ab05a10eb0f81bb4802a154281b8b0c137a666f4"
+  },
+  "change": [
+    "Wire v2 acknowledges messages after decode and callback completion; one in flight per direction.",
+    "Only unsent complete presentation snapshots may supersede one another; every intervening control remains an ordering barrier.",
+    "Authority remains unchanged at 60 Hz; existing message and queue capacity guards stay in place."
+  ],
+  "verification": {
+    "nativeUnitTests": 91,
+    "failed": 0,
+    "typecheck": "passed",
+    "peer": {
+      "ok": true,
+      "checks": [
+        {
+          "name": "Default online UI creates and joins via a shareable peer invitation",
+          "ok": true,
+          "milliseconds": 1292,
+          "details": {
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "players": 2,
+            "signaling": "local official PeerServer (CI)"
+          }
+        },
+        {
+          "name": "Host starts the shared original game over an actual WebRTC data channel",
+          "ok": true,
+          "milliseconds": 2584,
+          "details": {
+            "label": "original main menu",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Wrong-seat mouse input cannot advance the original shared menu",
+          "ok": true,
+          "milliseconds": 754,
+          "details": {
+            "label": "wrong-seat input rejected",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Guest chooses local HD while host keeps Original on the identical authoritative scene",
+          "ok": true,
+          "milliseconds": 1792,
+          "details": {
+            "label": "different local packs, identical complete scene",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "A real guest reload and Resume reconnect the same seat without a local game",
+          "ok": true,
+          "milliseconds": 1815,
+          "details": {
+            "label": "reconnected original scene",
+            "sha256": "d135f7194c8d7138c9ece978adf34d8e68e5e14c32158760b1f38c240b786e70",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Room count is enforced by the original player-count controls",
+          "ok": true,
+          "milliseconds": 1186,
+          "details": {
+            "label": "two-player setup",
+            "sha256": "67475d22ea4100c03cc221fb8fed38afd6399da4a7424b32276a99370bedff20",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Both real peers complete their own original character and goal screens",
+          "ok": true,
+          "milliseconds": 3964,
+          "details": {
+            "connectionDialogSurvivedIncomingFrame": true,
+            "readyTick": 665,
+            "locationInputEnabled": true,
+            "turnTransitionActive": false,
+            "turnStartCount": 1,
+            "label": "first human turn",
+            "sha256": "5296d1bfd06dc4e34bcdded367f035f76e2330f5be31868069cb268305c765e7",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Original F5/F7 saves on the host and restores shared original bank state",
+          "ok": true,
+          "milliseconds": 14806,
+          "details": {
+            "format": "jones-native",
+            "bytes": 660619,
+            "label": "original restored bank",
+            "sha256": "08917e1884cc308ea6a6930ce01ba28f86bebe244ed8ada01fd0c97685f944ce",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Original Relax actions finish player one and transfer gameplay to the guest",
+          "ok": true,
+          "milliseconds": 15590,
+          "details": {
+            "readyTick": 1930,
+            "locationInputEnabled": true,
+            "turnTransitionActive": false,
+            "previousTurnStartCount": 1,
+            "turnStartCount": 2,
+            "guestHomeClicks": 1,
+            "label": "guest original human turn",
+            "sha256": "c13089f783620645eb0996eb89d1a3514cf7f9816f441391ee88a11ae101fa93",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Closing the real host page gives the guest actionable host-loss status",
+          "ok": true,
+          "milliseconds": 252,
+          "details": {
+            "status": "The host closed this game. Ask the host to create a new room and share its invitation.",
+            "connection": "The host closed this game. Ask the host to create a new room and share its invitation."
+          }
+        },
+        {
+          "name": "A fresh host page and new invitation restore the device save through the original menu",
+          "ok": true,
+          "milliseconds": 5366,
+          "details": {
+            "newRoom": true,
+            "hostSeat": 0,
+            "guestSeat": 1,
+            "cash": 200,
+            "label": "saved original game in recreated room",
+            "sha256": "fbaf681204ee0081082e785ce030f3a4c18271843371be7218d0634689348ef5",
+            "pixels": 64000
+          }
+        },
+        {
+          "name": "Observed production traffic uses peer signaling and WebRTC without a game-server connection",
+          "ok": true,
+          "milliseconds": 2,
+          "details": {
+            "observedBrowserRequests": 102,
+            "observedGameServerRequests": 0,
+            "signalingSockets": 5,
+            "localStaticFixtureRequests": 97
+          }
+        }
+      ],
+      "guestCpuSlowdown": 3,
+      "queueFailures": [],
+      "runtimeErrors": [],
+      "resourcesErrors": [],
+      "sourceReport": "build/native-peer-evidence/backpressure-slow-guest/report.json"
+    },
+    "directory": {
+      "ok": true,
+      "checks": [
+        {
+          "name": "Personal display choices persist locally and do not change another player",
+          "ok": true,
+          "ms": 1072
+        },
+        {
+          "name": "Private is the default and does not publish a room",
+          "ok": true,
+          "ms": 236
+        },
+        {
+          "name": "Explicit public room appears by name and free-seat count in another browser",
+          "ok": true,
+          "ms": 206
+        },
+        {
+          "name": "Name search and Refresh operate on the actual broker list",
+          "ok": true,
+          "ms": 2411
+        },
+        {
+          "name": "An idle waiting room renews its real retained announcement after thirty seconds",
+          "ok": true,
+          "ms": 27428,
+          "renewalObserved": true
+        },
+        {
+          "name": "Join from the list uses actual WebRTC; full room disappears for other browsers",
+          "ok": true,
+          "ms": 1972
+        },
+        {
+          "name": "Private invitation remains available when public broker is unavailable",
+          "ok": true,
+          "ms": 489
+        }
+      ],
+      "sourceReport": "build/native-discovery-evidence/backpressure-local/report.json"
+    }
+  },
+  "limits": [
+    "Tests use isolated browsers on the same physical machine; different physical networks remain unverified.",
+    "The public directory remains best effort; host must keep the game open.",
+    "A stopped or severely overloaded peer still times out; reliable control history remains bounded rather than unlimited."
+  ]
+}

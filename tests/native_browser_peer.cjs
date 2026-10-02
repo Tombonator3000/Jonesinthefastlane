@@ -13,8 +13,10 @@ const {startPeerFixture}=require('./native_peer_signaling.cjs');
 const ROOT=path.resolve(__dirname,'..');
 const CLOUD=process.env.JONES_PEER_CLOUD==='1',SAVE_KEY='jones-peer-save-v1-2';
 const REMOTE=process.env.JONES_NATIVE_URL;
+const GUEST_CPU_RATE=Number(process.env.JONES_PEER_GUEST_CPU_RATE||1);
+assert(Number.isFinite(GUEST_CPU_RATE)&&GUEST_CPU_RATE>=1&&GUEST_CPU_RATE<=6,'Guest CPU slowdown must be between 1 and 6');
 const OUTPUT=process.env.JONES_PEER_OUTPUT?path.resolve(ROOT,process.env.JONES_PEER_OUTPUT):path.join(ROOT,'build/native-peer-evidence');
-const report={started:new Date().toISOString(),subject:'Static production native game; two isolated browsers; real PeerJS WebRTC',signaling:CLOUD?'public PeerJS cloud':'local official PeerServer (CI)',publicCloudVerified:false,checks:[],screenshots:[],errors:[],resourceErrors:[],requests:[],loadedScripts:[],websockets:[],rtc:[],ok:false};
+const report={started:new Date().toISOString(),subject:'Static production native game; two isolated browsers; real PeerJS WebRTC',signaling:CLOUD?'public PeerJS cloud':'local official PeerServer (CI)',publicCloudVerified:false,checks:[],screenshots:[],errors:[],resourceErrors:[],capacityFailures:[],requests:[],loadedScripts:[],websockets:[],rtc:[],ok:false};
 let browser,host,guest,fixture,deadline,targetUrl;
 const pendingResources=[];
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -36,6 +38,8 @@ async function sharedFrame(label){
 }
 async function pageFor(context,label){
   const page=await context.newPage();
+  if(label==='guest'&&GUEST_CPU_RATE>1){const cdp=await context.newCDPSession(page);await cdp.send('Emulation.setCPUThrottlingRate',{rate:GUEST_CPU_RATE});}
+  await page.exposeFunction('__reportPeerCapacity',message=>report.capacityFailures.push({page:label,message}));
   page.on('pageerror',error=>report.errors.push({page:label,message:error.message}));
   page.on('websocket',socket=>report.websockets.push({page:label,endpoint:endpoint(socket.url())}));
   page.on('request',request=>{report.requests.push({page:label,method:request.method(),endpoint:endpoint(request.url())});if(/scummvm|\.wasm(?:$|\?)/i.test(request.url()))report.errors.push({page:label,message:'Unexpected interpreter request'});});
@@ -46,7 +50,23 @@ async function pageFor(context,label){
   page.on('requestfailed',request=>{const error=request.failure()?.errorText;if(!error?.includes('ERR_ABORTED')&&new URL(request.url()).origin===new URL(targetUrl).origin)report.resourceErrors.push({page:label,path:new URL(request.url()).pathname,error});});
   // Observe the browser's actual peer connections; do not substitute signaling,
   // data channels, game input or authoritative state.
-  await page.addInitScript(()=>{const Original=window.RTCPeerConnection;window.__observedPeerConnections=[];window.RTCPeerConnection=class extends Original{constructor(...args){super(...args);window.__observedPeerConnections.push(this);}};});
+  await page.addInitScript(()=>{
+    const Original=window.RTCPeerConnection;window.__observedPeerConnections=[];
+    window.RTCPeerConnection=class extends Original{constructor(...args){super(...args);window.__observedPeerConnections.push(this);}};
+    // A recovered connection must not hide an earlier queue-overflow failure.
+    // Observe the actual UI notice, including text replaced within the same task.
+    const seen=new Set();
+    new MutationObserver(records=>{
+      for(const record of records){
+        const target=record.target.nodeType===3?record.target.parentElement:record.target;
+        if(!target?.closest?.('#connection, #network-status'))continue;
+        const texts=[target.textContent,record.oldValue,...[...record.addedNodes,...record.removedNodes].map(node=>node.textContent)];
+        for(const text of texts)if(text&&/Peer receive queue is full|Peer connection cannot keep up/.test(text)&&!seen.has(text)){
+          seen.add(text);void window.__reportPeerCapacity(text).catch(()=>{});
+        }
+      }
+    }).observe(document,{subtree:true,childList:true,characterData:true,characterDataOldValue:true});
+  });
   return page;
 }
 async function rtcStats(page,label){
@@ -64,7 +84,7 @@ async function run(){
   report.source={kind:REMOTE?'remote static URL':'local static-only fixture',url:endpoint(targetUrl),...(fixture?{build:'build/native',rejectsWebSocketUpgrades:true}:{})};
   report.gameServerStartedByTest=false;
   browser=await chromium.launch({headless:true,executablePath:process.env.JONES_BROWSER_EXECUTABLE||chromium.executablePath(),args:['--no-sandbox']});
-  report.browser={name:'Chromium',version:browser.version(),executable:process.env.JONES_BROWSER_EXECUTABLE||chromium.executablePath(),contexts:'Two isolated contexts in the same browser process and machine'};
+  report.browser={name:'Chromium',version:browser.version(),executable:process.env.JONES_BROWSER_EXECUTABLE||chromium.executablePath(),contexts:'Two isolated contexts in the same browser process and machine',guestCpuSlowdown:GUEST_CPU_RATE};
   const hostContext=await browser.newContext({viewport:{width:1280,height:800}}),guestContext=await browser.newContext({viewport:{width:1280,height:800}});
   host=await pageFor(hostContext,'host');guest=await pageFor(guestContext,'guest');let roomId,invitation;
   await check('Default online UI creates and joins via a shareable peer invitation',async()=>{
@@ -195,7 +215,7 @@ async function run(){
     assert(report.websockets.length>=2,'Actual PeerJS signaling sockets were observed');
     const staticOrigin=new URL(targetUrl).origin.replace(/^http/,'ws');
     for(const socket of report.websockets){assert(!socket.endpoint.includes('/multiplayer'),'No game-server WebSocket');assert.notEqual(new URL(socket.endpoint).origin,staticOrigin,'No gameplay WebSocket connects to the static host');if(!CLOUD)assert.equal(new URL(socket.endpoint).port,new URL(fixture.signalUrl).port);}
-    assert(!report.requests.some(r=>/\/multiplayer(?:\/|$)/.test(new URL(r.endpoint).pathname)));assert.deepEqual(report.resourceErrors,[]);assert.deepEqual(report.errors,[]);
+    assert(!report.requests.some(r=>/\/multiplayer(?:\/|$)/.test(new URL(r.endpoint).pathname)));assert.deepEqual(report.resourceErrors,[]);assert.deepEqual(report.errors,[]);assert.deepEqual(report.capacityFailures,[],'No receive/send queue overflow may be hidden by automatic reconnection');
     return {observedBrowserRequests:report.requests.length,observedGameServerRequests:0,signalingSockets:report.websockets.length,...(fixture?{localStaticFixtureRequests:fixture.requests.length}:{})};
   });
   report.publicCloudVerified=CLOUD;report.ok=true;

@@ -3,6 +3,7 @@ import { Peer, type DataConnection, type PeerOptions } from 'peerjs';
 import { BrowserNetworkClient, NetworkError, type BrowserNetworkOptions, type ClientTransport, type ClientTransportEvents } from './client.js';
 import { createRoomAuthority, type RoomAuthority } from './authority.js';
 import { PeerWire } from './peer-wire.js';
+import { PeerPresentationSender } from './peer-presentation.js';
 import type { Serializable, SessionFactory } from './types.js';
 
 export interface BrowserPeerOptions extends Omit<BrowserNetworkOptions,'url'|'transportFactory'> {
@@ -14,6 +15,8 @@ export interface BrowserPeerOptions extends Omit<BrowserNetworkOptions,'url'|'tr
   peerOptions?: PeerOptions;
 }
 const LABEL='jones-native-v1',CONNECT_TIMEOUT=20000;
+// Keep the application label stable: wire-version mismatches are reported by
+// the decoder with a terminal, actionable error instead of silent RTC retries.
 const HOST_CLOSED='The host closed this game. Ask the host to create a new room and share its invitation.';
 const control=(code:number,reason:string)=>JSON.stringify({jonesPeerControl:1,type:'close',code,reason:reason.slice(0,250)});
 function closeNotice(raw:unknown):{code:number;reason:string}|null {
@@ -141,18 +144,19 @@ export class BrowserPeerClient extends BrowserNetworkClient {
     let timer:ReturnType<typeof setTimeout>|null=setTimeout(()=>link.close(1008,'Join or resume the room to continue.'),CONNECT_TIMEOUT);
     const wire=new PeerWire({
       send:data=>{connection.send(data);},bufferedAmount:()=>connection.dataChannel?.bufferedAmount??0,maxIncomingBytes:4096,
-      onMessage:message=>{if(opened&&!ended)void this.authority!.receive(id,message);},
+      onMessage:message=>{if(opened&&!ended)return this.authority!.receive(id,message);},
       onError:error=>link.close(error.closeCode,error.message)
     });
+    const presentation=new PeerPresentationSender(wire);
     const link:Link={close:(code,reason,notify=true)=>{
-      if(ended)return;ended=true;opened=false;if(timer)clearTimeout(timer);pulse.stop();wire.dispose();this.links.delete(link);this.authority?.disconnect(id);
+      if(ended)return;ended=true;opened=false;if(timer)clearTimeout(timer);pulse.stop();presentation.dispose();wire.dispose();this.links.delete(link);this.authority?.disconnect(id);
       if(notify&&connection.open){try{connection.send(control(code,reason));}catch{/* Channel already closed. */}}
       connection.close();
     }};
     this.links.add(link);
     connection.on('open',()=>{
       if(ended)return;opened=true;pulse.start();
-      this.authority!.connect({id,send:message=>{if(message.type==='joined'&&!authenticated){authenticated=true;if(timer)clearTimeout(timer);timer=null;}wire.send(message);},close:(code,reason)=>link.close(code,reason)});
+      this.authority!.connect({id,send:message=>{if(message.type==='joined'&&!authenticated){authenticated=true;if(timer)clearTimeout(timer);timer=null;}presentation.send(message);},close:(code,reason)=>link.close(code,reason)});
     });
     connection.on('data',data=>{
       if(ended||pulse.receive(data))return;
@@ -179,7 +183,7 @@ export class BrowserPeerClient extends BrowserNetworkClient {
       pulse=heartbeat(connection,()=>link.close(1006,'The host stopped responding. Reconnecting to resume…',false));
       wire=new PeerWire({send:data=>{connection!.send(data);},bufferedAmount:()=>connection!.dataChannel?.bufferedAmount??0,maxOutgoingBytes:4096,onMessage:message=>events.message(message),onError:error=>{events.error(new NetworkError(error.recoverable?'peer_interrupted':'invalid_peer_message',error.message));link.close(error.closeCode,error.message);}});
       connection.on('open',()=>{if(ended)return;opened=true;clearTimeout(timer);pulse!.start();events.open();});
-      connection.on('data',data=>{if(ended||pulse!.receive(data))return;const notice=closeNotice(data);if(notice){link.close(notice.code,notice.reason,false);return;}wire!.receive(data);});
+      connection.on('data',data=>{if(ended||pulse!.receive(data))return;const notice=closeNotice(data);if(notice){const reason=notice.code===1002&&/Incompatible peer wire protocol/.test(notice.reason)?'Incompatible peer connection version. Both players must reload or update the game page.':notice.reason;link.close(notice.code,reason,false);return;}wire!.receive(data);});
       connection.on('close',()=>link.close(1006,'Connection to the host was interrupted. Reconnecting…',false));
       connection.on('error',error=>fail(new NetworkError('peer_connection_failed',error.message)));
     }).catch(error=>fail(error instanceof NetworkError?error:new NetworkError('peer_connection_failed',error.message)));

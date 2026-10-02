@@ -3,21 +3,55 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
 import { deflateSync } from 'node:zlib';
-import { PeerWire, PeerWireError } from '../native/network/peer-wire.js';
+import { PeerWire, PeerWireError, PEER_WIRE_VERSION } from '../native/network/peer-wire.js';
 import { BrowserNetworkClient, type ClientTransportEvents } from '../native/network/client.js';
 
 async function until(check:()=>boolean){for(let i=0;i<400;i++){if(check())return;await delay(5);}assert.fail('Expected peer result did not arrive.');}
 function receiver(options:Partial<ConstructorParameters<typeof PeerWire>[0]>={}){
   const messages:unknown[]=[],errors:PeerWireError[]=[];
-  const wire=new PeerWire({send:()=>{},bufferedAmount:()=>0,onMessage:message=>messages.push(message),onError:error=>errors.push(error),...options});
+  const wire=new PeerWire({send:()=>{},bufferedAmount:()=>0,onMessage:message=>{messages.push(message);},onError:error=>errors.push(error),...options});
   return {wire,messages,errors};
 }
 function envelope(payload:Uint8Array,rawLength=payload.length,codec=0,id=1,index=0,count=Math.ceil(payload.length/16384)){
-  const packet=new ArrayBuffer(24+payload.length),v=new DataView(packet);v.setUint32(0,0x4a4f4e53);v.setUint8(4,1);v.setUint8(5,codec);v.setUint32(8,id);v.setUint32(12,payload.length);v.setUint32(16,rawLength);v.setUint16(20,index);v.setUint16(22,count);new Uint8Array(packet,24).set(payload);return packet;
+  const packet=new ArrayBuffer(24+payload.length),v=new DataView(packet);v.setUint32(0,0x4a4f4e53);v.setUint8(4,PEER_WIRE_VERSION);v.setUint8(5,codec);v.setUint32(8,id);v.setUint32(12,payload.length);v.setUint32(16,rawLength);v.setUint16(20,index);v.setUint16(22,count);new Uint8Array(packet,24).set(payload);return packet;
 }
+function acknowledgment(id:number){const packet=new ArrayBuffer(24),v=new DataView(packet);v.setUint32(0,0x4a4f4e53);v.setUint8(4,PEER_WIRE_VERSION);v.setUint8(5,2);v.setUint32(8,id);return packet;}
+
+test('delivery credit waits for asynchronous consumption and permits simultaneous traffic both ways',async t=>{
+  let release!:()=>void;const consumed=new Promise<void>(resolve=>{release=resolve;});
+  const toHost:unknown[]=[],toGuest:unknown[]=[],errors:Error[]=[],acks:ArrayBuffer[]=[];
+  const host=new PeerWire({compression:false,send:p=>guest.receive(p),bufferedAmount:()=>0,onMessage:m=>{toHost.push(m);},onError:e=>errors.push(e)});
+  const guest=new PeerWire({compression:false,send:p=>{if(new DataView(p).getUint8(5)===2)acks.push(p);host.receive(p);},bufferedAmount:()=>0,onMessage:async m=>{toGuest.push(m);if(toGuest.length===1)await consumed;},onError:e=>errors.push(e)});
+  t.after(()=>{host.dispose();guest.dispose();release();});
+  host.send({frame:1});host.send({frame:2});guest.send({input:1});guest.send({input:2});
+  await until(()=>toHost.length===2);assert.deepEqual(toGuest,[{frame:1}]);assert.equal(acks.length,0);assert(host.pendingBytes>0);
+  release();await until(()=>toGuest.length===2&&host.pendingBytes===0&&guest.pendingBytes===0);
+  assert.deepEqual(toGuest,[{frame:1},{frame:2}]);assert.equal(acks.length,2);assert.deepEqual(errors,[]);
+});
+
+test('delivery acknowledgments are exact, bounded and reject replay, premature credit and version mismatch',async t=>{
+  const messages:unknown[]=[],errors:PeerWireError[]=[];
+  const wire=new PeerWire({compression:false,send:()=>{},bufferedAmount:()=>0,onMessage:m=>{messages.push(m);},onError:e=>errors.push(e)});t.after(()=>wire.dispose());
+  wire.send({ok:1});wire.receive(acknowledgment(1));await until(()=>wire.pendingBytes===0);
+  wire.receive(acknowledgment(1));assert.equal(errors[0].closeCode,1002);assert.match(errors[0].message,/replayed/);
+  const unknown=receiver();unknown.wire.receive(acknowledgment(1));assert.equal(unknown.errors[0].closeCode,1002);
+  let premature:PeerWire;const failures:PeerWireError[]=[];
+  premature=new PeerWire({compression:false,send:()=>premature.receive(acknowledgment(1)),bufferedAmount:()=>0,onMessage:()=>{},onError:e=>failures.push(e)});t.after(()=>premature.dispose());
+  premature.send({large:'x'.repeat(40000)});assert.equal(failures[0].closeCode,1002);
+  const older=receiver(),old=envelope(new TextEncoder().encode('{"ok":true}'));new DataView(old).setUint8(4,1);older.wire.receive(old);
+  assert.equal(older.errors[0].closeCode,1002);assert.equal(older.errors[0].recoverable,false);assert.match(older.errors[0].message,/reload or update/);
+});
+
+test('lost delivery ACK times out, and disposal cancels ACK and compression continuations',async()=>{
+  const stalled=receiver({compression:false,timeoutMs:20});stalled.wire.send({ok:true});await until(()=>stalled.errors.length===1);
+  assert.equal(stalled.errors[0].category,'timeout');assert.match(stalled.errors[0].message,/delivery timed out/);assert.equal(stalled.wire.pendingBytes,0);
+  const waiting=receiver({compression:false,timeoutMs:20});waiting.wire.send({ok:true});waiting.wire.dispose();
+  const compressing=receiver({timeoutMs:20});compressing.wire.send({large:'x'.repeat(40000)});compressing.wire.dispose();
+  await delay(40);assert.deepEqual(waiting.errors,[]);assert.deepEqual(compressing.errors,[]);assert.equal(compressing.wire.pendingBytes,0);
+});
 
 test('90 KB original-sized frames are compressed and delivered with following state in order',async t=>{
-  const target=receiver(),packets:ArrayBuffer[]=[],errors:Error[]=[];
+  const target=receiver({send:packet=>sender.receive(packet)}),packets:ArrayBuffer[]=[],errors:Error[]=[];
   const sender=new PeerWire({send:packet=>{packets.push(packet);target.wire.receive(packet);},bufferedAmount:()=>0,onMessage:()=>{},onError:error=>errors.push(error)});
   t.after(()=>{sender.dispose();target.wire.dispose();});
   const frame={type:'frame',revision:4,frame:{pixels:'AAEE'.repeat(22000),palette:Array.from({length:768},(_,i)=>i%256)}};
@@ -31,7 +65,7 @@ test('90 KB original-sized frames are compressed and delivered with following st
 });
 
 test('uncompressed multi-chunk messages preserve exact Unicode and ordered chunk sequence',async t=>{
-  const target=receiver(),packets:ArrayBuffer[]=[],errors:Error[]=[];
+  const target=receiver({send:packet=>sender.receive(packet)}),packets:ArrayBuffer[]=[],errors:Error[]=[];
   const sender=new PeerWire({compression:false,send:packet=>{packets.push(packet);target.wire.receive(new Uint8Array(packet));},bufferedAmount:()=>0,onMessage:()=>{},onError:error=>errors.push(error)});
   t.after(()=>{sender.dispose();target.wire.dispose();});
   const message={frame:'Jones ÆØÅ 🎮 '.repeat(8000)};sender.send(message);
@@ -41,7 +75,7 @@ test('uncompressed multi-chunk messages preserve exact Unicode and ordered chunk
 });
 
 test('wire rejects altered protocol, replay, oversized declaration and out-of-order chunks before delivery',()=>{
-  for(const mutate of [(v:DataView)=>v.setUint32(0,0),(v:DataView)=>v.setUint8(4,2),(v:DataView)=>v.setUint8(5,9),(v:DataView)=>v.setUint32(16,8*1024*1024),(v:DataView)=>v.setUint32(8,2),(v:DataView)=>v.setUint16(20,1)]){
+  for(const mutate of [(v:DataView)=>v.setUint32(0,0),(v:DataView)=>v.setUint8(4,1),(v:DataView)=>v.setUint8(5,9),(v:DataView)=>v.setUint32(16,8*1024*1024),(v:DataView)=>v.setUint32(8,2),(v:DataView)=>v.setUint16(20,1)]){
     const target=receiver(),packet=envelope(new TextEncoder().encode('{"type":"frame"}'));mutate(new DataView(packet));target.wire.receive(packet);
     assert.equal(target.errors.length,1);assert.equal(target.errors[0].category,'protocol');assert.equal(target.errors[0].closeCode,1002);assert.equal(target.errors[0].recoverable,false);assert.equal(target.messages.length,0);assert.equal(target.wire.disposed,true);
   }
