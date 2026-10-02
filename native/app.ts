@@ -222,13 +222,26 @@ $('fullscreen').onclick = () => void fullscreen().catch(fail);
 $('reload').onclick = () => location.reload();
 $('settings').onclick = () => { releaseGameInput(); $<HTMLDialogElement>('display').showModal(); };
 $('display').addEventListener('close', () => { if (!$<HTMLDialogElement>('display').open) restoreGameFocus(); });
+function syncGraphicsToggle() {
+  const hd = displayPreferences.pack === 'hd', button = $('graphics-toggle');
+  button.setAttribute('aria-pressed', String(hd));
+  button.textContent = `Graphics: ${hd ? 'HD' : 'Original'}`;
+  button.title = `Switch to ${hd ? 'Original' : 'HD'} artwork`;
+}
 function configure() {
   displayPreferences = { mode: $<HTMLSelectElement>('mode').value as DisplayMode, resolutionHeight: Number($<HTMLSelectElement>('resolution').value), pack: $<HTMLSelectElement>('graphics-pack').value as 'original' | 'hd', lighting: $<HTMLInputElement>('lighting').checked, intensity: Number($<HTMLInputElement>('effect-strength').value) };
   if (displayPreferences.pack === 'original') $('graphics-status').textContent = 'Original artwork.';
+  syncGraphicsToggle();
   renderer.setOptions(displayPreferences);
   try { localStorage.setItem(displayKey, JSON.stringify(displayPreferences)); } catch { /* This browser can still use the current choice. */ }
 }
 for (const id of ['mode','resolution','graphics-pack','lighting','effect-strength']) $(id).onchange = configure;
+$('graphics-toggle').onclick = () => {
+  releaseGameInput();
+  $<HTMLSelectElement>('graphics-pack').value = displayPreferences.pack === 'hd' ? 'original' : 'hd';
+  configure();
+  if ($('launch').hidden) restoreGameFocus();
+};
 
 $('online').onclick = $('menu-online').onclick = $('connection-settings').onclick = () => { void openNetwork().catch(fail); };
 $('close-online').onclick = () => $<HTMLDialogElement>('network').close();
@@ -386,6 +399,7 @@ void (async () => {
   $<HTMLSelectElement>('mode').value = displayPreferences.mode; $<HTMLSelectElement>('resolution').value = String(displayPreferences.resolutionHeight);
   $<HTMLSelectElement>('graphics-pack').value = displayPreferences.pack; $<HTMLInputElement>('lighting').checked = displayPreferences.lighting; $<HTMLInputElement>('effect-strength').value = String(displayPreferences.intensity);
   renderer = new ThreeRenderer(canvas, assets, { ...displayPreferences, onStatus: value => { if (value.message) $('graphics-status').textContent = value.message; } });
+  syncGraphicsToggle(); $<HTMLButtonElement>('graphics-toggle').disabled = false;
   showTownBackdrop();
   // Diagnostics expose snapshots, never private network credentials or a second simulation.
   (window as any).jonesNative = { getState: () => session?.getState() ?? onlineState, getFrame: () => session?.getFrame() ?? onlineFrame,

@@ -2,8 +2,7 @@
 // Optional local artwork. The authoritative 320x200 raster still owns every hit target.
 import * as THREE from 'three';
 import { decodeOwners } from './provenance.js';
-import { createHdUiCanvas } from './HdUi.js';
-import { glyphInkBounds } from './glyph-bounds.js';
+import { originalTownUiMask, isOriginalTownUiPixel } from './original-ui.js';
 import type { GraphicsFrame, HdDrawOp, NativeAssetManifest, Rect } from './types.js';
 
 interface ArtAsset {
@@ -12,7 +11,7 @@ interface ArtAsset {
   regions?: Rect[];
 }
 interface ArtManifest { schema: 1; title?: string; pics: Record<string, ArtAsset>; cels: Record<string, ArtAsset> }
-interface Layer { mesh: THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>; texture: THREE.Texture; owned: boolean; key: string }
+interface Layer { mesh: THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>; texture: THREE.Texture; key: string }
 export interface HdOptions { enabled: boolean; lighting: boolean; intensity: number; effect?: number }
 
 const vertex = `varying vec2 artUv;
@@ -27,7 +26,6 @@ uniform vec4 crop;
 uniform float mirror;
 uniform float lighting;
 uniform float isTown;
-uniform float isText;
 uniform float strength;
 uniform float effect;
 uniform int regionCount;
@@ -58,12 +56,12 @@ void main(){
     float edge=clamp(dot((logical-vec2(160.,100.))/vec2(210.,170.),(logical-vec2(160.,100.))/vec2(210.,170.)),0.,1.);
     color.rgb=color.rgb*(1.-.08*edge*strength)+glow*strength;
   }
-  if(isText<.5) color.rgb*=texture2D(fade,cell).r;
+  color.rgb*=texture2D(fade,cell).r;
   if(effect>1.5){
     float scan=.90+.10*cos(logical.y*6.28318530718);
     float vignette=1.-.22*dot(logical/vec2(320.,200.)-.5,logical/vec2(320.,200.)-.5);
     color.rgb=mix(color.rgb,color.rgb*scan*vignette,strength);
-  }else if(effect>.5&&isText<.5){
+  }else if(effect>.5){
     color.rgb=mix(color.rgb,clamp((color.rgb-.5)*1.04+.5,0.,1.),strength);
   }
   gl_FragColor=color;
@@ -82,23 +80,23 @@ export class HdPresentation {
   private manifest?: ArtManifest;
   private loading?: Promise<void>;
   private disposed = false;
-  private fontsReady = false;
   private failed = false;
   private options: HdOptions = { enabled: false, lighting: false, intensity: .4 };
   private lastFrame?: GraphicsFrame;
   private lastOwners?: Uint32Array;
-  private paletteKey = '';
   private activeCount = 0;
-  private glyphBounds = new Map<string, Rect | null>();
+  private readonly townUiMask: Uint8Array;
+  private readonly townWidth: number;
 
-  constructor(private readonly assets: NativeAssetManifest, private readonly changed: () => void,
+  constructor(assets: NativeAssetManifest, private readonly changed: () => void,
     private readonly status: (message: string) => void) {
+    this.townUiMask = originalTownUiMask(assets.pics[11]); this.townWidth = assets.pics[11]?.width || 320;
     for (const t of [this.mask, this.fade]) {
       t.minFilter = t.magFilter = THREE.NearestFilter; t.generateMipmaps = false; t.colorSpace = THREE.NoColorSpace;
     }
     this.group.visible = false;
   }
-  get diagnostics() { return { requested: this.options.enabled, ready: !!this.manifest, failed: this.failed, layers: this.activeCount, fonts: this.fontsReady }; }
+  get diagnostics() { return { requested: this.options.enabled, ready: !!this.manifest, failed: this.failed, layers: this.activeCount, fonts: false, ui: 'original' }; }
   configure(options: HdOptions) {
     this.options = options; this.group.visible = options.enabled && !this.failed;
     if (options.enabled && !this.loading) {
@@ -112,7 +110,8 @@ export class HdPresentation {
   }
   private async load() {
     const base = new URL('hd/', document.baseURI);
-    const response = await fetch(new URL('manifest.json', base));
+    // Pages caches this stable URL: revalidate when a new pack is deployed.
+    const response = await fetch(new URL('manifest.json', base), { cache: 'no-cache' });
     if (!response.ok) throw new Error('HD manifest unavailable');
     const manifest = await response.json() as ArtManifest;
     if (manifest.schema !== 1 || !manifest.pics || !manifest.cels) throw new Error('Unsupported HD pack');
@@ -127,79 +126,20 @@ export class HdPresentation {
       texture.generateMipmaps = false;
       if (this.disposed) texture.dispose(); else this.textures.set(src, texture);
     }));
-    const fonts = [
-      new FontFace('Jones HD Serif', `url("${new URL('fonts/LiberationSerif-Regular.ttf', document.baseURI).href}")`),
-      new FontFace('Jones HD Serif', `url("${new URL('fonts/LiberationSerif-Bold.ttf', document.baseURI).href}")`, { weight: '700' }),
-      new FontFace('Jones HD Mono', `url("${new URL('fonts/LiberationMono-Bold.ttf', document.baseURI).href}")`),
-    ];
-    try {
-      await Promise.all(fonts.map(f => f.load()));
-      for (const f of fonts) (document.fonts as FontFaceSet & { add(face: FontFace): FontFaceSet }).add(f);
-      this.fontsReady = true;
-    }
-    catch { /* Artwork remains available; the original bitmap text is the fallback. */ }
     if (!this.disposed) this.manifest = manifest;
-  }
-  private textTexture(op: Extract<HdDrawOp, { kind: 'text' }>, frame: GraphicsFrame): THREE.CanvasTexture | null {
-    if (!this.fontsReady || !op.glyphs.some(g => g.background !== null)) return null;
-    const width = op.dest.right - op.dest.left, height = op.dest.bottom - op.dest.top;
-    if (!(width > 0 && height > 0 && width <= 640 && height <= 400)) return null;
-    const scale = 8, canvas = document.createElement('canvas');
-    canvas.width = width * scale; canvas.height = height * scale;
-    const ctx = canvas.getContext('2d')!;
-    const rgb = (index: number) => `rgb(${(frame.palette[index] || [0, 0, 0]).join(',')})`;
-    const family = (this.assets.fonts[op.font]?.lineHeight || 8) <= 8 ? 'Jones HD Mono' : 'Jones HD Serif';
-    for (const g of op.glyphs) {
-      if (g.background === null || g.width <= 0 || g.height <= 0) continue;
-      const x = (g.x - op.dest.left) * scale, y = (g.y - op.dest.top) * scale;
-      const w = g.width * scale, h = g.height * scale;
-      ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
-      ctx.fillStyle = rgb(g.background); ctx.fillRect(x, y, w, h);
-      if (g.char.trim()) {
-        ctx.font = `${h}px "${family}"`; ctx.textBaseline = 'alphabetic';
-        const m = ctx.measureText(g.char), inkWidth = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
-        const inkHeight = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
-        const original = this.assets.fonts[op.font]?.chars[g.code];
-        const glyphKey = `${op.font}:${g.code}`;
-        if (!this.glyphBounds.has(glyphKey)) this.glyphBounds.set(glyphKey, original ? glyphInkBounds(original) : null);
-        const bounds = this.glyphBounds.get(glyphKey);
-        // Dimensions contain blank padding: punctuation must retain its original
-        // ink size/baseline instead of being stretched to a full character cell.
-        if (bounds && inkWidth > 0 && inkHeight > 0) {
-          const targetWidth = (bounds.right - bounds.left) * scale, targetHeight = (bounds.bottom - bounds.top) * scale;
-          ctx.translate(x + bounds.left * scale, y + bounds.top * scale); ctx.scale(targetWidth / inkWidth, targetHeight / inkHeight);
-          ctx.fillStyle = rgb(op.color); ctx.globalAlpha = op.greyed ? .5 : 1;
-          ctx.fillText(g.char, m.actualBoundingBoxLeft, m.actualBoundingBoxAscent);
-        }
-      }
-      ctx.restore();
-    }
-    const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.NoColorSpace;
-    texture.minFilter = texture.magFilter = THREE.LinearFilter; texture.generateMipmaps = false;
-    return texture;
   }
   private asset(op: HdDrawOp): ArtAsset | undefined {
     return op.kind === 'pic' ? this.manifest?.pics[op.pic] : op.kind === 'cel' ? this.manifest?.cels[`${op.view}:${op.loop}:${op.cel}`] : undefined;
   }
-  private makeLayer(op: HdDrawOp, frame: GraphicsFrame, key: string): Layer | null {
+  private makeLayer(op: HdDrawOp, key: string): Layer | null {
+    // Text, controls and their pressed states always come from the original raster.
+    // The optional manifest maps illustrations only; it never replaces game UI.
+    if (op.kind === 'text') return null;
     const asset = this.asset(op);
-    let uiTexture: THREE.CanvasTexture | undefined;
-    if (this.fontsReady && op.kind === 'cel') {
-      const uiKey = `ui:${op.view}:${op.loop}:${op.cel}`;
-      uiTexture = this.textures.get(uiKey) as THREE.CanvasTexture | undefined;
-      if (!uiTexture) {
-        const ui = createHdUiCanvas(op.view, op.loop, op.cel, this.assets);
-        if (ui) {
-          uiTexture = new THREE.CanvasTexture(ui); uiTexture.colorSpace = THREE.NoColorSpace;
-          uiTexture.minFilter = uiTexture.magFilter = THREE.LinearFilter; uiTexture.generateMipmaps = false;
-          this.textures.set(uiKey, uiTexture);
-        }
-      }
-    }
-    const texture = op.kind === 'text' ? this.textTexture(op, frame) : uiTexture || asset && this.textures.get(asset.src);
+    const texture = asset && this.textures.get(asset.src);
     if (!texture) return null;
     const w = op.dest.right - op.dest.left, h = op.dest.bottom - op.dest.top;
-    if (!(w > 0 && h > 0)) { if (op.kind === 'text') texture.dispose(); return null; }
+    if (!(w > 0 && h > 0)) return null;
     const crop = new THREE.Vector4(0, 0, 1, 1);
     if (asset?.crop) {
       const image = texture.image as HTMLImageElement, c = asset.crop;
@@ -213,14 +153,14 @@ export class HdPresentation {
         owner: { value: new THREE.Vector4((id & 255) / 255, ((id >>> 8) & 255) / 255, ((id >>> 16) & 255) / 255, (id >>> 24) / 255) },
         dest: { value: new THREE.Vector4(op.dest.left, op.dest.top, w, h) }, crop: { value: crop },
         mirror: { value: op.kind === 'pic' && op.mirror ? 1 : 0 }, lighting: { value: 0 }, strength: { value: 0 }, effect: { value: 0 },
-        isTown: { value: op.kind === 'pic' && op.pic === 11 ? 1 : 0 }, isText: { value: op.kind === 'text' ? 1 : 0 },
+        isTown: { value: op.kind === 'pic' && op.pic === 11 ? 1 : 0 },
         regionCount: { value: Math.min(12, asset?.regions?.length || 0) }, regions: { value: regions } },
       transparent: true, depthTest: false, depthWrite: false, toneMapped: false });
     const mesh = new THREE.Mesh(this.geometry, material);
     mesh.position.set(op.dest.left + w / 2 - 160, 100 - op.dest.top - h / 2, .01);
     mesh.scale.set(w, h, 1); mesh.renderOrder = 10;
     this.group.add(mesh);
-    return { mesh, texture, owned: op.kind === 'text', key };
+    return { mesh, texture, key };
   }
   update(frame: GraphicsFrame, pixels: Uint8Array, cursorPixels: number[] = []) {
     if (!this.options.enabled || !this.manifest || this.failed) { this.group.visible = false; return; }
@@ -228,12 +168,13 @@ export class HdPresentation {
       if (!frame.hd || frame.hd.version !== 1) { this.group.visible = false; return; }
       if (this.lastFrame !== frame) {
         this.lastOwners = decodeOwners(frame.hd.owners);
-        this.paletteKey = frame.palette.map(c => c.join(',')).join(';');
         this.lastFrame = frame;
       }
       const owners = this.lastOwners!;
+      const towns = new Map(frame.hd.ops.filter((op): op is Extract<HdDrawOp, { kind: 'pic' }> => op.kind === 'pic' && op.pic === 11).map(op => [op.id, op]));
       for (let i = 0; i < 64000; i++) {
-        const id = owners[i], p = i * 4;
+        const town = towns.get(owners[i]);
+        const id = town && isOriginalTownUiPixel(this.townUiMask, this.townWidth, town, i % 320, Math.floor(i / 320)) ? 0 : owners[i], p = i * 4;
         this.maskBytes[p] = id & 255; this.maskBytes[p + 1] = (id >>> 8) & 255;
         this.maskBytes[p + 2] = (id >>> 16) & 255; this.maskBytes[p + 3] = id >>> 24;
         const fade = Math.round(255 * Math.max(0, Math.min(100, frame.hd.intensity?.[pixels[i]] ?? 100)) / 100);
@@ -247,10 +188,10 @@ export class HdPresentation {
         if (!op || !Number.isSafeInteger(op.id) || op.id <= 0 || !op.dest) throw new Error('Invalid HD operation');
         live.add(op.id);
         // IDs are local to a session/save; a restored snapshot may reuse an ID.
-        const key = JSON.stringify(op) + (op.kind === 'text' ? this.paletteKey : '');
+        const key = JSON.stringify(op);
         let layer = this.layers.get(op.id);
         if (layer && layer.key !== key) { this.remove(op.id, layer); layer = undefined; }
-        if (!layer) { layer = this.makeLayer(op, frame, key) || undefined; if (layer) this.layers.set(op.id, layer); }
+        if (!layer) { layer = this.makeLayer(op, key) || undefined; if (layer) this.layers.set(op.id, layer); }
         if (layer) {
           layer.mesh.material.uniforms.lighting.value = this.options.lighting ? 1 : 0;
           layer.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
@@ -265,7 +206,7 @@ export class HdPresentation {
     }
   }
   private remove(id: number, layer: Layer) {
-    this.group.remove(layer.mesh); layer.mesh.material.dispose(); if (layer.owned) layer.texture.dispose(); this.layers.delete(id);
+    this.group.remove(layer.mesh); layer.mesh.material.dispose(); this.layers.delete(id);
   }
   dispose() {
     this.disposed = true;

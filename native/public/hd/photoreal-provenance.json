@@ -1,0 +1,425 @@
+{
+  "date": "2026-10-02",
+  "generator": "Built-in ChatGPT image generator; exact model version not exposed",
+  "scope": "Photorealistic artwork only. Original and prior painted files retained; no generated interactive menus.",
+  "selected": [
+    {
+      "key": "11",
+      "src": "pics/town-11-photoreal-v1.png",
+      "sourceWidth": 1586,
+      "sourceHeight": 992,
+      "sha256": "ee55c738d45d45a05484ad6ce2637904bb67e73141e7a72f0aba96d7e7ec267d",
+      "archivedSource": "/home/tombonator3000t/.codex/generated_images/01a0fb41-890b-7ff2-986b-d64c098f2a7d/exec-311f7a3e-8a39-44fa-bd6e-10894d3027d8.png",
+      "reference": "pics/town-11-corrected.png",
+      "prompt": "Use case: style-transfer. Asset type: production background texture for Jones in the Fast Lane; not a screenshot or concept poster.\nInput 1 is the EDIT TARGET, the current town background. Input 2 is a STYLE REFERENCE ONLY for photoreal materials and daylight. Transform the illustrated architecture in input1 into photo-real architecture like input2, while keeping EXACTLY input1's camera, 16:10 canvas, border, streets, building footprints, positions, silhouettes and huge EMPTY central cream rectangle. No UI from input2 may appear.\nDeliver a single complete flat game background, landscape 16:10 ideally 2560x1600. Near-orthographic elevated view; full-scene sharp focus. Real individual bricks/mortar, slate roof tiles, glass storefronts with plausible interior details/reflections, brushed steel cylindrical Bank, painted signs, natural fine leaves. Bright neutral daylight with gentle contact shadows, no toy/plastic/painterly appearance.\nPreserve all original buildings and exact English place names: top left Security; RENT OFFICE; LOW-COST HOUSING; PAWN SHOP; Z-Mart top right; right side Monolith Burgers, QT Clothing, Rocket City; left side black's market and Bank; bottom Factory, EMPLOYMENT OFFICE, central clock, HI-TECH U. No buildings added or moved. Preserve colorful path regions as realistic pastel-tinted paving and grass.\nABSOLUTE COMPOSITION LOCK: keep input1's thin cream outer frame and full town ring in identical positions. The large middle rectangle at approximately x21.4% to78.4%, y22% to75% must stay flat solid #f8f8f0 cream with its existing thin black border. No menu, no letters, no button, no panel, no interface, no cursor anywhere in that empty center. Keep existing lower buildings that overlap bottom edge as in input1. No extra roads or horizon. Do not widen/relocate any building. No photographic sky. All visible signs legible.\nThis will be used underneath original game UI drawn separately. It must contain architecture and signage only, absolutely no PLAY ONLINE or other interactive controls. Keep town labels attached to original structures. No watermark."
+    },
+    {
+      "key": "500:0:0",
+      "src": "cels/character-selection-500-photoreal-v1.png",
+      "sourceWidth": 1605,
+      "sourceHeight": 980,
+      "sha256": "cc9eb4fd565220373c37082b4fbe672fa2ede41afc8a1e49676f519b8b63be8f",
+      "archivedSource": "/home/tombonator3000t/.codex/generated_images/01a0fb41-890b-7ff2-986b-d64c098f2a7d/exec-4236cad4-d0aa-4959-b7f6-c4eab0aba071.png",
+      "reference": "cels/character-selection-500.png",
+      "prompt": "Use case: style-transfer.\nAsset type: production four-character selection texture for Jones in the Fast Lane. EDIT the supplied character panel in place.\nTransform ONLY the four painted people into completely photorealistic full-body studio photographs of real adult actors portraying these exact fictional 1990s game characters. Keep the SAME identities, ages, ethnicities, hair, outfit colors, poses, heights, placement, shoes, body proportions, and cheerful mild expressions. Male1 brown short tousled hair, black sunglasses, white t-shirt tiny red emblem, blue jeans and brown shoes. Female2 short curly brown hair, pink t-shirt tucked into pink high-waisted shorts, light belt, white shoes. Male3 middle-aged black man with glasses and moustache, pale lilac shirt tucked into dark blue trousers, white shoes. Female4 long wavy red hair, colorful floral sleeveless top, yellow shorts, white shoes.\nActual photographed skin pores and natural imperfections, photographic eyes/hair, natural woven fabric, leather and denim texture, studio softbox illumination, 85mm frontal lens, sharp throughout. NOT painterly, no cartoon, no airbrushed doll skin, no caricature.\nMANDATORY EXACT LAYOUT: keep the same 4 equal vertical columns with black dividers; blue/pale yellow/lavender/mint flat backgrounds; keep the top blank light-blue header band occupying exactly upper12.5% of image empty. All hair must begin below this header and all feet above lower96%. The figures stay in precisely the same bounding boxes as input, no enlarged heads, no pose or wardrobe changes. Keep the tiny colored player tokens at bottom in same positions, unchanged (they are masked by original UI at runtime).\nDo not add any text, title, labels, buttons or UI. Preserve existing frame and geometry. No cropping of feet/hands/hair, no people crossing column dividers. One complete landscape sheet with original 183:112 aspect ratio at high resolution."
+    },
+    {
+      "view": 354,
+      "src": "cels/bank-354-atlas-photoreal-v1.png",
+      "reference": "native/public/hd/cels/bank-354-atlas.png",
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb42-ca96-7f12-b9ce-121aa48977c8/exec-c1c95103-bf83-4862-b0f2-4b72de05577b.png",
+      "prompt": "Use case: style-transfer. Asset type: production game talking-portrait sprite atlas, SIX photographic frames in exactly THREE equal columns and TWO equal rows, read left-to-right then top-to-bottom. The supplied image is the edit target and sole authority for fictional character identity, pose, costume, head position, framing, six expressions and background color. Convert the painted rendering into convincing live-action photography of the same fictional adult person. Use realistic human skin with subtle pores, natural hair strands, plausible fabric weave, realistic eyes and restrained natural daylight portrait lighting, consistent camera, focus, exposure and white balance across every frame. Not a painting, drawing, cartoon or glossy 3D mannequin. Preserve the exact overall aspect ratio, equal cell grid, head-and-shoulder crop, subject scale and headroom of the reference. Face/eyes/shoulders stay registered in each cell; ONLY the mouth expression changes as in the corresponding reference cell. Preserve the individual six mouth shapes and their order. All six faces must be fully inside their own cell, with reference headroom; no hair, hat, shoulder or shadow may bleed into another cell. Preserve original opaque, flat solid background color across each cell (not transparent). No extra text, captions, numbers, labels, watermarks, UI or decorative panel borders; no new props. Output one complete atlas at high detail; keep the same framing, do not add torso or zoom out. Character: middle-aged light-skinned woman bank clerk with short softly curled auburn-brown hair, large thin gold glasses, small pearl earrings, taupe/brown jacket and high white crossed scarf/collar. Preserve her mature facial proportions and expression; do not turn her into a fashion model. Vivid deep royal blue backdrop. Match top-row mouths: slightly open / closed neutral / slightly open; bottom row: round open / open speaking / slight closed smile. Reference sheet aspect1662:946, logical cell68:58.",
+      "logicalWidth": 68,
+      "logicalHeight": 58,
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "order": "row-major",
+        "cels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "loop": 0
+      },
+      "assessment": "Visually inspected complete generated atlas against supplied reference. Six equal cells, original frontal crop, matching costume, backdrop colors and mouth-expression order; natural skin/hair/fabric detail; full hair/hat headroom; no inter-cell subject bleed or added text. Existing thin black atlas separators retained. Generated expression correspondence is visual, not pixel-identical facial reconstruction.",
+      "sourceWidth": 1662,
+      "sourceHeight": 946,
+      "mode": "RGB",
+      "bytes": 1892483,
+      "sha256": "f9ee804cc108c45199166c73f3111f58047542707613c57c6613196fc293891f",
+      "referenceSha256": "d6ca097799c20ee0737e00487df7266e06b55feb641232abbf860e4a2cec76ee",
+      "crops": [
+        {
+          "cel": 0,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 554.0,
+          "height": 473.0
+        },
+        {
+          "cel": 1,
+          "left": 554.0,
+          "top": 0.0,
+          "width": 554.0,
+          "height": 473.0
+        },
+        {
+          "cel": 2,
+          "left": 1108.0,
+          "top": 0.0,
+          "width": 554.0,
+          "height": 473.0
+        },
+        {
+          "cel": 3,
+          "left": 0.0,
+          "top": 473.0,
+          "width": 554.0,
+          "height": 473.0
+        },
+        {
+          "cel": 4,
+          "left": 554.0,
+          "top": 473.0,
+          "width": 554.0,
+          "height": 473.0
+        },
+        {
+          "cel": 5,
+          "left": 1108.0,
+          "top": 473.0,
+          "width": 554.0,
+          "height": 473.0
+        }
+      ]
+    },
+    {
+      "view": 353,
+      "src": "cels/market-353-atlas-photoreal-v1.png",
+      "reference": "native/public/hd/cels/market-353-atlas.png",
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb42-ca96-7f12-b9ce-121aa48977c8/exec-b734502a-53f5-4419-9091-ea514017d311.png",
+      "prompt": "Use case: style-transfer. Asset type: production game talking-portrait sprite atlas, SIX photographic frames in exactly THREE equal columns and TWO equal rows, read left-to-right then top-to-bottom. The supplied image is the edit target and sole authority for fictional character identity, pose, costume, head position, framing, six expressions and background color. Convert the painted rendering into convincing live-action photography of the same fictional adult person. Use realistic human skin with subtle pores, natural hair strands, plausible fabric weave, realistic eyes and restrained natural daylight portrait lighting, consistent camera, focus, exposure and white balance across every frame. Not a painting, drawing, cartoon or glossy 3D mannequin. Preserve the exact overall aspect ratio, equal cell grid, head-and-shoulder crop, subject scale and headroom of the reference. Face/eyes/shoulders stay registered in each cell; ONLY the mouth expression changes as in the corresponding reference cell. Preserve the individual six mouth shapes and their order. All six faces must be fully inside their own cell, with reference headroom; no hair, hat, shoulder or shadow may bleed into another cell. Preserve original opaque, flat solid background color across each cell (not transparent). No extra text, captions, numbers, labels, watermarks, UI or decorative panel borders; no new props. Output one complete atlas at high detail; keep the same framing, do not add torso or zoom out. Character: light-skinned adult male shopkeeper, sandy brown side-parted hair, clean-shaven friendly face, blue/navy plaid shirt and white apron shoulder straps. Preserve his face and costume. Vivid deep royal blue backdrop. Match top-row mouths: slight part showing teeth / closed / open speaking; bottom row: rounded O / open speaking showing upper teeth / small closed smile. Reference sheet aspect1708:921, logical cell68:55.",
+      "logicalWidth": 68,
+      "logicalHeight": 55,
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "order": "row-major",
+        "cels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "loop": 0
+      },
+      "assessment": "Visually inspected complete generated atlas against supplied reference. Six equal cells, original frontal crop, matching costume, backdrop colors and mouth-expression order; natural skin/hair/fabric detail; full hair/hat headroom; no inter-cell subject bleed or added text. Existing thin black atlas separators retained. Generated expression correspondence is visual, not pixel-identical facial reconstruction.",
+      "sourceWidth": 1707,
+      "sourceHeight": 921,
+      "mode": "RGB",
+      "bytes": 1819425,
+      "sha256": "71f9fbc706c64f28f068dcebeac4fdbe8a7b1b1075e4bb6fd9db862366313d0d",
+      "referenceSha256": "145cfc7b8979b2fff276f639fffe5bb355937db0b48bf13c659a908ad008f3f9",
+      "crops": [
+        {
+          "cel": 0,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 569.0,
+          "height": 460.5
+        },
+        {
+          "cel": 1,
+          "left": 569.0,
+          "top": 0.0,
+          "width": 569.0,
+          "height": 460.5
+        },
+        {
+          "cel": 2,
+          "left": 1138.0,
+          "top": 0.0,
+          "width": 569.0,
+          "height": 460.5
+        },
+        {
+          "cel": 3,
+          "left": 0.0,
+          "top": 460.5,
+          "width": 569.0,
+          "height": 460.5
+        },
+        {
+          "cel": 4,
+          "left": 569.0,
+          "top": 460.5,
+          "width": 569.0,
+          "height": 460.5
+        },
+        {
+          "cel": 5,
+          "left": 1138.0,
+          "top": 460.5,
+          "width": 569.0,
+          "height": 460.5
+        }
+      ]
+    },
+    {
+      "view": 357,
+      "src": "cels/university-357-atlas-photoreal-v1.png",
+      "reference": "native/public/hd/cels/university-357-atlas.png",
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb42-ca96-7f12-b9ce-121aa48977c8/exec-ec00149a-5d7a-49e8-99cc-c0964d030c9a.png",
+      "prompt": "Use case: style-transfer. Asset type: production game talking-portrait sprite atlas, SIX photographic frames in exactly THREE equal columns and TWO equal rows, read left-to-right then top-to-bottom. The supplied image is the edit target and sole authority for fictional character identity, pose, costume, head position, framing, six expressions and background color. Convert the painted rendering into convincing live-action photography of the same fictional adult person. Use realistic human skin with subtle pores, natural hair strands, plausible fabric weave, realistic eyes and restrained natural daylight portrait lighting, consistent camera, focus, exposure and white balance across every frame. Not a painting, drawing, cartoon or glossy 3D mannequin. Preserve the exact overall aspect ratio, equal cell grid, head-and-shoulder crop, subject scale and headroom of the reference. Face/eyes/shoulders stay registered in each cell; ONLY the mouth expression changes as in the corresponding reference cell. Preserve the individual six mouth shapes and their order. All six faces must be fully inside their own cell, with reference headroom; no hair, hat, shoulder or shadow may bleed into another cell. Preserve original opaque, flat solid background color across each cell (not transparent). No extra text, captions, numbers, labels, watermarks, UI or decorative panel borders; no new props. Output one complete atlas at high detail; keep the same framing, do not add torso or zoom out. Character: older brown-skinned male university professor with salt-and-pepper full beard, short gray hair, thick rounded black glasses, deep blue graduation mortarboard and gown, white shirt and patterned navy/gold tie. Preserve cap shape, entire board silhouette and long tassel on viewer-left within every cell; do not crop the cap or tassel. Saturated flat emerald-green backdrop. Match top-row mouths: barely parted / closed / small open; bottom row: round open / medium open speaking / slight closed smile. Reference sheet aspect1707:921, logical cell68:55.",
+      "logicalWidth": 68,
+      "logicalHeight": 55,
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "order": "row-major",
+        "cels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "loop": 0
+      },
+      "assessment": "Visually inspected complete generated atlas against supplied reference. Six equal cells, original frontal crop, matching costume, backdrop colors and mouth-expression order; natural skin/hair/fabric detail; full hair/hat headroom; no inter-cell subject bleed or added text. Existing thin black atlas separators retained. Generated expression correspondence is visual, not pixel-identical facial reconstruction.",
+      "sourceWidth": 1706,
+      "sourceHeight": 922,
+      "mode": "RGB",
+      "bytes": 1975698,
+      "sha256": "d37c33a704c5b5e22b2c85ccdf01c83551fd28f6170307c9f374e21f0e857b29",
+      "referenceSha256": "d2a015948d9126cc1af7c5ea38d042e86a8cfc30418636bddec3984c16fe0b5b",
+      "crops": [
+        {
+          "cel": 0,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 568.6666666666666,
+          "height": 461.0
+        },
+        {
+          "cel": 1,
+          "left": 568.6666666666666,
+          "top": 0.0,
+          "width": 568.6666666666666,
+          "height": 461.0
+        },
+        {
+          "cel": 2,
+          "left": 1137.3333333333333,
+          "top": 0.0,
+          "width": 568.6666666666666,
+          "height": 461.0
+        },
+        {
+          "cel": 3,
+          "left": 0.0,
+          "top": 461.0,
+          "width": 568.6666666666666,
+          "height": 461.0
+        },
+        {
+          "cel": 4,
+          "left": 568.6666666666666,
+          "top": 461.0,
+          "width": 568.6666666666666,
+          "height": 461.0
+        },
+        {
+          "cel": 5,
+          "left": 1137.3333333333333,
+          "top": 461.0,
+          "width": 568.6666666666666,
+          "height": 461.0
+        }
+      ]
+    },
+    {
+      "view": 360,
+      "src": "cels/burger-360-atlas-photoreal-v1.png",
+      "reference": "native/public/hd/cels/burger-360-atlas.png",
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb42-ca96-7f12-b9ce-121aa48977c8/exec-b25a2366-26ba-46db-89e7-94fea9a92aba.png",
+      "prompt": "Use case: style-transfer. Asset type: production game talking-portrait sprite atlas, SIX photographic frames in exactly THREE equal columns and TWO equal rows, read left-to-right then top-to-bottom. The supplied image is the edit target and sole authority for fictional character identity, pose, costume, head position, framing, six expressions and background color. Convert the painted rendering into convincing live-action photography of the same fictional adult person. Use realistic human skin with subtle pores, natural hair strands, plausible fabric weave, realistic eyes and restrained natural daylight portrait lighting, consistent camera, focus, exposure and white balance across every frame. Not a painting, drawing, cartoon or glossy 3D mannequin. Preserve the exact overall aspect ratio, equal cell grid, head-and-shoulder crop, subject scale and headroom of the reference. Face/eyes/shoulders stay registered in each cell; ONLY the mouth expression changes as in the corresponding reference cell. Preserve the individual six mouth shapes and their order. All six faces must be fully inside their own cell, with reference headroom; no hair, hat, shoulder or shadow may bleed into another cell. Preserve original opaque, flat solid background color across each cell (not transparent). No extra text, captions, numbers, labels, watermarks, UI or decorative panel borders; no new props. Output one complete atlas at high detail; keep the same framing, do not add torso or zoom out. Character: young adult East Asian male burger-counter worker, short straight dark hair, white uniform with red shoulder stripes, white cap with the same existing blue angular M emblem and red curved accents as the reference. Preserve this existing fictional uniform emblem exactly; do not add words or other branding. Periwinkle-blue solid backdrop. Match top-row mouths: slightly open teeth / closed friendly neutral / medium open speaking; bottom row: wider open / medium open speaking / friendly toothy smile. Preserve all cap headroom. Reference sheet aspect1708:920, logical cell68:55.",
+      "logicalWidth": 68,
+      "logicalHeight": 55,
+      "layout": {
+        "columns": 3,
+        "rows": 2,
+        "order": "row-major",
+        "cels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "loop": 0
+      },
+      "assessment": "Visually inspected complete generated atlas against supplied reference. Six equal cells, original frontal crop, matching costume, backdrop colors and mouth-expression order; natural skin/hair/fabric detail; full hair/hat headroom; no inter-cell subject bleed or added text. Existing thin black atlas separators retained. Generated expression correspondence is visual, not pixel-identical facial reconstruction.",
+      "sourceWidth": 1708,
+      "sourceHeight": 921,
+      "mode": "RGB",
+      "bytes": 1675592,
+      "sha256": "0aa65c5403526da7ea5280758aeecfd496f3951237e55e2d53738f0fa32cec79",
+      "referenceSha256": "c89b6cbc3dbf731d2850af4dfb1cdbbeb465376dd81e2798262568e760a9b396",
+      "crops": [
+        {
+          "cel": 0,
+          "left": 0.0,
+          "top": 0.0,
+          "width": 569.3333333333334,
+          "height": 460.5
+        },
+        {
+          "cel": 1,
+          "left": 569.3333333333334,
+          "top": 0.0,
+          "width": 569.3333333333334,
+          "height": 460.5
+        },
+        {
+          "cel": 2,
+          "left": 1138.6666666666667,
+          "top": 0.0,
+          "width": 569.3333333333334,
+          "height": 460.5
+        },
+        {
+          "cel": 3,
+          "left": 0.0,
+          "top": 460.5,
+          "width": 569.3333333333334,
+          "height": 460.5
+        },
+        {
+          "cel": 4,
+          "left": 569.3333333333334,
+          "top": 460.5,
+          "width": 569.3333333333334,
+          "height": 460.5
+        },
+        {
+          "cel": 5,
+          "left": 1138.6666666666667,
+          "top": 460.5,
+          "width": 569.3333333333334,
+          "height": 460.5
+        }
+      ]
+    },
+    {
+      "name": "rent-351",
+      "path": "cels/rent-351-atlas-photoreal-v1.png",
+      "width": 1706,
+      "height": 922,
+      "mode": "RGB",
+      "sha256": "cbfbbe587c2a0ccff10b87f6a5ca1ad3bddef981a73704b2133a59148c185f65",
+      "bytes": 2274776,
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb41-dba5-7f71-bb56-f6ca97dda88a/exec-d13cf299-ddc5-43c2-896c-c94dc491352e.png",
+      "referencePath": "native/public/hd/cels/rent-351-atlas.png",
+      "exactPrompt": "Use case: style-transfer with identity preservation.\nAsset type: production talking-portrait sprite atlas for Jones in the Fast Lane.\nInput image 1 is the edit target and exact composition/identity reference, not the desired painting style.\nTransform the WHOLE reference into a convincing live-action photographic contact sheet of the SAME woman, retaining exactly SIX equal cells arranged THREE columns by TWO rows, in precisely the same reading order and placement. Output landscape with the same approximately 1.8534:1 total aspect as the reference. Every cell must have equal dimensions and show the same locked-off camera, frontal head size, eye line, shoulder crop and blue background. Keep the original narrow black outer margins and dividers only; add no extra frame or padding. No head, hair, chin or face may bleed between cells.\nSubject invariants: adult woman, abundant shoulder-length dark chestnut-brown curly hair, round thin gold wire spectacles, brown eyes, light-to-medium warm natural skin, white gently gathered cotton blouse, same frontal gaze, same facial proportions and hairstyle as this specific reference. Six mouth expressions matched to reference: top left slightly parted with upper teeth; top middle closed neutral; top right small open speaking; bottom left round open O; bottom middle wider open speaking; bottom right warm closed-mouth smile. Only mouth and small associated cheek movement vary; everything else stays registered.\nDesired finish: actual high-resolution optical portrait photographs of a real human, visible natural pores, fine stray hair strands, believable clear glass/lens reflections, cotton fabric weave, subtle realistic subsurface skin color and natural asymmetry. Soft even portrait lighting, modest natural highlights, realistic skin color. Preserve the vivid solid cobalt-blue backdrop of each original cell. Use real-world detailed skin and cloth, without heavy airbrushed smoothing or saturated orange skin.\nDo not use illustration, painting, brush strokes, posterization, CGI, 3D render, plastic skin, doll/toy aesthetics, glamour retouching, cartoon proportions, cinematic scenery, depth-blurred backgrounds, text, captions, watermarks, added UI, new jewelry, or extra people. This must be a usable six-frame sprite atlas, not a presentation mockup. Preserve the six original expressions and exact layout.",
+      "assessment": "Accepted after visual inspection: same woman, curly chestnut hair, round glasses, white blouse, six mouth poses and even 3x2 registration retained. More natural skin, individual hair strands and cotton detail; vivid blue background and original narrow black gutters retained. No visible face bleed, added writing or UI.",
+      "validation": {
+        "pngVerified": true,
+        "opaque": true,
+        "layout": "three equal columns, two equal rows; crop using actual dimensions",
+        "runtimeVerified": false
+      },
+      "view": 351,
+      "src": "cels/rent-351-atlas-photoreal-v1.png",
+      "sourceWidth": 1706,
+      "sourceHeight": 922,
+      "prompt": "Use case: style-transfer with identity preservation.\nAsset type: production talking-portrait sprite atlas for Jones in the Fast Lane.\nInput image 1 is the edit target and exact composition/identity reference, not the desired painting style.\nTransform the WHOLE reference into a convincing live-action photographic contact sheet of the SAME woman, retaining exactly SIX equal cells arranged THREE columns by TWO rows, in precisely the same reading order and placement. Output landscape with the same approximately 1.8534:1 total aspect as the reference. Every cell must have equal dimensions and show the same locked-off camera, frontal head size, eye line, shoulder crop and blue background. Keep the original narrow black outer margins and dividers only; add no extra frame or padding. No head, hair, chin or face may bleed between cells.\nSubject invariants: adult woman, abundant shoulder-length dark chestnut-brown curly hair, round thin gold wire spectacles, brown eyes, light-to-medium warm natural skin, white gently gathered cotton blouse, same frontal gaze, same facial proportions and hairstyle as this specific reference. Six mouth expressions matched to reference: top left slightly parted with upper teeth; top middle closed neutral; top right small open speaking; bottom left round open O; bottom middle wider open speaking; bottom right warm closed-mouth smile. Only mouth and small associated cheek movement vary; everything else stays registered.\nDesired finish: actual high-resolution optical portrait photographs of a real human, visible natural pores, fine stray hair strands, believable clear glass/lens reflections, cotton fabric weave, subtle realistic subsurface skin color and natural asymmetry. Soft even portrait lighting, modest natural highlights, realistic skin color. Preserve the vivid solid cobalt-blue backdrop of each original cell. Use real-world detailed skin and cloth, without heavy airbrushed smoothing or saturated orange skin.\nDo not use illustration, painting, brush strokes, posterization, CGI, 3D render, plastic skin, doll/toy aesthetics, glamour retouching, cartoon proportions, cinematic scenery, depth-blurred backgrounds, text, captions, watermarks, added UI, new jewelry, or extra people. This must be a usable six-frame sprite atlas, not a presentation mockup. Preserve the six original expressions and exact layout."
+    },
+    {
+      "name": "appliance-358",
+      "path": "cels/appliance-358-atlas-photoreal-v1.png",
+      "width": 1584,
+      "height": 993,
+      "mode": "RGB",
+      "sha256": "6f08656f3d5f242c2537909a5880e9c216cd61304b5f7796f0c4d177c99ae818",
+      "bytes": 1840537,
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb41-dba5-7f71-bb56-f6ca97dda88a/exec-e24aebdd-7678-44be-9782-7abf84f516e9.png",
+      "referencePath": "native/public/hd/cels/appliance-358-atlas.png",
+      "exactPrompt": "Use case: style-transfer with identity preservation.\nAsset type: production talking-portrait sprite atlas for Jones in the Fast Lane.\nImage 1 is the edit target, the exact identity/outfit/layout reference. Completely replace its painted surface treatment with highly convincing LIVE-ACTION PHOTOGRAPHY. This must look like six photographs of one real human, with the same man and same camera setup, rather than painted or digitally modeled portraits.\nLayout: exactly SIX equal cells, THREE columns by TWO rows, same landscape aspect approximately 1.59416:1 as the reference. Preserve all cell positions and the reference's narrow black outer margins/dividers. Same frontal head size, top margin, eye line, neck position, white-shirt shoulder crop and blue backdrop in every cell. Maintain clear margins; no face, hair or clothing can bleed into neighboring cells. No added frames or UI.\nIdentity/outfit invariants: this specific medium-brown-skinned adult man with short tightly curly black hair, thin silver metal aviator-style prescription eyeglasses, brown eyes, clean-shaven face, crisp white collared button shirt, dark navy tie with subtle small burgundy/blue diamond pattern. Keep original facial structure, hairline and calm professional expression. Natural rather than orange skin.\nSix expressions in the SAME reading order: top left slightly parted lips with a hint of teeth; top middle closed relaxed lips; top right small open talking mouth; bottom left wider open vowel; bottom middle medium open speaking mouth; bottom right slight friendly smile with a narrow glimpse of teeth. Only mouth/associated cheeks move; do not change identity, head registration, pose, attire or lighting.\nPhotographic quality: real skin pores and fine facial hairs, nuanced warm/brown skin color, natural asymmetry, realistic glass reflections and metal rims, tiny individual hair curls, sharply resolved cotton weave and folds, believable silk tie. Soft natural studio portrait light with modest highlights, like an unretouched high-resolution camera photograph. Preserve the original deep solid saturated blue backdrop.\nAvoid illustration, painterly brush strokes, colored-pencil shading, posterized color patches, cartoon, 3D/CGI renders, glossy plastic skin, toy faces, airbrushing, beauty advertising, new scenery, gradients, text, logos, labels, watermarks or added objects. Deliver a clean usable six-frame atlas with real photographic human detail.",
+      "assessment": "Accepted after visual inspection: matching man, short curls, metal glasses, white shirt and dark patterned tie across six distinct mouth poses. Skin, lenses and cloth resolve into photographic detail without original broad painted patches. Exact 3x2 structure and source margins remain; no visible cross-cell face bleed.",
+      "validation": {
+        "pngVerified": true,
+        "opaque": true,
+        "layout": "three equal columns, two equal rows; crop using actual dimensions",
+        "runtimeVerified": false
+      },
+      "view": 358,
+      "src": "cels/appliance-358-atlas-photoreal-v1.png",
+      "sourceWidth": 1584,
+      "sourceHeight": 993,
+      "prompt": "Use case: style-transfer with identity preservation.\nAsset type: production talking-portrait sprite atlas for Jones in the Fast Lane.\nImage 1 is the edit target, the exact identity/outfit/layout reference. Completely replace its painted surface treatment with highly convincing LIVE-ACTION PHOTOGRAPHY. This must look like six photographs of one real human, with the same man and same camera setup, rather than painted or digitally modeled portraits.\nLayout: exactly SIX equal cells, THREE columns by TWO rows, same landscape aspect approximately 1.59416:1 as the reference. Preserve all cell positions and the reference's narrow black outer margins/dividers. Same frontal head size, top margin, eye line, neck position, white-shirt shoulder crop and blue backdrop in every cell. Maintain clear margins; no face, hair or clothing can bleed into neighboring cells. No added frames or UI.\nIdentity/outfit invariants: this specific medium-brown-skinned adult man with short tightly curly black hair, thin silver metal aviator-style prescription eyeglasses, brown eyes, clean-shaven face, crisp white collared button shirt, dark navy tie with subtle small burgundy/blue diamond pattern. Keep original facial structure, hairline and calm professional expression. Natural rather than orange skin.\nSix expressions in the SAME reading order: top left slightly parted lips with a hint of teeth; top middle closed relaxed lips; top right small open talking mouth; bottom left wider open vowel; bottom middle medium open speaking mouth; bottom right slight friendly smile with a narrow glimpse of teeth. Only mouth/associated cheeks move; do not change identity, head registration, pose, attire or lighting.\nPhotographic quality: real skin pores and fine facial hairs, nuanced warm/brown skin color, natural asymmetry, realistic glass reflections and metal rims, tiny individual hair curls, sharply resolved cotton weave and folds, believable silk tie. Soft natural studio portrait light with modest highlights, like an unretouched high-resolution camera photograph. Preserve the original deep solid saturated blue backdrop.\nAvoid illustration, painterly brush strokes, colored-pencil shading, posterized color patches, cartoon, 3D/CGI renders, glossy plastic skin, toy faces, airbrushing, beauty advertising, new scenery, gradients, text, logos, labels, watermarks or added objects. Deliver a clean usable six-frame atlas with real photographic human detail."
+    },
+    {
+      "name": "clothing-359",
+      "path": "cels/clothing-359-atlas-photoreal-v1.png",
+      "width": 1634,
+      "height": 962,
+      "mode": "RGB",
+      "sha256": "f523eea0899175522969916e35555eb50c3964d3e18ff2df92df219b012773f6",
+      "bytes": 2087896,
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb41-dba5-7f71-bb56-f6ca97dda88a/exec-59dfadf6-0876-45bf-89de-15b1df8b99d9.png",
+      "referencePath": "native/public/hd/cels/clothing-359-atlas.png",
+      "exactPrompt": "Use case: style-transfer; narrowly targeted correction to the attached six-panel portrait atlas.\nThis candidate still has angular, mottled PAINTED color patches across its forehead, cheeks, neck and ears. Correct that material defect in EVERY cell: replace those illustrated surfaces with true continuous photographic human skin. The target is six real live-action camera photographs of this same adult man. His skin must have natural fine pores and faint peach-fuzz/stubble with smooth physically realistic lighting gradients, rather than flat orange polygon patches, brush marks, pencil texture, CGI plastic or wax. Use the level of realism of an unretouched editorial portrait photographed with an 85mm lens and large softbox.\nLock everything else: exact six equal cells in a three-column two-row grid, the same 1635\u00d7962-style aspect, narrow black gutters, matching identity, brown eyes, short black curls, round gold wire glasses, head size and position, shoulder crop, blue backgrounds, mustard-yellow blazer, richly patterned blue shirt and loosely knotted dark patterned tie. Keep all six mouth expressions and their reading order exactly as supplied, including the closed mouth in upper middle and broad toothy smile lower right. No body/face/cell movement, no new content, no new margins, no lettering or UI. Only resolve the visual surface into genuine photography, with realistic skin, eyes, hair and cloth texture; remove the existing painterly surface treatment completely. Preserve the atlas as a usable production sprite asset.",
+      "assessment": "Accepted after one targeted correction: first candidate retained angular painted skin patches; final candidate substantially resolves those into fine natural skin/stubble detail while preserving the six expressions, gold glasses, yellow blazer and patterned shirt/tie. Six equal cells and head placement remain consistent, with no face bleeding across gutters. Photographic rendering remains AI-generated, not an actual actor capture.",
+      "validation": {
+        "pngVerified": true,
+        "opaque": true,
+        "layout": "three equal columns, two equal rows; crop using actual dimensions",
+        "runtimeVerified": false
+      },
+      "editReferencePath": "/home/tombonator3000t/.codex/generated_images/01a0fb41-dba5-7f71-bb56-f6ca97dda88a/exec-e0ec726e-3364-41c0-ac10-8177da093111.png",
+      "previousAttempt": {
+        "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb41-dba5-7f71-bb56-f6ca97dda88a/exec-e0ec726e-3364-41c0-ac10-8177da093111.png",
+        "exactPrompt": "Use case: style-transfer with identity preservation.\nAsset type: usable production six-frame talking portrait atlas, not a poster or mockup.\nImage 1 is the exact edit target for identity, clothes, pose, cell geometry and expression. Replace the illustration treatment everywhere with detailed natural LIVE-ACTION CAMERA PHOTOGRAPHY. Preserve precisely SIX equal panels in THREE columns by TWO rows, total landscape aspect approximately 1.69958:1 like this source. Every cell is a close frontal head-and-shoulders portrait of the SAME real man, with exact fixed camera distance, head position, eye line, shoulder crop, clothing and blue backdrop. Keep the thin black source margins/dividers only. Do not add decorative frames. Maintain face and hair wholly inside their cells.\nIdentity and clothing: the source's young-to-middle-aged adult man with warm medium-brown skin, short dark curly hair slightly higher on top, thin round gold wire spectacles, brown eyes, clean-shaven face, confident pleasant look. Keep his specific facial proportions and hairline. He wears the same mustard-yellow blazer with notched lapels over a rich blue shirt with small reddish and teal organic patterns and a loosely arranged dark blue/burgundy patterned tie. Keep these exact garments and their placement/colors recognizable.\nSix mouth shapes, matched in reading order to input: top left lightly smiling parted lips with narrow white upper teeth; top middle neutral closed lips; top right relaxed slightly open speaking; bottom left clearly rounded open O; bottom middle medium-open vowel with upper teeth; bottom right broad warm toothy smile. Keep all six expressions distinct, but all head registration and identity constant; only lips and neighboring cheeks change.\nPhotorealism: genuinely lifelike human skin with pores, fine facial hairs and natural tonal variation, no flat polygonal/painted patches. Real curls and flyaways, clear physically plausible glasses, believable eyes, textured woven wool blazer, printed cotton shirt and silk tie with actual cloth folds and fine weave. Soft balanced natural studio portrait lighting, realistic restrained highlights and shadows, natural warm/brown skin rather than orange. Solid bright cobalt-blue background matching reference.\nExclude painted, airbrushed or cartoon rendering; no CGI/3D/toy/plastic appearance, no glamour beautification, no extra jewelry, text, logos, captions, watermark, surrounding UI or additional figures. Do not recolor the yellow blazer or redesign the shirt. The result must be six coordinated photographic talking frames ready for equal-grid sprite cropping.",
+        "assessment": "Superseded: visible broad angular painted skin treatment remained; corrected using the final targeted edit."
+      },
+      "view": 359,
+      "src": "cels/clothing-359-atlas-photoreal-v1.png",
+      "sourceWidth": 1634,
+      "sourceHeight": 962,
+      "prompt": "Use case: style-transfer; narrowly targeted correction to the attached six-panel portrait atlas.\nThis candidate still has angular, mottled PAINTED color patches across its forehead, cheeks, neck and ears. Correct that material defect in EVERY cell: replace those illustrated surfaces with true continuous photographic human skin. The target is six real live-action camera photographs of this same adult man. His skin must have natural fine pores and faint peach-fuzz/stubble with smooth physically realistic lighting gradients, rather than flat orange polygon patches, brush marks, pencil texture, CGI plastic or wax. Use the level of realism of an unretouched editorial portrait photographed with an 85mm lens and large softbox.\nLock everything else: exact six equal cells in a three-column two-row grid, the same 1635\u00d7962-style aspect, narrow black gutters, matching identity, brown eyes, short black curls, round gold wire glasses, head size and position, shoulder crop, blue backgrounds, mustard-yellow blazer, richly patterned blue shirt and loosely knotted dark patterned tie. Keep all six mouth expressions and their reading order exactly as supplied, including the closed mouth in upper middle and broad toothy smile lower right. No body/face/cell movement, no new content, no new margins, no lettering or UI. Only resolve the visual surface into genuine photography, with realistic skin, eyes, hair and cloth texture; remove the existing painterly surface treatment completely. Preserve the atlas as a usable production sprite asset."
+    },
+    {
+      "name": "discount-361",
+      "path": "cels/discount-361-atlas-photoreal-v1.png",
+      "width": 1706,
+      "height": 922,
+      "mode": "RGB",
+      "sha256": "3d797b30db7483799d4a91a876ce127f012f253f87a7f8fae5e66384cefa9309",
+      "bytes": 2024940,
+      "archivedGeneratorPath": "/home/tombonator3000t/.codex/generated_images/01a0fb41-dba5-7f71-bb56-f6ca97dda88a/exec-9f6ba987-9211-42e4-b01e-49dadf06ad5f.png",
+      "referencePath": "native/public/hd/cels/discount-361-atlas.png",
+      "exactPrompt": "Use case: style-transfer with identity preservation.\nAsset type: production six-frame talking-portrait sprite atlas for Jones in the Fast Lane.\nImage 1 is the edit target: keep the exact character identity, clothes, mouth expressions and cell layout, but replace the illustration with natural LIVE-ACTION PHOTOGRAPHY of a real adult man. Render every inch as genuine camera-photographic skin, hair and textiles rather than painting.\nComposition: exactly SIX equal cells in THREE columns and TWO rows, same overall approximately 1.8545:1 landscape aspect as the input. Each cell shows the same straight-on head and upper torso, same eye line/head size, head-centered position, shoulder crop and saturated blue backdrop. Retain only the reference's thin black cell dividers and outer margin, without new framing. All faces, hair and shoulders must remain within their own cells, with no neighboring-cell bleed.\nIdentity/outfit: this specific fair-skinned adult man with medium-length wavy chestnut-brown hair swept back in a loose 1980s style, light hazel eyes, clean-shaven face, the same facial proportions and relaxed shop-worker demeanor. Same light-blue cotton button-up shirt with collar, same yellow/mustard knitted sleeveless vest. Preserve the small white cloth patch with its red flower and green leaves at the lower left of each image, without adding any writing. No new accessories.\nExpressions from left to right, top row then bottom row: slightly parted relaxed lips; closed neutral lips; small open speaking mouth; round open O; medium open vowel showing narrow upper teeth; mild closed-mouth smile. Match the exact six reference expressions and keep the rest of the head/pose/clothing registered between cells.\nPhotographic direction: actual human pores, subtly uneven complexion and fine stubble, tiny skin folds and realistic lips, individually resolved wavy hair strands, natural eye reflections, soft realistic portrait lighting, cotton shirt weave and knitted vest yarn. Correct natural skin colors and gentle highlights; no painted orange patches or plastic smoothness. Same vivid solid cobalt blue backgrounds and clear face readability.\nNo illustration, painting, brush strokes, colored-pencil shading, posterized planes, cartoon, CGI/3D-rendered toy look, waxy skin, glamour retouching, text, captions, logos, watermarks, extra subjects or UI. This is a clean production atlas of real photographic acting frames, not a mockup.",
+      "assessment": "Accepted after visual inspection: matching wavy-haired man, light-blue shirt, yellow knitted vest and flower patch across six original mouth poses. Natural facial texture, realistic hair and knit/cotton detail; solid blue field and original 3x2 layout retained. No added text/UI or face bleed.",
+      "validation": {
+        "pngVerified": true,
+        "opaque": true,
+        "layout": "three equal columns, two equal rows; crop using actual dimensions",
+        "runtimeVerified": false
+      },
+      "view": 361,
+      "src": "cels/discount-361-atlas-photoreal-v1.png",
+      "sourceWidth": 1706,
+      "sourceHeight": 922,
+      "prompt": "Use case: style-transfer with identity preservation.\nAsset type: production six-frame talking-portrait sprite atlas for Jones in the Fast Lane.\nImage 1 is the edit target: keep the exact character identity, clothes, mouth expressions and cell layout, but replace the illustration with natural LIVE-ACTION PHOTOGRAPHY of a real adult man. Render every inch as genuine camera-photographic skin, hair and textiles rather than painting.\nComposition: exactly SIX equal cells in THREE columns and TWO rows, same overall approximately 1.8545:1 landscape aspect as the input. Each cell shows the same straight-on head and upper torso, same eye line/head size, head-centered position, shoulder crop and saturated blue backdrop. Retain only the reference's thin black cell dividers and outer margin, without new framing. All faces, hair and shoulders must remain within their own cells, with no neighboring-cell bleed.\nIdentity/outfit: this specific fair-skinned adult man with medium-length wavy chestnut-brown hair swept back in a loose 1980s style, light hazel eyes, clean-shaven face, the same facial proportions and relaxed shop-worker demeanor. Same light-blue cotton button-up shirt with collar, same yellow/mustard knitted sleeveless vest. Preserve the small white cloth patch with its red flower and green leaves at the lower left of each image, without adding any writing. No new accessories.\nExpressions from left to right, top row then bottom row: slightly parted relaxed lips; closed neutral lips; small open speaking mouth; round open O; medium open vowel showing narrow upper teeth; mild closed-mouth smile. Match the exact six reference expressions and keep the rest of the head/pose/clothing registered between cells.\nPhotographic direction: actual human pores, subtly uneven complexion and fine stubble, tiny skin folds and realistic lips, individually resolved wavy hair strands, natural eye reflections, soft realistic portrait lighting, cotton shirt weave and knitted vest yarn. Correct natural skin colors and gentle highlights; no painted orange patches or plastic smoothness. Same vivid solid cobalt blue backgrounds and clear face readability.\nNo illustration, painting, brush strokes, colored-pencil shading, posterized planes, cartoon, CGI/3D-rendered toy look, waxy skin, glamour retouching, text, captions, logos, watermarks, extra subjects or UI. This is a clean production atlas of real photographic acting frames, not a mockup."
+    }
+  ]
+}

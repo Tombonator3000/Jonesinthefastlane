@@ -1,0 +1,187 @@
+{
+  "checkedAt": "2026-10-02T18:30:15.694534+00:00",
+  "ok": true,
+  "uniqueImages": 10,
+  "pics": 1,
+  "cels": 49,
+  "portraitFrames": 48,
+  "opaque": true,
+  "originalHashes": true,
+  "dimensionsCropsRegions": true,
+  "entries": [
+    "pics:11",
+    "cels:500:0:0",
+    "cels:354:0:0",
+    "cels:354:0:1",
+    "cels:354:0:2",
+    "cels:354:0:3",
+    "cels:354:0:4",
+    "cels:354:0:5",
+    "cels:353:0:0",
+    "cels:353:0:1",
+    "cels:353:0:2",
+    "cels:353:0:3",
+    "cels:353:0:4",
+    "cels:353:0:5",
+    "cels:357:0:0",
+    "cels:357:0:1",
+    "cels:357:0:2",
+    "cels:357:0:3",
+    "cels:357:0:4",
+    "cels:357:0:5",
+    "cels:360:0:0",
+    "cels:360:0:1",
+    "cels:360:0:2",
+    "cels:360:0:3",
+    "cels:360:0:4",
+    "cels:360:0:5",
+    "cels:351:0:0",
+    "cels:351:0:1",
+    "cels:351:0:2",
+    "cels:351:0:3",
+    "cels:351:0:4",
+    "cels:351:0:5",
+    "cels:358:0:0",
+    "cels:358:0:1",
+    "cels:358:0:2",
+    "cels:358:0:3",
+    "cels:358:0:4",
+    "cels:358:0:5",
+    "cels:359:0:0",
+    "cels:359:0:1",
+    "cels:359:0:2",
+    "cels:359:0:3",
+    "cels:359:0:4",
+    "cels:359:0:5",
+    "cels:361:0:0",
+    "cels:361:0:1",
+    "cels:361:0:2",
+    "cels:361:0:3",
+    "cels:361:0:4",
+    "cels:361:0:5"
+  ],
+  "files": [
+    {
+      "src": "pics/town-11-photoreal-v1.png",
+      "sha256": "ee55c738d45d45a05484ad6ce2637904bb67e73141e7a72f0aba96d7e7ec267d",
+      "width": 1586,
+      "height": 992,
+      "bytes": 2606847
+    },
+    {
+      "src": "cels/character-selection-500-photoreal-v1.png",
+      "sha256": "cc9eb4fd565220373c37082b4fbe672fa2ede41afc8a1e49676f519b8b63be8f",
+      "width": 1605,
+      "height": 980,
+      "bytes": 1703075
+    },
+    {
+      "src": "cels/bank-354-atlas-photoreal-v1.png",
+      "sha256": "f9ee804cc108c45199166c73f3111f58047542707613c57c6613196fc293891f",
+      "width": 1662,
+      "height": 946,
+      "bytes": 1892483
+    },
+    {
+      "src": "cels/market-353-atlas-photoreal-v1.png",
+      "sha256": "71f9fbc706c64f28f068dcebeac4fdbe8a7b1b1075e4bb6fd9db862366313d0d",
+      "width": 1707,
+      "height": 921,
+      "bytes": 1819425
+    },
+    {
+      "src": "cels/university-357-atlas-photoreal-v1.png",
+      "sha256": "d37c33a704c5b5e22b2c85ccdf01c83551fd28f6170307c9f374e21f0e857b29",
+      "width": 1706,
+      "height": 922,
+      "bytes": 1975698
+    },
+    {
+      "src": "cels/burger-360-atlas-photoreal-v1.png",
+      "sha256": "0aa65c5403526da7ea5280758aeecfd496f3951237e55e2d53738f0fa32cec79",
+      "width": 1708,
+      "height": 921,
+      "bytes": 1675592
+    },
+    {
+      "src": "cels/rent-351-atlas-photoreal-v1.png",
+      "sha256": "cbfbbe587c2a0ccff10b87f6a5ca1ad3bddef981a73704b2133a59148c185f65",
+      "width": 1706,
+      "height": 922,
+      "bytes": 2274776
+    },
+    {
+      "src": "cels/appliance-358-atlas-photoreal-v1.png",
+      "sha256": "6f08656f3d5f242c2537909a5880e9c216cd61304b5f7796f0c4d177c99ae818",
+      "width": 1584,
+      "height": 993,
+      "bytes": 1840537
+    },
+    {
+      "src": "cels/clothing-359-atlas-photoreal-v1.png",
+      "sha256": "f523eea0899175522969916e35555eb50c3964d3e18ff2df92df219b012773f6",
+      "width": 1634,
+      "height": 962,
+      "bytes": 2087896
+    },
+    {
+      "src": "cels/discount-361-atlas-photoreal-v1.png",
+      "sha256": "3d797b30db7483799d4a91a876ce127f012f253f87a7f8fae5e66384cefa9309",
+      "width": 1706,
+      "height": 922,
+      "bytes": 2024940
+    }
+  ],
+  "visualReview": "Each atlas, town and selection image inspected; runtime screenshots/test evidence recorded separately.",
+  "manifestSha256": "eafbfb75621def0b44f19d9eb63c47d10ca473d87dd942e58c1c0f9d2fd2e28c",
+  "selectionRegions": [
+    {
+      "left": 1,
+      "top": 14,
+      "right": 45,
+      "bottom": 99
+    },
+    {
+      "left": 47,
+      "top": 14,
+      "right": 91,
+      "bottom": 99
+    },
+    {
+      "left": 93,
+      "top": 14,
+      "right": 137,
+      "bottom": 99
+    },
+    {
+      "left": 139,
+      "top": 14,
+      "right": 181,
+      "bottom": 99
+    },
+    {
+      "left": 1,
+      "top": 99,
+      "right": 31,
+      "bottom": 108
+    },
+    {
+      "left": 47,
+      "top": 99,
+      "right": 76,
+      "bottom": 108
+    },
+    {
+      "left": 93,
+      "top": 99,
+      "right": 122,
+      "bottom": 108
+    },
+    {
+      "left": 139,
+      "top": 99,
+      "right": 167,
+      "bottom": 108
+    }
+  ]
+}
