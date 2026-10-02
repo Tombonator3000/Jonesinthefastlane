@@ -26,6 +26,8 @@ PeerJS Cloud). Both loaded `index-DRNMc4UY.js`, SHA-256
 include the observed ready ticks, flags and before/after original turn counts.
 
 [Guest controls the original home](peer-evidence/turn-ready-guest.png).
-Public deployment verification is recorded in `peer_multiplayer_delivery.json`
-after the full publishing workflow succeeds. Physical cross-network/TURN tests
+The [full publishing workflow](https://github.com/Tombonator3000/Jonesinthefastlane/actions/runs/36993114787) passed native,
+reference verification and Pages deployment. The public Pages URL then passed
+all 11 peer checks with the same production JavaScript hash. See
+[the delivery record](peer_multiplayer_delivery.json). Physical cross-network/TURN tests
 remain outside the verified scope.
