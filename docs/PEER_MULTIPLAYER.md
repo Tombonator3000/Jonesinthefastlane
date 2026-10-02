@@ -60,8 +60,15 @@ See [PeerJS connection documentation](https://peerjs.com/client/faq).
 
 The indexed frame is larger than a single conservative data-channel packet.
 The transport therefore bounds, compresses and splits messages, checks their
-assembly and applies backpressure. Frame ordering must remain the same as on
-the authoritative host; stale frames cannot replace a later reconnect snapshot.
+assembly and applies receive-side backpressure. Wire version 2 permits one message
+in flight per direction; the receiver acknowledges it only after decoding and
+handling it. This bounds inflated HD data even when compressed packets arrive fast.
+A slow guest retains the newest complete unsent presentation snapshot, with frame,
+state and input owner from the authoritative committed tick. Input acknowledgments,
+room changes and other control messages remain ordered and cannot be replaced.
+The host's original 60 Hz simulation is unchanged. Stale frames cannot replace a
+later reconnect snapshot. A wire-version mismatch asks both players to reload or
+update the page and does not enter an automatic reconnect loop.
 Original artwork is still drawn by Three.js with local display options.
 Complete optional HD scene descriptions travel with each authoritative frame.
 Peers load the static HD art locally and choose their own Original/HD settings;
@@ -130,6 +137,9 @@ Only peer mode stores original saves on the creator's device.
   PeerJS/WebRTC to create, discover, search, refresh and join a public room. It
   checks renewal, private defaults, full-room removal, fullscreen and focus.
   `JONES_DISCOVERY_CLOUD=1` separately exercises the public HiveMQ and PeerJS services.
+  `JONES_PEER_GUEST_CPU_RATE=3` additionally throttles the actual guest browser for
+  the peer journey. Any send/receive queue overflow fails the test even if an
+  automatic reconnect later succeeds.
 
 Actual results and limitations belong in the delivery report. Do not call
 cross-network or TURN behavior verified without running those conditions.
