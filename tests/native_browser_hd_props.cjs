@@ -27,6 +27,35 @@ async function click(x, y, delay = 100) {
   // Leave the pointer on the control until the caller observes its result.
   await page.waitForTimeout(140); await healthy();
 }
+async function parkCursor() {
+  // Viewport(0,0) may be the toolbar or letterbox, outside the canvas handler.
+  const bounds = await page.locator('#game').boundingBox(); assert(bounds);
+  await page.mouse.move(bounds.x + .1, bounds.y + .1);
+}
+async function bankArrival() {
+  await wait(s => s.dialog === 'bank' && (s.trace.at(-1) === '204:bank.doit' ||
+    (s.trace.at(-2) === '204:bank.init' && s.trace.at(-1) === '255:Dialog.doit')));
+  const arrival = await page.evaluate(() => {
+    const api = window.jonesNative, s = api.getState();
+    const greetings = api.runtime.graphics.assets.texts['204'].slice(0, 10);
+    const visible = api.getFrame().hd.ops.find(op => op.kind === 'text' && greetings.includes(op.text));
+    return { state: s, text: visible?.text ?? null };
+  });
+  if (arrival.state.trace.at(-1) === '204:bank.doit') return;
+  assert.equal(arrival.state.dialog, 'bank');
+  assert.deepEqual(arrival.state.trace.slice(-2), ['204:bank.init', '255:Dialog.doit']);
+  assert(arrival.text, 'Only a visibly displayed original bank welcome may be acknowledged');
+  report.bankGreeting = { text: arrival.text, trace: arrival.state.trace, tick: arrival.state.ticks, cashBefore: arrival.state.cash };
+  // bank.init shows text204[0..9] before bank.doit. Its original five-second
+  // timer uses simulation ticks, so acknowledge it rather than waiting for
+  // wall-clock speed. This point is inside the bubble and away from bank
+  // action hitboxes even if the greeting expires just before the click.
+  await click(140, 100);
+  const after = await ready('bank');
+  assert.equal(after.cash, arrival.state.cash, 'Acknowledging the original welcome must not change cash');
+  report.bankGreeting.cashAfter = after.cash;
+  report.bankGreeting.readyTrace = after.trace;
+}
 async function travel(x, y, dialog) {
   assert.equal((await state()).dialog, null);
   const before = await page.evaluate(() => JSON.stringify(window.jonesNative.getFrame().hd.ops
@@ -37,7 +66,8 @@ async function travel(x, y, dialog) {
   await page.waitForFunction(({ before, dialog }) => window.jonesNative.getState().dialog === dialog ||
     JSON.stringify(window.jonesNative.getFrame().hd.ops.filter(op => op.kind === 'cel' && op.view === 0 && op.loop === 2).map(op => op.dest)) !== before,
     { before, dialog }, { timeout: 25000 });
-  await page.mouse.move(0, 0); await ready(dialog);
+  await parkCursor();
+  if (dialog === 'bank') await bankArrival(); else await ready(dialog);
 }
 async function clickCel(view, loop) {
   const dest = await page.evaluate(({ view, loop }) => window.jonesNative.getFrame().hd.ops.filter(op => op.kind === 'cel' && op.view === view && op.loop === loop).at(-1)?.dest, { view, loop });
@@ -45,7 +75,7 @@ async function clickCel(view, loop) {
   await click((dest.left + dest.right) / 2, (dest.top + dest.bottom) / 2);
 }
 async function screenshot(name) {
-  await page.mouse.move(0, 0); const file = path.join(OUTPUT, `${name}.png`);
+  await parkCursor(); const file = path.join(OUTPUT, `${name}.png`);
   await page.screenshot({ path: file }); report.screenshots.push({ name, path: path.relative(ROOT, file), state: await state() });
 }
 async function ready(dialog) { return wait(s => s.dialog === dialog && s.trace.at(-1) === ({ employment: '206:employment.doit', fastFood: '210:fastFood.doit', bank: '204:bank.doit', lowcost: '200:lowcost.doit' }[dialog])); }
@@ -113,7 +143,7 @@ async function saveObservations() {
   }
 }
 async function cashPixels(label) {
-  await page.mouse.move(0, 0);
+  await parkCursor();
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   const result = await page.evaluate(() => {
     const frame = window.jonesNative.getFrame(), data = Uint8Array.from(atob(frame.pixels), c => c.charCodeAt(0));
@@ -161,7 +191,7 @@ async function toggle(pack) {
   assert.equal(await page.evaluate(() => document.activeElement?.id), 'game');
 }
 async function depositLabel() {
-  await page.mouse.move(0, 0);
+  await parkCursor();
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   const sample = await page.evaluate(() => {
     const frame = window.jonesNative.getFrame();

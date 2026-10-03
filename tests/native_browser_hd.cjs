@@ -19,7 +19,13 @@ async function wait(predicate, timeout = 25000) {
   throw new Error('State timeout: ' + JSON.stringify(await state()));
 }
 async function click(x, y) { const b = await page.locator('#game').boundingBox(); await page.mouse.click(b.x + x * b.width / 320, b.y + y * b.height / 200, { delay: 80 }); await page.waitForTimeout(200); }
-async function capture(name) { await page.mouse.move(0, 0); const file = path.join(OUTPUT, name + '.png'); await page.screenshot({ path: file }); report.screenshots.push(path.relative(ROOT, file)); }
+async function parkCursor(target = page) {
+  // The persistent toolbar/letterbox can occupy viewport(0,0). Move inside
+  // the canvas so its pointer handler actually clears the measured controls.
+  const b = await target.locator('#game').boundingBox();
+  await target.mouse.move(b.x + .1, b.y + .1);
+}
+async function capture(name) { await parkCursor(); const file = path.join(OUTPUT, name + '.png'); await page.screenshot({ path: file }); report.screenshots.push(path.relative(ROOT, file)); }
 async function settings(pack, lighting = false, resolution = '1080') {
   await page.locator('#settings').click(); await page.locator('#graphics-pack').selectOption(pack);
   await page.locator('#mode').selectOption('original'); await page.locator('#lighting').setChecked(lighting); await page.locator('#resolution').selectOption(resolution);
@@ -44,13 +50,13 @@ async function toggle(pack) {
   assert.deepEqual(await page.evaluate(() => window.__graphicsToggleObservation), { frameUnchanged: true, stateUnchanged: true });
   assert.equal(await page.evaluate(() => document.activeElement?.id), 'game', 'Original keyboard controls retain canvas focus after a graphics toggle');
   assert.equal(await page.locator('#graphics-toggle').getAttribute('aria-pressed'), String(pack === 'hd'));
-  assert.equal(await page.locator('#graphics-toggle').textContent(), `Graphics: ${pack === 'hd' ? 'HD' : 'Original'}`);
+  assert.equal(await page.locator('#graphics-toggle').textContent(), `HD: ${pack === 'hd' ? 'On' : 'Off'}`);
   assert.equal(await page.locator('#graphics-pack').inputValue(), pack);
   assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('jones-display-v1')).pack), pack);
   if (pack === 'hd') await page.waitForFunction(() => window.jonesNative.getDisplay().hd.ready && window.jonesNative.getDisplay().hd.layers > 0);
 }
 async function originalUi(label, regions, exact = true, target = page) {
-  await target.mouse.move(0, 0);
+  await parkCursor(target);
   await target.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   const sample = await target.evaluate(async regions => {
     const frame = window.jonesNative.getFrame(), pixels = Uint8Array.from(atob(frame.pixels), c => c.charCodeAt(0));
@@ -254,6 +260,97 @@ async function start() {
     assert.equal(await fallback.locator('#failure').isVisible(), false); assert.deepEqual(errors, []);
     const file = path.join(OUTPUT, '13-missing-pack-fallback.png'); await fallback.screenshot({ path: file }); report.screenshots.push(path.relative(ROOT, file));
     await fallbackContext.close(); return { deliberatelyUnavailable: 'hd/manifest.json', originalPlayerCountReached: true };
+  });
+  await check('Touch display controls stay visible outside the original game in portrait, landscape and fullscreen', async () => {
+    const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 1 });
+    const mobile = await mobileContext.newPage(), layouts = [], toggles = [];
+    mobile.on('pageerror', e => report.errors.push(e.message));
+    mobile.on('console', m => { if (m.type() === 'error') report.errors.push(m.text()); });
+    mobile.on('response', response => {
+      if (response.ok() && response.request().resourceType() === 'script') scriptReads.push(response.body().then(bytes => report.loadedScripts.push({ path: new URL(response.url()).pathname, sha256: createHash('sha256').update(bytes).digest('hex') })));
+    });
+    async function touchCapture(name) {
+      // No mouse movement or focus: visibility must not depend on hover.
+      const file = path.join(OUTPUT, name + '.png'); await mobile.screenshot({ path: file }); report.screenshots.push(path.relative(ROOT, file));
+    }
+    async function layout(target, label) {
+      await target.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      const result = await target.evaluate(() => {
+        const box = element => { const r = element.getBoundingClientRect(); return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, width: r.width, height: r.height }; };
+        const toolbar = document.querySelector('#display-controls'), canvas = document.querySelector('#game');
+        const buttons = [...toolbar.querySelectorAll('button')].filter(button => !button.hidden).map(button => {
+          let opacity = 1, visible = true;
+          for (let node = button; node; node = node.parentElement) { const style = getComputedStyle(node); opacity *= Number(style.opacity); visible &&= style.visibility === 'visible' && style.display !== 'none'; }
+          const rect = box(button), hit = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          return { id: button.id, rect, opacity, visible, reachable: hit === button || button.contains(hit), overflow: button.scrollWidth - button.clientWidth };
+        });
+        return { toolbar: box(toolbar), game: box(canvas), buffer: { width: canvas.width, height: canvas.height }, buttons,
+          viewport: { width: innerWidth, height: innerHeight }, pageWidth: document.documentElement.scrollWidth,
+          noHover: matchMedia('(hover: none)').matches, touchPoints: navigator.maxTouchPoints, fullscreen: document.fullscreenElement?.id ?? null };
+      });
+      const { toolbar, game, viewport } = result;
+      assert(Math.abs(game.width / game.height - 1.6) < .01, label + ': CSS game keeps 8:5');
+      assert(Math.abs(result.buffer.width / result.buffer.height - 1.6) < .01, label + ': backing canvas keeps 8:5');
+      assert(game.left >= -1 && game.top >= -1 && game.right <= viewport.width + 1 && game.bottom <= viewport.height + 1, label + ': full game stays in viewport');
+      assert(toolbar.right <= game.left + .5 || toolbar.left >= game.right - .5 || toolbar.bottom <= game.top + .5 || toolbar.top >= game.bottom - .5, label + ': toolbar must not cover canvas');
+      assert(result.pageWidth <= viewport.width + 1, label + ': no horizontal page overflow');
+      for (const button of result.buttons) {
+        assert(button.visible && button.opacity === 1 && button.reachable, label + ': ' + button.id + ' visible and reachable without hover');
+        assert(button.rect.width >= 44 && button.rect.height >= 44, label + ': ' + button.id + ' has a 44px touch target');
+        assert(button.rect.left >= 0 && button.rect.top >= 0 && button.rect.right <= viewport.width + 1 && button.rect.bottom <= viewport.height + 1, label + ': button within viewport');
+        assert(button.overflow <= 1, label + ': button text fits');
+      }
+      layouts.push({ label, ...result }); return result;
+    }
+    async function touchToggle(pack) {
+      await mobile.locator('#graphics-toggle').evaluate(button => {
+        button.addEventListener('click', () => {
+          const frame = JSON.stringify(window.jonesNative.getFrame()), state = JSON.stringify(window.jonesNative.getState());
+          document.addEventListener('click', () => { window.__touchToggle = { frameUnchanged: frame === JSON.stringify(window.jonesNative.getFrame()), stateUnchanged: state === JSON.stringify(window.jonesNative.getState()) }; }, { once: true });
+        }, { capture: true, once: true });
+      });
+      await mobile.locator('#graphics-toggle').tap();
+      const observed = await mobile.evaluate(() => window.__touchToggle);
+      assert.deepEqual(observed, { frameUnchanged: true, stateUnchanged: true });
+      assert.equal(await mobile.locator('#graphics-toggle').getAttribute('aria-pressed'), String(pack === 'hd'));
+      assert.equal(await mobile.locator('#graphics-toggle').textContent(), `HD: ${pack === 'hd' ? 'On' : 'Off'}`);
+      assert.equal(await mobile.locator('#graphics-pack').inputValue(), pack);
+      if (pack === 'hd') await mobile.waitForFunction(() => window.jonesNative.getDisplay().hd.ready && window.jonesNative.getDisplay().hd.layers > 0);
+      toggles.push({ pack, ...observed });
+    }
+    async function tapGame(x, y) {
+      const b = await mobile.locator('#game').boundingBox();
+      await mobile.touchscreen.tap(b.x + x * b.width / 320, b.y + y * b.height / 200);
+    }
+    try {
+      await mobile.goto(BASE_URL); await mobile.waitForFunction(() => window.jonesNative && !document.querySelector('#graphics-toggle').disabled);
+      const first = await layout(mobile, '390x844 before any touch'); assert(first.noHover && first.touchPoints > 0, 'This must be a real touch/no-hover browser context');
+      await touchCapture('14-touch-visible-without-hover'); await touchToggle('hd'); await touchToggle('original');
+      await mobile.locator('#play').tap(); await mobile.waitForFunction(() => document.fullscreenElement?.id === 'screen');
+      for (let i = 0; i < 8; i++) {
+        if (await mobile.evaluate(() => window.jonesNative.getState()?.dialog === 'select1')) break;
+        await tapGame(160, 100); await mobile.waitForTimeout(650);
+      }
+      await mobile.waitForFunction(() => window.jonesNative.getState()?.dialog === 'select1' && window.jonesNative.getState().trace.at(-1) === '233:select1.doit');
+      await touchToggle('hd'); await touchToggle('original');
+      assert.equal(await mobile.evaluate(() => document.activeElement?.id), 'game', 'Touch toggle restores original keyboard focus');
+      await layout(mobile, '390x844 original menu fullscreen'); await touchCapture('15-touch-fullscreen-menu');
+      await mobile.setViewportSize({ width: 844, height: 390 }); await layout(mobile, '844x390 landscape fullscreen'); await touchCapture('16-touch-landscape');
+      await mobile.setViewportSize({ width: 320, height: 740 }); await layout(mobile, '320px narrow fullscreen');
+      // Layout-only fixture for the fourth toolbar button. No room/peer/game data is changed.
+      const connectionWasHidden = await mobile.locator('#connection-settings').evaluate(button => { const hidden = button.hidden; button.hidden = false; return hidden; });
+      try { await layout(mobile, '320px Connection button layout fixture'); await touchCapture('17-touch-narrow-four-buttons-layout-fixture'); }
+      finally { await mobile.locator('#connection-settings').evaluate((button, hidden) => { button.hidden = hidden; }, connectionWasHidden); }
+      await mobile.setViewportSize({ width: 844, height: 390 }); await layout(mobile, '844x390 restored original menu');
+      assert.equal(await mobile.locator('#game').evaluate(canvas => { const b = canvas.getBoundingClientRect(); return document.elementFromPoint(b.x + b.width * 165 / 320, b.y + b.height * 75 / 200) === canvas; }), true, 'Original Play Game target remains the canvas');
+      await tapGame(165, 75); await mobile.waitForFunction(() => window.jonesNative.getState()?.dialog === 'select1b');
+      await mobile.locator('#fullscreen').tap(); await mobile.waitForFunction(() => !document.fullscreenElement); await layout(mobile, '844x390 fullscreen exited');
+      await mobile.locator('#fullscreen').tap(); await mobile.waitForFunction(() => document.fullscreenElement?.id === 'screen'); await layout(mobile, '844x390 fullscreen reentered');
+      await page.setViewportSize({ width: 1280, height: 800 }); await layout(page, '1280x800 desktop with original WebGL-loss fallback');
+      assert.equal(await mobile.evaluate(() => window.jonesNative.getState().error), null);
+      return { layouts, toggles, originalPlayGameReached: 'select1b', connectionButtonScope: 'DOM layout only; no multiplayer claim' };
+    } catch (error) { await touchCapture('failure-touch-toolbar').catch(() => {}); throw error; }
+    finally { await mobileContext.close(); }
   });
   await Promise.all(scriptReads); assert.deepEqual(report.errors, []); report.ok = true;
 })().catch(async error => { report.failure = error.stack; console.error(error); if (page) try { await capture('failure'); } catch {} process.exitCode = 1; })

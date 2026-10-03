@@ -1,6 +1,9 @@
 # Optional photorealistic HD artwork
 
-Use **Graphics: Original / HD** in the display controls to switch immediately.
+Use **HD: Off / HD: On** in the always-visible row above the game to switch
+immediately. Off selects Original; On selects the HD pack. The controls have
+44-pixel touch targets and reserve their own space in fullscreen and both mobile
+orientations, so they cannot cover original game controls.
 Alternatively open **Display**, choose **Graphics pack → HD**, and select the output resolution.
 Each browser remembers its own graphics choices. Other players can use Original
 or HD in the same game. **Town lighting (HD)** adds restrained sign glow and edge
