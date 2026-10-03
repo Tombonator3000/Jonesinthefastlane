@@ -6,6 +6,10 @@
   <title>Jones in the Fast Lane</title><link rel="stylesheet" href="./style.css">
 </head>
 <body><main id="screen">
+  <nav id="display-controls" aria-label="Display">
+    <button id="graphics-toggle" type="button" aria-label="HD artwork" aria-pressed="false" title="Switch to HD artwork" disabled>HD: Off</button><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="settings">Display</button><button id="connection-settings" hidden>Connection</button>
+  </nav>
+  <div id="playfield">
   <div id="stage">
     <canvas id="game" width="320" height="200" tabindex="0" aria-label="Jones in the Fast Lane"></canvas>
     <button id="menu-online" hidden>Play online</button>
@@ -20,9 +24,7 @@
       </div>
     </div>
   </section>
-  <nav id="display-controls" aria-label="Display">
-    <button id="graphics-toggle" type="button" aria-label="HD artwork" aria-pressed="false" title="Switch to HD artwork" disabled>Graphics: Original</button><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="settings">Display</button><button id="connection-settings" hidden>Connection</button>
-  </nav>
+  </div>
   <dialog id="display" aria-labelledby="display-title">
     <form method="dialog">
       <h2 id="display-title">Display</h2>

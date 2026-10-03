@@ -12,6 +12,16 @@ import type { GameInput, PlayerCount, Serializable, Credentials, RoomInfo } from
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
 const canvas = $<HTMLCanvasElement>('game'), screen = $('screen');
+// Reserve the visible toolbar's actual height, including wrapped touch controls.
+// The original 320x200 board fits only the remaining area in every orientation.
+const playfield = $('playfield');
+function fitBoard() {
+  const width = Math.max(0, Math.min(playfield.clientWidth, playfield.clientHeight * 1.6));
+  screen.style.setProperty('--board-width', `${width}px`);
+  screen.style.setProperty('--board-height', `${width / 1.6}px`);
+}
+new ResizeObserver(fitBoard).observe(playfield);
+fitBoard();
 type ConnectionMode = 'peer' | 'server';
 type NetworkClient = BrowserNetworkClient | BrowserPeerClient;
 type Resume = { mode: ConnectionMode; server?: string; hostPeerId?: string; signal?: string; ice?: string; credentials: Credentials };
@@ -225,7 +235,7 @@ $('display').addEventListener('close', () => { if (!$<HTMLDialogElement>('displa
 function syncGraphicsToggle() {
   const hd = displayPreferences.pack === 'hd', button = $('graphics-toggle');
   button.setAttribute('aria-pressed', String(hd));
-  button.textContent = `Graphics: ${hd ? 'HD' : 'Original'}`;
+  button.textContent = `HD: ${hd ? 'On' : 'Off'}`;
   button.title = `Switch to ${hd ? 'Original' : 'HD'} artwork`;
 }
 function configure() {
