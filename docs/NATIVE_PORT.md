@@ -78,8 +78,9 @@ coordinates mapped back to that same area. A 2D canvas fallback preserves the
 game image when the optional WebGL renderer is unavailable.
 
 The optional [HD artwork pack](HD_GRAPHICS.md) adds higher-resolution photographic
-assets and technical prop drawings. Original bitmap fonts and control labels remain
-unchanged. Complete ownership masks and drawing metadata
+assets and technical prop drawings. HD lettering follows original glyph positions,
+English labels and control bounds. Source pixels remain unchanged. Complete ownership
+masks and drawing metadata
 accompany the indexed frame, preserving original layering, save/restore and peer
 reconnect. Each client renders its selected pack locally; all input still uses
 the same original coordinate system. Original artwork is the default and fallback.

@@ -29,10 +29,12 @@ export interface HdGlyph {
   /** Uniform original background of the full glyph cell, or null for raster fallback. */
   background: number | null;
 }
+/** Exact original WButton two-pass shadow, with no recursive draw history. */
+export interface HdTextShadow { color: number; offsetX: 1; offsetY: 1 }
 export type HdDrawOp = HdDrawContext & { id: number } & (
   { kind: 'pic'; pic: number; mirror: boolean; addTo: boolean } |
   { kind: 'cel'; view: number; loop: number; cel: number; mirrored: boolean; priority: number } |
-  { kind: 'text'; text: string; font: number; color: number; greyed: boolean; glyphs: HdGlyph[] }
+  { kind: 'text'; text: string; font: number; color: number; greyed: boolean; glyphs: HdGlyph[]; shadow?: HdTextShadow }
 );
 /** Complete scene, not a command replay. owners is base64 RLE [count,id] uint32 LE.
  * Exactly width*height owners; zero retains the original raster at that pixel.

@@ -1,18 +1,20 @@
 # Optional HD pack
 
-The expanded manifest selects **38 photographic PNG files**, mapped to **1 picture,
-291 original cels and 1 overlay**. This includes partial replacements and shared
-atlas crops. Separately, `native/graphics/HdProps.ts` renders 161 technical cels and
-the static town clock face. The original export contains 7 pictures and 752 cels;
-the remaining 300 cels and 6 pictures continue to use original artwork.
+The current manifest uses **41 PNGs for the town, 311 cels and one overlay**.
+`HdProps.ts` draws 161 technical cels and the clock face; `HdUi.ts` adds 57
+standalone UI cels and two lettering overlays; `HdIntro.ts` draws six intro
+backgrounds. The remaining 223 of 752 cels retain original source artwork.
 
 See [the coverage table and rendering guide](../../../docs/HD_GRAPHICS.md) for the
 resource groups and limits. New artwork covers player/Jones animation, all eleven
 service portraits, Willy, winner Jones, intro illustrations, selected interiors,
-products, furniture and event material. Original English labels, bitmap fonts,
-interactive controls, paper ink, cursor, coordinates and timing remain authoritative.
-Four small `293:1:*` heads remain original; their active runtime use is unconfirmed.
-This is not an assertion that every screen or all 752 cels have been repainted.
+products, furniture and event material. Original English strings, input geometry,
+source font metrics, cursor, coordinates and timing remain authoritative.
+Four small `293:1:*` heads now use matching crops from the existing player atlas;
+their active runtime use is unconfirmed. UI lettering is sharp in HD, while all
+English strings, source positions, glyph advances, controls and rules stay original.
+Embedded illustration text, some decorations and complex-background glyphs still
+use original pixels. This is not a claim of exhaustive gameplay-route review.
 
 ## Runtime contract
 

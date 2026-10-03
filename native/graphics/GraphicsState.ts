@@ -2,7 +2,7 @@
 // Native indexed-pixel graphics; no SCI bytecode, interpreter, canvas or DOM.
 import { decodeBytes, encodeBytes } from './bytes.js';
 import { decodeOwners, encodeOwners } from './provenance.js';
-import type { CelAsset, CursorState, FontAsset, GraphicsCommand, GraphicsFrame, GraphicsSave, HdDrawContext, HdDrawOp, HdGlyph, NativeAssetManifest, Point, Port, Rect, RGB, TextMetrics, TextOptions } from './types.js';
+import type { CelAsset, CursorState, FontAsset, FontGlyph, GraphicsCommand, GraphicsFrame, GraphicsSave, HdDrawContext, HdDrawOp, HdGlyph, HdTextShadow, NativeAssetManifest, Point, Port, Rect, RGB, TextMetrics, TextOptions } from './types.js';
 
 const screenRect = (): Rect => ({ left: 0, top: 0, right: 320, bottom: 200 });
 const cloneRect = (r: Rect): Rect => ({ ...r });
@@ -117,6 +117,141 @@ export class GraphicsState {
       if (this.visual[i] !== color || this.presented[i] !== color) return null;
     }
     return color;
+  }
+  private hdExistingButton(text: string, font: FontAsset, color: number, greyed: boolean, glyphs: HdGlyph[], foreground: boolean): { background: number; shadow: HdTextShadow } | undefined {
+    if (!glyphs.length || glyphs.length > 1024 || glyphs.some(g => !this.glyphInkFitsCell(font.chars[g.code], font.lineHeight))) return;
+    const clip = this.clipRect(this.port.rect);
+    type TextOp = Extract<HdDrawOp, { kind: 'text' }>;
+    const matches = (op: HdDrawOp | undefined, offset: number): op is TextOp => !!op && op.kind === 'text' &&
+      op.text === text && op.font === font.id && op.greyed === greyed && op.port.top === this.port.top &&
+      op.clip.left === clip.left && op.clip.top === clip.top && op.clip.right === clip.right && op.clip.bottom === clip.bottom &&
+      op.glyphs.length === glyphs.length && op.glyphs.every((s, i) => {
+        const g = glyphs[i]; return s.char === g.char && s.code === g.code && s.x === g.x + offset && s.y === g.y + offset &&
+          s.width === g.width && s.height === g.height && s.advance === g.advance;
+      });
+    for (const prior of [...this.hdOps.values()].reverse()) {
+      if (!matches(prior, foreground ? 0 : -1) || !prior.shadow || (!foreground && prior.shadow.color !== color)) continue;
+      const base = prior.glyphs[0].background;
+      if (base === null || prior.glyphs.some(g => g.background !== base)) continue;
+      const shadowGlyphs = foreground ? glyphs.map(g => ({ ...g, x: g.x + 1, y: g.y + 1 })) : glyphs;
+      const expected = new Map<number, number>(), foregroundCells = new Set<number>(), shadowInk = new Set<number>();
+      for (const [gs, isForeground] of [[shadowGlyphs, false], [prior.glyphs, true]] as const) for (const g of gs) {
+        const r = intersection({ left: g.x, top: g.y, right: g.x + g.width, bottom: g.y + g.height }, clip);
+        for (let y = r.top; y < r.bottom; y++) for (let x = r.left; x < r.right; x++) {
+          const i = y * 320 + x; expected.set(i, base); if (isForeground) foregroundCells.add(i);
+        }
+      }
+      for (const [gs, inkColor] of [[shadowGlyphs, prior.shadow.color], [prior.glyphs, prior.color]] as const) for (const g of gs) {
+        const source = font.chars[g.code], bits = this.bytes(source.bits);
+        for (let y = 0; y < source.height; y++) for (let x = 0; x < source.width; x++) {
+          const gx = g.x + x, gy = g.y + y;
+          if (bits[y * source.width + x] && (!greyed || ((x + gy - this.port.top) & 1) === 1) &&
+              gx >= clip.left && gx < clip.right && gy >= clip.top && gy < clip.bottom) {
+            const i = gy * 320 + gx; expected.set(i, inkColor); if (gs === shadowGlyphs) shadowInk.add(i);
+          }
+        }
+      }
+      let valid = true;
+      for (const [i, pixel] of expected) {
+        const owner = this.hdVisual[i];
+        if (owner !== this.hdPresented[i] || this.visual[i] !== pixel || this.presented[i] !== pixel) { valid = false; break; }
+        if (foregroundCells.has(i)) { if (owner !== prior.id) { valid = false; break; } }
+        else {
+          const fringe = this.hdOps.get(owner);
+          if (!matches(fringe, foreground ? 1 : 0) || fringe.shadow || fringe.color !== prior.shadow.color ||
+              fringe.glyphs.some(g => g.background !== null && g.background !== base) ||
+              (!shadowInk.has(i) && !fringe.glyphs.some(g => g.background === base && i % 320 >= g.x && i % 320 < g.x + g.width && Math.floor(i / 320) >= g.y && Math.floor(i / 320) < g.y + g.height))) { valid = false; break; }
+        }
+      }
+      if (valid) return { background: base, shadow: { ...prior.shadow } };
+    }
+  }
+  private hdButtonShadow(text: string, font: FontAsset, color: number, greyed: boolean, glyphs: HdGlyph[]): HdTextShadow | undefined {
+    if (!glyphs.length || glyphs.length > 1024 || glyphs.some(g => !this.glyphInkFitsCell(font.chars[g.code], font.lineHeight))) return;
+    // WButton.draw paints the same string at(+1,+1), then its foreground.
+    // Recognize only that exact pair; never infer a shadow from pixel colors.
+    const candidates = [...this.hdOps.values()].reverse();
+    type TextOp = Extract<HdDrawOp, { kind: 'text' }>;
+    const clip = this.clipRect(this.port.rect);
+    const sameLayout = (op: HdDrawOp | undefined, dx: number, dy: number): op is TextOp => !!op && op.kind === 'text' &&
+      op.text === text && op.font === font.id && op.greyed === greyed && op.port.top === this.port.top &&
+      op.clip.left === clip.left && op.clip.top === clip.top && op.clip.right === clip.right && op.clip.bottom === clip.bottom &&
+      op.glyphs.length === glyphs.length && op.glyphs.every((s, i) => {
+        const g = glyphs[i]; return s.char === g.char && s.code === g.code && s.x === g.x + dx && s.y === g.y + dy &&
+          s.width === g.width && s.height === g.height && s.advance === g.advance;
+      });
+    const cells = (gs: HdGlyph[], onlyUniform = false): Set<number> => {
+      const covered = new Set<number>();
+      for (const g of gs) {
+        if (onlyUniform && g.background === null) continue;
+        const r = intersection({ left: g.x, top: g.y, right: g.x + g.width, bottom: g.y + g.height }, clip);
+        for (let y = r.top; y < r.bottom; y++) for (let x = r.left; x < r.right; x++) covered.add(y * 320 + x);
+      }
+      return covered;
+    };
+    // Reconstruct source ink, including SCI's disabled stipple, without writing
+    // any gameplay pixels. This also rejects a changed source glyph bitmap.
+    const ink = (gs: HdGlyph[]): Set<number> => {
+      const painted = new Set<number>();
+      for (const g of gs) {
+        const source = font.chars[g.code], bits = this.bytes(source.bits);
+        for (let y = 0; y < source.height; y++) for (let x = 0; x < source.width; x++) {
+          const gx = g.x + x, gy = g.y + y;
+          if (bits[y * source.width + x] && (!greyed || ((x + gy - this.port.top) & 1) === 1) &&
+              gx >= clip.left && gx < clip.right && gy >= clip.top && gy < clip.bottom) painted.add(gy * 320 + gx);
+        }
+      }
+      return painted;
+    };
+    const foregroundCells = cells(glyphs), foregroundInk = ink(glyphs);
+    for (const shadow of candidates) {
+      if (!sameLayout(shadow, 1, 1) || shadow.shadow) continue;
+      const shadowCells = cells(shadow.glyphs), shadowInk = ink(shadow.glyphs), background = shadow.glyphs[0].background;
+      const accept = (base: number): HdTextShadow => {
+        for (const g of glyphs) g.background = base;
+        return { color: shadow.color, offsetX: 1, offsetY: 1 };
+      };
+      // First draw: every shadow cell was demonstrably flat before its ink.
+      if (background !== null && shadow.glyphs.every(g => g.background === background)) {
+        let valid = true;
+        for (const i of foregroundCells) {
+          const owner = this.hdVisual[i], expected = shadowInk.has(i) ? shadow.color : background;
+          if (owner !== this.hdPresented[i] || this.visual[i] !== expected || this.presented[i] !== expected ||
+              (shadowCells.has(i) ? owner !== shadow.id : this.hdOps.get(owner)?.kind === 'text')) { valid = false; break; }
+        }
+        if (valid) return accept(background);
+      }
+      // WButton redraws the same pair over its own previous raster. Recover
+      // only a formerly validated identical pair, not arbitrary mixed pixels.
+      // The new shadow owns only actual ink in mixed cells; unchanged pixels
+      // must still belong to that prior foreground or its proven shadow fringe.
+      const newShadowOwned = cells(shadow.glyphs, true);
+      for (const i of shadowInk) newShadowOwned.add(i);
+      for (const prior of candidates) {
+        if (!sameLayout(prior, 0, 0) || !prior.shadow || prior.color !== color || prior.shadow.color !== shadow.color) continue;
+        const base = prior.glyphs[0].background;
+        if (base === null || prior.glyphs.some(g => g.background !== base)) continue;
+        let valid = true;
+        for (const i of new Set([...foregroundCells, ...shadowCells])) {
+          const owner = this.hdVisual[i];
+          // Painting the new shadow last can temporarily cover old foreground
+          // ink. The following original foreground draw restores that ink.
+          const expected = shadowInk.has(i) ? shadow.color : foregroundInk.has(i) ? prior.color : base;
+          if (owner !== this.hdPresented[i] || this.visual[i] !== expected || this.presented[i] !== expected) { valid = false; break; }
+          if (newShadowOwned.has(i)) {
+            if (owner !== shadow.id) { valid = false; break; }
+          } else if (foregroundCells.has(i)) {
+            if (owner !== prior.id) { valid = false; break; }
+          } else {
+            const fringe = this.hdOps.get(owner);
+            if (!sameLayout(fringe, 1, 1) || fringe.shadow || fringe.color !== shadow.color ||
+                fringe.glyphs.some(g => g.background !== null && g.background !== base) ||
+                (!shadowInk.has(i) && !fringe.glyphs.some(g => g.background === base && i % 320 >= g.x && i % 320 < g.x + g.width && Math.floor(i / 320) >= g.y && Math.floor(i / 320) < g.y + g.height))) { valid = false; break; }
+          }
+        }
+        if (valid) return accept(base);
+      }
+    }
   }
   get port(): Port { return this.ports.get(this.currentPort)!; }
   setTick(tick: number): void { this.paletteClock = Math.max(1, tick + 1); }
@@ -349,6 +484,17 @@ export class GraphicsState {
     if (!f) throw new Error(`Missing font ${id}`);
     return f;
   }
+  private glyphInkFitsCell(glyph: FontGlyph, lineHeight: number): boolean {
+    if (![glyph.width, glyph.height, glyph.advance, lineHeight].every(Number.isSafeInteger) ||
+        glyph.width < 0 || glyph.height < 0 || glyph.advance <= 0 || lineHeight <= 0) return false;
+    const bits = this.bytes(glyph.bits);
+    if (bits.length !== glyph.width * glyph.height) return false;
+    // Several original fonts pad a9-row bitmap although all ink fits an8-row
+    // cell. Empty padding must not disable HD; real overhang still uses raster.
+    for (let y = 0; y < glyph.height; y++) for (let x = 0; x < glyph.width; x++)
+      if (bits[y * glyph.width + x] && (x >= glyph.advance || y >= lineHeight)) return false;
+    return true;
+  }
   adjustPriority(top: number, bottom: number): void { this.priorityTop = top; this.priorityBottom = bottom; this.customPriorityBands = undefined; }
   coordinatePriority(y: number): number {
     if (this.customPriorityBands) { let band = 0; while (band < 14 && y >= this.customPriorityBands[band]) band++; return band; }
@@ -430,12 +576,20 @@ export class GraphicsState {
         // on a uniform background in BOTH planes (an actor may be presented
         // above an otherwise flat offscreen background). Complex cells keep
         // original ink pixels and their original untouched surroundings.
-        const background = color >= 0 && glyph.width <= glyph.advance && glyph.height <= font.lineHeight ? this.uniformHdBackground(cell) : null;
+        const background = color >= 0 && this.glyphInkFitsCell(glyph, font.lineHeight) ? this.uniformHdBackground(cell) : null;
         glyphs.push({ char, code, x: point.x, y: point.y, width: glyph.advance, height: font.lineHeight, advance: glyph.advance, background });
         left += glyph.advance;
       }
     }
-    const owner = this.addHd({ kind: 'text', text, font: font.id, color, greyed, glyphs,
+    // WButton.hiliteControl is a foreground-only Display, color100 then0 in
+    // the real bank interaction. A proven intact prior pair can retain its
+    // background/shadow while changing only that requested foreground color.
+    // Invert/erase/foreign owners fail this same exact-raster check.
+    const previousButton = color >= 0 ? this.hdExistingButton(text, font, color, greyed, glyphs, true) : undefined;
+    const replayedShadowInk = color >= 0 && !!this.hdExistingButton(text, font, color, greyed, glyphs, false);
+    if (previousButton) for (const g of glyphs) g.background = previousButton.background;
+    const shadow = previousButton?.shadow ?? (color >= 0 ? this.hdButtonShadow(text, font, color, greyed, glyphs) : undefined);
+    const owner = this.addHd({ kind: 'text', text, font: font.id, color, greyed, glyphs, ...(shadow ? { shadow } : {}),
       ...this.hdContext({ left: x, top: y, right: x + boxWidth, bottom: y + metrics.height }, { left: 0, top: 0, right: boxWidth, bottom: metrics.height }) });
     let glyphIndex = 0;
     for (let lineIndex = 0; lineIndex < metrics.lines.length; lineIndex++) {
@@ -450,7 +604,10 @@ export class GraphicsState {
         if (glyphOwner) this.ownHdRect({ left, top, right: left + glyph.advance, bottom: top + font.lineHeight }, glyphOwner);
         const bits = this.bytes(glyph.bits);
         for (let gy = 0; gy < glyph.height; gy++) for (let gx = 0; gx < glyph.width; gx++) {
-          if (bits[gy * glyph.width + gx] && (!greyed || ((gx + top + gy) & 1) === 1)) this.putPixel(left + gx, top + gy, color, -1, -1, glyphOwner);
+          // Only a proven replay of a validated WButton shadow may identify its
+          // ink in mixed cells. It still renders as original(background:null).
+          // Every other unsafe or overflowing glyph retains owner0 fallback.
+          if (bits[gy * glyph.width + gx] && (!greyed || ((gx + top + gy) & 1) === 1)) this.putPixel(left + gx, top + gy, color, -1, -1, glyphOwner || (replayedShadowInk ? owner : 0));
         }
         left += glyph.advance;
       }
@@ -601,6 +758,7 @@ export class GraphicsState {
         else if (op.kind === 'cel') { if (!this.assets.views[op.view]?.loops[op.loop]?.cels[op.cel]) throw new Error('Invalid HD cel'); }
         else if (op.kind === 'text') {
           if (!this.assets.fonts[op.font] || !Number.isFinite(op.color) || !Array.isArray(op.glyphs) || op.glyphs.some(g => !g || typeof g.char !== 'string' || ![g.code, g.x, g.y, g.width, g.height, g.advance].every(Number.isFinite) || (g.background !== null && (!Number.isInteger(g.background) || g.background < 0 || g.background > 255)))) throw new Error('Invalid HD text');
+          if (op.shadow && (!Number.isInteger(op.shadow.color) || op.shadow.color < 0 || op.shadow.color > 255 || op.shadow.offsetX !== 1 || op.shadow.offsetY !== 1)) throw new Error('Invalid HD text shadow');
         } else throw new Error('Invalid HD operation');
         ops.set(op.id, structuredClone(op));
       }

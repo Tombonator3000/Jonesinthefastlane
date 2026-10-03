@@ -63,11 +63,19 @@ class NativeHdValidationTests(unittest.TestCase):
         for update, error in [({"crop": {"left": 7, "top": 0, "width": 2, "height": 8}}, "outside"),
                               ({"crop": {"left": 0, "top": 0, "width": float("nan"), "height": 8}}, "invalid rectangle"),
                               ({"originalRegions": [{"left": 0, "top": 0, "right": 3, "bottom": 2}]}, "outside"),
+                              ({"preserveSourceColorRegions": [{"left": 0, "top": 0, "right": 3, "bottom": 2}]}, "outside"),
                               ({"regions": [{"left": 0, "top": 0, "right": 1, "bottom": 1}] * 13}, "too many")]:
             with self.subTest(update=update):
                 self.art.clear(); self.art.update(original); self.art.update(update)
                 with self.assertRaisesRegex(ValidationError, error):
                     self.validate()
+
+    def test_scoped_ink_requires_valid_palette_indices(self):
+        self.art["preserveSourceColorRegions"] = [{"left": 0, "top": 0, "right": 1, "bottom": 1}]
+        with self.assertRaisesRegex(ValidationError, "ink regions need"):
+            self.validate()
+        self.art["preserveSourceColors"] = [1]
+        self.assertTrue(self.validate()["valid"])
 
     def test_file_hash_original_geometry_and_anchors_fail_independently(self):
         for field, value, message in [("generatedSha256", "0" * 64, "generated SHA"),

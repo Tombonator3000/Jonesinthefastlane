@@ -2,7 +2,7 @@
   "schema": 1,
   "generationDate": "2026-10-02",
   "generator": "Built-in ChatGPT image generator; exact model version not exposed",
-  "scope": "Optional photographic material and figure layers. SCI coordinates, timing, original typography, labels, controls and rules remain authoritative. Technical props are authored separately in HdProps.ts; they are not generated PNGs.",
+  "scope": "Photographic material and figures are generated PNGs. Technical props, intro backgrounds, interface drawings and glyph presentation are separately authored code. SCI English strings, metrics, coordinates, timings and rules remain authoritative.",
   "archivePathConvention": "$CODEX_HOME denotes the local Codex archive. Archive paths and build/ metadata sources document the authoring session; neither is a runtime or verification dependency. Exact prompts, production records and original-image hashes are embedded here.",
   "sourceAudit": "resource-inventory.json",
   "sourceFragments": {
@@ -3326,6 +3326,48 @@
       }
     },
     {
+      "src": "cels/factory-705-photoreal-v1.png",
+      "production": {
+        "method": "Built-in ChatGPT image generator; exact model version not exposed",
+        "generationDate": "2026-10-03",
+        "prompt": "Use case: style-transfer. Asset type: production texture for Jones in the Fast Lane factory menu backing, exact original 183:112 aspect ratio. The supplied original is the EDIT TARGET. Recreate the original printed circuit board as a razor-sharp top-down macro photograph, while strictly locking composition and blank interaction areas. Full image is a flat dark emerald green PCB. Small electronic components and conductive gold-green tracks surround TWO large EMPTY green rectangular areas: first spans x9% to48%, y35% to86%, second x51% to89%,y33% to86%. These areas must stay clean uniform green solder mask, no components or graphics inside, because the game's original controls are drawn there. A long dark rectangular DIP chip at x11% to86%,y8% to26%, with metal pins above and below. Keep that chip blank: original 'THE FACTORY' wording is overlaid by the game. Smaller chips at bottom edge x8-24%, x28-46%, x78-94%, and one vertical chip on upper right. Tiny striped resistors at left edge and bottom middle. Preserve thin black outer border and all broad component positions in the reference. Authentic matte fiberglass, tiny etched traces, oxidized solder joints, ceramic resistor bodies, fine tool marks, readable physical depth without perspective angle. Subtle neutral lighting, subdued contrast suitable behind English UI. Do not add text, logos, characters, screens, cables or extra giant components. Original composition and empty zones are mandatory. High resolution landscape, no external margin, no frame beyond original thin black edge.",
+        "references": [
+          "native/public/assets/views/0705/00_00.png"
+        ],
+        "referenceSha256": [
+          "432123798c00f5c162ff0425725f43cfa2167dcf6d4ee826fd8188d9d62f06fc"
+        ],
+        "archive": "$CODEX_HOME/generated_images/01a0fb41-890b-7ff2-986b-d64c098f2a7d/exec-33a9b14e-6b11-489e-8bd2-4fd00e22a19f.png",
+        "recoveredPlan": {
+          "threadId": "01a10042-2cc1-71ee-825c-22cae702006e",
+          "baseCommit": "77960781313bb574f87f0688e11032ffce692764",
+          "recordedCommitShort": "e0ecff9"
+        },
+        "assessment": "Regenerated from the recovered plan and original references. Current PNG copied byte-for-byte from the new generator output; it is not claimed identical to the inaccessible earlier PNG. Composition was reviewed by the primary agent; current runtime verification is separate."
+      },
+      "width": 1603,
+      "height": 981,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "ab211e39d567e8420064ac1c6e54c48b6612a7edf6db5e05a6efbe6739a0b86a",
+      "entries": [
+        "705:0:0"
+      ],
+      "originalReferences": [
+        {
+          "key": "705:0:0",
+          "src": "native/public/assets/views/0705/00_00.png",
+          "width": 183,
+          "height": 112,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "432123798c00f5c162ff0425725f43cfa2167dcf6d4ee826fd8188d9d62f06fc"
+        }
+      ]
+    },
+    {
       "src": "cels/furniture-700-702-atlas-photoreal-v1.png",
       "width": 1983,
       "height": 793,
@@ -6127,6 +6169,249 @@
       }
     },
     {
+      "src": "cels/newspaper-open-603-photoreal-v1.png",
+      "production": {
+        "method": "Built-in ChatGPT image generator; exact model version not exposed",
+        "generationDate": "2026-10-03",
+        "prompt": "Use case: style-transfer. Asset type: production game texture, opened newspaper backing for Jones in the Fast Lane, original aspect ratio183:112. Reference is EDIT TARGET. Preserve the exact composition and silhouette of the open newspaper while rendering only its PAPER MATERIAL as a photographic scan. The newspaper fills almost the entire rectangle: thin black outer frame, paper edges curled slightly at lower-left, a stack of page edges along the right side. Soft off-white cool grey cheap newsprint, visible subtle fibres, slight vertical folds at one-third and two-thirds, realistic page edge thickness and gently curved lower edge. Very pale low contrast light, no deep stains. Every single word, headline, masthead, star logo, column of writing and dark divider rule MUST BE REMOVED from the generated image; all of the exact original ink will be restored separately by the game's compositor. Leave the full face of the paper clean and blank. Preserve the positions and shape of original margins and paper corners. No pictorial illustration, no printed texture that imitates writing, no fake text, no new text, no watermark. Flat front-on orthographic view, not a newspaper lying on a table, no visible setting, no perspective tilt. Output one complete landscape texture, opaque background with pale original lavender outer margin confined to edge.",
+        "references": [
+          "native/public/assets/views/0603/01_00.png"
+        ],
+        "referenceSha256": [
+          "e40f708d9d6039669893d69d7e0b8a6a4d9696fd87633bbd87086099a5783ee2"
+        ],
+        "archive": "$CODEX_HOME/generated_images/01a0fb41-890b-7ff2-986b-d64c098f2a7d/exec-b6c34c3f-ab59-446f-87cc-d76211bf6151.png",
+        "recoveredPlan": {
+          "threadId": "01a10042-2cc1-71ee-825c-22cae702006e",
+          "baseCommit": "77960781313bb574f87f0688e11032ffce692764",
+          "recordedCommitShort": "e0ecff9"
+        },
+        "assessment": "Regenerated from the recovered plan and original references. Current PNG copied byte-for-byte from the new generator output; it is not claimed identical to the inaccessible earlier PNG. Composition was reviewed by the primary agent; current runtime verification is separate."
+      },
+      "width": 1604,
+      "height": 981,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "f79f0a9ec455396ffaae9bac4732cfa7aaee6e3f0470c0707041df50a817ca01",
+      "entries": [
+        "603:1:0"
+      ],
+      "originalReferences": [
+        {
+          "key": "603:1:0",
+          "src": "native/public/assets/views/0603/01_00.png",
+          "width": 183,
+          "height": 112,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "e40f708d9d6039669893d69d7e0b8a6a4d9696fd87633bbd87086099a5783ee2"
+        }
+      ]
+    },
+    {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "production": {
+        "method": "Built-in ChatGPT image generator; exact model version not exposed",
+        "generationDate": "2026-10-03",
+        "prompt": "Use case: style-transfer. Asset type: one production game texture atlas, NOT a poster. Edit the supplied 4 by 4 atlas of original Jones in the Fast Lane notification cards into photographic PAPER MATERIALS, watch, and fly illustrations, while REMOVING ALL TEXT. The game will overlay the original text afterwards. Exactly FOUR EQUAL COLUMNS and FOUR EQUAL ROWS, no gutters, no margins, no outlines between atlas cells, canvas aspect ratio 86:84, ideally 2064 by 2016. Each card fills its cell edge-to-edge. Top-down flat scanner view, fine realistic paper fibres and subtle creases, soft neutral light, crisp photographic detail. Keep the very pale warm ivory base close to #f8f8e0; blue cell specified below. All backgrounds opaque.\n\nRead cells left-to-right, top-to-bottom:\nRow 1 cell1: pale ivory paper with bottom-right curled corner. One photographic silver round analog WRISTWATCH with black strap running horizontally, centered at x50%, y40%, watch-and-strap bounding box x13% to87%, y20% to54%. Very pale dial, simple dark hands. Blank space top 18% and bottom 40% for original red text.\nRow1 cell2: plain pale ivory repair note with subtle diagonal wrinkles near top-left and bottom-right, NO lettering or stamp or rules.\nRow1 cell3: lightly crumpled very pale blue ruled notebook paper, narrow blue horizontal ruling, small folded bottom corner; absolutely blank.\nRow1 cell4: pale ivory medical bill paper with very subtle creases along lower edges, completely blank; original medical symbol will be overlaid too.\nRow2 cell1: pale ivory overdue bill, subtle horizontally folded paper, blank.\nRow2 cell2: ivory payment note with small folded upper-left corner and faint creases at bottom-left, blank.\nRow2 cell3: same folded upper-left ivory note as preceding cell, blank.\nRow2 cell4: pale powder-blue dismissal note paper, subtle folded diagonal at bottom right, blank, no border.\nRow3 cell1: ivory paper; THREE isolated small photographic metallic emerald houseflies, fully seen from above, a horizontal evenly spaced row centered at x22%,50%,78%, y72%; each fly occupies about14% of cell width and19% height including translucent wings, exactly three. Other areas blank for text.\nRow3 cell2: same ivory paper but exactly ONE identical housefly at x50%,y72%, same size, other areas blank.\nRow3 cell3: blank ivory note with faint creases in lower left and upper right.\nRow3 cell4: blank ivory note with faint creases top left and lower right.\nRow4 cell1: ivory inheritance note with curled lower-right corner, blank.\nRow4 cell2: ivory lottery note with faint folds at upper left and lower right, blank.\nRow4 cell3 and cell4: blank ivory paper texture only, unused reserved cells.\n\nRemove EVERY letter, word, numeral, title, dollar sign, stamp and typographic mark present in input. Do not invent replacement writing, icons or decorations. Preserve exact 4x4 topology; never combine cells. This must read as photographed physical paper and objects, not pixel art, painting, vector, plastic or AI poster. No watermark, no labels.",
+        "references": [
+          "build/hd-interface-recovery/notices-reference.png"
+        ],
+        "referenceSha256": [
+          "0a0de0c80cc2b241e081c47f6cc9265280dd39b1a1ddcccd0836c6fa3143a173"
+        ],
+        "archive": "$CODEX_HOME/generated_images/01a0fb41-890b-7ff2-986b-d64c098f2a7d/exec-830d3cfc-6775-4545-9f3a-9e9a063e864a.png",
+        "recoveredPlan": {
+          "threadId": "01a10042-2cc1-71ee-825c-22cae702006e",
+          "baseCommit": "77960781313bb574f87f0688e11032ffce692764",
+          "recordedCommitShort": "e0ecff9"
+        },
+        "assessment": "Regenerated from the recovered plan and original references. Current PNG copied byte-for-byte from the new generator output; it is not claimed identical to the inaccessible earlier PNG. Composition was reviewed by the primary agent; current runtime verification is separate.",
+        "referenceLayout": {
+          "width": 1032,
+          "height": 1008,
+          "columns": 4,
+          "rows": 4,
+          "cellWidth": 258,
+          "cellHeight": 252,
+          "celOrder": [
+            "310:0:0",
+            "311:0:0",
+            "312:0:0",
+            "313:0:0",
+            "314:0:0",
+            "315:0:0",
+            "316:0:0",
+            "317:0:0",
+            "318:0:0",
+            "319:0:0",
+            "320:0:0",
+            "321:0:0",
+            "322:0:0",
+            "340:1:0"
+          ],
+          "unusedCells": [
+            14,
+            15
+          ],
+          "sourceConstructionRecipe": "import json\nfrom PIL import Image,ImageDraw\nfrom pathlib import Path\nm=json.load(open('native/public/assets/manifest.json'));out=Path('build/art-audit')\nitems=[(v,0) for v in range(310,323)]+[(340,1)]\ns=Image.new('RGB',(1032,1008),'#f8f8e0')\nfor i,(v,l) in enumerate(items):\n c=m['views'][str(v)]['loops'][l]['cels'][0];im=Image.open(Path('native/public/assets')/c['png']).convert('RGBA').resize((258,252),Image.Resampling.NEAREST);s.paste(im,((i%4)*258,(i//4)*252),im)\ns.save(out/'notice-reference.png')\n"
+        }
+      },
+      "width": 1272,
+      "height": 1237,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "sha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "entries": [
+        "310:0:0",
+        "311:0:0",
+        "312:0:0",
+        "313:0:0",
+        "314:0:0",
+        "315:0:0",
+        "316:0:0",
+        "317:0:0",
+        "318:0:0",
+        "319:0:0",
+        "320:0:0",
+        "321:0:0",
+        "322:0:0",
+        "340:1:0"
+      ],
+      "originalReferences": [
+        {
+          "key": "310:0:0",
+          "src": "native/public/assets/views/0310/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "5ef233c99974d08fd0e59c8659167a82cb9d214312803cc259449aa045fd2ebb"
+        },
+        {
+          "key": "311:0:0",
+          "src": "native/public/assets/views/0311/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "2ef7592bd3cdbefa4ec0b32a6af088a2e3b76f256e30dea67bf60f512aa1ac42"
+        },
+        {
+          "key": "312:0:0",
+          "src": "native/public/assets/views/0312/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "496cad1fb128a2b34f2688dc6f94be0156f9804a42472463b8eee06b49d00b0c"
+        },
+        {
+          "key": "313:0:0",
+          "src": "native/public/assets/views/0313/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "f889e794fff6790fcd826b5d833d704e4424c8bddfa8d55ebc4a7bcca6faec7d"
+        },
+        {
+          "key": "314:0:0",
+          "src": "native/public/assets/views/0314/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "6063b105310dafc6db84f9298a0f9aabcebf51af6a3353b70fc4f17be0e7fc70"
+        },
+        {
+          "key": "315:0:0",
+          "src": "native/public/assets/views/0315/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "784b2a0f0f4fbf7469fdbdf73c5673b23b259edbcd81783a4114abb16c4dd256"
+        },
+        {
+          "key": "316:0:0",
+          "src": "native/public/assets/views/0316/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "f0b6b63a55a69f0f1c48fa399152d08a8086d05038b0a24aa67cf7593674a79f"
+        },
+        {
+          "key": "317:0:0",
+          "src": "native/public/assets/views/0317/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "63a4d0b31fa246c4ef90c4631895492f375e24d9d6e85aa5fa72d0e108be79a5"
+        },
+        {
+          "key": "318:0:0",
+          "src": "native/public/assets/views/0318/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "00652b7350bae7ba93f172b402848c29f8ff0f6d8900a2ea056c734da3e1e587"
+        },
+        {
+          "key": "319:0:0",
+          "src": "native/public/assets/views/0319/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "d0dd7797d89c8b472418dd251d16a4ebc67c475e16ef442a18b2e40eb03ec4ed"
+        },
+        {
+          "key": "320:0:0",
+          "src": "native/public/assets/views/0320/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "b323233c6bbcaf2b123248fa0c65cfd02589062dbb6721233e020fc3504c3d2e"
+        },
+        {
+          "key": "321:0:0",
+          "src": "native/public/assets/views/0321/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "5e76d9aeb904fd7298dd5814e9b7665569f4b20421359766bfe586a043889ed3"
+        },
+        {
+          "key": "322:0:0",
+          "src": "native/public/assets/views/0322/00_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "1b6efab66598fd79a5bf2a948ef7613b0383e139f25dea7837079be09b756d39"
+        },
+        {
+          "key": "340:1:0",
+          "src": "native/public/assets/views/0340/01_00.png",
+          "width": 86,
+          "height": 84,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "1938b0f3827f9adb346596a894ddb07e07d9b574ae8b815babf02bd2485223fe"
+        }
+      ]
+    },
+    {
       "src": "cels/pawn-362-atlas-photoreal-v2.png",
       "width": 1707,
       "height": 921,
@@ -7426,7 +7711,11 @@
         "293:0:0",
         "293:0:1",
         "293:0:2",
-        "293:0:3"
+        "293:0:3",
+        "293:1:0",
+        "293:1:1",
+        "293:1:2",
+        "293:1:3"
       ],
       "originalReferences": [
         {
@@ -7572,6 +7861,42 @@
           "dx": 0,
           "dy": 0,
           "sha256": "3730c63da5f741fd84bc2a2d3ee3c261faf4db9f71cf9d680748cf1b8e4b877a"
+        },
+        {
+          "key": "293:1:0",
+          "src": "native/public/assets/views/0293/01_00.png",
+          "width": 14,
+          "height": 14,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "792b97d461b5102223b502c802513dfa340eca1fd321d76d8b6275fdab693637"
+        },
+        {
+          "key": "293:1:1",
+          "src": "native/public/assets/views/0293/01_01.png",
+          "width": 14,
+          "height": 14,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "e3e5e31f41dd8bc7d95eb7c243c843d5e208ce680f86ba3f433dc7fdf3b243e3"
+        },
+        {
+          "key": "293:1:2",
+          "src": "native/public/assets/views/0293/01_02.png",
+          "width": 14,
+          "height": 14,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "acdc9ed6476ae7e2ae2d58729665c462e9122d1654757486578d492d970685ee"
+        },
+        {
+          "key": "293:1:3",
+          "src": "native/public/assets/views/0293/01_03.png",
+          "width": 13,
+          "height": 13,
+          "dx": 0,
+          "dy": 0,
+          "sha256": "51b0c382d456a5206138f5e775f4c602928908827e3cb0de96fa546462fe49da"
         }
       ],
       "metadataSource": [
@@ -10675,6 +11000,23 @@
         },
         "manifestSha256": "effb63ebdd9d5721718eac3cfaf7dfd571f0f5d1c36e90705bceb0aa561e8609"
       }
+    },
+    {
+      "date": "2026-10-03",
+      "description": "Recovered completion plan integrated with three newly generated PNGs: fourteen notice cards, factory PCB and open newspaper. Four head-only crops reuse the existing player3 atlas; final head3 crop excludes clothing. Factory preserves palette ink [5,49,85] only inside logical25,11..153,26, without restoring its old flat chip backing. New generation hashes and provenance replace any assumption of the inaccessible remote image bytes."
     }
-  ]
+  ],
+  "completionDate": "2026-10-03",
+  "interfaceCoverage": {
+    "source": "native/graphics/HdUi.ts",
+    "fullCelDrawings": 57,
+    "photographicOverlays": 2,
+    "preservedCels": 223,
+    "scope": "Code-authored presentation; English wording, original logical bounds and hit targets remain authoritative. Not generated PNGs or exhaustive gameplay verification.",
+    "overlayKeys": [
+      "500:0:0",
+      "705:0:0"
+    ],
+    "factoryLettering": "705:0:0 is a letter-only HD overlay when fonts are ready; the factory photograph is still one of the 311 artwork cels and is not counted twice."
+  }
 }

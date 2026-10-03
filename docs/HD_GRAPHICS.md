@@ -7,13 +7,20 @@ or HD in the same game. **Town lighting (HD)** adds restrained sign glow and edg
 shading to the town illustration. It does not illuminate dialogue or controls.
 The existing Original, Smooth, Modern and CRT presentation styles remain available.
 
-The expanded pack contains generated photographic artwork and separately authored
-technical drawings. Its current manifest maps **38 PNG files to 1 of 7 pictures,
-291 of 752 cels and one town-clock base overlay**. `HdProps.ts` supplies drawings
-for **161 additional cels and a static clock face**. These counts include partial
-replacements and reused/mirrored atlas crops; they are not counts of unique pictures
-or proof of exhaustive visual parity. The other 300 cels remain original, as do the
-six other picture resources. Original is still the default.
+The pack combines photographic artwork with code-authored props and interface
+lettering. **41 PNG files map to the town, 311 of 752 cels and one clock-base
+overlay**. `HdProps.ts` draws 161 cels and a static clock face; `HdUi.ts` redraws
+57 additional cels plus lettering overlays for the photographic selection and
+factory panels. Six intro backdrops use `HdIntro.ts`. The other **223 cels retain original artwork**;
+these include blank resources, speech-bubble pieces, course labels, decorative
+panel elements and embedded text. Counts include partial replacements and shared
+crops; they are not numbers of unique illustrations or exhaustive route coverage.
+Original remains the default.
+
+The October 3 interface pass implements the user's request for sharper buttons,
+text and panels. It supersedes the earlier policy of keeping all HD-mode UI pixels
+identical. English strings, source glyph advances, line breaks, positions, click
+rectangles, pressed/disabled behavior and authoritative game pixels remain original.
 
 ## Coverage
 
@@ -29,22 +36,41 @@ six other picture resources. Original is still the default.
 | Piggy bank and ambulance | 704:1, 608:1 | 9 |
 | Banknotes, newspaper and diploma animation material | 340:0, 603:0, 607:0 | 19 |
 | Town foreground patch using the clock-free town texture | 0:1:0 | 1 |
+| Turn notice materials, lottery paper, factory PCB and open newspaper | 310–322, 340:1, 705:0, 603:1:0 | 16 |
+| Four small head crops from the existing player identity | 293:1 | 4 |
 
 Picture 11 supplies the town. A cropped clock-free texture restores the area under
 the technical clock, whose position and 61 elapsed-time states follow the original
 draw operations. The technical group also covers the decorative calculator (1),
 player markers (5), goal icons (4), podium (1), stars (5), confetti (24), university
 book stacks (4), work time-clock (4) and door states (52). The calculator's money
-field and dollar glyph retain their original pixels; its decorative keys do not
-introduce new functionality.
+field now uses sharp glyphs wherever its recorded background is safe. Its
+decorative keys do not introduce new functionality.
 
-Original flat menu panels, store headers, course names, paper ink, labels, fonts,
-buttons and cursor are deliberately preserved. Four small heads at `293:1:*` remain
-original; their active runtime use has not been established. Blank/transparent cels
-and optional detail modes also occur in the source. The complete resource inventory
-is recorded in `native/public/hd/resource-inventory.json`; it distinguishes the
-earlier coverage audit from this expanded pack. The original intro is reachable
-through normal startup, not classified as obsolete demo material.
+The 59 interface entries cover all fourteen action-button cels, eight main-menu
+and difficulty/Jones-choice buttons, four player-number tiles, eight goal/selection/
+statistics fields, seven branded store panels, and seventeen goal, investment,
+employment, rent-office and pawnshop fields, plus the factory title. The selection header is an
+overlay above its photographic characters. English labels and palettes are read
+from inspected original resource addresses; unrelated decoration stays original.
+
+`HdText.ts` fits bundled Liberation outline glyphs into each original glyph's ink
+bounds, including punctuation and descenders. It does not reflow, translate or
+replace strings. One-column stems and dots use their exact source shapes so
+narrow letters remain legible. Only cells with a proven flat backdrop are redrawn; the exact
+WButton shadow pair has a narrowly validated reconstruction. Complex backgrounds,
+unsupported glyphs and pressed/inverted pixels retain their original raster.
+Fonts load locally per browser; a font failure leaves original controls readable
+while photographic artwork can still load. The original cursor, opening-title
+lettering, text embedded in notice illustrations, course-name cels and some small
+ornaments remain original. Four small head cels are mapped, but their active
+runtime use is still unconfirmed.
+
+The three completion textures were regenerated here from the original references
+and production descriptions recovered from the shared conversation; remote PNG
+bytes were unavailable. Provenance records the new files' actual hashes and sizes.
+See `coverage-audit.json` for every resource decision and `expanded-provenance.json`
+for the generator prompts, references and scoped original-ink masks.
 
 ## Rendering without changing gameplay
 
@@ -73,15 +99,15 @@ original headers, control labels and tokens where a repaint must not replace the
 Original palette fade intensity also applies to the HD artwork. Original cursor
 pixels are drawn above it, using the same hotspot.
 
-HD does not replace game text or interactive control artwork. Original glyphs, punctuation,
-button labels, borders, highlights and pressed states come from the same original
-raster in both modes. The town's original cream menu background and black frame
-are protected separately from the surrounding buildings. Character-selection
-headers, column dividers and player tokens likewise stay original. Photorealistic
-images contain no game menus or interactive labels. The shared launch, online and
-display panels keep the same English, original-inspired presentation in either mode.
-Select **Style → Original pixels** for the unfiltered original palette; the existing
-optional whole-frame display filters remain a separate presentation choice.
+HD interface textures remain under the same per-pixel owner mask as original
+artwork. This protects foregrounds, clip rectangles, original pressed inversions
+and later drawing operations. Source glyph-cell positions are recorded in the
+frame, so peers and restored saves render the same labels without running new
+layout or game logic. All dynamic text textures are discarded when their layers
+leave the snapshot; long games do not cache every historical cash value or message.
+The town's original cream menu background and frame remain in place. Decorative
+lighting stays restricted to town artwork, preserving readable interface colors.
+The shared online/display panels keep their existing English game-style design.
 
 The previous painted and first photorealistic packs remain alongside the new sibling
 files for history. Only files listed by the current manifest load as HD textures.
@@ -120,7 +146,7 @@ Add a separate image under `native/public/hd/` and a manifest entry keyed by the
 original picture ID or `view:loop:cel`. Preserve its original logical width,
 height, anchor and pose. An optional `crop` selects a frame from a high-resolution
 atlas. Optional `regions` whitelist local logical rectangles that may be replaced;
-`originalRegions` and `preserveSourceColors` protect source labels and ink.
+`originalRegions`, `preserveSourceColors` and optional `preserveSourceColorRegions` protect source labels and ink.
 `generatedAlpha` explicitly opts a transparent figure into safe silhouette expansion.
 The original export remains untouched. Its cel PNGs already include their mirroring.
 Some HD entries deliberately share one generated crop with `mirrorX`/`mirrorOf`;
@@ -137,7 +163,7 @@ Install `requirements.txt`, then run `pnpm verify:hd` to validate the active PNG
 original image hashes and dimensions, preserved anchors, source dimensions, finite
 crop/region bounds, alpha assumptions, coverage counts and embedded provenance.
 Use `pnpm verify:hd --report build/native-hd-validation.json` for a reproducible
-machine-readable result. No images or manifests are rewritten. Six corrupt-pack
+machine-readable result. No images or manifests are rewritten. Seven corrupt-pack
 regressions in `python3 -m unittest tests.test_native_hd -v` exercise rejection paths.
 CI runs these checks before building.
 
@@ -153,3 +179,13 @@ exercise the same packaged build with actual WebRTC and MQTT services.
 
 Actual results and screenshots belong in the delivery report. These checks are
 not an exhaustive pixel-, animation- or gameplay-parity certification.
+
+### Interface and completion checks
+
+`pnpm audit:hd` verifies a decision for all 752 cels and seven pictures.
+`pnpm test:browser:hd-completion` exercises the actual WebGL compositor for the
+new notice/factory/newspaper/head and intro resources, separately from gameplay.
+`pnpm test:browser:hd-interface` reviews static UI cells and ownership clipping.
+The normal-input HD journeys verify original startup, selection, bank, work,
+purchase, Save/Restore, fullscreen, aspect ratios, local toggling and fallbacks.
+These fixtures do not claim that every rare event was reached through gameplay.

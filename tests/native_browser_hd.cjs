@@ -49,10 +49,10 @@ async function toggle(pack) {
   assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('jones-display-v1')).pack), pack);
   if (pack === 'hd') await page.waitForFunction(() => window.jonesNative.getDisplay().hd.ready && window.jonesNative.getDisplay().hd.layers > 0);
 }
-async function originalUi(label, regions) {
-  await page.mouse.move(0, 0);
-  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-  const sample = await page.evaluate(async regions => {
+async function originalUi(label, regions, exact = true, target = page) {
+  await target.mouse.move(0, 0);
+  await target.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  const sample = await target.evaluate(async regions => {
     const frame = window.jonesNative.getFrame(), pixels = Uint8Array.from(atob(frame.pixels), c => c.charCodeAt(0));
     const canvas = document.querySelector('#game'), copy = document.createElement('canvas');
     copy.width = canvas.width; copy.height = canvas.height;
@@ -78,19 +78,20 @@ async function originalUi(label, regions) {
   }, regions);
   (report.uiSamples ??= []).push({ label, ...sample });
   assert(sample.compared > 1000, `${label}: compare the actual rendered UI, not a single glyph point`);
-  assert.equal(sample.different, 0, `${label}: original UI pixels differ: ${JSON.stringify(sample.examples)}`);
+  if (exact) assert.equal(sample.different, 0, `${label}: original UI pixels differ: ${JSON.stringify(sample.examples)}`);
+  else assert(sample.different > 100, `${label}: HD interface must visibly redraw the sampled text and controls`);
   return sample;
 }
 async function uiRoundtrip(label, regions) {
   const original = await originalUi(`${label}: Original`, regions);
   await toggle('hd');
-  const hd = await originalUi(`${label}: HD`, regions);
-  assert.equal(hd.sha256, original.sha256, `${label}: all sampled UI pixels must match between packs`);
+  const hd = await originalUi(`${label}: HD`, regions, false);
+  assert.notEqual(hd.sha256, original.sha256, `${label}: HD glyphs must add detail while retaining original input geometry`);
   await toggle('original');
   const restored = await originalUi(`${label}: Original again`, regions);
   assert.equal(restored.sha256, original.sha256, `${label}: toggling back must restore the identical original UI`);
   await toggle('hd');
-  return { pixels: original.compared, sha256: original.sha256, frameAndStateUnchanged: true };
+  return { pixels: original.compared, originalSha256: original.sha256, hdSha256: hd.sha256, hdChangedPixels: hd.different, frameAndStateUnchanged: true };
 }
 async function start() {
   await page.goto(BASE_URL); await page.locator('#play').click();
@@ -116,7 +117,7 @@ async function start() {
     // are artwork, not the cream panel or black UI frame being compared here.
     const ui = await uiRoundtrip('Main menu including text, button edges and panel', [[68, 44, 251, 63], [70, 63, 251, 69], [68, 69, 251, 137], [95, 121, 228, 141]]);
     const display = await page.evaluate(() => window.jonesNative.getDisplay());
-    assert.equal(display.hd.ui, 'original'); assert.equal(display.hd.fonts, false);
+    assert.equal(display.hd.ui, 'hd'); assert.equal(display.hd.fonts, true);
     await capture('02-hd-menu'); return { ...display, ui };
   });
   await check('HD artwork contains detail within original pixel cells and optional lighting changes output', async () => {
@@ -150,9 +151,9 @@ async function start() {
   await check('Original bank actions and Save/Restore retain the complete HD scene', async () => {
     await click(37, 139); await wait(s => s.dialog === 'bank' && s.trace.at(-1) === '204:bank.doit');
     await settings('original', false);
-    // The explicitly requested HD calculator replaces the case and decorative
-    // keys, while its original dollar glyph and live numeric field stay exact.
-    // DONE is exactly32×9; neighbouring town-roof pixels are now HD artwork.
+    // The new HD interface redraws labels and live cash in their recorded original
+    // glyph cells. Toggling back still restores exact source pixels.
+    // DONE is exactly32×9; neighbouring town-roof pixels are HD artwork.
     const ui = await uiRoundtrip('Bank title, action text, DONE, dollar and live cash digits', [[136, 45, 250, 152], [212, 152, 244, 161], [263, 165, 268, 174], [273, 165, 309, 174]]);
     await capture('07-hd-bank');
     await click(199, 82); await wait(s => s.cash === 100 && s.trace.at(-1) === '204:bank.doit');
@@ -211,6 +212,27 @@ async function start() {
     await page.waitForTimeout(300);
     assert.equal(await page.evaluate(() => [...document.querySelectorAll('canvas')].some(c => c !== document.querySelector('#game') && getComputedStyle(c).display !== 'none' && c.width > 0)), true);
     await capture('12-original-fallback'); assert.equal((await state()).error, null);
+  });
+  await check('Unavailable HD fonts preserve original controls while photographic artwork still loads', async () => {
+    const fallbackContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    const fallback = await fallbackContext.newPage(), errors = [];
+    fallback.on('pageerror', e => errors.push(e.message));
+    await fallback.route('**/fonts/*.ttf', route => route.fulfill({ status: 503, body: 'Deliberate optional font outage fixture' }));
+    try {
+      await fallback.goto(BASE_URL); await fallback.locator('#play').click();
+      await fallback.locator('#graphics-toggle').click();
+      await fallback.waitForFunction(() => window.jonesNative.getDisplay().hd.ready);
+      for (let i = 0; i < 8; i++) {
+        if (await fallback.evaluate(() => window.jonesNative.getState()?.dialog === 'select1')) break;
+        const b = await fallback.locator('#game').boundingBox();
+        await fallback.mouse.click(b.x + b.width / 2, b.y + b.height / 2); await fallback.waitForTimeout(650);
+      }
+      await fallback.waitForFunction(() => window.jonesNative.getState()?.dialog === 'select1');
+      const status = await fallback.evaluate(() => window.jonesNative.getDisplay().hd);
+      assert.equal(status.fonts, false); assert.equal(status.ui, 'original'); assert.equal(status.failed, false); assert(status.layers > 0);
+      const pixels = await originalUi('Font outage: original Play Game control', [[96, 62, 227, 80]], true, fallback);
+      assert.deepEqual(errors, []); return { status, pixels };
+    } finally { await fallbackContext.close(); }
   });
   await check('An unavailable optional HD pack leaves the original game playable', async () => {
     const fallbackContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
