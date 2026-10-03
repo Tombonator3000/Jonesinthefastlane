@@ -13,6 +13,8 @@ export interface HdTextGlyphLayout {
   /** Cell and ink rectangles are relative to op.dest, in original pixels. */
   cell: Rect;
   ink: Rect | null;
+  /** A one-column source stem/dot cannot safely fit a wide replacement outline. */
+  narrowRuns?: Rect[];
   background: number;
   /** Original Item greyed checkerboard uses glyph-local x and port-local y. */
   stipplePhase: 0 | 1 | null;
@@ -101,8 +103,24 @@ export function getHdTextLayout(op: HdTextOp, assets: NativeAssetManifest): HdTe
     const cell = { left: glyph.x, top: glyph.y, right: glyph.x + glyph.width, bottom: glyph.y + glyph.height };
     if (!validRect(intersect(cell, screenClip))) continue;
     const x = glyph.x - op.dest.left, y = glyph.y - op.dest.top;
+    let narrowRuns: Rect[] | undefined;
+    if (inspected.ink && inspected.ink.right - inspected.ink.left === 1) {
+      // Font4's l/i have a full one-pixel stem, but a scaled monospace l/i
+      // shrinks that stem to about0.3 pixels because its feet are much wider.
+      // Preserve the exact source column as vector rectangles at8x, including
+      // the genuine gaps between a dot and stem. This also preserves tiny
+      // punctuation without inventing a wider cell or changing its advance.
+      narrowRuns = [];
+      const bits = decodeBytes(source.bits), column = inspected.ink.left;
+      for (let row = inspected.ink.top; row < inspected.ink.bottom;) {
+        if (!bits[row * source.width + column]) { row++; continue; }
+        const start = row++;
+        while (row < inspected.ink.bottom && bits[row * source.width + column]) row++;
+        narrowRuns.push({ left: x + column, top: y + start, right: x + column + 1, bottom: y + row });
+      }
+    }
     glyphs.push({ char: glyph.char, code: glyph.code, cell: offset(cell, -op.dest.left, -op.dest.top),
-      ink: inspected.ink && offset(inspected.ink, x, y), background: glyph.background,
+      ink: inspected.ink && offset(inspected.ink, x, y), ...(narrowRuns ? { narrowRuns } : {}), background: glyph.background,
       stipplePhase: op.greyed ? ((glyph.y - op.port.top) & 1) as 0 | 1 : null });
   }
   return glyphs.length ? { width, height, clip: offset(screenClip, -op.dest.left, -op.dest.top), font, glyphs, ...(op.shadow ? { shadow: { ...op.shadow } } : {}) } : null;
@@ -186,9 +204,9 @@ export function createHdTextCanvas(op: HdTextOp, assets: NativeAssetManifest, pa
     }
     ctx.clip();
     const drawGlyph = (glyph: HdTextGlyphLayout, dx: number, dy: number, fill: string): boolean => {
-      const fit = glyph.ink && fitHdTextInk(ctx.measureText(glyph.char), glyph.ink);
-      if (glyph.ink && !fit) return false;
-      if (glyph.ink && fit) {
+      const fit = glyph.ink && !glyph.narrowRuns && fitHdTextInk(ctx.measureText(glyph.char), glyph.ink);
+      if (glyph.ink && !glyph.narrowRuns && !fit) return false;
+      if (glyph.ink && (glyph.narrowRuns || fit)) {
         ctx.save(); const c = offset(glyph.cell, dx, dy);
         if (glyph.stipplePhase !== null) {
           ctx.beginPath();
@@ -196,8 +214,14 @@ export function createHdTextCanvas(op: HdTextOp, assets: NativeAssetManifest, pa
             if (((x + y + glyph.stipplePhase + dy) & 1) === 1) ctx.rect(c.left + x, c.top + y, 1, 1);
           ctx.clip();
         }
-        ctx.translate(glyph.ink.left + dx, glyph.ink.top + dy); ctx.scale(fit.scaleX, fit.scaleY);
-        ctx.fillStyle = fill; ctx.fillText(glyph.char, fit.baselineX, fit.baselineY); ctx.restore();
+        ctx.fillStyle = fill;
+        if (glyph.narrowRuns) {
+          for (const r of glyph.narrowRuns) ctx.fillRect(r.left + dx, r.top + dy, r.right - r.left, r.bottom - r.top);
+        } else if (fit) {
+          ctx.translate(glyph.ink.left + dx, glyph.ink.top + dy); ctx.scale(fit.scaleX, fit.scaleY);
+          ctx.fillText(glyph.char, fit.baselineX, fit.baselineY);
+        }
+        ctx.restore();
       }
       return true;
     };

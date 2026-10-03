@@ -56,7 +56,8 @@ from inspected original resource addresses; unrelated decoration stays original.
 
 `HdText.ts` fits bundled Liberation outline glyphs into each original glyph's ink
 bounds, including punctuation and descenders. It does not reflow, translate or
-replace strings. Only cells with a proven flat backdrop are redrawn; the exact
+replace strings. One-column stems and dots use their exact source shapes so
+narrow letters remain legible. Only cells with a proven flat backdrop are redrawn; the exact
 WButton shadow pair has a narrowly validated reconstruction. Complex backgrounds,
 unsupported glyphs and pressed/inverted pixels retain their original raster.
 Fonts load locally per browser; a font failure leaves original controls readable

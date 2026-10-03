@@ -38,7 +38,7 @@ Checked on Chromium 151.0.7922.34 against the built static site:
 | Check | Result |
 | --- | --- |
 | TypeScript type check and production build | Pass |
-| Native engine, rendering, save and network unit tests | 143 passed |
+| Native engine, rendering, save and network unit tests | 145 passed |
 | HD asset validator and all-resource coverage audit | Pass |
 | Corrupt-pack validator regressions | 7 passed |
 | Original archive verification | Pass |
@@ -66,3 +66,9 @@ Local evidence is under `build/hd-interface-review/verified-hd/`,
 `build/hd-interface-evidence/`. CI uploads the corresponding reports and images
 as `native-evidence` before Pages deployment. Local checks alone do not establish
 that a release is live; the deployment run and served assets are checked separately.
+
+The final typography correction preserves exact one-column source stems and dots
+instead of compressing a wide replacement glyph into them. Two regressions and
+the final 145-test native run passed; the actual Wealth goal panel was visually
+checked again. The final original-input reruns use `release-hd/` and
+`release-props/` under `build/hd-interface-review/`.

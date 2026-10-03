@@ -147,7 +147,9 @@ test('bundled fonts load once at the page subpath; text draws separate vector gl
     assert(faces.every(face => face.source.startsWith('url("https://example.test/native/fonts/Liberation')));
     const canvas = createHdTextCanvas(op, assets, assets.palette)!;
     assert.deepEqual([canvas.width, canvas.height], [(op.dest.right - op.dest.left) * 8, 96]);
-    assert.deepEqual(calls.filter(c => c[0] === 'fillText').map(c => c[1]), ['H', '.'], 'Words are not reflowed or painted as one stretched string');
+    assert.deepEqual(calls.filter(c => c[0] === 'fillText').map(c => c[1]), ['H'], 'Words are not reflowed or painted as one stretched string');
+    const dot = getHdTextLayout(op, assets)!.glyphs[1].narrowRuns![0];
+    assert(calls.some(c => c[0] === 'fillRect' && c[1] === dot.left && c[2] === dot.top && c[3] === 1 && c[4] === 1), 'The one-column period retains its exact original ink shape');
     assert.equal(JSON.stringify({ op, font: assets.fonts[1] }), before);
     faces[0].status = 'error'; assert.equal(createHdTextCanvas(op, assets, assets.palette), null);
   });
@@ -159,6 +161,35 @@ test('font failure or a foreign base URL preserves original text instead of sile
     assert.equal(createHdTextCanvas(opFor(), assets, assets.palette), null); assert.equal(calls.length, 0);
   });
   await withDocument(false, async ({ faces }) => { assert.equal(await loadHdTextFonts(), false); assert.equal(faces.length, 0); }, 'https://foreign.test/');
+});
+
+test('font4 narrow l/i preserve full source stems, separate dot and advances instead of compressing a wide Mono outline', async () => {
+  const op = opFor('liA', 4), original = JSON.stringify(op), layout = getHdTextLayout(op, assets)!;
+  assert.deepEqual(layout.glyphs[0].narrowRuns, [{ left: 1, top: 0, right: 2, bottom: 7 }]);
+  assert.deepEqual(layout.glyphs[1].narrowRuns, [{ left: 3, top: 0, right: 4, bottom: 1 }, { left: 3, top: 2, right: 4, bottom: 7 }]);
+  assert.equal(layout.glyphs[2].narrowRuns, undefined, 'Normal-width letters still use the loaded font outlines');
+  assert.deepEqual(layout.glyphs.slice(0, 2).map(g => g.cell), [{ left: 0, top: 0, right: 2, bottom: 9 }, { left: 2, top: 0, right: 4, bottom: 9 }]);
+  await withDocument(false, async ({ calls }) => {
+    await loadHdTextFonts(); assert(createHdTextCanvas(op, assets, assets.palette));
+    assert.deepEqual(calls.filter(c => c[0] === 'fillText').map(c => c[1]), ['A']);
+    for (const expected of [[1, 0, 1, 7], [3, 0, 1, 1], [3, 2, 1, 5]])
+      assert(calls.some(c => c[0] === 'fillRect' && JSON.stringify(c.slice(1)) === JSON.stringify(expected)), 'Each exact stem/dot is a full-width high-resolution rectangle');
+  });
+  assert.equal(JSON.stringify(op), original, 'Original positions, words and frame metadata remain unchanged');
+});
+
+test('one-column stem geometry retains the original shadow offset and disabled stipple clip', async () => {
+  await withDocument(false, async ({ calls }) => {
+    await loadHdTextFonts(); const op = opFor('l', 4, 20, 21); op.shadow = { color: 6, offsetX: 1, offsetY: 1 }; op.greyed = true;
+    assert(createHdTextCanvas(op, assets, assets.palette));
+    assert(!calls.some(c => c[0] === 'fillText'), 'No wide replacement l is fitted into the narrow column');
+    const bars = calls.filter(c => c[0] === 'fillRect' && c[3] === 1 && c[4] === 7);
+    assert.deepEqual(bars, [['fillRect', 2, 1, 1, 7], ['fillRect', 1, 0, 1, 7]], 'Shadow then foreground keep exact one-pixel offset');
+    const clips = calls.filter(c => c[0] === 'rect' && c[3] === 1 && c[4] === 1);
+    assert.equal(clips.length, 18, 'Both original2x9 cells receive their nine checkerboard samples');
+    assert(clips.slice(0, 9).every(c => ((c[1] + c[2]) & 1) === 1), 'Shadow checkerboard follows its shifted source row');
+    assert(clips.slice(9).every(c => ((c[1] + c[2]) & 1) === 0), 'Foreground retains its original disabled stipple phase');
+  });
 });
 
 test('greyed high-resolution outlines retain original checkerboard holes instead of becoming solid or translucent text', async () => {
