@@ -115,7 +115,7 @@ def verify_pack(manifest_path: Path, original_path: Path, provenance_path: Path 
         if "crop" in art:
             bounds = rectangle(art["crop"], info["width"], info["height"], key + " crop", crop=True)
             crop_count += 1
-        for field in ("regions", "originalRegions"):
+        for field in ("regions", "originalRegions", "preserveSourceColorRegions"):
             if field in art:
                 require(isinstance(art[field], list) and len(art[field]) <= 12, f"{key}: invalid/too many {field}")
                 for index, rect in enumerate(art[field]):
@@ -128,6 +128,8 @@ def verify_pack(manifest_path: Path, original_path: Path, provenance_path: Path 
             require(isinstance(colors, list) and len(colors) <= 256 and
                     all(type(c) is int and 0 <= c <= 255 for c in colors) and len(set(colors)) == len(colors),
                     f"{key}: invalid preserved palette indices")
+        if "preserveSourceColorRegions" in art:
+            require(bool(art.get("preserveSourceColors")), f"{key}: ink regions need preserved palette indices")
         left, top, right, bottom = bounds
         # Outward rounding includes edge texels sampled by a fractional crop.
         alpha = info["alpha"].crop((math.floor(left), math.floor(top), math.ceil(right), math.ceil(bottom)))

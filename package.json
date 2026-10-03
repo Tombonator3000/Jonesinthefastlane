@@ -22,7 +22,10 @@
     "test:browser:hd": "node tests/native_browser_hd.cjs",
     "test:browser:hd-props": "node tests/native_browser_hd_props.cjs",
     "test:browser:lobby": "node tests/native_browser_lobby_ui.cjs",
-    "verify:hd": "python3 tools/verify_native_hd.py"
+    "verify:hd": "python3 tools/verify_native_hd.py",
+    "test:browser:hd-completion": "node tests/native_browser_hd_completion.cjs",
+    "test:browser:hd-interface": "node tests/native_browser_hd_interface.cjs",
+    "audit:hd": "tsx tools/audit_native_hd.ts"
   },
   "devDependencies": {
     "@types/node": "24.7.0",

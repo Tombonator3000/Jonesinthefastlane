@@ -42,6 +42,7 @@ jobs:
         run: |
           python -m unittest tests.test_native_hd -v
           pnpm verify:hd --report build/native-hd-validation.json
+          pnpm audit:hd
       - name: Build the native edition without an emulator
         run: pnpm build:native
       - name: Exercise the production build through original browser controls
@@ -54,6 +55,8 @@ jobs:
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:online
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd
           JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd-props
+          JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd-completion
+          JONES_NATIVE_URL=http://127.0.0.1:8787/ pnpm test:browser:hd-interface
           pnpm test:browser:lobby
       - name: Exercise free peer play from a static site over real WebRTC
         run: pnpm test:browser:peer
@@ -69,6 +72,8 @@ jobs:
             build/native-peer-evidence/
             build/native-hd-evidence/
             build/native-hd-props-evidence/
+            build/hd-completion-evidence/
+            build/hd-interface-evidence/
             build/native-discovery-evidence/
             build/native-lobby-ui-evidence/
             build/native-server.log

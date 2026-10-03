@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "id": "jones-hd-expanded-v2",
-  "title": "Photorealistic artwork with original controls and HD animated props",
-  "description": "Optional photographic town, character and event animation, service portraits, products and room artwork. Original typography, controls, coordinates, timing and uncovered art remain authoritative. Technical props and the town clock are rendered separately from original draw operations.",
+  "id": "jones-hd-interface-completion-2026-10-03",
+  "title": "Jones HD artwork and interface",
+  "description": "Optional photographic characters, town, events, notice cards, factory PCB and newspaper, with HD interface drawing, text presentation and intro patterns. Original English strings, logical text metrics, hit targets, coordinates, rules and timing remain authoritative.",
   "generator": "Built-in ChatGPT image generator; exact model version not exposed",
   "pics": {
     "11": {
@@ -5570,35 +5570,603 @@
       "sourceHeight": 771,
       "generatedSha256": "3100b76728af9b2f094f4c8ab37e7d2b0c0cdcc8953d9641df7b6a9a920c642a",
       "originalSha256": "811afa6e917858166de7d71705f9dc618edc31ff977bbfd76d3102f568e96bda"
+    },
+    "310:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "5ef233c99974d08fd0e59c8659167a82cb9d214312803cc259449aa045fd2ebb",
+      "preserveSourceColors": [
+        75,
+        90,
+        94,
+        97,
+        108,
+        118,
+        121
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 1.0,
+        "top": 1.0,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "311:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "2ef7592bd3cdbefa4ec0b32a6af088a2e3b76f256e30dea67bf60f512aa1ac42",
+      "preserveSourceColors": [
+        33,
+        38,
+        41,
+        44,
+        55,
+        60,
+        75,
+        83,
+        85,
+        90,
+        91,
+        94,
+        108,
+        114,
+        118,
+        121,
+        135
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 319.0,
+        "top": 1.0,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "312:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "496cad1fb128a2b34f2688dc6f94be0156f9804a42472463b8eee06b49d00b0c",
+      "preserveSourceColors": [
+        75,
+        90,
+        94,
+        97,
+        108,
+        118,
+        121
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 637.0,
+        "top": 1.0,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "313:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "f889e794fff6790fcd826b5d833d704e4424c8bddfa8d55ebc4a7bcca6faec7d",
+      "preserveSourceColors": [
+        38,
+        41,
+        55,
+        60,
+        83,
+        85,
+        91,
+        93,
+        96,
+        104,
+        114,
+        115,
+        117,
+        122,
+        125,
+        132
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 955.0,
+        "top": 1.0,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "314:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "6063b105310dafc6db84f9298a0f9aabcebf51af6a3353b70fc4f17be0e7fc70",
+      "preserveSourceColors": [
+        38,
+        41,
+        55,
+        60,
+        75,
+        81,
+        83,
+        85,
+        90,
+        91,
+        94,
+        108,
+        114,
+        118,
+        121,
+        133
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 1.0,
+        "top": 310.25,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "315:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "784b2a0f0f4fbf7469fdbdf73c5673b23b259edbcd81783a4114abb16c4dd256",
+      "preserveSourceColors": [
+        55,
+        60,
+        74,
+        78,
+        83,
+        85,
+        91,
+        103,
+        107,
+        110,
+        113,
+        114,
+        116,
+        132
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 319.0,
+        "top": 310.25,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "316:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "f0b6b63a55a69f0f1c48fa399152d08a8086d05038b0a24aa67cf7593674a79f",
+      "preserveSourceColors": [
+        74,
+        78,
+        83,
+        103,
+        107,
+        110,
+        111,
+        113,
+        114,
+        116,
+        121,
+        132
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 637.0,
+        "top": 310.25,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "317:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "63a4d0b31fa246c4ef90c4631895492f375e24d9d6e85aa5fa72d0e108be79a5",
+      "preserveSourceColors": [
+        49,
+        55,
+        85,
+        91,
+        111,
+        114
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 955.0,
+        "top": 310.25,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "318:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "00652b7350bae7ba93f172b402848c29f8ff0f6d8900a2ea056c734da3e1e587",
+      "preserveSourceColors": [
+        74,
+        103,
+        110,
+        113
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 1.0,
+        "top": 619.5,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "319:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "d0dd7797d89c8b472418dd251d16a4ebc67c475e16ef442a18b2e40eb03ec4ed",
+      "preserveSourceColors": [
+        74,
+        103,
+        110,
+        113
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 319.0,
+        "top": 619.5,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "320:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "b323233c6bbcaf2b123248fa0c65cfd02589062dbb6721233e020fc3504c3d2e",
+      "preserveSourceColors": [
+        74,
+        103,
+        110,
+        113,
+        91
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 637.0,
+        "top": 619.5,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "321:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "5e76d9aeb904fd7298dd5814e9b7665569f4b20421359766bfe586a043889ed3",
+      "preserveSourceColors": [
+        74,
+        103,
+        110,
+        113,
+        91
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 955.0,
+        "top": 619.5,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "322:0:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "1b6efab66598fd79a5bf2a948ef7613b0383e139f25dea7837079be09b756d39",
+      "preserveSourceColors": [
+        55,
+        60,
+        75,
+        83,
+        85,
+        90,
+        91,
+        94,
+        108,
+        114,
+        118,
+        121,
+        132
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 1.0,
+        "top": 928.75,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "340:1:0": {
+      "src": "cels/notices-310-322-340-atlas-photoreal-v1.png",
+      "width": 86,
+      "height": 84,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1272,
+      "sourceHeight": 1237,
+      "generatedSha256": "526058d967e385bbc76f17fc16e5ee822c3b78b717de2a6a340db74e876caa72",
+      "originalSha256": "1938b0f3827f9adb346596a894ddb07e07d9b574ae8b815babf02bd2485223fe",
+      "preserveSourceColors": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        16,
+        32,
+        41,
+        74,
+        81,
+        103,
+        110,
+        111,
+        113
+      ],
+      "opaque": true,
+      "crop": {
+        "left": 319.0,
+        "top": 928.75,
+        "width": 316.0,
+        "height": 307.25
+      }
+    },
+    "705:0:0": {
+      "src": "cels/factory-705-photoreal-v1.png",
+      "width": 183,
+      "height": 112,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1603,
+      "sourceHeight": 981,
+      "generatedSha256": "ab211e39d567e8420064ac1c6e54c48b6612a7edf6db5e05a6efbe6739a0b86a",
+      "originalSha256": "432123798c00f5c162ff0425725f43cfa2167dcf6d4ee826fd8188d9d62f06fc",
+      "preserveSourceColors": [
+        5,
+        49,
+        85
+      ],
+      "preserveSourceColorRegions": [
+        {
+          "left": 25,
+          "top": 11,
+          "right": 153,
+          "bottom": 26
+        }
+      ],
+      "opaque": true
+    },
+    "603:1:0": {
+      "src": "cels/newspaper-open-603-photoreal-v1.png",
+      "width": 183,
+      "height": 112,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1604,
+      "sourceHeight": 981,
+      "generatedSha256": "f79f0a9ec455396ffaae9bac4732cfa7aaee6e3f0470c0707041df50a817ca01",
+      "originalSha256": "e40f708d9d6039669893d69d7e0b8a6a4d9696fd87633bbd87086099a5783ee2",
+      "preserveSourceColors": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        32,
+        37,
+        41,
+        49,
+        55,
+        60,
+        72,
+        81,
+        84,
+        85,
+        91,
+        98,
+        101,
+        110,
+        111,
+        114
+      ],
+      "opaque": true
+    },
+    "293:1:0": {
+      "src": "cels/player3-animation-photoreal-v2.png",
+      "width": 14,
+      "height": 14,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1003,
+      "sourceHeight": 1568,
+      "generatedSha256": "3b42506681a56f4ca10e0aec6ef9a2f680d6c047d43ed3a363954af842982d49",
+      "originalSha256": "792b97d461b5102223b502c802513dfa340eca1fd321d76d8b6275fdab693637",
+      "crop": {
+        "left": 96,
+        "top": 3,
+        "width": 65,
+        "height": 67
+      },
+      "generatedAlpha": true,
+      "cropMethod": "Recovered final head-only crop from the matching player3 animation row; original logical dimensions and anchors retained."
+    },
+    "293:1:1": {
+      "src": "cels/player3-animation-photoreal-v2.png",
+      "width": 14,
+      "height": 14,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1003,
+      "sourceHeight": 1568,
+      "generatedSha256": "3b42506681a56f4ca10e0aec6ef9a2f680d6c047d43ed3a363954af842982d49",
+      "originalSha256": "e3e5e31f41dd8bc7d95eb7c243c843d5e208ce680f86ba3f433dc7fdf3b243e3",
+      "crop": {
+        "left": 89,
+        "top": 402,
+        "width": 67,
+        "height": 69
+      },
+      "generatedAlpha": true,
+      "cropMethod": "Recovered final head-only crop from the matching player3 animation row; original logical dimensions and anchors retained."
+    },
+    "293:1:2": {
+      "src": "cels/player3-animation-photoreal-v2.png",
+      "width": 14,
+      "height": 14,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1003,
+      "sourceHeight": 1568,
+      "generatedSha256": "3b42506681a56f4ca10e0aec6ef9a2f680d6c047d43ed3a363954af842982d49",
+      "originalSha256": "acdc9ed6476ae7e2ae2d58729665c462e9122d1654757486578d492d970685ee",
+      "crop": {
+        "left": 88,
+        "top": 794,
+        "width": 68,
+        "height": 70
+      },
+      "generatedAlpha": true,
+      "cropMethod": "Recovered final head-only crop from the matching player3 animation row; original logical dimensions and anchors retained."
+    },
+    "293:1:3": {
+      "src": "cels/player3-animation-photoreal-v2.png",
+      "width": 13,
+      "height": 13,
+      "dx": 0,
+      "dy": 0,
+      "sourceWidth": 1003,
+      "sourceHeight": 1568,
+      "generatedSha256": "3b42506681a56f4ca10e0aec6ef9a2f680d6c047d43ed3a363954af842982d49",
+      "originalSha256": "51b0c382d456a5206138f5e775f4c602928908827e3cb0de96fa546462fe49da",
+      "crop": {
+        "left": 96,
+        "top": 1185,
+        "width": 60,
+        "height": 60
+      },
+      "generatedAlpha": true,
+      "cropMethod": "Recovered final head-only crop from the matching player3 animation row; original logical dimensions and anchors retained."
     }
   },
   "fallback": "Every missing asset uses original graphics. Original pixels remain independently selectable.",
   "coverage": {
     "pics": 1,
-    "cels": 291,
+    "cels": 311,
     "overlays": 1,
-    "uniqueImages": 38,
+    "uniqueImages": 41,
     "originalPics": 7,
     "originalCels": 752,
     "technicalCels": 161,
     "technicalClockFace": 1,
     "technicalSource": "native/graphics/HdProps.ts",
-    "fonts": "Original bitmap glyphs, English labels and interactive controls in both modes; no replacement text rendering.",
+    "fonts": "Original English strings, SCI advances, positions and ink bounds remain authoritative; optional HD glyph presentation is local and does not reflow game text.",
     "portraits": [
       "Rent (351), Market (353), Bank (354), Factory (355), Employment (356), University (357), Appliance (358), Clothing (359), Burger (360), Discount (361), Pawn (362): six talking frames each."
     ],
     "limits": [
-      "Counts describe addressable resource replacements, including mirrored/reused crops; they do not certify every game route or animation visually.",
-      "Four small 293:1:* heads remain original; active runtime use is not established.",
-      "Original flat panels, headers, text overlays and untouched cels remain available; transparent blank cels are not missing artwork."
-    ]
+      "Counts classify original resource addresses, including shared crops and partial replacements; they do not establish every route or animation as visually verified.",
+      "Fifty-seven UI cel drawings and two overlays are separate from 311 photographic and 161 technical cel mappings; 223 cels remain deliberately original.",
+      "The four small 293:1:* heads are mapped; active gameplay use remains unconfirmed.",
+      "Six intro backgrounds use code-authored dots; original title and attribution regions are retained.",
+      "New PNGs were regenerated from recovered prompts and references; previous remote-runtime evidence is not verification of these new files."
+    ],
+    "technicalPics": 6,
+    "technicalPictureSource": "native/graphics/HdIntro.ts",
+    "uiCels": 57,
+    "uiOverlayCels": 2,
+    "uiSource": "native/graphics/HdUi.ts",
+    "preservedCels": 223,
+    "missingIllustrativeCels": 0,
+    "uiOverlays": "500:0:0 selection header and 705:0:0 factory lettering. Factory glyphs use HD lettering when its fonts are ready; photographic backing remains separately mapped."
   },
   "rights": "Generated derivative artwork based on original Sierra game art. Not a grant of rights to underlying Sierra characters or designs. Original assets are preserved separately.",
   "review": {
     "artwork": "All ten selected full images inspected against their prior pack references and original composition. Photorealistic style transfer preserves roles, clothing and broad framing; generated faces/poses are not exact reconstructions of the original pixels.",
     "animation": "Six drawn expression frames per covered portrait; transitions are not a mathematical reconstruction of original mouth pixels.",
-    "runtime": "Verified separately through the actual browser build; see reports/photoreal_hd_original_ui.json.",
-    "selectionCorrection": "Header, outer frame, column dividers and player tokens remain original. One source-pixel margin beside the dividers excludes the generated black atlas edges; hair begins below the original header."
+    "runtime": "Current delivery requires fresh browser verification; historical reports only verify their recorded builds.",
+    "selectionCorrection": "Header, outer frame, column dividers and player tokens remain original. One source-pixel margin beside the dividers excludes the generated black atlas edges; hair begins below the original header.",
+    "completionArtwork": "Three newly regenerated photographic PNGs copied unchanged from current built-in generator outputs. New hashes and measured dimensions are recorded in expanded-provenance.json. Crops/scoped original-ink masks follow the recovered final plan."
   },
   "overlays": [
     {

@@ -129,9 +129,23 @@ async function cashPixels(label) {
         if (actual.some((v, c) => v !== expected[c])) { differences++; if (examples.length < 4) examples.push({ gx, gy, expected, actual }); }
       }
     }
-    return { compared, differences, examples, cash: window.jonesNative.getState().cash };
+    const cash = window.jonesNative.getState().cash;
+    // Old draw operations can remain live for a few border pixels after a
+    // shorter value. Use the owner of the current right-aligned cash glyphs,
+    // not concatenated historical full strings from every visible operation.
+    const packed = Uint8Array.from(atob(frame.hd.owners), c => c.charCodeAt(0)), runs = new DataView(packed.buffer), owners = new Uint32Array(64000);
+    for (let at = 0, out = 0; at < packed.length; at += 8) { const count = runs.getUint32(at, true); owners.fill(runs.getUint32(at + 4, true), out, out + count); out += count; }
+    const candidates = frame.hd.ops.filter(op => op.kind === 'text' && /^\s*\d+\s*$/.test(op.text) && op.glyphs.some(g =>
+      g.x >= 273 && g.y >= 165 && g.y < 174 && /\d/.test(g.char) && owners[(g.y + 3) * 320 + g.x + 2] === op.id));
+    const cashText = candidates.at(-1)?.text ?? '';
+
+    return { compared, differences, examples, cash, cashText, pack: window.jonesNative.getDisplay().preferences.pack };
+
   });
-  assert(result.compared > 1000); assert.equal(result.differences, 0, `${label}: ${JSON.stringify(result.examples)}`);
+  assert(result.compared > 1000);
+  assert.equal(Number(result.cashText.trim()), result.cash, `${label}: displayed original cash string must equal the game balance`);
+  if (await page.locator('#graphics-pack').inputValue() === 'original') assert.equal(result.differences, 0, `${label}: ${JSON.stringify(result.examples)}`);
+  else assert(result.differences > 25, `${label}: HD cash must render sharper glyph outlines`);
   return { label, ...result };
 }
 async function toggle(pack) {
@@ -145,6 +159,36 @@ async function toggle(pack) {
   assert.deepEqual(await page.evaluate(() => window.__propToggle), { frame: true, state: true });
   assert.equal(await page.locator('#graphics-toggle').getAttribute('aria-pressed'), String(pack === 'hd'));
   assert.equal(await page.evaluate(() => document.activeElement?.id), 'game');
+}
+async function depositLabel() {
+  await page.mouse.move(0, 0);
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  const sample = await page.evaluate(() => {
+    const frame = window.jonesNative.getFrame();
+    const packed = Uint8Array.from(atob(frame.hd.owners), c => c.charCodeAt(0)), runs = new DataView(packed.buffer), owners = new Uint32Array(64000);
+    for (let at = 0, out = 0; at < packed.length; at += 8) { const count = runs.getUint32(at, true); owners.fill(runs.getUint32(at + 4, true), out, out + count); out += count; }
+    // This is the first actual ink pixel of the original font10 Deposit D.
+    // Looking up its owner rejects stale text records left behind by a flash.
+    const op = frame.hd.ops.find(op => op.id === owners[79 * 320 + 165]);
+    const canvas = document.querySelector('#game'), copy = document.createElement('canvas');
+    copy.width = canvas.width; copy.height = canvas.height;
+    const ctx = copy.getContext('2d'); ctx.drawImage(canvas, 0, 0);
+    const rgb = ctx.getImageData(0, 0, copy.width, copy.height).data, scale = Math.min(copy.width / 320, copy.height / 200);
+    const left = (copy.width - 320 * scale) / 2, top = (copy.height - 200 * scale) / 2;
+    let detailCells = 0;
+    for (let y = 79; y < 85; y++) for (let x = 165; x < 226; x++) {
+      const a = (Math.floor(top + (y + .22) * scale) * copy.width + Math.floor(left + (x + .22) * scale)) * 4;
+      const b = (Math.floor(top + (y + .78) * scale) * copy.width + Math.floor(left + (x + .78) * scale)) * 4;
+      if ([0, 1, 2].some(c => Math.abs(rgb[a + c] - rgb[b + c]) > 8)) detailCells++;
+    }
+    return { op, detailCells };
+  });
+  assert.equal(sample.op?.kind, 'text', 'Current Deposit ink must retain its HD text owner after the original highlight');
+  assert.equal(sample.op.text, 'Deposit  $100'); assert.equal(sample.op.font, 10); assert.equal(sample.op.color, 0);
+  assert.deepEqual(sample.op.shadow, { color: 6, offsetX: 1, offsetY: 1 });
+  assert(sample.op.glyphs.every(g => g.background === 101));
+  assert(sample.detailCells > 20, 'Deposit label must still display smooth subpixel glyphs after a real deposit');
+  return { text: sample.op.text, shadow: sample.op.shadow, detailCells: sample.detailCells };
 }
 (async () => {
   await fs.mkdir(OUTPUT, { recursive: true });
@@ -192,7 +236,7 @@ async function toggle(pack) {
     await travel(281, 64, 'fastFood'); await screenshot('04-hd-monolith');
     return { dialog: (await state()).dialog };
   });
-  await check('Original work animates the time clock, advances time and updates exact original cash digits', async () => {
+  await check('Original work animates the time clock, advances time and updates HD cash digits from the original balance', async () => {
     const before = await state(), first = await cashPixels('before work');
     const elapsedBefore = await page.evaluate(() => window.jonesNative.runtime.global(323));
     await click(159, 157); await wait(s => s.cash > before.cash); await ready('fastFood'); await page.waitForTimeout(700);
@@ -220,8 +264,11 @@ async function toggle(pack) {
     assert((await state()).cash >= 100, 'Original work must fund the $100 bank deposit within three extra shifts');
     await click(229, 157); await wait(s => s.dialog === null); await travel(37, 139, 'bank');
     const bank = (await state()).cash; assert(bank >= 100); await click(199, 82); await wait(s => s.cash === bank - 100); await ready('bank');
-    const sample = await cashPixels('bank deposit'); await screenshot('08-hd-bank-deposit');
-    return { mealCost: before - afterMeal, extraWork, bankCashBefore: bank, bankDeposit: 100, sample };
+    // Observe the original deposit after its foreground-only highlight returns.
+    await page.waitForFunction(() => !window.jonesNative.getFrame().hd.ops.some(op => op.kind === 'cel' && op.view === 340 && op.loop === 0), {}, { timeout: 15000 });
+    await ready('bank');
+    const label = await depositLabel(), sample = await cashPixels('bank deposit'); await screenshot('08-hd-bank-deposit');
+    return { mealCost: before - afterMeal, extraWork, bankCashBefore: bank, bankDeposit: 100, label, sample };
   });
   await check('Live original frames contain distinct moving, opening and work poses with complete HD assets', async () => {
     const observed = await page.evaluate(() => window.__hdProps.summary());

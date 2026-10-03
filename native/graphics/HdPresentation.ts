@@ -3,6 +3,9 @@
 import * as THREE from 'three';
 import { decodeOwners } from './provenance.js';
 import { decodeBytes } from './bytes.js';
+import { createHdTextCanvas, loadHdTextFonts, hdTextFontsReady } from './HdText.js';
+import { createHdUiCanvas, getHdUiSpec } from './HdUi.js';
+import { createHdIntroCanvas, getHdIntroSpec } from './HdIntro.js';
 import { planHdSilhouettes, type HdSilhouettePlan } from './hd-silhouette.js';
 import { originalTownUiMask, isOriginalTownUiPixel } from './original-ui.js';
 import { createHdPropCanvas, getHdPropSpec, createHdClockFaceCanvas, expandHdClockDialOwners, HD_CLOCK_FACE_RECT } from './HdProps.js';
@@ -16,6 +19,8 @@ interface ArtAsset {
   mirrorX?: boolean;
   generatedAlpha?: boolean;
   preserveSourceColors?: number[];
+  preserveSourceColorRegions?: Rect[];
+  noFade?: boolean;
 }
 interface ArtOverlay extends ArtAsset { pic: number; dest: Rect }
 interface ArtManifest { schema: 1; title?: string; pics: Record<string, ArtAsset>; cels: Record<string, ArtAsset>; overlays?: ArtOverlay[] }
@@ -97,6 +102,7 @@ export class HdPresentation {
   private layers = new Map<string, Layer>();
   private textures = new Map<string, THREE.Texture>();
   private inkMasks = new Map<string, THREE.DataTexture>();
+  private introSpecs = new Map<number, ReturnType<typeof getHdIntroSpec>>();
   private emptyInk = new THREE.DataTexture(new Uint8Array(4), 1, 1, THREE.RGBAFormat);
   private manifest?: ArtManifest;
   private loading?: Promise<void>;
@@ -106,11 +112,13 @@ export class HdPresentation {
   private lastFrame?: GraphicsFrame;
   private lastPlan?: HdSilhouettePlan;
   private activeCount = 0;
+  private palette: GraphicsFrame['palette'];
   private readonly townUiMask: Uint8Array;
   private readonly townWidth: number;
 
   constructor(private readonly assets: NativeAssetManifest, private readonly changed: () => void,
     private readonly status: (message: string) => void) {
+    this.palette = assets.palette;
     this.townUiMask = originalTownUiMask(assets.pics[11]); this.townWidth = assets.pics[11]?.width || 320;
     for (const t of [this.mask, this.fade]) {
       t.minFilter = t.magFilter = THREE.NearestFilter; t.generateMipmaps = false; t.colorSpace = THREE.NoColorSpace;
@@ -118,7 +126,7 @@ export class HdPresentation {
     this.group.visible = false;
     this.emptyInk.needsUpdate = true;
   }
-  get diagnostics() { return { requested: this.options.enabled, ready: !!this.manifest, failed: this.failed, layers: this.activeCount, fonts: false, ui: 'original' }; }
+  get diagnostics() { return { requested: this.options.enabled, ready: !!this.manifest, failed: this.failed, layers: this.activeCount, fonts: hdTextFontsReady(), ui: hdTextFontsReady() ? 'hd' : 'original' }; }
   configure(options: HdOptions) {
     this.options = options; this.group.visible = options.enabled && !this.failed;
     if (options.enabled && !this.loading) {
@@ -139,6 +147,9 @@ export class HdPresentation {
     if (manifest.schema !== 1 || !manifest.pics || !manifest.cels) throw new Error('Unsupported HD pack');
     const assets = [...Object.values(manifest.pics), ...Object.values(manifest.cels), ...(manifest.overlays || [])];
     if (assets.length > 1024) throw new Error('HD pack is too large');
+    // Fonts are optional independently of the photographic pack. A font outage
+    // keeps original UI readable while other HD artwork still loads.
+    await loadHdTextFonts();
     const loader = new THREE.TextureLoader();
     await Promise.all([...new Set(assets.map(asset => asset.src))].map(async src => {
       const url = new URL(src, base);
@@ -151,7 +162,32 @@ export class HdPresentation {
     if (!this.disposed) this.manifest = manifest;
   }
   private asset(op: HdDrawOp): ArtAsset | undefined {
+    if (op.kind === 'pic') {
+      if (!this.introSpecs.has(op.pic)) this.introSpecs.set(op.pic, getHdIntroSpec(op.pic, this.assets));
+      const spec = this.introSpecs.get(op.pic);
+      if (spec) {
+        const src = `@intro/${spec.key}`;
+        if (!this.textures.has(src)) {
+          const canvas = createHdIntroCanvas(spec);
+          if (canvas) this.textures.set(src, this.canvasTexture(canvas));
+        }
+        return { src, width: spec.width, height: spec.height, originalRegions: spec.originalRegions };
+      }
+    }
+    if (op.kind === 'text') {
+      if (!hdTextFontsReady()) return undefined;
+      const colors = [...new Set([op.color, ...(op.shadow ? [op.shadow.color] : []), ...op.glyphs.map(g => g.background).filter((c): c is number => c !== null)])];
+      const src = `@text/${JSON.stringify([op, colors.map(c => this.palette[c])])}`;
+      if (!this.textures.has(src)) {
+        const canvas = createHdTextCanvas(op, this.assets, this.palette);
+        if (!canvas) return undefined;
+        this.textures.set(src, this.canvasTexture(canvas));
+      }
+      return { src, width: op.dest.right - op.dest.left, height: op.dest.bottom - op.dest.top, noFade: true };
+    }
     if (op.kind === 'cel') {
+      const ui = this.uiAsset(op);
+      if (ui && !getHdUiSpec(op.view, op.loop, op.cel, this.assets)?.overlay) return ui;
       const spec = getHdPropSpec(op.view, op.loop, op.cel, this.assets);
       if (spec) {
         const src = `@prop/${spec.key}`;
@@ -164,6 +200,18 @@ export class HdPresentation {
     }
     return op.kind === 'pic' ? this.manifest?.pics[op.pic] : op.kind === 'cel' ? this.manifest?.cels[`${op.view}:${op.loop}:${op.cel}`] : undefined;
   }
+  private uiAsset(op: Extract<HdDrawOp, { kind: 'cel' }>): ArtAsset | undefined {
+    if (!hdTextFontsReady()) return undefined;
+    const spec = getHdUiSpec(op.view, op.loop, op.cel, this.assets);
+    if (!spec) return undefined;
+    const src = `@ui/${spec.key}`;
+    if (!this.textures.has(src)) {
+      const canvas = createHdUiCanvas(op.view, op.loop, op.cel, this.assets);
+      if (!canvas) return undefined;
+      this.textures.set(src, this.canvasTexture(canvas));
+    }
+    return { src, width: spec.width, height: spec.height };
+  }
   private canvasTexture(canvas: HTMLCanvasElement): THREE.CanvasTexture {
     const texture = new THREE.CanvasTexture(canvas);
     texture.colorSpace = THREE.NoColorSpace; texture.minFilter = texture.magFilter = THREE.LinearFilter; texture.generateMipmaps = false;
@@ -171,7 +219,7 @@ export class HdPresentation {
   }
   private inkMask(op: HdDrawOp, asset?: ArtAsset): THREE.DataTexture {
     if (op.kind !== 'cel' || !asset?.preserveSourceColors?.length) return this.emptyInk;
-    const key = `${op.view}:${op.loop}:${op.cel}:${asset.preserveSourceColors.join(',')}`;
+    const key = `${op.view}:${op.loop}:${op.cel}:${asset.preserveSourceColors.join(',')}:${JSON.stringify(asset.preserveSourceColorRegions || [])}`;
     const previous = this.inkMasks.get(key); if (previous) return previous;
     const cel = this.assets.views[op.view]?.loops[op.loop]?.cels[op.cel];
     if (!cel) return this.emptyInk;
@@ -179,16 +227,17 @@ export class HdPresentation {
     // Flip rows to match conventional bottom-left texture UVs.
     for (let y = 0; y < cel.height; y++) for (let x = 0; x < cel.width; x++) {
       const offset = ((cel.height - 1 - y) * cel.width + x) * 4;
-      bytes[offset] = colors.has(pixels[y * cel.width + x]) ? 255 : 0; bytes[offset + 3] = 255;
+      const inside = !asset.preserveSourceColorRegions?.length || asset.preserveSourceColorRegions.some(r =>
+        x >= r.left && x < r.right && y >= r.top && y < r.bottom);
+      bytes[offset] = inside && colors.has(pixels[y * cel.width + x]) ? 255 : 0; bytes[offset + 3] = 255;
     }
     const texture = new THREE.DataTexture(bytes, cel.width, cel.height, THREE.RGBAFormat);
     texture.minFilter = texture.magFilter = THREE.NearestFilter; texture.generateMipmaps = false; texture.needsUpdate = true;
     this.inkMasks.set(key, texture); return texture;
   }
   private makeLayer(op: HdDrawOp, key: string, replacement?: ArtAsset): Layer | null {
-    // Text and input behavior stay in the original raster. Artwork and decorative
-    // props can change while protected text regions retain their original pixels.
-    if (op.kind === 'text') return null;
+    // Original ownership protects clipping, foregrounds, pressed states and input.
+    // HD text replaces only recorded uniform glyph cells, never reflows text.
     const asset = replacement || this.asset(op);
     const texture = asset && this.textures.get(asset.src);
     if (!texture) return null;
@@ -204,9 +253,10 @@ export class HdPresentation {
     const originalRegions = Array.from({ length: 12 }, () => new THREE.Vector4());
     asset?.originalRegions?.slice(0, 12).forEach((r, i) => originalRegions[i].set(r.left, r.top, r.right, r.bottom));
     const id = op.id;
+    const redrawInk = op.kind === 'cel' && hdTextFontsReady() && getHdUiSpec(op.view, op.loop, op.cel, this.assets)?.replaceInk;
     const material = new THREE.ShaderMaterial({ vertexShader: vertex, fragmentShader: fragment,
       uniforms: { art: { value: texture }, owners: { value: this.mask }, fade: { value: this.fade },
-        applyFade: { value: 1 }, originalInk: { value: this.inkMask(op, asset) }, hasOriginalInk: { value: asset?.preserveSourceColors?.length ? 1 : 0 },
+        applyFade: { value: asset?.noFade ? 0 : 1 }, originalInk: { value: this.inkMask(op, asset) }, hasOriginalInk: { value: !redrawInk && asset?.preserveSourceColors?.length ? 1 : 0 },
         owner: { value: new THREE.Vector4((id & 255) / 255, ((id >>> 8) & 255) / 255, ((id >>> 16) & 255) / 255, (id >>> 24) / 255) },
         dest: { value: new THREE.Vector4(op.dest.left, op.dest.top, w, h) }, crop: { value: crop },
         mirror: { value: (op.kind === 'pic' && op.mirror) !== !!asset?.mirrorX ? 1 : 0 }, lighting: { value: 0 }, strength: { value: 0 }, effect: { value: 0 },
@@ -224,6 +274,7 @@ export class HdPresentation {
     if (!this.options.enabled || !this.manifest || this.failed) { this.group.visible = false; return; }
     try {
       if (!frame.hd || frame.hd.version !== 1) { this.group.visible = false; return; }
+      this.palette = frame.palette;
       if (this.lastFrame !== frame) {
         const originalOwners = decodeOwners(frame.hd.owners);
         const candidates = new Set<number>(), backgrounds = new Set<number>();
@@ -259,7 +310,7 @@ export class HdPresentation {
         const layerId = `op:${op.id}`;
         live.add(layerId);
         // IDs are local to a session/save; a restored snapshot may reuse an ID.
-        const key = JSON.stringify(op);
+        const key = JSON.stringify(op) + (op.kind === 'text' ? JSON.stringify(this.palette) : '');
         let layer = this.layers.get(layerId);
         if (layer && layer.key !== key) { this.remove(layerId, layer); layer = undefined; }
         if (!layer) { layer = this.makeLayer(op, key) || undefined; if (layer) this.layers.set(layerId, layer); }
@@ -310,6 +361,21 @@ export class HdPresentation {
           layer.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
           layer.mesh.material.uniforms.effect.value = this.options.effect || 0;
         }
+        if (op.kind === 'cel' && getHdUiSpec(op.view, op.loop, op.cel, this.assets)?.overlay) {
+          const uiId = `ui:${op.id}`;
+          live.add(uiId);
+          let ui = this.layers.get(uiId);
+          if (ui && ui.key !== key) { this.remove(uiId, ui); ui = undefined; }
+          if (!ui) {
+            const art = this.uiAsset(op);
+            ui = art ? this.makeLayer(op, key, art) || undefined : undefined;
+            if (ui) { ui.mesh.renderOrder = 13; this.layers.set(uiId, ui); }
+          }
+          if (ui) {
+            ui.mesh.material.uniforms.strength.value = Math.max(0, Math.min(1, this.options.intensity));
+            ui.mesh.material.uniforms.effect.value = this.options.effect || 0;
+          }
+        }
         if (op.kind === 'pic' && op.pic === 11) {
           const overlays = (this.manifest.overlays || []).filter(overlay => overlay.pic === op.pic);
           for (let index = 0; index < overlays.length; index++) {
@@ -351,6 +417,12 @@ export class HdPresentation {
         }
       }
       for (const [id, layer] of this.layers) if (!live.has(id)) this.remove(id, layer);
+      // Text changes with money, prices, turn notices and saves; discard obsolete
+      // textures instead of retaining every historical line during long games.
+      const liveTextures = new Set([...this.layers.values()].map(layer => layer.texture));
+      for (const [key, texture] of this.textures) if (key.startsWith('@text/') && !liveTextures.has(texture)) {
+        texture.dispose(); this.textures.delete(key);
+      }
       this.activeCount = this.layers.size; this.group.visible = true;
     } catch {
       this.group.visible = false;
